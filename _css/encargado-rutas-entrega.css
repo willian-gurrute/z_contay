@@ -1,0 +1,24 @@
+/* FORMULARIO DE RUTAS */
+.form-ruta {
+    width: 420px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-ruta input,
+.form-ruta select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.form-ruta input[type="datetime-local"] {
+    font-size: 15px;
+}

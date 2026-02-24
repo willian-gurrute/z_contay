@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Perfil</title>
+
+    <link rel="stylesheet" href="../../_css/control-inventario.css">
+    <link rel="stylesheet" href="../../_css/encargado-editar perfil.css">
+</head>
+
+<body>
+
+<header class="header-bar">
+    <div class="header-rol">Encargado de planta</div>
+    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+    <div class="header-user">
+        <span class="icon"><img src="../../img/campana.png"></span>
+        <span>Andres Imbachi</span>
+        <span class="icon"><img src="../../img/usuario-gestion.png"></span>
+    </div>
+</header>
+
+<div class="main-container">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <ul>
+            <li><a href="panel_control.html"><span class="icon"><img src="../../img/panel.jpg"></span> Panel Principal</a></li>
+            <li><a href="control_inventario.html"><span class="icon"><img src="../../img/inventario.png"></span> Control de inventario</a></li>
+            <li><a href="movimiento_entrada_salida.html"><span class="icon"><img src="../../img/entrada-salida.png"></span> Movimiento Entrada/Salida</a></li>
+            <li><a href="gestion_despachos.html"><span class="icon"><img src="../../img/despachos.png"></span> Gestión de Despachos</a></li>
+            <li><a href="rutas_entrega.html"><span class="icon"><img src="../../img/rutas.png"></span> Rutas de Entrega</a></li>
+            <li class="active-item"><a href="perfil.html"><span class="icon"><img src="../../img/perfil.png"></span> Perfil</a></li>
+            <li><a href="cerrar_sesion.html"><span class="icon"><img src="../../img/cerrar-seccion.png"></span> Cerrar sesión</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <main class="content-area">
+
+        <h1 class="h1-title titulo-editar">Editar Perfil</h1>
+
+        <div class="editar-card">
+
+            <form class="editar-form">
+
+                <label>Nombre completo:</label>
+                <input type="text" value="Andres Imbachi">
+
+                 <label>Documento de identificación:</label>
+                 <input type="text" value="1025896471">
+
+                <label>Correo electrónico:</label>
+                <input type="email" value="encargado@zcontay.com">
+
+                <label>Teléfono:</label>
+                <input type="text" value="321 456 7890">
+
+                <label>Dirección:</label>
+                <input type="text" placeholder="Ejemplo: Calle 5 # 12-34">
+
+                <div class="botones-editar">
+                    <button type="button" class="btn-guardar" onclick="location.href='perfil.html'">
+                        Guardar cambios
+                    </button>
+
+                    <button type="button" class="btn-cancelar" onclick="location.href='perfil.html'">
+                        Cancelar
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="logo-footer">Z-CONTAY</div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

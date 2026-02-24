@@ -1,0 +1,78 @@
+body{
+    background-color:white ;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.login-container{
+    width: 350px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+h1, h2{
+    text-align:center ;
+}
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #3e8e41;
+    color:white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.link {
+    text-decoration: none;
+    color:#2f6c32;
+    font-size: 14px;
+}
+.link:hover{
+    text-decoration: underline;
+}
+.titulo-principal {
+    text-align: center;
+    color: #2f6c32; /* verde institucional */
+    margin-top: 40px;
+    margin-bottom: 10px;
+    font-size: 28px;
+    font-weight: bold;
+}
+.subtitulo {
+    text-align: center;
+    color: #000000;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+.error-msg {
+    color: #d62828; /* rojo validación */
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.success-msg {
+    background-color: #c7f5c4; /* verde suave */
+    color: #264e20;
+    padding: 12px;
+    border-radius: 5px;
+    width: 350px;
+    margin: 15px auto;
+    text-align: center;
+    font-weight: bold;
+}

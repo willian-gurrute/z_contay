@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Despachos</title>
+
+    <link rel="stylesheet" href="../../_css/control-inventario.css">
+    <link rel="stylesheet" href="../../_css/encargado-gestion despachos.css">
+</head>
+
+<body>
+
+<!-- BARRA SUPERIOR -->
+<header class="header-bar">
+    <div class="header-rol">Encargado de planta</div>
+    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+    <div class="header-user">
+        <span class="icon"><img src="../../img/campana.png" alt=""></span>
+        <span>Andres Imbachi</span>
+        <span class="icon"><img src="../../img/usuario-gestion.png" alt=""></span>
+    </div>
+</header>
+
+<div class="main-container">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <ul>
+            <li><a href="panel_control.html">
+                <span class="icon"><img src="../../img/panel.jpg" alt=""></span> Panel Principal
+            </a></li>
+
+            <li><a href="control_inventario.html">
+                <span class="icon"><img src="../../img/inventario.png" alt=""></span> Control de inventario
+            </a></li>
+
+            <li><a href="movimiento_entrada_salida.html">
+                <span class="icon"><img src="../../img/entrada-salida.png" alt=""></span> Movimiento de Entrada/Salida
+            </a></li>
+
+            <li class="active-item">
+                <a href="gestion_despachos.html">
+                    <span class="icon"><img src="../../img/despachos.png" alt=""></span> Gestión de Despachos
+                </a>
+            </li>
+
+            <li><a href="rutas_entrega.html">
+                <span class="icon"><img src="../../img/rutas.png" alt=""></span> Rutas de Entrega
+            </a></li>
+
+            <li><a href="perfil.html">
+                <span class="icon"><img src="../../img/perfil.png" alt=""></span> Perfil
+            </a></li>
+
+            <li><a href="cerrar_sesion.html">
+                <span class="icon"><img src="../../img/cerrar-seccion.png" alt=""></span> Cerrar sesión
+            </a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENIDO CENTRAL -->
+    <main class="content-area">
+
+        <h1 class="h1-title">Gestión de Despachos</h1>
+        <h3 class="subtitulo">Despachos recientes</h3>
+
+        <table class="tabla-despachos">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fecha Creación</th>
+                    <th>Cliente</th>
+                    <th>Ruta</th>
+                    <th>Estado</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <!-- PENDIENTE -->
+                <tr>
+                    <td>1</td>
+                    <td>10/11/2025</td>
+                    <td>Juan López</td>
+                    <td>Zona Norte</td>
+                    <td class="estado-pendiente">Pendiente</td>
+                    <td>
+                        <button class="btn-despachar"
+                            onclick="location.href='asignar_despacho.html?id=1'">
+                            Despachar
+                        </button>
+                    </td>
+                </tr>
+
+                <!-- ASIGNADO -->
+                <tr>
+                    <td>2</td>
+                    <td>12/11/2025</td>
+                    <td>María Torres</td>
+                    <td>Zona Centro</td>
+                    <td class="estado-asignado">Asignado</td>
+                    <td>
+                       <!-- ENTREGADO -->
+                        <button class="btn-detalle"
+                         onclick="location.href='detalle_despacho_entregado.html?id=4'">
+                         Ver Detalle
+                        </button>
+
+                    </td>
+                </tr>
+
+                <!-- INCIDENCIA -->
+                <tr>
+                    <td>3</td>
+                    <td>13/11/2025</td>
+                    <td>Carlos Ruiz</td>
+                    <td>Zona Sur</td>
+                    <td class="estado-incidencia">Incidencia</td>
+                    <td>
+                        <button class="btn-incidencia"
+                            onclick="location.href='ver_incidencia.html?id=3'">
+                            Ver
+                        </button>
+                    </td>
+                </tr>
+
+                <!-- ENTREGADO -->
+                <tr>
+                    <td>4</td>
+                    <td>09/11/2025</td>
+                    <td>Ana Díaz</td>
+                    <td>Zona Norte</td>
+                    <td class="estado-entregado">Entregado</td>
+                    <td>
+                        <button class="btn-detalle"
+                            onclick="location.href='detalle_despacho.html?id=4'">
+                            Ver Detalle
+                        </button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <div class="logo-footer">Z-CONTAY</div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

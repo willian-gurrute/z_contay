@@ -1,0 +1,68 @@
+/* Alineación del botón principal (mantiene el estilo de main-button) */
+.admin-button {
+    display: block;
+    margin-left: auto;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Contenedor para la tabla: ESTO ES LO QUE TE DA EL FONDO BLANCO Y LA SOMBRA */
+.table-wrapper {
+    overflow-x: auto;
+    background: white; /* Fondo blanco */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-top: 20px;
+}
+
+/* Estilos de la Tabla de Roles y Permisos */
+.tabla-roles {
+    width: 100%;
+    border-collapse: collapse; 
+}
+
+/* Encabezados de la Tabla */
+.tabla-roles thead th {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 2px solid #ccc;
+    font-weight: bold;
+}
+
+/* Celdas de la Tabla */
+.tabla-roles tbody td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+    word-wrap: break-word; 
+}
+
+.tabla-roles tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Estilos de Botones de Acción */
+.acciones button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    margin-right: 5px;
+    transition: background-color 0.2s;
+    display: inline-block;
+    margin-top: 5px; 
+}
+
+.btn-editar {
+    background-color: #007bff; /* Azul */
+    color: white;
+}
+
+.btn-desactivar {
+    background-color: #dc3545; /* Rojo */
+    color: white;
+}
+/* ... otros hover si los necesitas ... */

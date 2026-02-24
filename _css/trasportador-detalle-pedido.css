@@ -1,0 +1,36 @@
+/* TARJETA PRINCIPAL */
+.detalle-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    width: 70%;
+}
+
+.detalle-card p {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.subtitulo {
+    color: #2f6c32;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* BOTÓN */
+.btn-volver {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #2f6c32;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-volver:hover {
+    background: #244f27;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reportar Incidencia</title>
+    <link rel="stylesheet" href="../../_css/trasportador-reportar-incidencia.css">
+</head>
+
+<body>
+
+<header class="header-bar">
+    <div class="header-rol">Transportador</div>
+    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+</header>
+
+<div class="form-container">
+
+    <h1 class="form-title">Reportar incidencia</h1>
+    <p class="form-text">Describe el inconveniente ocurrido durante el despacho.</p>
+
+    <label>Tipo de incidencia:</label>
+    <select>
+        <option>Producto dañado</option>
+        <option>Cliente ausente</option>
+        <option>Domicilio incorrecto</option>
+        <option>Retraso por tráfico</option>
+        <option>Otro</option>
+    </select>
+
+    <label>Descripción detallada:</label>
+    <textarea placeholder="Escribe aquí qué ocurrió..."></textarea>
+
+    <div class="botones">
+        <button class="btn-cancelar" onclick="location.href='rutas_despachos.html'">Cancelar</button>
+        <button class="btn-guardar" onclick="location.href='rutas_despachos.html'">Enviar reporte</button>
+    </div>
+
+</div>
+
+</body>
+</html>

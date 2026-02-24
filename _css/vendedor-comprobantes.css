@@ -1,0 +1,53 @@
+/* TABLA DE COMPROBANTES */
+.tabla-comprobantes {
+    width: 95%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+.tabla-comprobantes th {
+    background: #2f6c32;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.tabla-comprobantes td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* ESTADOS */
+.estado.aprobado {
+    color: #2f6c32;
+    font-weight: bold;
+}
+
+.estado.pendiente {
+    color: #d69c00;
+    font-weight: bold;
+}
+
+.estado.rechazado {
+    color: #c63636;
+    font-weight: bold;
+}
+
+/* BOTON VER */
+.btn-ver {
+    background: #2f6c32;
+    color: white;
+    padding: 7px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+}
+
+.btn-ver:hover {
+    background: #245026;
+}

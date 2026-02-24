@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+}
+
+/* BARRA SUPERIOR */
+.header-bar {
+    background: #2f6c32; /* VERDE INSTITUCIONAL */
+    color: #fff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* CONTENEDOR GENERAL */
+.form-container {
+    width: 520px;
+    margin: 45px auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.15);
+}
+
+/* TÍTULO PRINCIPAL */
+.form-title {
+    margin: 0;
+    font-size: 24px;
+    color: #2f6c32;
+    font-weight: bold;
+}
+
+/* TEXTO DESCRIPTIVO */
+.form-text {
+    margin: 8px 0 18px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* DETALLES DEL DESPACHO */
+.detalle-box {
+    background: #e9f3ea; /* verde súper suave */
+    padding: 15px;
+    border-left: 4px solid #2f6c32;
+    border-radius: 6px;
+    margin-bottom: 18px;
+}
+
+.detalle-box p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+/* LABELS */
+label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #2f6c32;
+    font-weight: bold;
+}
+
+/* CAMPOS DE FORMULARIO */
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bababa;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #fafafa;
+}
+
+textarea {
+    resize: none;
+    height: 90px;
+}
+
+/* BOTONES */
+.botones {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* CANCELAR */
+.btn-cancelar {
+    background: #b4b4b4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-cancelar:hover {
+    background: #8f8f8f;
+}
+
+/* GUARDAR / CONFIRMAR */
+.btn-guardar {
+    background: #2f6c32;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.2s ease;
+}
+
+.btn-guardar:hover {
+    background: #255628;
+}

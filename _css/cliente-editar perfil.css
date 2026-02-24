@@ -1,0 +1,55 @@
+/* FORMULARIO */
+.perfil-form {
+    width: 450px;
+    margin: 30px auto;
+    padding: 25px;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.perfil-form label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+.perfil-form input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+.perfil-botones {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn-guardar {
+    background: #2f6c32;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-guardar:hover {
+    background: #245026;
+}
+
+.btn-cancelar {
+    background: #ccc;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-cancelar:hover {
+    background: #aFAFAF;
+}

@@ -1,0 +1,164 @@
+/* administrador-reportes.css
+   Colores ajustados al estilo institucional (Z-CONTAY)
+*/
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: #f4f5f7;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+}
+
+/* HEADER (verde institucional) */
+.header-bar {
+    background: #2f6c32; /* verde institucional */
+    color: #fff;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* iconos en header */
+.header-bar .icon img,
+.header-user img {
+    width: 22px;
+    height: 22px;
+}
+
+/* LAYOUT */
+.main-container {
+    display: flex;
+    min-height: calc(100vh - 60px);
+}
+
+/* SIDEBAR (gris claro, iconos visibles) */
+.sidebar {
+    width: 250px;
+    background: #e8e8e8; /* mismo gris usado en otras pantallas */
+    min-height: 100vh;
+    padding-top: 15px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-bottom: 6px;
+}
+
+.sidebar a {
+    color: #222;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 12px;
+    font-size: 15px;
+}
+
+.sidebar a:hover {
+    background: #ddd;
+}
+
+/* active item: mantiene la línea verde de la UI */
+.sidebar .active-item a,
+.sidebar a.active {
+    background: #fff;
+    border-right: 4px solid #2f6c32;
+    font-weight: 600;
+}
+
+/* iconos del sidebar */
+.sidebar img {
+    width: 24px;
+    height: 24px;
+}
+
+/* CONTENIDO */
+.content-area {
+    flex: 1;
+    padding: 30px;
+}
+
+.h1-title {
+    font-size: 26px;
+    margin-bottom: 18px;
+    color: #2f6c32;
+    font-weight: 700;
+}
+
+/* GRID DE TARJETAS DE REPORTES */
+.report-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.report-card {
+    background: #ffffff;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    border: 1px solid #ececec;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.report-card h2 {
+    margin: 0 0 10px 0;
+    color: #2f6c32;
+    font-size: 18px;
+}
+
+.report-card p {
+    color: #444;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+/* BOTONES: verde institucional coherente */
+.report-card button {
+    background: #2f6c32;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    align-self: flex-start;
+    font-weight: 700;
+    transition: background-color .15s ease;
+}
+
+.report-card button:hover {
+    background: #245026;
+}
+
+/* FOOTER LOGO */
+.logo-footer {
+    text-align: center;
+    margin-top: 18px;
+    font-weight: bold;
+    color: #666;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+    .report-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .sidebar { width: 70px; }
+    .sidebar a span { display: none; }
+    .report-grid { grid-template-columns: 1fr; }
+    .h1-title { font-size: 22px; }
+}

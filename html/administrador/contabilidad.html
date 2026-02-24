@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contabilidad - Administrador</title>
+    <link rel="stylesheet" href="../../_css/contabilidad.css">
+</head>
+
+<body>
+
+    <!-- BARRA SUPERIOR -->
+    <header class="header-bar">
+        <div class="header-rol">Administrador</div>
+        <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+        <div class="header-user">
+            <span class="icon"><img src="../../img/campana.png" alt="notificaciones"></span>
+            <span>Carlos Fernando Hurtado</span>
+            <span class="icon"><img src="../../img/usuario-gestion.png" alt="perfil"></span>
+        </div>
+    </header>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="main-container">
+
+        <!-- SIDEBAR -->
+        <nav class="sidebar">
+            <ul>
+                <li><a href="panel-control.html"><span class="icon"><img src="../../img/panel.jpg"></span>Panel Principal</a></li>
+                <li><a href="gestion_usuarios.html"><span class="icon"><img src="../../img/usuario-gestion.png"></span>Gestión de usuarios</a></li>
+                <li><a href="roles_permisos.html"><span class="icon"><img src="../../img/roles-permisos.png"></span>Roles y permisos</a></li>
+                <li><a href="crear_opciones.html"><span class="icon"><img src="../../img/opciones.jpg"></span>Crear Opciones</a></li>
+
+                <li class="active-item">
+                    <a href="#">
+                        <span class="icon"><img src="../../img/contabilidad.png"></span>
+                        Contabilidad
+                    </a>
+                </li>
+
+                <li><a href="ventas.html"><span class="icon"><img src="../../img/ventas.png"></span>Ventas</a></li>
+                <li><a href="inventario.html"><span class="icon"><img src="../../img/inventario.png"></span>Inventario</a></li>
+                <li><a href="reportes.html"><span class="icon"><img src="../../img/reportes.png"></span>Reportes</a></li>
+                <li><a href="configuracion.html"><span class="icon"><img src="../../img/configuracion.png"></span>Configuración</a></li>
+                <li><a href="perfil.html"><span class="icon"><img src="../../img/perfil.png"></span>Perfil</a></li>
+                <li><a href="cerrar_sesion.html"><span class="icon"><img src="../../img/cerrar-seccion.png"></span>Cerrar sesión</a></li>
+            </ul>
+        </nav>
+
+        <!-- CONTENIDO CENTRAL -->
+        <main class="content-area">
+
+            <h1 class="h1-title">Contabilidad general</h1>
+            <p class="subtitulo">Resumen financiero del negocio</p>
+
+            <!-- TARJETAS DE RESUMEN -->
+            <div class="contabilidad-grid">
+
+                <div class="card">
+                    <img src="../../img/ganancias.png" class="icon-card">
+                    <h2>Ganancias del mes</h2>
+                    <p class="valor">$4,350,000</p>
+                </div>
+
+                <div class="card">
+                    <img src="../../img/gastos.png" class="icon-card">
+                    <h2>Gastos operativos</h2>
+                    <p class="valor">$1,980,000</p>
+                </div>
+
+                <div class="card">
+                    <img src="../../img/balance.png" class="icon-card">
+                    <h2>Balance general</h2>
+                    <p class="valor">$2,370,000</p>
+                </div>
+
+            </div>
+
+            <!-- TABLA DETALLADA -->
+            <h2 class="titulo-tabla">Movimientos contables</h2>
+
+            <table class="tabla-contabilidad">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Tipo</th>
+                        <th>Descripción</th>
+                        <th>Monto</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>10/02/2025</td>
+                        <td>Ingreso</td>
+                        <td>Venta de lote de huevo</td>
+                        <td>$450,000</td>
+                    </tr>
+
+                    <tr>
+                        <td>12/02/2025</td>
+                        <td>Egreso</td>
+                        <td>Compra de alimento para aves</td>
+                        <td>$220,000</td>
+                    </tr>
+
+                    <tr>
+                        <td>15/02/2025</td>
+                        <td>Ingreso</td>
+                        <td>Venta diaria programada</td>
+                        <td>$350,000</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- FILTRO PARA GENERAR REPORTE -->
+            <div class="filtro-reporte">
+
+                <label><strong>Mes:</strong></label>
+                <select>
+                    <option>Enero 2025</option>
+                    <option>Febrero 2025</option>
+                    <option>Marzo 2025</option>
+                </select>
+
+                <label><strong>Tipo:</strong></label>
+                <select>
+                    <option>Todos</option>
+                    <option>Ingresos</option>
+                    <option>Egresos</option>
+                </select>
+
+                <button class="btn-generar">Generar Reporte PDF</button>
+
+            </div>
+
+            <div class="logo-footer">Z-CONTAY</div>
+
+        </main>
+
+    </div>
+
+</body>
+</html>

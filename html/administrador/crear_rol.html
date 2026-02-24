@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Nuevo Rol - Administrador</title>
+    
+    <link rel="stylesheet" href="../../_css/administrador-panel control.css"> 
+    <link rel="stylesheet" href="../../_css/crear-rol.css"> 
+</head>
+
+<body>
+
+    <div class="header-bar">
+        </div>
+
+    <div class ="main-container">
+    
+        <nav class="sidebar">
+            <ul>
+                <li class="active-item">
+                    <a href="#"><span class="icon"><img src="../../img/roles-permisos.png" alt="Roles y permisos"></span>Roles y permisos</a>
+                </li>
+                
+                </ul>
+        </nav>
+
+        <main class="content-area">
+            <h1 class="h1-title">Crear Nuevo Rol de Usuario</h1>
+            
+            <div class="card-wrapper form-card">
+                <form id="crearRolForm">
+                    
+                    <div class="seccion-form">
+                        <h3>Datos del Rol</h3>
+                        <div class="form-group">
+                            <label for="nombre_rol">Nombre del Rol:</label>
+                            <input type="text" id="nombre_rol" name="nombre_rol" placeholder="Ej: Encargado de Planta" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion">Descripción del Rol:</label>
+                            <textarea id="descripcion" name="descripcion" rows="2" placeholder="Breve descripción de las responsabilidades"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="seccion-form">
+                        <h3>Asignación de Permisos</h3>
+                        <p class="instruccion">Marque las acciones que este rol puede realizar en el sistema:</p>
+                        
+                        <div class="permisos-grid">
+                            <div class="modulo-permiso">
+                                <h4>Gestión de Usuarios</h4>
+                                <label><input type="checkbox" name="permisos[]" value="user_crear"> Crear Usuario</label>
+                                <label><input type="checkbox" name="permisos[]" value="user_editar"> Editar Usuario</label>
+                                <label><input type="checkbox" name="permisos[]" value="user_eliminar"> Eliminar Usuario</label>
+                            </div>
+
+                            <div class="modulo-permiso">
+                                <h4>Inventario</h4>
+                                <label><input type="checkbox" name="permisos[]" value="inv_ver"> Ver Stock</label>
+                                <label><input type="checkbox" name="permisos[]" value="inv_ajustar"> Ajustar Inventario</label>
+                                <label><input type="checkbox" name="permisos[]" value="inv_traslado"> Registrar Traslados</label>
+                            </div>
+                            
+                            <div class="modulo-permiso">
+                                <h4>Ventas</h4>
+                                <label><input type="checkbox" name="permisos[]" value="ventas_crear"> Crear Venta</label>
+                                <label><input type="checkbox" name="permisos[]" value="ventas_ver_historial"> Ver Historial</label>
+                            </div>
+                            
+                            <div class="modulo-permiso">
+                                <h4>Reportes</h4>
+                                <label><input type="checkbox" name="permisos[]" value="rep_ventas"> Generar Reporte Ventas</label>
+                                <label><input type="checkbox" name="permisos[]" value="rep_contabilidad"> Generar Reporte Contable</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="main-button primary-button">
+                            Guardar Rol
+                        </button>
+                        <button type="button" class="main-button secondary-button" onclick="window.history.back()">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="logo-footer">Z-CONTAY</div>
+        </main> 
+    </div>
+
+</body>
+</html>

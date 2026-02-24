@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Asignar Despacho</title>
+
+    <link rel="stylesheet" href="../../_css/control-inventario.css">
+    <link rel="stylesheet" href="../../_css/encargado-registrar-despacho.css">
+</head>
+
+<body>
+
+<header class="header-bar">
+    <div class="header-rol">Encargado de planta</div>
+    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+    <div class="header-user">
+        <span class="icon"><img src="../../img/campana.png" alt=""></span>
+        <span>Andres Imbachi</span>
+        <span class="icon"><img src="../../img/usuario-gestion.png" alt=""></span>
+    </div>
+</header>
+
+<div class="main-container">
+
+<nav class="sidebar">
+    <ul>
+        <li><a href="panel_control.html"><span class="icon"><img src="../../img/panel.jpg"></span> Panel Principal</a></li>
+        <li><a href="control_inventario.html"><span class="icon"><img src="../../img/inventario.png"></span> Control de inventario</a></li>
+        <li><a href="movimiento_entrada_salida.html"><span class="icon"><img src="../../img/entrada-salida.png"></span> Movimiento Entrada/Salida</a></li>
+        <li class="active-item"><a href="gestion_despachos.html"><span class="icon"><img src="../../img/despachos.png"></span> Gestión de Despachos</a></li>
+        <li><a href="rutas_entrega.html"><span class="icon"><img src="../../img/rutas.png"></span> Rutas de Entrega</a></li>
+        <li><a href="perfil.html"><span class="icon"><img src="../../img/perfil.png"></span> Perfil</a></li>
+        <li><a href="cerrar_sesion.html"><span class="icon"><img src="../../img/cerrar-seccion.png"></span> Cerrar sesión</a></li>
+    </ul>
+</nav>
+
+<main class="content-area">
+
+<h1 class="h1-title">Despachar Pedido</h1>
+<h3 class="subtitulo">Asignación de ruta al despacho pendiente</h3>
+
+
+<form class="form-despacho">
+
+    <!-- ====== SECCIÓN FACTURA ====== -->
+    <div class="card-seccion">
+
+        <h3>Información de la Factura</h3>
+
+        <div class="grid-dos-columnas">
+
+            <div>
+                <label>Número de Factura</label>
+                <input type="text" value="10025" readonly>
+            </div>
+
+            <div>
+                <label>Cliente</label>
+                <input type="text" value="Juan López" readonly>
+            </div>
+
+            <div>
+                <label>Fecha</label>
+                <input type="text" value="15/02/2026" readonly>
+            </div>
+
+            <div>
+                <label>Tipo de venta</label>
+                <input type="text" value="Pedido" readonly>
+            </div>
+
+            <div>
+                <label>Total</label>
+                <input type="text" value="$450.000" readonly>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ====== SECCIÓN PRODUCTOS ====== -->
+    <div class="card-seccion">
+
+        <h3>Detalle de Productos</h3>
+
+        <table class="tabla-despachos">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio Unitario</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Huevo tipo AA</td>
+                    <td>80</td>
+                    <td>$500</td>
+                    <td>$40.000</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+    <!-- ====== SECCIÓN DESPACHO ====== -->
+    <div class="card-seccion">
+
+    <h3>Asignación de Ruta</h3>
+
+    <label>Seleccione la ruta disponible</label>
+    <select name="id_ruta" required>
+        <option value="">Seleccione una ruta</option>
+        <option value="1">Camión 1 - Zona Norte - 15/02/2026 07:00</option>
+        <option value="2">Camión 2 - Zona Centro - 15/02/2026 14:00</option>
+    </select>
+
+    </div>
+    <br>
+
+    <button type="submit" class="main-button">
+        Confirmar Despacho
+    </button>
+
+</form>
+
+<div class="logo-footer">Z-CONTAY</div>
+
+</main>
+
+</div>
+
+</body>
+</html>

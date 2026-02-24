@@ -1,0 +1,50 @@
+.cerrar-card {
+    width: 420px;
+    margin: 25px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    text-align: center;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+.cerrar-texto {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* BOTONES */
+.cerrar-botones {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.btn-cerrar {
+    background: #c63636;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-cerrar:hover {
+    background: #a22d2d;
+}
+
+.btn-cancelar {
+    background: #ccc;
+    color: #000;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-cancelar:hover {
+    background: #b3b3b3;
+}

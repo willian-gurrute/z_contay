@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ver Comprobante</title>
+
+    <!-- CSS general del vendedor -->
+    <link rel="stylesheet" href="../../_css/vendedor-base.css">
+
+    <!-- CSS específico de esta pantalla -->
+    <link rel="stylesheet" href="../../_css/vendedor-ver-comprobante.css">
+</head>
+
+<body>
+
+<header class="header-bar">
+    <div class="header-rol">Vendedor</div>
+    <div class="header-system">Z-CONTAY – Galpón Aves del Paraíso</div>
+
+    <div class="header-user">
+        <span class="icon"><img src="../../img/campana.png"></span>
+        <span>Juan Lopez</span>
+        <span class="icon"><img src="../../img/usuario-gestion.png"></span>
+    </div>
+</header>
+
+<div class="main-container">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <ul>
+            <li><a href="panel_principal.html"><span class="icon"><img src="../../img/panel.jpg"></span>Panel Principal</a></li>
+            <li><a href="registrar_venta.html"><span class="icon"><img src="../../img/ventas.png"></span>Registrar Venta</a></li>
+            <li class="active-item"><a href="comprobantes_pago.html"><span class="icon"><img src="../../img/comprobante.png"></span>Comprobantes de pago</a></li>
+            <li><a href="pedidos_clientes.html"><span class="icon"><img src="../../img/pedidos.png"></span>Pedidos de clientes</a></li>
+            <li><a href="reportes_venta.html"><span class="icon"><img src="../../img/reportes.png"></span>Reportes de venta</a></li>
+            <li><a href="perfil.html"><span class="icon"><img src="../../img/perfil.png"></span>Perfil</a></li>
+            <li><a href="cerrar_sesion.html"><span class="icon"><img src="../../img/cerrar-seccion.png"></span>Cerrar sesión</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <main class="content-area">
+
+        <h1 class="h1-title">Detalle del comprobante</h1>
+
+        <div class="card-detalle">
+
+            <p><strong>ID del comprobante:</strong> 4521</p>
+            <p><strong>Cliente:</strong> María Pérez</p>
+            <p><strong>Producto:</strong> Huevo AA</p>
+            <p><strong>Cantidad:</strong> 60 unidades</p>
+            <p><strong>Valor unitario:</strong> $480</p>
+            <p><strong>Total pagado:</strong> $28.800</p>
+            <p><strong>Fecha:</strong> 14/02/2025</p>
+            <p><strong>Método de pago:</strong> Efectivo</p>
+
+            <button class="btn-volver" onclick="location.href='comprobantes_pago.html'">
+                Volver
+            </button>
+
+        </div>
+
+        <div class="logo-footer">Z-CONTAY</div>
+    </main>
+
+</div>
+
+</body>
+</html>

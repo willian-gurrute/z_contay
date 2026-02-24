@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cliente - Realizar Pedido</title>
+
+    <link rel="stylesheet" href="../../_css/administrador-panel control.css">
+    <link rel="stylesheet" href="../../_css/realizar-pedido.css">
+</head>
+
+<body>
+
+<header class="header-bar">
+    <div class="header-rol">Cliente</div>
+    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+    <div class="header-user">
+        <span class="icon"><img src="../../img/campana.png" alt="Notificaciones"></span>
+        <span>Juan Lopez</span>
+        <span class="icon"><img src="../../img/perfil.png" alt="Perfil"></span>
+    </div>
+</header>
+
+<div class="main-container">
+
+    <nav class="sidebar">
+        <ul>
+            <li><a href="portafolio.html"><span class="icon"><img src="../../img/panel.jpg"></span>Portafolio</a></li>
+            <li class="active-item"><a href="#"><span class="icon"><img src="../../img/carrito.png"></span>Realizar pedido</a></li>
+            <li><a href="historial_pedidos.html"><span class="icon"><img src="../../img/historial.png"></span>Historial de pedidos</a></li>
+            <li><a href="perfil.html"><span class="icon"><img src="../../img/perfil.png"></span>Perfil</a></li>
+            <li><a href="cerrar_sesion.html"><span class="icon"><img src="../../img/cerrar-seccion.png"></span>Cerrar sesión</a></li>
+        </ul>
+    </nav>
+
+    <main class="content-area">
+
+        <h1 class="h1-title">Realizar Pedido</h1>
+
+        <form class="pedido-form">
+
+            <label>Selecciona el producto:</label>
+            <select>
+                <option>Huevo tipo A</option>
+                <option>Huevo tipo AA</option>
+                <option>Huevo tipo AAA</option>
+                <option>Huevo tipo Jumbo</option>
+            </select>
+
+            <label>Cantidad (+30 unidades):</label>
+            <input type="number" placeholder="Ej: 30, 40">
+
+            <label>Dirección de entrega:</label>
+            <input type="text" placeholder="Ingresa tu dirección">
+
+            <label>Método de pago:</label>
+            <select>
+                <option>Contraentrega</option>
+                <option>Transferencia</option>
+            </select>
+
+            <!-- Importante agregar type="button" -->
+            <button type="button" class="btn-enviar" onclick="location.href='pedido_confirmado.html'">
+                Confirmar pedido
+            </button>
+
+        </form>
+
+        <div class="logo-footer">Z-CONTAY</div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

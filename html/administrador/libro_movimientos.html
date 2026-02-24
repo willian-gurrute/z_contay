@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libro de Movimientos - Administrador</title>
+    
+    <link rel="stylesheet" href="../../_css/panel-control.css"> 
+    <link rel="stylesheet" href="../../_css/contabilidad.css"> 
+    <link rel="stylesheet" href="../../_css/libro-movimientos.css"> 
+</head>
+
+<body>
+
+    <div class="header-bar">
+        <div class="header-rol">Administrador</div>
+        <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+        <div class="header-user">
+            <span class="icon"><img src="../../img/campana.png" alt="notificaciones" width="24" height="24"></span>
+            <span> Carlos Fernando Hurtado</span>
+            <span class="icon"><img src="../../img/usuario-gestion.png" alt="Perfil" width="24" height="24"></span>
+        </div>
+    </div>
+
+    <div class ="main-container">
+    
+        <nav class="sidebar">
+            <ul>
+                <li class="active-item">
+                    <a href="#"><span class="icon"><img src="../../img/contabilidad.png" alt="Contabilidad"></span>Contabilidad</a>
+                </li>
+                </ul>
+        </nav>
+
+        <main class="content-area">
+            <h1 class="h1-title">Libro de Movimientos Financieros (Histórico)</h1>
+            
+            <div class="card-wrapper filtro-avanzado-card">
+                <h2>Filtros de Búsqueda</h2>
+                <form id="filtroLibroForm">
+                    <div class="form-row">
+                        <div class="form-group quarter">
+                            <label for="fecha_inicio">Desde:</label>
+                            <input type="date" id="fecha_inicio" name="fecha_inicio">
+                        </div>
+                        <div class="form-group quarter">
+                            <label for="fecha_fin">Hasta:</label>
+                            <input type="date" id="fecha_fin" name="fecha_fin">
+                        </div>
+                        <div class="form-group quarter">
+                            <label for="tipo_movimiento">Tipo:</label>
+                            <select id="tipo_movimiento" name="tipo_movimiento">
+                                <option value="">Todos</option>
+                                <option value="ingreso">Ingreso</option>
+                                <option value="egreso">Egreso</option>
+                            </select>
+                        </div>
+                        <div class="form-group quarter">
+                            <label for="concepto">Concepto (Ref.):</label>
+                            <input type="text" id="concepto" placeholder="Ej: Pago a Proveedor">
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions-bottom">
+                        <button type="submit" class="main-button primary-button">
+                            Aplicar Filtros
+                        </button>
+                        <button type="button" class="main-button secondary-button" id="btn-exportar">
+                            Exportar (Excel)
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="table-wrapper movimientos-wrapper">
+                <table class="tabla-libro-completo">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Fecha</th>
+                            <th>Tipo</th>
+                            <th>Concepto</th>
+                            <th>Referencia</th>
+                            <th>Monto</th>
+                            <th>Balance Acumulado</th>
+                            <th>Detalle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1003</td>
+                            <td>2025-11-20</td>
+                            <td class="tipo-ingreso">INGRESO</td>
+                            <td>Venta a Cliente XYZ</td>
+                            <td>FV-00125</td>
+                            <td class="valor-ingreso">$ 550.000</td>
+                            <td class="valor-ingreso">$ 15.650.000</td>
+                            <td><button class="btn-info">Ver</button></td>
+                        </tr>
+                        <tr>
+                            <td>1002</td>
+                            <td>2025-11-20</td>
+                            <td class="tipo-egreso">EGRESO</td>
+                            <td>Pago a Proveedor A (Alimento)</td>
+                            <td>PP-034</td>
+                            <td class="valor-egreso">$ 1.200.000</td>
+                            <td class="valor-ingreso">$ 15.100.000</td>
+                            <td><button class="btn-info">Ver</button></td>
+                        </tr>
+                        <tr>
+                            <td>1001</td>
+                            <td>2025-11-19</td>
+                            <td class="tipo-ingreso">INGRESO</td>
+                            <td>Abono Cliente B</td>
+                            <td>RC-056</td>
+                            <td class="valor-ingreso">$ 250.000</td>
+                            <td class="valor-ingreso">$ 16.300.000</td>
+                            <td><button class="btn-info">Ver</button></td>
+                        </tr>
+                        </tbody>
+                </table>
+            </div>
+
+            <div class="logo-footer">Z-CONTAY</div>
+        </main> 
+    </div>
+
+</body>
+</html>

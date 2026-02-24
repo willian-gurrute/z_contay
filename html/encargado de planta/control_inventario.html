@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Control de Inventario</title>
+    <link rel="stylesheet" href="../../_css/control-inventario.css">
+    <link rel="stylesheet" href="../../_css/vendedor-registrar-venta.css">
+</head>
+
+<body>
+
+    <!-- BARRA SUPERIOR -->
+    <header class="header-bar">
+        <div class="header-rol">Encargado de planta</div>
+        <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+        <div class="header-user">
+            <span class="icon">
+                <img src="../../img/campana.png" alt="Notificaciones">
+            </span>
+            <span>Andres Imbachi</span>
+            <span class="icon">
+                <img src="../../img/usuario-gestion.png" alt="Perfil">
+            </span>
+        </div>
+    </header>
+
+    <div class="main-container">
+
+        <!-- SIDEBAR -->
+        <nav class="sidebar">
+            <ul>
+                <li><a href="panel_control.html"><span class="icon"><img src="../../img/panel.jpg"></span> Panel Principal</a></li>
+
+                <li class="active-item"><a href="control_inventario.html"><span class="icon"><img src="../../img/inventario.png"></span> Control de inventario</a></li>
+
+                <li><a href="movimiento_entrada_salida.html"><span class="icon"><img src="../../img/entrada-salida.png"></span> Movimiento de Entrada/salida</a></li>
+
+                <li><a href="gestion_despachos.html"><span class="icon"><img src="../../img/despachos.png"></span> Gestión de Despachos</a></li>
+
+                <li><a href="rutas_entrega.html"><span class="icon"><img src="../../img/rutas.png"></span> Rutas de Entrega</a></li>
+
+                <li><a href="perfil.html"><span class="icon"><img src="../../img/perfil.png"></span> Perfil</a></li>
+
+                <li><a href="cerrar_sesion.html"><span class="icon"><img src="../../img/cerrar-seccion.png"></span> Cerrar sesión</a></li>
+            </ul>
+        </nav>
+
+        <!-- CONTENIDO CENTRAL -->
+        <main class="content-area">
+
+            <h1 class="h1-title">Control de Inventario</h1>
+            <h3 class="subtitulo">Inventario actual</h3>
+
+            <table class="tabla-inventario">
+                <thead>
+                    <tr>
+                        <th>ID Producto</th>
+                        <th>Nombre Producto</th>
+                        <th>Cantidad</th>
+                        <th>Última actualización</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Huevo tipo A</td>
+                        <td>0</td>
+                        <td>15/02/2026 15:35</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Huevo tipo AA</td>
+                        <td>0</td>
+                        <td>15/02/2026 15:35</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Huevo tipo AAA</td>
+                        <td>0</td>
+                        <td>15/02/2026 15:35</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Huevo tipo jumbo</td>
+                        <td>0</td>
+                        <td>15/02/2026 15:35</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button class="main-button" onclick="location.href='movimiento_entrada_salida.html'">
+                Registrar movimiento
+            </button>
+
+            <div class="success-msg">
+                <img src="../../img/check.png" class="success-icon">
+                Movimiento registrado correctamente
+            </div>
+
+            <div class="logo-footer">Z-CONTAY</div>
+
+        </main>
+    </div>
+
+</body>
+</html>

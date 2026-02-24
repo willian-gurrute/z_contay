@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Usuarios - Administrador</title>
+    <link rel="stylesheet" href="../../_css/gestion-usuarios.css">
+</head>
+
+<body>
+
+<header class="header-bar">
+    <div class="header-rol">Administrador</div>
+    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+    <div class="header-user">
+        <span class="icon"><img src="../../img/campana.png" alt=""></span>
+        <span>Carlos Fernando</span>
+        <span class="icon"><img src="../../img/usuario-gestion.png" alt=""></span>
+    </div>
+</header>
+
+<div class="main-container">
+
+    <nav class="sidebar">
+    <ul>
+
+        <li>
+            <a href="panel-control.html">
+                <span class="icon"><img src="../../img/panel.jpg"></span>
+                Panel Principal
+            </a>
+        </li>
+
+        <li>
+            <a href="gestion_usuarios.html">
+                <span class="icon"><img src="../../img/usuario-gestion.png"></span>
+                Gestión de usuarios
+            </a>
+        </li>
+
+        <li>
+            <a href="roles_permisos.html">
+                <span class="icon"><img src="../../img/roles-permisos.png"></span>
+                Roles y permisos
+            </a>
+        </li>
+
+        <li>
+            <a href="crear_opciones.html">
+             <span class="icon"><img src="../../img/opciones.jpg"></span>
+            Crear Opciones
+            </a>
+        </li>
+
+        <li>
+            <a href="contabilidad.html">
+                <span class="icon"><img src="../../img/contabilidad.png"></span>
+                Contabilidad
+            </a>
+        </li>
+
+        <li>
+            <a href="ventas.html">
+                <span class="icon"><img src="../../img/ventas.png"></span>
+                Ventas
+            </a>
+        </li>
+
+        <li>
+            <a href="inventario.html">
+                <span class="icon"><img src="../../img/inventario.png"></span>
+                Inventario
+            </a>
+        </li>
+
+        <li>
+            <a href="reportes.html">
+                <span class="icon"><img src="../../img/reportes.png"></span>
+                Reportes
+            </a>
+        </li>
+
+        <li>
+            <a href="configuracion.html">
+                <span class="icon"><img src="../../img/configuracion.png"></span>
+                Configuración
+            </a>
+        </li>
+
+        <li>
+            <a href="perfil.html">
+                <span class="icon"><img src="../../img/perfil.png"></span>
+                Perfil
+            </a>
+        </li>
+
+        <li>
+            <a href="cerrar_sesion.html">
+                <span class="icon"><img src="../../img/cerrar-seccion.png"></span>
+                Cerrar sesión
+            </a>
+        </li>
+
+    </ul>
+</nav>
+
+
+    <main class="content-area">
+
+        <h1 class="h1-title">Gestión de Usuarios</h1>
+
+        <!-- BOTÓN AGREGAR -->
+       <button class="main-button admin-button"
+        onclick="location.href='crear_usuario.html'">
+         Crear usuario
+        </button>
+        <!-- TABLA DE USUARIOS -->
+        <table class="tabla-usuarios">
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Rol</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>001</td>
+                    <td>Juan perez</td>
+                    <td>Transportador</td>
+                    <td class="Estado activo">Activo</td>
+                    <td class="acciones">
+                        <a href="editar_usuario.html" class="btn-editar">Editar</a>
+
+                        <button class="btn-desactivar">Desactivar</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>002</td>
+                    <td>Laura Gómez</td>
+                    <td>Encargado de planta</td>
+                    <td class="estado activo">Activo</td>
+                    <td class="acciones">
+                        <a href="editar_usuario.html" class="btn-editar">Editar</a>
+                        <button class="btn-desactivar">Desactivar</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>003</td>
+                    <td>Mario Vargas</td>
+                    <td>Cliente</td>
+                    <td class="estado inactivo">Inactivo</td>
+                    <td class="acciones">
+                        <a href="editar_usuario.html" class="btn-editar">Editar</a>
+                        <button class="btn-activar">Activar</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <div class="logo-footer">Z-CONTAY</div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

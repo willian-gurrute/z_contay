@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Venta Registrada</title>
+
+    <!-- CSS base del vendedor -->
+    <link rel="stylesheet" href="../../_css/vendedor-base.css">
+
+    <!-- CSS específico -->
+    <link rel="stylesheet" href="../../_css/vendedor-venta-registrada.css">
+</head>
+
+<body>
+
+<header class="header-bar">
+    <div class="header-rol">Vendedor</div>
+    <div class="header-system">Z-CONTAY – Galpón Aves del Paraíso</div>
+
+    <div class="header-user">
+        <span class="icon"><img src="../../img/campana.png"></span>
+        <span>Juan Lopez</span>
+        <span class="icon"><img src="../../img/usuario-gestion.png"></span>
+    </div>
+</header>
+
+<div class="main-container">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <ul>
+            <li><a href="panel_principal.html"><span class="icon"><img src="../../img/panel.jpg"></span>Panel Principal</a></li>
+            <li class="active-item"><a href="registrar_venta.html"><span class="icon"><img src="../../img/ventas.png"></span>Registrar Venta</a></li>
+            <li><a href="pedidos_clientes.html"><span class="icon"><img src="../../img/pedidos.png"></span>Pedidos de clientes</a></li>
+            <li><a href="reportes_venta.html"><span class="icon"><img src="../../img/reportes.png"></span>Reportes de venta</a></li>
+            <li><a href="perfil.html"><span class="icon"><img src="../../img/perfil.png"></span>Perfil</a></li>
+            <li><a href="cerrar_sesion.html"><span class="icon"><img src="../../img/cerrar-seccion.png"></span>Cerrar sesión</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <main class="content-area">
+
+        <div class="confirm-box">
+            <img src="../../img/check.png" class="icono">
+
+            <h2>La venta fue registrada correctamente</h2>
+            <p>El registro ha sido guardado en el sistema.</p>
+
+            <button class="btn-volver" onclick="location.href='registrar_venta.html'">
+                Registrar otra venta
+            </button>
+        </div>
+
+        <div class="logo-footer">Z-CONTAY</div>
+
+    </main>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Rutas de Entrega</title>
+
+    <!-- Estilos generales -->
+    <link rel="stylesheet" href="../../_css/control-inventario.css">
+    <link rel="stylesheet" href="../../_css/encargado-rutas entrega.css"> 
+</head>
+
+<body>
+
+<header class="header-bar">
+    <div class="header-rol">Encargado de planta</div>
+    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+    <div class="header-user">
+        <span class="icon"><img src="../../img/campana.png" alt="Notificaciones"></span>
+        <span>Andres Imbachi</span>
+        <span class="icon"><img src="../../img/usuario-gestion.png" alt="Perfil"></span>
+    </div>
+</header>
+
+<div class="main-container">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <ul>
+            <li><a href="panel_control.html">
+                <span class="icon"><img src="../../img/panel.jpg"></span> Panel Principal
+            </a></li>
+
+            <li><a href="control_inventario.html">
+                <span class="icon"><img src="../../img/inventario.png"></span> Control de inventario
+            </a></li>
+
+            <li><a href="movimiento_entrada_salida.html">
+                <span class="icon"><img src="../../img/entrada-salida.png"></span> Movimiento Entrada/Salida
+            </a></li>
+
+            <li><a href="gestion_despachos.html">
+                <span class="icon"><img src="../../img/despachos.png"></span> Gestión de Despachos
+            </a></li>
+
+            <li class="active-item">
+                <a href="rutas_entrega.html">
+                    <span class="icon"><img src="../../img/rutas.png"></span>
+                    Rutas de Entrega
+                </a>
+            </li>
+
+            <li><a href="perfil.html">
+                <span class="icon"><img src="../../img/perfil.png"></span> Perfil
+            </a></li>
+
+            <li><a href="cerrar_sesion.html">
+                <span class="icon"><img src="../../img/cerrar-seccion.png"></span> Cerrar sesión
+            </a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <main class="content-area">
+
+        <h1 class="h1-title">Rutas de Entrega</h1>
+        <h3 class="subtitulo">Rutas programadas</h3>
+
+        <table class="tabla-rutas">
+            <thead>
+                <tr>
+                    <th>ID Ruta</th>
+                    <th>Conductor</th>
+                    <th>Vehículo</th>
+                    <th>Dirección / Zona</th>
+                    <th>Fecha salida</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>R-001</td>
+                    <td>Luis Martínez</td>
+                    <td>Camión A01</td>
+                    <td>Calle 12 # 8-21, Barrio Centro</td>
+                    <td>14/11/2025 - 8:00 AM</td>
+                    <td class="estado-activo" data-estado="A">Activa</td>
+                </tr>
+                <tr>
+                    <td>R-002</td>
+                    <td>Carlos Téllez</td>
+                    <td>Camión B04</td>
+                    <td>Carrera 7 # 15-30, Barrio San José</td>
+                    <td>14/11/2025 - 9:30 AM</td>
+                    <td class="estado-pendiente" data-estado="P">Pendiente</td>
+                </tr>
+                <tr>
+                    <td>R-003</td>
+                    <td>Pedro Gómez</td>
+                    <td>Motocarro M12</td>
+                    <td>Vereda La Esperanza – Km 4</td>
+                    <td>15/11/2025 - 7:45 AM</td>
+                    <td class="estado-cerrada" data-estado="C">Cerrada</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button class="main-button" onclick="location.href='crear_ruta.html'">
+            Crear nueva ruta
+        </button>
+
+        <div class="logo-footer">Z-CONTAY</div>
+    </main>
+
+</div>
+
+</body>
+</html>

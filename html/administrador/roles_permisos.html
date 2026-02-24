@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roles y Permisos - Administrador</title>
+    
+    <link rel="stylesheet" href="../../_css/administrador-panel control.css"> 
+    <link rel="stylesheet" href="../../_css/roles-permisos.css">
+</head>
+
+<body>
+
+    <div class="header-bar">
+        <div class="header-rol">Administrador</div>
+        <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+        <div class="header-user">
+            <span class="icon">
+                <img src="../../img/campana.png" alt="notificaciones" width="24" height="24">
+            </span>
+            <span> Carlos Fernando Hurtado</span>
+            <span class="icon"> 
+                <img src="../../img/usuario-gestion.png" alt="Perfil" width="24" height="24">
+            </span>
+        </div>
+    </div>
+
+    <div class ="main-container">
+    
+        <nav class="sidebar">
+    <ul>
+
+        <li>
+            <a href="panel-control.html">
+                <span class="icon"><img src="../../img/panel.jpg"></span>
+                Panel Principal
+            </a>
+        </li>
+
+        <li>
+            <a href="gestion_usuarios.html">
+                <span class="icon"><img src="../../img/usuario-gestion.png"></span>
+                Gestión de usuarios
+            </a>
+        </li>
+
+        <li>
+            <a href="roles_permisos.html">
+                <span class="icon"><img src="../../img/roles-permisos.png"></span>
+                Roles y permisos
+            </a>
+        </li>
+
+        <li>
+            <a href="crear_opciones.html">
+             <span class="icon"><img src="../../img/opciones.jpg"></span>
+            Crear Opciones
+            </a>
+        </li>
+
+        <li>
+            <a href="contabilidad.html">
+                <span class="icon"><img src="../../img/contabilidad.png"></span>
+                Contabilidad
+            </a>
+        </li>
+
+        <li>
+            <a href="ventas.html">
+                <span class="icon"><img src="../../img/ventas.png"></span>
+                Ventas
+            </a>
+        </li>
+
+        <li>
+            <a href="inventario.html">
+                <span class="icon"><img src="../../img/inventario.png"></span>
+                Inventario
+            </a>
+        </li>
+
+        <li>
+            <a href="reportes.html">
+                <span class="icon"><img src="../../img/reportes.png"></span>
+                Reportes
+            </a>
+        </li>
+
+        <li>
+            <a href="configuracion.html">
+                <span class="icon"><img src="../../img/configuracion.png"></span>
+                Configuración
+            </a>
+        </li>
+
+        <li>
+            <a href="perfil.html">
+                <span class="icon"><img src="../../img/perfil.png"></span>
+                Perfil
+            </a>
+        </li>
+
+        <li>
+            <a href="cerrar_sesion.html">
+                <span class="icon"><img src="../../img/cerrar-seccion.png"></span>
+                Cerrar sesión
+            </a>
+        </li>
+
+    </ul>
+</nav>
+
+
+        <main class="content-area">
+            <h1 class="h1-title">Gestión de Roles y Permisos</h1>
+            <button class="main-button roles_permisos.html" onclick="location.href='crear_rol.html'">
+                  +Crear Rol
+                 </button>
+            
+            <div class="table-wrapper">
+                <table class="tabla-roles">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre del Rol</th>
+                            <th>Descripción</th>
+                            <th>Permisos Asignados</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>Administrador</td>
+                            <td>Control total del sistema.</td>
+                            <td>Inventario (C/E), Usuarios (C/E/D), Reportes, Seguridad</td>
+                            <td class="acciones">
+                                <button class="btn-editar">Editar</button>
+                                <button class="btn-desactivar">Eliminar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>002</td>
+                            <td>Vendedor</td>
+                            <td>Registro y seguimiento de pedidos.</td>
+                            <td>Realizar Pedido, Historial de Pedidos, Perfil</td>
+                            <td class="acciones">
+                                <button class="btn-editar">Editar</button>
+                                <button class="btn-desactivar">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="logo-footer">Z-CONTAY</div>
+        </main> 
+    </div>
+
+</body>
+</html>

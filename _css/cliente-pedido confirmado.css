@@ -1,0 +1,67 @@
+/* Asegurar que el contenido esté centrado */
+.content-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Tarjeta central */
+.confirm-card {
+    width: 60%;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #ddd;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.img-confirm {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.confirm-card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.confirm-card p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Botones */
+.confirm-buttons {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-volver, .btn-historial {
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.btn-volver {
+    background: #3498db;
+    color: white;
+}
+
+.btn-volver:hover {
+    background: #2980b9;
+}
+
+.btn-historial {
+    background: #2ecc71;
+    color: white;
+}
+
+.btn-historial:hover {
+    background: #27ae60;
+}

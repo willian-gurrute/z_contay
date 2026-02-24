@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cambiar contraseña - Transportador</title>
+    <link rel="stylesheet" href="../../_css/cliente-cambiar contraseña.css"> 
+    <link rel="stylesheet" href="../../_css/trasportador-rutas-despachos.css"> 
+    <link rel="stylesheet" href="../../_css/trasportador-cambiar-contraseña.css"> 
+</head>
+
+<body class="pass-page">
+
+<header class="header-bar">
+    <div class="header-rol">Transportador</div>
+    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+    <div class="header-user">
+        <span class="icon"><img src="../../img/campana.png" width="24"></span>
+        <span>Juan Transportador</span>
+        <span class="icon"><img src="../../img/perfil.png" width="24"></span>
+    </div>
+</header>
+
+<div class="main-container">
+
+     <nav class="sidebar">
+        <ul>
+            <li><a href="panel_principal.html"><span class="icon"><img src="../../img/panel.jpg"></span> Panel Principal</a></li>
+
+            <li><a href="rutas_despachos.html"><span class="icon"><img src="../../img/despachos.png"></span> Rutas y despachos</a></li>
+
+            <li><a href="registrar_entrega.html"><span class="icon"><img src="../../img/entrega.png"></span> Registrar entrega</a></li>
+
+            <li><a href="listado_pedidos.html"><span class="icon"><img src="../../img/listado-pedidos.png"></span> Listado de pedidos</a></li>
+
+            <li class="active-item">
+                <a href="reportes_despachos.html"><span class="icon"><img src="../../img/reportes.png"></span> Reportes de despachos</a>
+            </li>
+
+            <li><a href="perfil.html"><span class="icon"><img src="../../img/perfil.png"></span> Perfil</a></li>
+
+            <li><a href="cerrar_sesion.html"><span class="icon"><img src="../../img/cerrar-seccion.png"></span> Cerrar sesión</a></li>
+        </ul>
+    </nav>
+
+    <main class="content-area">
+
+        <h1 class="h1-title">Cambiar contraseña</h1>
+
+        <form class="form-pass">
+
+            <label>Contraseña actual:</label>
+            <input type="password" placeholder="Ingresa tu contraseña actual">
+
+            <label>Nueva contraseña:</label>
+            <input type="password" placeholder="Mínimo 6 caracteres">
+
+            <label>Confirmar nueva contraseña:</label>
+            <input type="password" placeholder="Repite la nueva contraseña">
+
+            <div class="pass-botones">
+                <button class="btn-guardar">Guardar</button>
+                <button type="button" class="btn-cancelar" onclick="window.history.back()">Cancelar</button>
+            </div>
+
+        </form>
+
+        <div class="logo-footer">Z-CONTAY</div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

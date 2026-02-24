@@ -1,0 +1,155 @@
+/* Centrado general */
+.content-area {
+    flex: 1;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.h1-title {
+    color: #2f6c32;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Contenedor del formulario */
+.form-ruta {
+    display: flex;
+    flex-direction: column; /* apila verticalmente */
+    align-items: stretch;   /* ocupa todo el ancho disponible */
+    width: 100%;            /* opcional: limita a todo el ancho del contenedor */
+    max-width: 500px;       /* ancho máximo para que no se vea gigante */
+    margin-top: 20px;
+}
+
+/* Labels */
+.form-ruta label {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* Inputs y selects */
+.form-ruta input,
+.form-ruta select {
+    margin-top: 5px;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Botón dentro del formulario */
+.form-ruta button {
+    margin-top: 20px;
+    align-self: flex-start; /* opcional: alinea el botón a la izquierda */
+}
+
+
+
+
+/* Estados */
+.estado-activo {
+    color: #2f6c32;
+    font-weight: bold;
+}
+
+.estado-pendiente {
+    color: #e69300;
+    font-weight: bold;
+}
+
+.estado-cerrada {
+    color: #c62828;
+    font-weight: bold;
+}
+
+/* Botón principal */
+.main-button {
+    background: #2f6c32;
+    color: white;
+    padding: 10px 22px;
+    border-radius: 6px;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.main-button:hover {
+    background: #244e28;
+}
+/* Centrado general */
+.content-area {
+    flex: 1;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.h1-title {
+    color: #2f6c32;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Tabla */
+.tabla-rutas {
+    width: 90%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tabla-rutas th {
+    background: #2f6c32;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.tabla-rutas td {
+    padding: 12px;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Estados */
+.estado-activo {
+    color: #2f6c32;
+    font-weight: bold;
+}
+
+.estado-pendiente {
+    color: #e69300;
+    font-weight: bold;
+}
+
+.estado-cerrada {
+    color: #c62828;
+    font-weight: bold;
+}
+
+/* Botón principal */
+.main-button {
+    background: #2f6c32;
+    color: white;
+    padding: 10px 22px;
+    border-radius: 6px;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.main-button:hover {
+    background: #244e28;
+}

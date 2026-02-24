@@ -1,0 +1,54 @@
+/* TABLA */
+.tabla-despachos {
+    width: 95%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+.tabla-despachos th {
+    background: #2f6c32;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.tabla-despachos td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* ESTADOS */
+.estado {
+    font-weight: bold;
+}
+
+.estado.pendiente {
+    color: #d69c00;
+}
+
+.estado.en-camino {
+    color: #1d6fa5;
+}
+
+.estado.entregado {
+    color: #2f6c32;
+}
+
+/* BOTÓN VER */
+.btn-ver {
+    background: #2f6c32;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-ver:hover {
+    background: #245026;
+}

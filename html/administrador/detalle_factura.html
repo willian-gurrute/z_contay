@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle de Factura</title>
+    <link rel="stylesheet" href="../../_css/detalle-factura.css">
+</head>
+
+<body>
+
+<div class="factura-container">
+
+    <!-- ENCABEZADO EMPRESA -->
+    <div class="empresa">
+        <h1>Z-CONTAY</h1>
+        <p>Galpón Aves del Paraíso</p>
+        <p>NIT: XXXXXXXX</p>
+        <p>Teléfono: 3000000000</p>
+        <p>Ciudad - Departamento</p>
+    </div>
+
+    <hr>
+
+    <!-- INFORMACIÓN FACTURA -->
+    <div class="info-factura">
+        <p><strong>Factura N°:</strong> 5001</p>
+        <p><strong>Fecha:</strong> 15/02/2026</p>
+        <p><strong>Vendedor:</strong> Juan López</p>
+        <p><strong>Tipo de venta:</strong> Directa</p>
+        <p><strong>Método de pago:</strong> Efectivo</p>
+    </div>
+
+    <hr>
+
+    <!-- INFORMACIÓN CLIENTE -->
+    <div class="info-cliente">
+        <h3>Datos del Cliente</h3>
+        <p><strong>Nombre:</strong> Carlos Ruiz</p>
+        <p><strong>Documento:</strong> 12345678</p>
+        <p><strong>Teléfono:</strong> 3100000000</p>
+        <p><strong>Dirección:</strong> Calle 10 # 20-30</p>
+    </div>
+
+    <hr>
+
+    <!-- DETALLE PRODUCTOS -->
+    <table class="tabla-productos">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Huevo tipo A</td>
+                <td>20</td>
+                <td>$12.000</td>
+                <td>$240.000</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- TOTALES -->
+    <div class="totales">
+        <p><strong>Subtotal:</strong> $240.000</p>
+        <p><strong>IVA:</strong> $0</p>
+        <h2>Total a pagar: $240.000</h2>
+    </div>
+
+    <hr>
+
+   <div class="acciones">
+      <button class="main-button" onclick="window.print()">Imprimir</button>
+      <button class="main-button">Descargar PDF</button>
+      <a href="ventas.html">
+      <button class="main-button">Volver</button>
+      </a>
+   </div>
+ 
+
+</div>
+
+</body>
+</html>

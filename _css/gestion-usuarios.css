@@ -1,0 +1,185 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: white;
+}
+
+/* HEADER */
+.header-bar {
+    background: #2f6c32;
+    color: white;
+    padding: 12px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-user img {
+    width: 22px;
+}
+
+/* LAYOUT */
+.main-container {
+    display: flex;
+}
+
+/* SIDEBAR */
+
+.sidebar ul {
+    list-style: none;  
+    padding-left: 0;   
+}
+
+.sidebar li {
+    padding: 0;
+    margin: 0;
+}
+ {
+    width: 250px;
+    background: #e8e8e8;
+    padding-top: 20px;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    gap: 12px;
+    color: #222;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background: #dcdcdc;
+}
+
+.sidebar img {
+    width: 28px;
+}
+
+.active-item a {
+    background: #ffffff;
+    border-right: 4px solid #2f6c32;
+    font-weight: bold;
+}
+
+/* CONTENIDO */
+.content-area {
+    flex: 1;
+    padding: 30px;
+    position: relative;
+}
+
+.h1-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2f6c32;
+    margin-bottom: 25px;
+}
+
+/* BOTÓN AGREGAR */
+.main-button {
+    background-color: #2f6c32;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.main-button:hover {
+    background-color: #245026;
+}
+
+.admin-button {
+    margin-top: 15px;
+}
+
+
+.btn-agregar:hover {
+    background: #245026;
+}
+
+/* TABLA */
+.tabla-usuarios {
+    width: 95%;
+    border-collapse: collapse;
+}
+
+.tabla-usuarios th,
+.tabla-usuarios td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.tabla-usuarios thead {
+    background: #f5f5f5;
+    font-weight: bold;
+}
+
+/* ESTADOS */
+.estado {
+    font-weight: bold;
+}
+
+.activo {
+    color: #1b7a3a;
+}
+
+.inactivo {
+    color: #c63636;
+}
+
+/* ACCIONES */
+.acciones {
+    display: flex;
+    gap: 8px;
+}
+
+button {
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Botones */
+.btn-editar {
+    background: #28527a;
+    color: white;
+}
+
+.btn-desactivar {
+    background: #c63636;
+    color: white;
+}
+
+.btn-activar {
+    background: #2f6c32;
+    color: white;
+}
+
+/* FOOTER */
+.logo-footer {
+    position: absolute;
+    bottom: 25px;
+    right: 30px;
+    font-weight: bold;
+}
+
+.btn-editar {
+    display: inline-block;
+    padding: 5px 10px; /* tamaño del botón */
+    border-radius: 8px; /* bordes redondeados */
+    background-color: #4CAF50; /* color de fondo */
+    color: white; /* color del texto */
+    text-decoration: none; /* quita subrayado */
+}
+.btn-editar:hover {
+    background-color: #45a049; /* cambio al pasar el mouse */
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle del Despacho</title>
+
+    <!-- CSS base -->
+    <link rel="stylesheet" href="../../_css/vendedor-base.css">
+
+    <!-- CSS específico -->
+    <link rel="stylesheet" href="../../_css/vendedor-ver-detalle-despacho.css">
+</head>
+
+<body>
+
+<header class="header-bar">
+    <div class="header-rol">Vendedor</div>
+    <div class="header-system">Z-CONTAY – Galpón Aves del Paraíso</div>
+
+    <div class="header-user">
+        <span class="icon"><img src="../../img/campana.png"></span>
+        <span>Juan Lopez</span>
+        <span class="icon"><img src="../../img/usuario-gestion.png"></span>
+    </div>
+</header>
+
+<div class="main-container">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <ul>
+            <li><a href="panel_principal.html"><span class="icon"><img src="../../img/panel.jpg"></span>Panel Principal</a></li>
+            <li><a href="registrar_venta.html"><span class="icon"><img src="../../img/ventas.png"></span>Registrar Venta</a></li>
+            <li><a href="pedidos_clientes.html"><span class="icon"><img src="../../img/pedidos.png"></span>Pedidos de clientes</a></li>
+
+            <li><a href="reportes_venta.html"><span class="icon"><img src="../../img/reportes.png"></span>Reportes de venta</a></li>
+            <li><a href="perfil.html"><span class="icon"><img src="../../img/perfil.png"></span>Perfil</a></li>
+            <li><a href="cerrar_sesion.html"><span class="icon"><img src="../../img/cerrar-seccion.png"></span>Cerrar sesión</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <main class="content-area">
+
+        <h1 class="h1-title">Detalle del despacho</h1>
+
+        <div class="detalle-card">
+
+            <p><strong>ID Despacho:</strong> 5231</p>
+            <p><strong>Fecha:</strong> 20/02/2025</p>
+            <p><strong>Cliente:</strong> Mercado La Economía</p>
+            <p><strong>Producto:</strong> Huevo AA</p>
+            <p><strong>Cantidad:</strong> 200 unidades</p>
+            <p><strong>Destino:</strong> Cra 15 # 9-22, Barrio Centro</p>
+            <p><strong>Transportador:</strong> Luis Martínez</p>
+            <p><strong>Estado:</strong> Pendiente</p>
+
+            <button class="btn-volver" onclick="location.href='despachos_asignados.html'">
+                Volver
+            </button>
+        </div>
+
+        <div class="logo-footer">Z-CONTAY</div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

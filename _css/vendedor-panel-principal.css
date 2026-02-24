@@ -1,0 +1,45 @@
+.cards-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.card-indicador {
+    width: 23%;
+    background: #fff;
+    padding: 18px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+.card-indicador h2 {
+    font-size: 18px;
+    color: #2f6c32;
+    margin-bottom: 8px;
+}
+
+.card-indicador .valor {
+    font-size: 26px;
+    font-weight: bold;
+    color: #2f6c32;
+}
+
+/* Tabla */
+.tabla-resumen {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.tabla-resumen th {
+    background: #2f6c32;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+.tabla-resumen td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}

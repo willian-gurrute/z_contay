@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Pedidos - Transportador</title>
+
+    <link rel="stylesheet" href="../../_css/trasportador-rutas-despachos.css">
+    <link rel="stylesheet" href="../../_css/trasportador-listado-pedidos.css">
+</head>
+
+<body>
+
+    <!-- BARRA SUPERIOR -->
+    <header class="header-bar">
+        <div class="header-rol">Transportador</div>
+        <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+        <div class="header-user">
+            <span class="icon"><img src="../../img/campana.png"></span>
+            <span>Juan Transportador</span>
+            <span class="icon"><img src="../../img/usuario-gestion.png"></span>
+        </div>
+    </header>
+
+    <div class="main-container">
+
+        <!-- MENÚ LATERAL -->
+        <nav class="sidebar">
+            <ul>
+                <li><a href="panel_principal.html"><span class="icon"><img src="../../img/panel.jpg"></span> Panel Principal</a></li>
+
+                <li><a href="rutas_despachos.html"><span class="icon"><img src="../../img/despachos.png"></span> Rutas y despachos</a></li>
+
+                <li><a href="registrar_entrega.html"><span class="icon"><img src="../../img/entrega.png"></span> Registrar entrega</a></li>
+
+                <li class="active-item"><a href="#"><span class="icon"><img src="../../img/listado-pedidos.png"></span> Listado de pedidos</a></li>
+
+                <li><a href="reportes_despachos.html"><span class="icon"><img src="../../img/reportes.png"></span> Reportes de despachos</a></li>
+
+                <li><a href="perfil.html"><span class="icon"><img src="../../img/perfil.png"></span> Perfil</a></li>
+
+                <li><a href="cerrar_sesion.html"><span class="icon"><img src="../../img/cerrar-seccion.png"></span> Cerrar sesión</a></li>
+            </ul>
+        </nav>
+
+        <!-- CONTENIDO -->
+        <main class="content-area">
+
+            <h1 class="h1-title">Listado de Pedidos</h1>
+            <h3 class="subtitulo">Pedidos asignados al transportador</h3>
+
+            <table class="tabla-pedidos">
+                <thead>
+                    <tr>
+                        <th>ID Pedido</th>
+                        <th>Cliente</th>
+                        <th>Tipo de huevo</th>
+                        <th>Cantidad</th>
+                        <th>Dirección</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>2014</td>
+                        <td>Carlos López</td>
+                        <td>A</td>
+                        <td>100 unidades</td>
+                        <td>Barrio Centro</td>
+                        <td class="estado pendiente">Pendiente</td>
+                        <td><button class="btn-detalle" onclick="location.href=`detalle_pedido.html`">Ver detalle</button></td>
+                    </tr>
+
+                    <tr>
+                        <td>2015</td>
+                        <td>Ana Torres</td>
+                        <td>AA</td>
+                        <td>80 unidades</td>
+                        <td>Sector norte</td>
+                        <td class="estado camino">En camino</td>
+                        <td><button class="btn-detalle">Ver detalle</button></td>
+                    </tr>
+
+                    <tr>
+                        <td>2016</td>
+                        <td>Marcos Duarte</td>
+                        <td>Jumbo</td>
+                        <td>40 unidades</td>
+                        <td>Vereda La Esperanza</td>
+                        <td class="estado entregado">Entregado</td>
+                        <td><button class="btn-detalle">Ver detalle</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="logo-footer">Z-CONTAY</div>
+
+        </main>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil - Administardor</title>
+    <link rel="stylesheet" href="../../_css/administrador-panel control.css">
+    <link rel="stylesheet" href="../../_css/Administrador-perfil.css"> 
+</head>
+
+<body>
+
+<header class="header-bar">
+    <div class="header-rol">Administardor</div>
+    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+    <div class="header-user">
+        <span class="icon"><img src="../../img/campana.png" width="24"></span>
+        <span>Carlos Fernando Hurtado</span>
+        <span class="icon"><img src="../../img/usuario-gestion.png" width="24"></span>
+    </div>
+</header>
+
+<div class="main-container">
+
+    <!-- MENÚ DEL ADMINISTARDOR -->
+    <nav class="sidebar">
+        <ul>
+            <li><a href="panel-control.html"><span class="icon"><img src="../../img/panel.jpg"></span>Panel principal</a></li>
+            <li><a href="gestion_usuarios.html"><span class="icon"><img src="../../img/usuario-gestion.png"></span>Gestión de usuarios</a></li>
+            <li><a href="roles_permisos.html"><span class="icon"><img src="../../img/roles-permisos.png"></span>Roles y permisos</a></li>
+             <li><a href="crear_opciones.html"><span class="icon"><img src="../../img/opciones.jpg"></span>Crear Opciones</a></li>
+            <li><a href="contabilidad.html"><span class="icon"><img src="../../img/contabilidad.png"></span>Contabilidad</a></li>
+            <li><a href="ventas.html"><span class="icon"><img src="../../img/ventas.png"></span>Ventas</a></li>
+            <li><a href="inventario.html"><span class="icon"><img src="../../img/inventario.png"></span>Inventario</a></li>
+            <li><a href="reportes.html"><span class="icon"><img src="../../img/reportes.png"></span>Reportes</a></li>
+            <li><a href="configuracion.html"><span class="icon"><img src="../../img/configuracion.png"></span>Configuración</a></li>
+
+            <li class="active-item">
+                <a href="perfil.html"><span class="icon"><img src="../../img/perfil.png"></span>Perfil</a>
+            </li>
+
+            <li><a href="../login/inicio-seccion.html"><span class="icon"><img src="../../img/cerrar-seccion.png"></span>Cerrar sesión</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <main class="content-area">
+
+        <h1 class="h1-title">Mi perfil</h1>
+
+        <div class="perfil-card">
+
+            <img src="../../img/perfil.png" class="perfil-foto">
+
+            <h2 class="perfil-nombre">Carlos Fernando Hurtado</h2>
+
+            <p><strong>Correo:</strong> carlos@zcontay.com</p>
+            <p><strong>Documento:</strong> 1025896471</p>
+            <p><strong>Teléfono:</strong> 312 456 7890</p>
+
+            <div class="perfil-botones">
+                 <button class="btn-editar" onclick="location.href=`editar_perfil.html`">
+                    editar perfil
+                </button>
+                 <button class="btn-contra" onclick="location.href=`cambiar_contraseña.html`">
+                    cambiar contraseña
+                </button> 
+            </div>
+
+        </div>
+
+        <div class="logo-footer">Z-CONTAY</div>
+
+    </main>
+</div>
+
+</body>
+</html>
+

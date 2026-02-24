@@ -1,0 +1,40 @@
+/* TARJETA DE FORMULARIO */
+.reporte-card {
+    width: 60%;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.reporte-card label {
+    margin-top: 12px;
+    font-size: 15px;
+    color: #555;
+}
+
+.reporte-card select,
+.reporte-card input {
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.btn-generar {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: #2f6c32;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-generar:hover {
+    background: #244f27;
+}

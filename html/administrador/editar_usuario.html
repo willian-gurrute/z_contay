@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Usuario - Administrador</title>
+    <link rel="stylesheet" href="../../_css/crear-usuario.css">
+</head>
+<body>
+
+<header class="header-bar">
+    <div class="header-rol">Administrador</div>
+    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+    <div class="header-user">
+        <span class="icon"><img src="../../img/campana.png" alt=""></span>
+        <span>Carlos Fernando</span>
+        <span class="icon"><img src="../../img/usuario-gestion.png" alt=""></span>
+    </div>
+</header>
+
+<div class="main-container">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <ul>
+            <li><a href="panel-control.html"><span class="icon"><img src="../../img/panel.jpg"></span>Panel Principal</a></li>
+            <li class="active-item"><a href="gestion_usuarios.html"><span class="icon"><img src="../../img/usuario-gestion.png"></span>Gestión de usuarios</a></li>
+            <li><a href="roles_permisos.html"><span class="icon"><img src="../../img/roles-permisos.png"></span>Roles y permisos</a></li>
+            <li><a href="contabilidad.html"><span class="icon"><img src="../../img/contabilidad.png"></span>Contabilidad</a></li>
+            <li><a href="ventas.html"><span class="icon"><img src="../../img/ventas.png"></span>Ventas</a></li>
+            <li><a href="inventario.html"><span class="icon"><img src="../../img/inventario.png"></span>Inventario</a></li>
+            <li><a href="reportes.html"><span class="icon"><img src="../../img/reportes.png"></span>Reportes</a></li>
+            <li><a href="configuracion.html"><span class="icon"><img src="../../img/configuracion.png"></span>Configuración</a></li>
+            <li><a href="perfil.html"><span class="icon"><img src="../../img/perfil.png"></span>Perfil</a></li>
+            <li><a href="cerrar_sesion.html"><span class="icon"><img src="../../img/cerrar-seccion.png"></span>Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <main class="content-area">
+
+        <h1 class="h1-title">Editar Usuario</h1>
+
+        <form class="form-usuario">
+
+            <label>Nombre completo:</label>
+            <input type="text" placeholder="Ingresa el nombre completo">
+
+            <label>Tipo de documento:</label>
+            <select name="tipo_documento">
+                <option value="CC">Cédula de ciudadanía</option>
+                <option value="CE">Cédula de extranjería</option>
+            </select>
+            <input type="text" placeholder="Número de documento">
+
+            <label>Correo electrónico:</label>
+            <input type="email" placeholder="Correo válido">
+
+            <label>Contraseña:</label>
+            <input type="password" placeholder="Mínimo 6 caracteres">
+            <small>Deja vacío si no deseas cambiarla</small>
+
+            <label>Rol del usuario:</label>
+            <select>
+                <option>Administrador</option>
+                <option>Encargado de planta</option>
+                <option>Transportador</option>
+                <option>Vendedor</option>
+                <option>Cliente</option>
+            </select>
+
+            <div class="botones">
+                <button class="btn-guardar">Actualizar</button>
+                <a href="gestion_usuarios.html" class="btn-cancelar">Cancelar</a>
+            </div>
+
+        </form>
+
+        <div class="logo-footer">Z-CONTAY</div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

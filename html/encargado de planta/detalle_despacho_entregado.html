@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle del Despacho</title>
+
+    <link rel="stylesheet" href="../../_css/control-inventario.css">
+    <link rel="stylesheet" href="../../_css/encargado-registrar-despacho.css">
+   
+
+</head>
+
+<body>
+
+<header class="header-bar">
+    <div class="header-rol">Encargado de planta</div>
+    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+    <div class="header-user">
+        <span class="icon"><img src="../../img/campana.png"></span>
+        <span>Andres Imbachi</span>
+        <span class="icon"><img src="../../img/usuario-gestion.png"></span>
+    </div>
+</header>
+
+<div class="main-container">
+
+<nav class="sidebar">
+    <ul>
+        <li><a href="panel_control.html"><span class="icon"><img src="../../img/panel.jpg"></span> Panel Principal</a></li>
+        <li><a href="control_inventario.html"><span class="icon"><img src="../../img/inventario.png"></span> Control de inventario</a></li>
+        <li><a href="movimiento_entrada_salida.html"><span class="icon"><img src="../../img/entrada-salida.png"></span> Movimiento Entrada/Salida</a></li>
+        <li class="active-item"><a href="gestion_despachos.html"><span class="icon"><img src="../../img/despachos.png"></span> Gestión de Despachos</a></li>
+        <li><a href="rutas_entrega.html"><span class="icon"><img src="../../img/rutas.png"></span> Rutas de Entrega</a></li>
+        <li><a href="perfil.html"><span class="icon"><img src="../../img/perfil.png"></span> Perfil</a></li>
+        <li><a href="cerrar_sesion.html"><span class="icon"><img src="../../img/cerrar-seccion.png"></span> Cerrar sesión</a></li>
+    </ul>
+</nav>
+
+<main class="content-area">
+
+<h1 class="h1-title">Detalle del Despacho</h1>
+<h3 class="subtitulo">Información completa del despacho asignado</h3>
+
+<div class="estado-box">
+    Estado actual:
+    <span class="badge-asignado">Asignado</span>
+</div>
+
+<!-- FACTURA + DESPACHO EN DOS COLUMNAS -->
+<div class="grid-dos-cards">
+
+    <!-- FACTURA -->
+    <div class="card-seccion">
+        <h3>Información de la Factura</h3>
+
+        <div class="info-item">
+            <label>Número de Factura</label>
+            <span>10025</span>
+        </div>
+
+        <div class="info-item">
+            <label>Cliente</label>
+            <span>Juan López</span>
+        </div>
+
+        <div class="info-item">
+            <label>Fecha</label>
+            <span>15/02/2026</span>
+        </div>
+
+        <div class="info-item">
+            <label>Tipo de venta</label>
+            <span>Pedido</span>
+        </div>
+
+        <div class="info-item">
+            <label>Total</label>
+            <span>$450.000</span>
+        </div>
+    </div>
+
+    <!-- DESPACHO -->
+    <div class="card-seccion">
+        <h3>Información del Despacho</h3>
+
+        <div class="info-item">
+            <label>Ruta asignada</label>
+            <span>Zona Norte - 15/02/2026 07:00</span>
+        </div>
+
+        <div class="info-item">
+            <label>Transportador</label>
+            <span>Carlos Ruiz</span>
+        </div>
+
+        <div class="info-item">
+            <label>Vehículo</label>
+            <span>Camión NPR Blanco</span>
+        </div>
+
+        <div class="info-item">
+            <label>Fecha de salida</label>
+            <span>15/02/2026 07:00</span>
+        </div>
+    </div>
+
+</div>
+
+<!-- PRODUCTOS -->
+<div class="card-seccion">
+    <h3>Detalle de Productos</h3>
+
+    <table class="tabla-despachos">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Huevo tipo AA</td>
+                <td>80</td>
+                <td>$500</td>
+                <td>$40.000</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="acciones">
+    <button class="main-button"
+        onclick="location.href='gestion_despachos.html'">
+        Volver
+    </button>
+
+    <button class="btn-cancelar">
+        Cancelar Despacho
+    </button>
+</div>
+
+<div class="logo-footer">Z-CONTAY</div>
+
+</main>
+
+</div>
+
+</body>
+</html>

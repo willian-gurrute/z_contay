@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ver Incidencia</title>
+
+    <link rel="stylesheet" href="../../_css/control-inventario.css">
+    <link rel="stylesheet" href="../../_css/encargado-gestion despachos.css">
+</head>
+
+<body>
+
+<!-- BARRA SUPERIOR -->
+<header class="header-bar">
+    <div class="header-rol">Encargado de planta</div>
+    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+    <div class="header-user">
+        <span class="icon"><img src="../../img/campana.png" alt=""></span>
+        <span>Andres Imbachi</span>
+        <span class="icon"><img src="../../img/usuario-gestion.png" alt=""></span>
+    </div>
+</header>
+
+<div class="main-container">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <ul>
+            <li><a href="panel_control.html">
+                <span class="icon"><img src="../../img/panel.jpg" alt=""></span> Panel Principal
+            </a></li>
+
+            <li><a href="control_inventario.html">
+                <span class="icon"><img src="../../img/inventario.png" alt=""></span> Control de inventario
+            </a></li>
+
+            <li><a href="movimiento_entrada_salida.html">
+                <span class="icon"><img src="../../img/entrada-salida.png" alt=""></span> Movimiento de Entrada/Salida
+            </a></li>
+
+            <li class="active-item">
+                <a href="gestion_despachos.html">
+                    <span class="icon"><img src="../../img/despachos.png" alt=""></span> Gestión de Despachos
+                </a>
+            </li>
+
+            <li><a href="rutas_entrega.html">
+                <span class="icon"><img src="../../img/rutas.png" alt=""></span> Rutas de Entrega
+            </a></li>
+
+            <li><a href="perfil.html">
+                <span class="icon"><img src="../../img/perfil.png" alt=""></span> Perfil
+            </a></li>
+
+            <li><a href="cerrar_sesion.html">
+                <span class="icon"><img src="../../img/cerrar-seccion.png" alt=""></span> Cerrar sesión
+            </a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENIDO CENTRAL -->
+    <main class="content-area">
+
+        <h1 class="h1-title">Detalle de Incidencia</h1>
+        <h3 class="subtitulo">Información del despacho con incidencia</h3>
+
+        <!-- INFORMACIÓN FACTURA -->
+        <div class="card-seccion">
+            <h3>Información de la Factura</h3>
+
+            <div class="grid-info">
+                <div>
+                    <label>Número de Factura</label>
+                    <p>10025</p>
+                </div>
+
+                <div>
+                    <label>Cliente</label>
+                    <p>Juan López</p>
+                </div>
+
+                <div>
+                    <label>Fecha</label>
+                    <p>15/02/2026</p>
+                </div>
+
+                <div>
+                    <label>Total</label>
+                    <p>$450.000</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- INFORMACIÓN DESPACHO -->
+        <div class="card-seccion">
+            <h3>Información del Despacho</h3>
+
+            <div class="grid-info">
+                <div>
+                    <label>Ruta</label>
+                    <p>Zona Norte</p>
+                </div>
+
+                <div>
+                    <label>Transportador</label>
+                    <p>Carlos Ruiz</p>
+                </div>
+
+                <div>
+                    <label>Vehículo</label>
+                    <p>Camión NPR Blanco</p>
+                </div>
+
+                <div>
+                    <label>Estado</label>
+                    <p class="estado-incidencia">Incidencia</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- DETALLE INCIDENCIA -->
+        <div class="card-seccion">
+            <h3>Detalle de la Incidencia</h3>
+
+            <div class="grid-info">
+                <div>
+                    <label>Tipo de Incidencia</label>
+                    <p>Producto incompleto</p>
+                </div>
+
+                <div>
+                    <label>Descripción</label>
+                    <p>El cliente informa que faltaron 10 unidades del pedido.</p>
+                </div>
+
+                <div>
+                    <label>Fecha Reporte</label>
+                    <p>16/02/2026</p>
+                </div>
+
+                <div>
+                    <label>Estado Incidencia</label>
+                    <p class="estado-pendiente">Pendiente</p>
+                </div>
+            </div>
+
+           <div class="acciones-incidencia">
+    <button class="btn-asignar"
+        onclick="location.href='asignar_despacho.html?id=3'">
+        Asignar nuevamente
+    </button>
+
+    <button class="btn-cancelar"
+        onclick="location.href='cancelar_incidencia.php?id=3'">
+        Cancelar Incidencia
+    </button>
+</div>
+
+
+        <div class="acciones-finales">
+            <button onclick="location.href='gestion_despachos.html'" class="btn-volver">
+                Volver
+            </button>
+        </div>
+
+        <div class="logo-footer">Z-CONTAY</div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

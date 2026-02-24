@@ -1,0 +1,199 @@
+/* ========= ESTILOS BASE IGUALES AL ADMINISTRADOR ========= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: white;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ========= BARRA SUPERIOR ========= */
+
+.header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2f6c32; /* VERDE OFICIAL */
+    color: white;
+    padding: 15px;
+}
+
+.header-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-user img {
+    width: 24px;
+    height: 24px;
+}
+
+/* ========= LAYOUT GENERAL ========= */
+
+.main-container {
+    display: flex;
+}
+
+/* ========= SIDEBAR ========= */
+
+.sidebar {
+    width: 220px;
+    background: #e8e8e8;
+    padding-top: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    font-size: 16px;
+}
+
+.sidebar a:hover {
+    background: #dcdcdc;
+}
+
+.active-item {
+    background: white;
+    font-weight: bold;
+    border-right: 4px solid #2f6c32;
+}
+
+.sidebar .icon img {
+    width: 26px;
+    height: 26px;
+    margin-right: 10px;
+}
+
+/* ========= CONTENIDO CENTRAL ========= */
+
+.content-area {
+    flex: 1;
+    padding: 25px;
+}
+
+.h1-title {
+    font-size: 26px;
+    color: #2f6c32;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* ========= TARJETAS DE INDICADORES ========= */
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card-indicador {
+    width: 45%;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 18px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.card-indicador h2 {
+    font-size: 20px;
+    color: #2f6c32;
+    margin-bottom: 8px;
+}
+
+.card-indicador .valor {
+    font-size: 22px;
+    color: #2f6c32;
+    font-weight: bold;
+}
+
+/* ========= TABLA ========= */
+
+.tabla-resumen {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tabla-resumen th {
+    background: #2f6c32;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+.tabla-resumen td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+/* ========= BOTÓN PRINCIPAL ========= */
+
+.main-button {
+    background: #2f6c32;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 18px;
+}
+
+.main-button:hover {
+    background: #244e28;
+}
+
+/* ========= MENSAJE DE ÉXITO ========= */
+
+.success-msg {
+    margin-top: 20px;
+    padding: 10px;
+    background: #e3f7e5;
+    border-left: 5px solid #2f6c32;
+    color: #2f6c32;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.success-icon {
+    width: 26px;
+}
+
+/* ========= FOOTER ========= */
+
+.logo-footer {
+    text-align: right;
+    margin-top: 40px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+
+
+
+
+
+

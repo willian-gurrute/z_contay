@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajustes Generales - Administrador</title>
+    <link rel="stylesheet" href="../../_css/ajustes-generales.css">
+     <link rel="stylesheet" href="../../_css/administrador-configuracion.css">
+</head>
+
+<body>
+
+    <!-- BARRA SUPERIOR -->
+    <header class="header-bar">
+        <div class="header-rol">Administrador</div>
+        <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+        <div class="header-user">
+            <span class="icon"><img src="../../img/campana.png" alt=""></span>
+            <span>Carlos Fernando</span>
+            <span class="icon"><img src="../../img/usuario-gestion.png" alt=""></span>
+        </div>
+    </header>
+
+    <div class="main-container">
+
+        <!-- MENÚ LATERAL -->
+        <nav class="sidebar">
+            <ul>
+                <li><a href="panel-control.html"><span class="icon"><img src="../../img/panel.jpg"></span>Panel Principal</a></li>
+                <li><a href="gestion_usuarios.html"><span class="icon"><img src="../../img/usuario-gestion.png"></span>Gestión de usuarios</a></li>
+                <li><a href="roles_permisos.html"><span class="icon"><img src="../../img/roles-permisos.png"></span>Roles y permisos</a></li>
+                <li><a href="crear_opciones.html"><span class="icon"><img src="../../img/opciones.jpg"></span>Crear Opciones</a></li>
+                <li><a href="contabilidad.html"><span class="icon"><img src="../../img/contabilidad.png"></span>Contabilidad</a></li>
+                <li><a href="ventas.html"><span class="icon"><img src="../../img/ventas.png"></span>Ventas</a></li>
+                <li><a href="inventario.html"><span class="icon"><img src="../../img/inventario.png"></span>Inventario</a></li>
+                <li><a href="reportes.html"><span class="icon"><img src="../../img/reportes.png"></span>Reportes</a></li>
+                <li><a href="configuracion.html" class="active-item"><span class="icon"><img src="../../img/configuracion.png"></span>Configuración</a></li>
+                <li><a href="perfil.html"><span class="icon"><img src="../../img/perfil.png"></span>Perfil</a></li>
+                <li><a href="cerrar_sesion.html"><span class="icon"><img src="../../img/cerrar-seccion.png"></span>Cerrar sesión</a></li>
+            </ul>
+        </nav>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="content-area">
+
+            <h1 class="h1-title">Ajustes Generales</h1>
+            <p class="subtitulo">Modifica la información del negocio, logo, horarios y datos institucionales</p>
+
+            <!-- FORMULARIO -->
+            <form class="form-ajustes" onsubmit="return false;">
+
+             <label for="nombre-negocio">Nombre del negocio:</label>
+             <input type="text" id="nombre-negocio" placeholder="Nombre del negocio" value="Galpón Aves del Paraíso">
+
+             <label for="nit">NIT:</label>
+             <input type="text" id="nit" placeholder="NIT del negocio" value="900123456-7">
+
+             <label for="direccion">Dirección:</label>
+             <input type="text" id="direccion" placeholder="Dirección del negocio" value="Calle 123, Medellin">
+
+             <label for="ciudad">Ciudad:</label>
+             <input type="text" id="ciudad" placeholder="Ciudad" value="Medellin">
+
+             <label for="departamento">Departamento:</label>
+             <input type="text" id="departamento" placeholder="Departamento" value="Antioquia">
+
+             <label for="telefono">Teléfono:</label>
+             <input type="text" id="telefono" placeholder="Teléfono" value="3001234567">
+
+             <label for="correo">Correo electrónico:</label>
+             <input type="email" id="correo" placeholder="Correo electrónico" value="contacto@z-contay.com">
+
+             <label for="horario">Horario de atención:</label>
+             <input type="text" id="horario" placeholder="Ej: Lunes a Viernes 7:00-17:00" value="Lunes a Viernes 7:00-17:00">
+
+             <label for="logo">Logo del negocio:</label>
+             <input type="file" id="logo">
+
+             <button type="submit" class="main-button">Guardar cambios</button>
+
+            </form>
+
+
+            <div class="logo-footer">Z-CONTAY</div>
+
+        </main>
+
+    </div>
+
+</body>
+</html>

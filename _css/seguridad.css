@@ -1,0 +1,170 @@
+/* ====== RESET GENERAL ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* ====== HEADER ====== */
+.header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2f6c32; /* Verde institucional */
+    color: white;
+    padding: 15px;
+}
+
+.header-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-user img {
+    width: 24px;
+    height: 24px;
+}
+
+/* ====== LAYOUT ====== */
+.main-container {
+    display: flex;
+}
+
+/* ====== SIDEBAR ====== */
+.sidebar {
+    width: 220px;
+    background-color: #e8e8e8; /* gris claro */
+    padding-top: 20px;
+    height: 100vh;
+    position: fixed;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    font-size: 16px;
+    color: #333;
+}
+
+.sidebar ul li a:hover {
+    background-color: #dcdcdc;
+}
+
+.active-item {
+    background-color: white;
+    font-weight: bold;
+    border-right: 4px solid #2f6c32;
+}
+
+.sidebar .icon img {
+    width: 26px;
+    height: 26px;
+    margin-right: 10px;
+}
+/* ====== SIDEBAR ====== */
+/* ====== SIDEBAR ====== */
+.sidebar {
+    width: 220px;
+    background-color: #e8e8e8; /* gris claro */
+    padding-top: 20px;
+    height: auto; /* altura automática según contenido */
+    position: relative; /* se mueve con la página */
+    border-right: 1px solid #ddd;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #dcdcdc; /* hover gris claro */
+    color: #333;
+}
+
+/* Se elimina el estilo activo de borde y subrayado */
+.sidebar ul li a.active-item {
+    background-color: #e8e8e8; /* mismo color que la sidebar */
+    font-weight: normal;
+    border-right: none;
+}
+
+
+/* ====== AREA DE CONTENIDO ====== */
+.content-area {
+    flex: 1;
+    margin-left: 220px;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.h1-title {
+    color: #2f6c32; /* Verde institucional */
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* ====== TARJETAS DE CONFIGURACIÓN ====== */
+.config-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.config-card h2 {
+    color: #2f6c32; /* Verde institucional */
+    margin-bottom: 15px;
+}
+
+.config-card label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+/* ====== BOTÓN ====== */
+.main-button {
+    background-color: #2f6c32;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.main-button:hover {
+    background-color: #244e28; /* verde más oscuro */
+}
+
+/* ====== FOOTER ====== */
+.logo-footer {
+    text-align: right;
+    margin-top: 40px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}

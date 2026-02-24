@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Recuperar contraseña</title>
+    <link rel="stylesheet" href="../../_css/olvidastes-contraseña.css">
+</head>
+
+<body>
+
+    <h1 class="titulo-principal">Z-CONTAY - Recuperar Contraseña</h1>
+
+    <div class="recuperar-container">
+
+        <h2>¿Olvidaste tu contraseña?</h2>
+        <p class="texto-info">
+            Ingresa tu correo o usuario y te enviaremos un enlace para restablecer tu contraseña.
+        </p>
+
+       <form action="recuperar_password.php" method="POST">
+       <label>Correo o usuario:</label>
+       <input type="email" name="correo_electronico" placeholder="Escribe tu correo" required>
+
+       <button type="submit">Enviar enlace</button>
+       </form>
+
+        <p class="volver">
+            <a href="inicio-seccion.html">←Volver al inicio de sesión</a>
+        </p>
+    </div>
+
+</body>
+</html>

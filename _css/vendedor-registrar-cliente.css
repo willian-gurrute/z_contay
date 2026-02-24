@@ -1,0 +1,95 @@
+/*formulario registrar cliente*/
+.form-box{
+    width:480px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rngb(0,0,0,0,0.1);
+
+}
+
+/*titulo*/
+.form-box h2 {
+text-align: center;
+color:#2f6c32;
+margin-bottom: 20px;
+}
+
+/*labels*/
+
+.form-box label ¨{
+    display: block;
+    margin-top:12px;
+    font-weight:bold;
+    color:#555;
+}
+
+/*inputs*/
+
+.form-box input{
+    width:100%;
+    padding:9px;
+    margin-top: 5px;
+    border: 1px solid # aaa;
+    border-radius: 6px;
+}
+
+/*dos columnas*/
+.two-columns{
+    display: flex;
+    gap: 15px;
+}
+
+.two-columns div {
+    flex: 1;
+}
+
+/*boton guardar*/
+
+.main-button {
+    margin-top:25px;
+    width: 100%;
+    background:#2f6c32;
+    color: white;
+    border:none;
+    padding: 11px;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer; 
+}
+
+.main-button:hover{
+    background:#245026;
+}
+
+/*mensaje exito*/
+
+.success-msg{
+    width:480px;
+    margin: 20px auto;
+    background: #c7f5c4;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.success-icon{
+    width: 20px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/*responsive*/
+
+@media(max-width: 600px) {
+    .form-box{
+        width:100%;
+    }
+    .two-columns{
+      flex-direction: column;
+    }
+
+}
+

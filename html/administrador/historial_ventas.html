@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial Completo de Ventas - Administrador</title>
+    
+    <link rel="stylesheet" href="../../_css/administrador-panel control.css"> 
+    <link rel="stylesheet" href="../../_css/historial-ventas.css"> 
+</head>
+
+<body>
+
+    <div class="header-bar">
+        <div class="header-rol">Administrador</div>
+        <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+        <div class="header-user">
+            <span class="icon"><img src="../../img/campana.png" alt="notificaciones" width="24" height="24"></span>
+            <span> Carlos Fernando Hurtado</span>
+            <span class="icon"><img src="../../img/usuario-gestion.png" alt="Perfil" width="24" height="24"></span>
+        </div>
+    </div>
+
+    <div class ="main-container">
+    
+        <nav class="sidebar">
+            <ul>
+                <li class="active-item">
+                    <a href="#"><span class="icon"><img src="../../img/ventas.png" alt="Ventas"></span>Ventas</a>
+                </li>
+                
+                </ul>
+        </nav>
+
+        <main class="content-area">
+            <h1 class="h1-title">Historial Completo de Ventas</h1>
+            
+            <div class="card-wrapper filters-card">
+                <h2>Filtros de Búsqueda</h2>
+                <form class="filters-form">
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="fecha_inicio">Rango de Fecha:</label>
+                            <input type="date" id="fecha_inicio" name="fecha_inicio" required>
+                            <span class="date-separator">a</span>
+                            <input type="date" id="fecha_fin" name="fecha_fin" required>
+                        </div>
+                        
+                        <div class="form-group half">
+                            <label for="cliente">Buscar Cliente:</label>
+                            <input type="text" id="cliente" name="cliente" placeholder="Nombre o ID del cliente">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="estado">Estado del Pedido:</label>
+                            <select id="estado" name="estado">
+                                <option value="">Todos los Estados</option>
+                                <option value="pendiente">Pendiente</option>
+                                <option value="completado">Completado</option>
+                                <option value="cancelado">Cancelado</option>
+                                <option value="facturado">Facturado</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group half">
+                            <label for="vendedor">Filtrar por Vendedor:</label>
+                            <select id="vendedor" name="vendedor">
+                                <option value="">Todos los Vendedores</option>
+                                <option value="v1">Vendedor 1</option>
+                                <option value="v2">Vendedor 2</option>
+                                </select>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-actions">
+                        <button type="submit" class="main-button primary-button">
+                            Aplicar Filtros
+                        </button>
+                        
+                    </div>
+                </form>
+            </div>
+            
+            <div class="section-container card-wrapper">
+                <h2>Resultados de Búsqueda (Últimos 100 Pedidos)</h2>
+                
+                <div class="table-wrapper">
+                    <table class="tabla-historial-ventas">
+                        <thead>
+                            <tr>
+                                <th>ID Pedido</th>
+                                <th>Fecha</th>
+                                <th>Cliente</th>
+                                <th>Vendedor</th>
+                                <th>Total ($)</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="estado-facturado">
+                                <td>P-00125</td>
+                                <td>2025-11-21</td>
+                                <td>Supermercado XYZ</td>
+                                <td>Vendedor 1</td>
+                                <td>$ 550.000</td>
+                                <td class="estado facturado">Facturado</td>
+                                <td class="acciones">
+                                    <button class="btn-detalle">Ver Detalle</button>
+                                </td>
+                            </tr>
+                            <tr class="estado-completado">
+                                <td>P-00124</td>
+                                <td>2025-11-20</td>
+                                <td>Tienda de Barrio El Sol</td>
+                                <td>Vendedor 2</td>
+                                <td>$ 250.000</td>
+                                <td class="estado completado">Completado</td>
+                                <td class="acciones">
+                                    <button class="btn-detalle">Ver Detalle</button>
+                                    <button class="btn-imprimir">Imprimir</button>
+                                </td>
+                            </tr>
+                            <tr class="estado-cancelado">
+                                <td>P-00123</td>
+                                <td>2025-11-19</td>
+                                <td>Restaurante La Granja</td>
+                                <td>Vendedor 1</td>
+                                <td>$ 450.000</td>
+                                <td class="estado cancelado">Cancelado</td>
+                                <td class="acciones">
+                                    <button class="btn-detalle">Ver Detalle</button>
+                                </td>
+                            </tr>
+                            <tr class="estado-pendiente">
+                                <td>P-00122</td>
+                                <td>2025-11-18</td>
+                                <td>Distribuidora Central</td>
+                                <td>Vendedor 3</td>
+                                <td>$ 1.200.000</td>
+                                <td class="estado pendiente">Pendiente</td>
+                                <td class="acciones">
+                                    <button class="btn-detalle">Ver Detalle</button>
+                                    <button class="btn-facturar">Facturar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="table-actions">
+                    <button class="main-button secondary-button">
+                        Exportar a Excel
+                    </button>
+                    </div>
+            </div>
+
+            <div class="logo-footer">Z-CONTAY</div>
+        </main> 
+    </div>
+
+</body>
+</html>

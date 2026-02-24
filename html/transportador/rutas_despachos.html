@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Transportador - Rutas y Despachos</title>
+
+    <link rel="stylesheet" href="../../_css/trasportador-rutas-despachos.css">
+</head>
+
+<body>
+
+<header class="header-bar">
+    <div class="header-rol">Transportador</div>
+    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+    <div class="header-user">
+        <span class="icon"><img src="../../img/campana.png"></span>
+        <span>Juan Transportador</span>
+        <span class="icon"><img src="../../img/usuario-gestion.png"></span>
+    </div>
+</header>
+
+<div class="main-container">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <ul>
+            <li><a href="panel_principal.html"><span class="icon"><img src="../../img/panel.jpg"></span> Panel Principal</a></li>
+
+            <li class="active-item"><a href="rutas_despachos.html"><span class="icon"><img src="../../img/despachos.png"></span> Rutas y despachos</a></li>
+
+            <li><a href="registrar_entrega.html"><span class="icon"><img src="../../img/entrega.png"></span> Registrar entrega</a></li>
+
+            <li><a href="listado_pedidos.html"><span class="icon"><img src="../../img/listado-pedidos.png"></span> Listado de pedidos</a></li>
+
+            <li><a href="reportes_despachos.html"><span class="icon"><img src="../../img/reportes.png"></span> Reportes de despachos</a></li>
+
+            <li><a href="perfil.html"><span class="icon"><img src="../../img/perfil.png"></span> Perfil</a></li>
+
+            <li><a href="cerrar_sesion.html"><span class="icon"><img src="../../img/cerrar-seccion.png"></span> Cerrar sesión</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <main class="content-area">
+
+        <h1 class="h1-title">Rutas y Despachos</h1>
+        <h3 class="subtitulo">Despachos asignados</h3>
+
+        <table class="tabla-despachos">
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Tipo de huevo</th>
+                    <th>Cantidad</th>
+                    <th>Destino</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr data-id="1">
+                    <td>Cliente A</td>
+                    <td>AA</td>
+                    <td>120</td>
+                    <td>Barrio Centro</td>
+                    <td class="estado">Pendiente</td>
+                    <td class="acciones">
+                        <button class="btn-entregado btn-confirmar">Confirmar</button>
+                        <button class="btn-incidencia btn-reportar">Reportar</button>
+                    </td>
+                </tr>
+
+                <tr data-id="2">
+                    <td>Cliente B</td>
+                    <td>AAA</td>
+                    <td>80</td>
+                    <td>Sector Norte</td>
+                    <td class="estado">Asignado</td>
+                    <td class="acciones">
+                        <button class="btn-entregado btn-confirmar">Confirmar</button>
+                        <button class="btn-incidencia btn-reportar">Reportar</button>
+                    </td>
+                </tr>
+
+                <tr data-id="3">
+                    <td>Cliente C</td>
+                    <td>Jumbo</td>
+                    <td>30</td>
+                    <td>Parque Industrial</td>
+                    <td class="estado">Incidencia</td>
+                    <td class="acciones">
+                        <button class="btn-entregado btn-confirmar">Confirmar</button>
+                        <button class="btn-incidencia btn-reportar">Reportar</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <div class="logo-footer">Z-CONTAY</div>
+    </main>
+</div>
+
+
+<script>
+// CONFIRMAR ENTREGA → ir a registrar_entrega.html
+document.addEventListener('click', function(e){
+    if (e.target.classList.contains('btn-confirmar')) {
+        const row = e.target.closest('tr');
+        const estado = row.querySelector('.estado');
+
+        estado.textContent = "En entrega";
+        estado.style.color = "#1b7a3a";
+
+        window.location.href = "registrar_entrega.html";
+    }
+
+    // REPORTAR INCIDENCIA → ir a reportar_incidencia.html
+    if (e.target.classList.contains('btn-reportar')) {
+        const row = e.target.closest('tr');
+        const estado = row.querySelector('.estado');
+
+        estado.textContent = "Incidencia";
+        estado.style.color = "#c63636";
+
+        window.location.href = "reportar_incidencia.html";
+    }
+});
+</script>
+
+</body>
+</html>

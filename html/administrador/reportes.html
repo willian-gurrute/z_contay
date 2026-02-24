@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reportes - Administrador</title>
+    <link rel="stylesheet" href="../../_css/administrador-reportes.css">
+</head>
+<body>
+
+    <!-- BARRA SUPERIOR -->
+    <header class="header-bar">
+        <div class="header-rol">Administrador</div>
+        <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+        <div class="header-user">
+            <span class="icon"><img src="../../img/campana.png" alt=""></span>
+            <span>Carlos Fernando</span>
+            <span class="icon"><img src="../../img/usuario-gestion.png" alt=""></span>
+        </div>
+    </header>
+
+    <div class="main-container">
+
+        <!-- MENÚ IZQUIERDO -->
+        <nav class="sidebar">
+            <ul>
+                <li><a href="panel-control.html"><span class="icon"><img src="../../img/panel.jpg"></span>Panel Principal</a></li>
+                <li><a href="gestion_usuarios.html"><span class="icon"><img src="../../img/usuario-gestion.png"></span>Gestión de usuarios</a></li>
+                <li><a href="roles_permisos.html"><span class="icon"><img src="../../img/roles-permisos.png"></span>Roles y permisos</a></li>
+                <li><a href="crear_opciones.html"><span class="icon"><img src="../../img/opciones.jpg"></span>Crear Opciones</a></li>
+                <li><a href="contabilidad.html"><span class="icon"><img src="../../img/contabilidad.png"></span>Contabilidad</a></li>
+                <li><a href="ventas.html"><span class="icon"><img src="../../img/ventas.png"></span>Ventas</a></li>
+                <li><a href="inventario.html"><span class="icon"><img src="../../img/inventario.png"></span>Inventario</a></li>
+                <li class="active-item">
+                    <a href="#"><span class="icon"><img src="../../img/reportes.png"></span>Reportes</a>
+                </li>
+                <li><a href="configuracion.html"><span class="icon"><img src="../../img/configuracion.png"></span>Configuración</a></li>
+                <li><a href="perfil.html"><span class="icon"><img src="../../img/perfil.png"></span>Perfil</a></li>
+                <li><a href="cerrar_sesion.html"><span class="icon"><img src="../../img/cerrar-seccion.png"></span>Cerrar sesión</a></li>
+            </ul>
+        </nav>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="content-area">
+
+    <h1 class="h1-title">Reportes del sistema</h1>
+
+    <!-- FILTRO GLOBAL -->
+    <div class="global-filter">
+
+        <label>Tipo de reporte:</label>
+        <select>
+            <option>Usuarios</option>
+            <option>Inventario</option>
+            <option>Ventas</option>
+            <option>Rutas</option>
+            <option>Financiero</option>
+            <option>General</option>
+        </select>
+
+        <label>Fecha desde:</label>
+        <input type="date">
+
+        <label>Fecha hasta:</label>
+        <input type="date">
+
+        <button class="main-button">Generar reporte</button>
+
+    </div>
+
+    <!-- INFORMACIÓN DE REPORTES -->
+    <div class="report-info">
+
+        <div class="report-card">
+            <h2>Usuarios</h2>
+            <p>Listado completo de usuarios, roles y estado.</p>
+        </div>
+
+        <div class="report-card">
+            <h2>Inventario</h2>
+            <p>Existencias actuales, movimientos y alertas.</p>
+        </div>
+
+        <div class="report-card">
+            <h2>Ventas</h2>
+            <p>Historial de ventas y ganancias.</p>
+        </div>
+
+        <div class="report-card">
+            <h2>Rutas</h2>
+            <p>Despachos y estados de envío.</p>
+        </div>
+
+        <div class="report-card">
+            <h2>Financiero</h2>
+            <p>Balance general, ingresos y egresos.</p>
+        </div>
+
+        <div class="report-card">
+            <h2>General</h2>
+            <p>Resumen completo del sistema.</p>
+        </div>
+
+    </div>
+
+    <div class="logo-footer">Z-CONTAY</div>
+
+</main>
+
+    </div>
+
+</body>
+</html>

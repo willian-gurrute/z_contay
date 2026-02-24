@@ -1,0 +1,72 @@
+/* Contenedor del formulario */
+.form-venta {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Labels y inputs */
+.form-venta label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-venta input,
+.form-venta select {
+    width: 300%;
+    max-width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.form-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+/* Botones */
+.form-venta .main-button,
+.form-venta .btn-eliminar {
+    margin-top: 10px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #2f6c32;
+    color: white;
+}
+
+.form-venta .main-button:hover,
+.form-venta .btn-eliminar:hover {
+    background-color: #244e28;
+}
+
+/* Tabla productos */
+.tabla-productos {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+
+.tabla-productos th,
+.tabla-productos td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+/* Totales */
+.totales {
+    margin-top: 15px;
+    text-align: right;
+}
+
+.totales h2 {
+    margin-top: 5px;
+}

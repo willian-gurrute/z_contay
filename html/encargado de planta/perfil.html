@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil - Encargado de Planta</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../../_css/control-inventario.css">
+    <link rel="stylesheet" href="../../_css/encargado-perfil.css">
+</head>
+
+<body>
+
+<!-- BARRA SUPERIOR -->
+<header class="header-bar">
+    <div class="header-rol">Encargado de planta</div>
+    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+    <div class="header-user">
+        <span class="icon"><img src="../../img/campana.png" width="24"></span>
+        <span>Andres Imbachi</span>
+        <span class="icon"><img src="../../img/usuario-gestion.png" width="24"></span>
+    </div>
+</header>
+
+<div class="main-container">
+
+    <!-- MENÚ LATERAL -->
+    <nav class="sidebar">
+        <ul>
+            <li><a href="panel_control.html">
+                <span class="icon"><img src="../../img/panel.jpg"></span> Panel Principal
+            </a></li>
+
+            <li><a href="control_inventario.html">
+                <span class="icon"><img src="../../img/inventario.png"></span> Control de inventario
+            </a></li>
+
+            <li><a href="movimiento_entrada_salida.html">
+                <span class="icon"><img src="../../img/entrada-salida.png"></span> Movimiento Entrada/Salida
+            </a></li>
+
+            <li><a href="gestion_despachos.html">
+                <span class="icon"><img src="../../img/despachos.png"></span> Gestión de Despachos
+            </a></li>
+
+            <li><a href="rutas_entrega.html">
+                <span class="icon"><img src="../../img/rutas.png"></span> Rutas de Entrega
+            </a></li>
+
+            <li class="active-item"><a href="#">
+                <span class="icon"><img src="../../img/perfil.png"></span> Perfil
+            </a></li>
+
+            <li><a href="cerrar_sesion.html">
+                <span class="icon"><img src="../../img/cerrar-seccion.png"></span> Cerrar sesión
+            </a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENIDO CENTRAL -->
+    <main class="content-area">
+
+        <h1 class="h1-title">Mi Perfil</h1>
+
+        <div class="perfil-card">
+
+            <img src="../../img/perfil.png" class="perfil-foto">
+
+            <h2 class="perfil-nombre">Andres Imbachi</h2>
+
+            <p><strong>Correo:</strong> encargado@zcontay.com</p>
+            <p><strong>Documento:</strong> 1095821476</p>
+            <p><strong>Telefono:</strong> 321 456 7890</p>
+            
+
+            <div class="perfil-botones">
+                <button class="btn-editar" onclick="location.href='editar_perfil.html'">
+                    Editar perfil
+                </button>
+
+                <button class="btn-contra" onclick="location.href='cambiar_contraseña.html'">
+                    Cambiar contraseña
+                </button>
+            </div>
+
+        </div>
+
+        <div class="logo-footer">Z-CONTAY</div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

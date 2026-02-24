@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Configuración - Administrador</title>
+    <link rel="stylesheet" href="../../_css/administrador-configuracion.css">
+</head>
+
+<body>
+
+    <!-- BARRA SUPERIOR -->
+    <header class="header-bar">
+        <div class="header-rol">Administrador</div>
+        <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+        <div class="header-user">
+            <span class="icon"><img src="../../img/campana.png" alt=""></span>
+            <span>Carlos Fernando</span>
+            <span class="icon"><img src="../../img/usuario-gestion.png" alt=""></span>
+        </div>
+    </header>
+
+    <div class="main-container">
+
+        <!-- MENÚ LATERAL -->
+        <nav class="sidebar">
+            <ul>
+                <li><a href="panel-control.html"><span class="icon"><img src="../../img/panel.jpg"></span>Panel Principal</a></li>
+                <li><a href="gestion_usuarios.html"><span class="icon"><img src="../../img/usuario-gestion.png"></span>Gestión de usuarios</a></li>
+                <li><a href="roles_permisos.html"><span class="icon"><img src="../../img/roles-permisos.png"></span>Roles y permisos</a></li>
+                 <li> <a href="crear_opciones.html"><span class="icon"><img src="../../img/opciones.jpg"></span>Crear Opciones</a></li>
+                <li><a href="contabilidad.html"><span class="icon"><img src="../../img/contabilidad.png"></span>Contabilidad</a></li>
+                <li><a href="ventas.html"><span class="icon"><img src="../../img/ventas.png"></span>Ventas</a></li>
+                <li><a href="inventario.html"><span class="icon"><img src="../../img/inventario.png"></span>Inventario</a></li>
+                <li><a href="reportes.html"><span class="icon"><img src="../../img/reportes.png"></span>Reportes</a></li>
+
+                <li class="active-item">
+                    <a href="#">
+                        <span class="icon"><img src="../../img/configuracion.png"></span>Configuración
+                    </a>
+                </li>
+
+                <li><a href="perfil.html"><span class="icon"><img src="../../img/perfil.png"></span>Perfil</a></li>
+
+                <li><a href="cerrar_sesion.html"><span class="icon"><img src="../../img/cerrar-seccion.png"></span>Cerrar sesión</a></li>
+            </ul>
+        </nav>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="content-area">
+
+            <h1 class="h1-title">Configuración del sistema</h1>
+
+            <div class="config-grid">
+
+                <!-- AJUSTES GENERALES -->
+                <div class="config-card">
+                    <h2>Ajustes generales</h2>
+                    <p>Información del negocio, logo, horarios y datos institucionales.</p>
+                    <button onclick="location.href='ajustes_generales.html'">Modificar</button>
+
+                </div>
+
+                <!-- NOTIFICACIONES -->
+                <div class="config-card">
+                    <h2>Notificaciones</h2>
+                    <p>Control de alertas del sistema: inventario, ventas, pedidos y rutas.</p>
+                    <button onclick="location.href='notificaciones.html'">Administrar</button>
+
+                </div>
+
+                <!-- SEGURIDAD -->
+                <div class="config-card">
+                    <h2>Seguridad</h2>
+                    <p>Cambiar contraseña, reglas de acceso y parámetros de seguridad.</p>
+                    <button onclick="location.href='seguridad.html'">Cambiar</button>
+                </div>
+
+                <!-- BASE DE DATOS -->
+                <div class="config-card">
+                    <h2>Base de datos</h2>
+                    <p>Respaldo, restauración y mantenimiento del sistema.</p>
+                    <button onclick="location.href='base_datos.html'">Gestionar</button>
+
+                </div>
+
+            </div>
+
+            <div class="logo-footer">Z-CONTAY</div>
+
+        </main>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Registrar Cliente</title>
+<link rel="stylesheet" href="../../_css/vendedor-base.css">
+<link rel="stylesheet" href="../../_css/vendedor-registrar-cliente.css">
+</head>
+
+<body>
+    <header class="header-bar">
+        <div class="header-rol">vendedor</div>
+        <div class="header-system">Z-CONTAY-Galpon Aves del Paraiso</div>
+
+        <div class="header-user">
+            <span class="icon"><img src="../../img/campana.png"></span>
+            <span>Juan lopez</span>
+            <span class="icon"><img src="../../img/usuario-gestion.png"></span>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <nav class="sidebar">
+            <ul>
+                <li><a href="panel_principal.html">panel Principal</a></li>
+                <li class="active-item"> <a href="#">Registrar Cliente</a></li>
+            </ul>
+        </nav>
+        <main class="content-area">
+            <h1 class="h1-title">Registrar Cliente</h1>
+            <div class="form-box">
+
+                <label>Documento</label>
+                <input id="doc">
+
+                <label>Nombre</label>
+                <input id="nombre">
+
+                <label>telefono</label>
+                <input id="telefono">
+                
+                <button class="main-button" onclick="guardarCliente()">
+                    Guardar Cliente
+                </button>
+            </div>
+            <div class="logo-footer">Z-CONTAY</div>
+        </main>
+    </div>
+
+    <script>
+        function guardarCliente(){
+            const doc= document.getElementById("doc").value;
+            const nombre = document.getElementById("nombre").value;
+            const telefono= document.getElementById("telefeno").value;
+
+            localStorage.setItem(doc, JSON.stringify({
+                nombre: nombre,
+                telefono: telefono
+            }));
+
+            alert("cliente registrado");
+            window.location.href="registrar_venta.html";
+        }
+    </script>
+</body>
+</html>

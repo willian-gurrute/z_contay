@@ -1,0 +1,65 @@
+/* Tabla historial */
+.tabla-historial {
+    width: 90%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+}
+
+.tabla-historial th,
+.tabla-historial td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: left;
+}
+
+.tabla-historial th {
+    background: #f4f4f4;
+    font-weight: bold;
+}
+
+/* Estados */
+.estado {
+    font-weight: bold;
+}
+
+.estado.entregado {
+    color: #2f6c32;
+}
+
+.estado.pendiente {
+    color: #c7a000;
+}
+
+.estado.cancelado {
+    color: #c62828;
+}
+
+/* Botón Ver */
+.btn-ver {
+    background: #2f6c32;
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-ver:hover {
+    background: #245527;
+}
+
+/* Centrar contenido */
+.content-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-footer {
+    position: absolute;
+    bottom: 18px;
+    right: 30px;
+    font-weight: bold;
+}

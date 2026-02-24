@@ -1,0 +1,65 @@
+/* Tarjeta del formulario */
+.editar-card {
+    width: 420px;
+    background: white;
+    padding: 30px;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.12);
+}
+
+/* Título de la página (mismo gris claro del cliente) */
+.titulo-editar {
+    color: #555 !important;
+}
+
+/* Labels del formulario (gris claro igual al cliente) */
+.editar-form label {
+    font-weight: 600;
+    color: #555;
+    display: block;
+    margin-top: 12px;
+}
+
+/* Campos */
+.editar-form input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* Botones */
+.botones-editar {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-guardar {
+    background: #2f6c32;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-guardar:hover {
+    background: #244e28;
+}
+
+.btn-cancelar {
+    background: #777;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-cancelar:hover {
+    background: #555;
+}
+

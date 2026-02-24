@@ -1,0 +1,177 @@
+/* ====== ESTILOS GENERALES ====== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    box-sizing: border-box;
+}
+
+/* ====== HEADER ====== */
+.header-bar {
+    background-color: #2f6c32; /* Verde institucional */
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-bar .header-rol {
+    font-weight: bold;
+}
+
+.header-bar .header-system {
+    font-size: 1.1em;
+}
+
+.header-bar .header-user span {
+    margin-left: 10px;
+}
+
+/* ====== CONTENEDOR PRINCIPAL ====== */
+.main-container {
+    display: flex;          /* Sidebar y contenido en fila */
+    gap: 20px;              /* Espacio entre sidebar y contenido */
+    padding: 20px;          /* Espacio alrededor del contenedor */
+}
+
+/* ====== BARRA LATERAL ====== */
+.sidebar {
+    width: 220px;
+    background-color: #e8e8e8; /* Gris claro */
+    position: sticky;       /* Se mueve con la pantalla */
+    top: 0;                 /* Alineada al top */
+    border-right: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    color: #333;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #dcdcdc; /* Gris al pasar el mouse */
+}
+
+.sidebar ul li a.active-item {
+    background-color: #fff;
+    font-weight: bold;
+    border-right: 4px solid #2f6c32; /* Verde institucional */
+}
+
+.sidebar ul li a .icon img {
+    width: 26px;
+    height: 26px;
+    margin-right: 10px;
+}
+
+/* ====== AREA DE CONTENIDO ====== */
+.content-area {
+    flex: 1;                /* Ocupa todo el espacio disponible */
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+}
+
+/* ====== TITULOS ====== */
+.h1-title {
+    color: #2f6c32; /* Verde institucional */
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    margin-bottom: 25px;
+    color: #555;
+}
+
+/* ====== SECCIONES DE BASE DE DATOS ====== */
+.db-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start; /* Alinea al inicio, ocupa espacio completo */
+}
+
+.db-card {
+    flex: 1 1 300px;       /* Mínimo 300px, se expande hasta llenar la fila */
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.db-card h2 {
+    color: #2f6c32; /* Verde institucional */
+    margin-bottom: 10px;
+}
+
+.db-card p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.db-card input[type="file"] {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* ====== BOTONES ====== */
+.main-button {
+    background-color: #2f6c32; /* Verde institucional */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.main-button:hover {
+    background-color: #244e28; /* Verde más oscuro */
+}
+
+/* ====== FOOTER LOGO ====== */
+.logo-footer {
+    text-align: center;
+    margin-top: 40px;
+    font-weight: bold;
+    color: #2f6c32; /* Verde institucional */
+}
+
+/* ====== AJUSTE RESPONSIVO ====== */
+@media (min-width: 1200px) {
+    .db-section {
+        justify-content: space-between; /* Distribuye las tarjetas uniformemente */
+    }
+}
+
+@media (max-width: 800px) {
+    .main-container {
+        flex-direction: column; /* En pantallas pequeñas, sidebar arriba y contenido abajo */
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .content-area {
+        padding: 15px;
+    }
+}

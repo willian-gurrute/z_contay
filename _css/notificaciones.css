@@ -1,0 +1,129 @@
+/* ====== ESTILOS GENERALES ====== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* ====== HEADER ====== */
+.header-bar {
+    background-color: #2f6c32; /* Verde institucional correcto */
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-bar .header-rol {
+    font-weight: bold;
+}
+
+.header-bar .header-system {
+    font-size: 1.1em;
+}
+
+.header-bar .header-user span {
+    margin-left: 10px;
+}
+
+/* ====== BARRA LATERAL ====== */
+.sidebar {
+    width: 220px;
+    background-color: #fff;
+    position: fixed;
+    top: 60px; /* altura del header */
+    bottom: 0;
+    left: 0;
+    border-right: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active-item {
+    background-color: #dcdcdc; /* Gris claro igual que las otras pantallas */
+    color: #333; /* Mantener el texto oscuro */
+}
+
+.sidebar ul li a .icon img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+/* ====== AREA DE CONTENIDO ====== */
+.main-container {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+.content-area {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.h1-title {
+    color: #2f6c32; /* Verde institucional */
+}
+
+.subtitulo {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* ====== TARJETAS DE CONFIGURACIÓN ====== */
+.config-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.config-card h2 {
+    color: #2f6c32; /* Verde institucional */
+}
+
+.config-card p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.config-card button {
+    background-color: #2f6c32; /* Verde institucional */
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.config-card button:hover {
+    background-color: #244e28; /* Verde más oscuro al pasar el mouse */
+}
+
+/* ====== FOOTER LOGO ====== */
+.logo-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #2f6c32; /* Verde institucional */
+}

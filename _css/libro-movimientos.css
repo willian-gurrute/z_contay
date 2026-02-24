@@ -1,0 +1,117 @@
+/* ==================================== */
+/* CÓDIGO libro-movimientos.css */
+/* ==================================== */
+
+/* --- TARJETA DE FILTROS AVANZADOS --- */
+.card-wrapper.filtro-avanzado-card {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+}
+
+.filtro-avanzado-card h2 {
+    color: #2f6c32;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    font-size: 18px;
+}
+
+/* Distribución de la fila de filtros */
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.form-group.quarter {
+    flex-basis: 25%;
+    flex-grow: 1;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 13px;
+}
+
+.form-group input[type="date"],
+.form-group input[type="text"],
+.form-group select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+    font-size: 14px;
+}
+
+/* Botones de acción inferior (Aplicar/Exportar) */
+.form-actions-bottom {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding-top: 10px;
+}
+
+.secondary-button {
+    background-color: #007bff; /* Azul para exportar */
+}
+.secondary-button:hover {
+    background-color: #0056b3;
+}
+
+
+/* --- TABLA DEL LIBRO COMPLETO --- */
+.table-wrapper.movimientos-wrapper {
+    background: white; 
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.tabla-libro-completo {
+    width: 100%;
+    border-collapse: collapse; 
+    font-size: 14px;
+}
+
+.tabla-libro-completo thead th {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 2px solid #ccc;
+    font-weight: bold;
+}
+
+.tabla-libro-completo tbody td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.tabla-libro-completo tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Reutiliza estilos de color para Ingreso/Egreso de contabilidad.css */
+/* Asegúrate de que los colores de .valor-ingreso y .valor-egreso estén disponibles */
+
+/* Botón de detalle */
+.btn-info {
+    background-color: #17a2b8; /* Cyan para info/ver */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+.btn-info:hover {
+    background-color: #117a8b;
+}

@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+.header-bar {
+    background: #2f6c32;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 25px;
+}
+
+.header-user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-user img {
+    width: 24px;
+}
+
+/* LAYOUT */
+.main-container {
+    display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 260px;
+    background: #e8e8e8;
+    padding-top: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+}
+
+.sidebar img {
+    width: 28px;
+}
+
+.sidebar a:hover {
+    background: #dcdcdc;
+}
+
+.active-item a {
+    background: #ffffff;
+    border-right: 4px solid #2f6c32;
+    font-weight: bold;
+}
+
+/* CONTENT */
+.content-area {
+    flex-grow: 1;
+    padding: 35px;
+    position: relative;
+}
+
+/* FORM BOX */
+.form-box {
+    background: white;
+    padding: 25px;
+    width: 70%;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.two-columns {
+    display: flex;
+    gap: 25px;
+}
+
+.main-button {
+    background: #2f6c32;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.main-button:hover {
+    background: #245026;
+}
+
+/* SUCCESS MESSAGE */
+.success-msg {
+    background: #c7f5c4;
+    color: #264e20;
+    padding: 12px;
+    border-radius: 6px;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.success-msg img {
+    width: 30px;
+}
+
+/* FOOTER */
+.logo-footer {
+    position: absolute;
+    bottom: 15px;
+    right: 25px;
+    font-weight: bold;
+}

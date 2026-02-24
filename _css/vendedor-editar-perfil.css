@@ -1,0 +1,63 @@
+/* FORMULARIO PERFIL (centrado y limpio) */
+.perfil-form {
+    width: 450px;
+    margin: 30px auto;
+    padding: 25px;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Etiquetas gris claro */
+.perfil-form label {
+    margin-top: 12px;
+    margin-bottom: 5px;
+    color: #6a6a6a;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* Inputs */
+.perfil-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+/* Contenedor de botones */
+.perfil-botones {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Botón Guardar */
+.btn-guardar {
+    background: #2f6c32;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.btn-guardar:hover {
+    background: #244f27;
+}
+
+/* Botón Cancelar */
+.btn-cancelar {
+    background: #ccc;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.btn-cancelar:hover {
+    background: #aaaaaa;
+}

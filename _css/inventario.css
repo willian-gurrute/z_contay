@@ -1,0 +1,142 @@
+/* --- BASE --- */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* HEADER */
+.header-bar {
+    background: #2f6c32;
+    color: white;
+    padding: 12px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-user img {
+    width: 22px;
+}
+
+.main-container {
+    display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 250px;
+    background: #e8e8e8;
+    padding-top: 15px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    color: #222;
+    text-decoration: none;
+}
+
+.sidebar img {
+    width: 26px;
+}
+
+.sidebar a:hover {
+    background: #dcdcdc;
+}
+
+.active-item a {
+    background: white;
+    border-right: 4px solid #2f6c32;
+    font-weight: bold;
+}
+
+/* CONTENIDO */
+.content-area {
+    flex: 1;
+    padding: 30px;
+    position: relative;
+}
+
+.h1-title {
+    font-size: 28px;
+    color: #2f6c32;
+}
+
+.subtitulo {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* TARJETAS */
+.inventario-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.icon-card {
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+.card .valor {
+    color: #2f6c32;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* TABLA */
+.titulo-tabla {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.tabla-inventario {
+    width: 95%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.tabla-inventario th,
+.tabla-inventario td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+/* BOTÓN */
+.btn-actualizar {
+    background: #2f6c32;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-actualizar:hover {
+    background: #244d27;
+}
+
+/* LOGO */
+.logo-footer {
+    position: absolute;
+    bottom: 20px;
+    right: 25px;
+    font-weight: bold;
+}

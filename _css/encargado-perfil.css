@@ -1,0 +1,61 @@
+/* Centrado */
+.content-area {
+    flex: 1;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.h1-title {
+    color: #2f6c32;
+    margin-bottom: 20px;
+}
+
+/* Tarjeta de perfil */
+.perfil-card {
+    width: 350px;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.perfil-foto {
+    width: 110px;
+    margin-bottom: 10px;
+}
+
+.perfil-nombre {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.perfil-card p {
+    margin: 6px 0;
+    font-size: 16px;
+}
+
+/* Botones */
+.perfil-botones {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-editar,
+.btn-contra {
+    background: #2f6c32;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 48%;
+}
+
+.btn-editar:hover,
+.btn-contra:hover {
+    background: #244e28;
+}

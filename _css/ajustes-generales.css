@@ -1,0 +1,89 @@
+/* Estilos generales del body y content-area */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+.content-area {
+    max-width: 800px;
+    margin: auto;
+    padding: 25px;
+}
+
+/* Títulos y subtítulos */
+.h1-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Formulario de ajustes */
+.form-ajustes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* espacio entre cada campo */
+    max-width: 500px; /* ancho máximo del formulario */
+    margin-top: 20px;
+}
+
+.form-ajustes label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-ajustes input[type="text"],
+.form-ajustes input[type="email"],
+.form-ajustes input[type="file"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Botón principal */
+.form-ajustes button.main-button {
+    width: 200px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px; /* separación del último input */
+}
+
+.form-ajustes button.main-button:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+.logo-footer {
+    text-align: center;
+    margin-top: 40px;
+    font-weight: bold;
+    color: #777;
+}
+
+/* Ajuste responsive opcional */
+@media (max-width: 600px) {
+    .content-area {
+        padding: 15px;
+    }
+
+    .form-ajustes {
+        max-width: 100%;
+    }
+
+    .form-ajustes button.main-button {
+        width: 100%;
+    }
+}

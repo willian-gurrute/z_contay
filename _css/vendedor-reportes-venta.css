@@ -1,0 +1,83 @@
+/* FORMULARIO DE FILTROS */
+.filtros-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-bottom: 20px;
+    background: #fff;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+.filtros-form .campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.filtros-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.filtros-form input,
+.filtros-form select {
+    padding: 8px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+}
+
+/* BOTÓN */
+.btn-reporte {
+    background: #2f6c32;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    margin-top: auto;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-reporte:hover {
+    background: #245026;
+}
+
+/* TABLA */
+.tabla-reportes {
+    width: 95%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+.tabla-reportes th {
+    background: #2f6c32;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.tabla-reportes td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* ESTADOS */
+.estado {
+    font-weight: bold;
+}
+
+.estado.pagado {
+    color: #2f6c32;
+}
+
+.estado.pendiente {
+    color: #d69900;
+}
+
+.estado.anulada {
+    color: #c63636;
+}

@@ -1,0 +1,61 @@
+/* FORMULARIO CAMBIAR CONTRASEÑA */
+.form-pass {
+    /* Centrado y apariencia de tarjeta */
+    width: 420px;
+    margin: 30px auto; 
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.form-pass label {
+    color: #333 !important; 
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+.form-pass input {
+    width: 100%;
+    padding: 10px; 
+    margin-top: 5px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    box-sizing: border-box; 
+}
+
+/* BOTONES */
+.pass-botones {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn-guardar {
+    background: #2f6c32; /* Verde Z-CONTAY */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold; 
+}
+
+.btn-guardar:hover {
+    background: #245026;
+}
+
+.btn-cancelar {
+    background: #ccc;
+    color: #333; /* Color de texto agregado para claridad */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold; /* Añadido para consistencia */
+}
+
+.btn-cancelar:hover {
+    background: #b5b5b5;
+}

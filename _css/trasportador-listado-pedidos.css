@@ -1,0 +1,60 @@
+/* Tabla */
+.tabla-pedidos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tabla-pedidos th {
+    background: #2f6c32;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.tabla-pedidos td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Estados */
+.estado {
+    font-weight: bold;
+}
+
+.pendiente {
+    color: #d48a00;
+}
+
+.camino {
+    color: #0077c8;
+}
+
+.entregado {
+    color: #1b7a3a;
+}
+
+/* Botón */
+.btn-detalle {
+    background: #2f6c32;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-detalle:hover {
+    background: #244e28;
+}
+
+/* Subtítulo */
+.subtitulo {
+    margin-bottom: 12px;
+    color: #2f6c32;
+    font-weight: bold;
+}

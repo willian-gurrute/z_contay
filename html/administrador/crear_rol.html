@@ -2,94 +2,125 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Nuevo Rol - Administrador</title>
-    
-    <link rel="stylesheet" href="../../_css/administrador-panel control.css"> 
-    <link rel="stylesheet" href="../../_css/crear-rol.css"> 
+    <title>Crear Rol - Administrador</title>
+
+    <link rel="stylesheet" href="../../_css/admin-base.css">
+    <link rel="stylesheet" href="../../_css/crear-rol.css">
 </head>
 
 <body>
 
-    <div class="header-bar">
-        </div>
+<header class="header-bar">
+    <div class="header-rol">Administrador</div>
+    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
 
-    <div class ="main-container">
-    
-        <nav class="sidebar">
-            <ul>
-                <li class="active-item">
-                    <a href="#"><span class="icon"><img src="../../img/roles-permisos.png" alt="Roles y permisos"></span>Roles y permisos</a>
-                </li>
-                
-                </ul>
-        </nav>
-
-        <main class="content-area">
-            <h1 class="h1-title">Crear Nuevo Rol de Usuario</h1>
-            
-            <div class="card-wrapper form-card">
-                <form id="crearRolForm">
-                    
-                    <div class="seccion-form">
-                        <h3>Datos del Rol</h3>
-                        <div class="form-group">
-                            <label for="nombre_rol">Nombre del Rol:</label>
-                            <input type="text" id="nombre_rol" name="nombre_rol" placeholder="Ej: Encargado de Planta" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="descripcion">Descripción del Rol:</label>
-                            <textarea id="descripcion" name="descripcion" rows="2" placeholder="Breve descripción de las responsabilidades"></textarea>
-                        </div>
-                    </div>
-                    
-                    <div class="seccion-form">
-                        <h3>Asignación de Permisos</h3>
-                        <p class="instruccion">Marque las acciones que este rol puede realizar en el sistema:</p>
-                        
-                        <div class="permisos-grid">
-                            <div class="modulo-permiso">
-                                <h4>Gestión de Usuarios</h4>
-                                <label><input type="checkbox" name="permisos[]" value="user_crear"> Crear Usuario</label>
-                                <label><input type="checkbox" name="permisos[]" value="user_editar"> Editar Usuario</label>
-                                <label><input type="checkbox" name="permisos[]" value="user_eliminar"> Eliminar Usuario</label>
-                            </div>
-
-                            <div class="modulo-permiso">
-                                <h4>Inventario</h4>
-                                <label><input type="checkbox" name="permisos[]" value="inv_ver"> Ver Stock</label>
-                                <label><input type="checkbox" name="permisos[]" value="inv_ajustar"> Ajustar Inventario</label>
-                                <label><input type="checkbox" name="permisos[]" value="inv_traslado"> Registrar Traslados</label>
-                            </div>
-                            
-                            <div class="modulo-permiso">
-                                <h4>Ventas</h4>
-                                <label><input type="checkbox" name="permisos[]" value="ventas_crear"> Crear Venta</label>
-                                <label><input type="checkbox" name="permisos[]" value="ventas_ver_historial"> Ver Historial</label>
-                            </div>
-                            
-                            <div class="modulo-permiso">
-                                <h4>Reportes</h4>
-                                <label><input type="checkbox" name="permisos[]" value="rep_ventas"> Generar Reporte Ventas</label>
-                                <label><input type="checkbox" name="permisos[]" value="rep_contabilidad"> Generar Reporte Contable</label>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-actions">
-                        <button type="submit" class="main-button primary-button">
-                            Guardar Rol
-                        </button>
-                        <button type="button" class="main-button secondary-button" onclick="window.history.back()">
-                            Cancelar
-                        </button>
-                    </div>
-                </form>
-            </div>
-            
-            <div class="logo-footer">Z-CONTAY</div>
-        </main> 
+    <div class="header-user">
+        <span class="icon"><img src="../../img/campana.png" alt=""></span>
+        <span>Carlos Fernando</span>
+        <span class="icon"><img src="../../img/usuario-gestion.png" alt=""></span>
     </div>
+</header>
+
+<div class="main-container">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <ul>
+            <li><a href="panel-control.html"><span class="icon"><img src="../../img/panel.jpg"></span>Panel Principal</a></li>
+            <li><a href="gestion_usuarios.html"><span class="icon"><img src="../../img/usuario-gestion.png"></span>Gestión de usuarios</a></li>
+
+            <li class="active-item">
+                <a href="roles_permisos.html">
+                    <span class="icon"><img src="../../img/roles-permisos.png"></span>
+                    Roles y permisos
+                </a>
+            </li>
+
+            <li><a href="crear_opciones.html"><span class="icon"><img src="../../img/opciones.jpg"></span>Crear Opciones</a></li>
+            <li><a href="contabilidad.html"><span class="icon"><img src="../../img/contabilidad.png"></span>Contabilidad</a></li>
+            <li><a href="ventas.html"><span class="icon"><img src="../../img/ventas.png"></span>Ventas</a></li>
+            <li><a href="gestion_productos.html"><span class="icon"><img src="../../img/productos.png"></span>Productos</a></li>
+            <li><a href="registrar_gasto.html"><span class="icon"><img src="../../img/gastos.png"></span>Registrar Gasto</a></li>
+            <li><a href="inventario.html"><span class="icon"><img src="../../img/inventario.png"></span>Inventario</a></li>
+            <li><a href="reportes.html"><span class="icon"><img src="../../img/reportes.png"></span>Reportes</a></li>
+            <li><a href="configuracion.html"><span class="icon"><img src="../../img/configuracion.png"></span>Configuración</a></li>
+            <li><a href="perfil.html"><span class="icon"><img src="../../img/perfil.png"></span>Perfil</a></li>
+            <li><a href="../login/inicio-seccion.html"><span class="icon"><img src="../../img/cerrar-seccion.png"></span>Cerrar sesión</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <main class="content-area">
+
+        <h1 class="h1-title">Crear Nuevo Rol</h1>
+        <p class="subtitulo">Define el rol y selecciona las opciones que podrá utilizar.</p>
+
+        <form class="form-rol">
+
+            <!-- DATOS DEL ROL -->
+            <label>Nombre del Rol:</label>
+            <input type="text" name="nombre_rol" required>
+
+            <label>Descripción:</label>
+            <textarea name="descripcion" rows="3"></textarea>
+
+            <label>Estado:</label>
+            <select name="estado">
+                <option value="A">Activo</option>
+                <option value="I">Inactivo</option>
+            </select>
+
+            <!-- ASIGNACIÓN DE PERMISOS -->
+            <h3 style="margin-top:25px;">Asignación de Permisos</h3>
+
+            <div class="permisos-container">
+
+                <!-- Estas opciones luego vendrán de la tabla opciones -->
+                <label>
+                    <input type="checkbox" name="permisos[]" value="1">
+                    Gestión de usuarios
+                </label>
+
+                <label>
+                    <input type="checkbox" name="permisos[]" value="2">
+                    Inventario
+                </label>
+
+                <label>
+                    <input type="checkbox" name="permisos[]" value="3">
+                    Productos
+                </label>
+
+                <label>
+                    <input type="checkbox" name="permisos[]" value="4">
+                    Ventas
+                </label>
+
+                <label>
+                    <input type="checkbox" name="permisos[]" value="5">
+                    Reportes
+                </label>
+
+                <label>
+                    <input type="checkbox" name="permisos[]" value="6">
+                    Contabilidad
+                </label>
+
+            </div>
+
+            <!-- BOTONES -->
+            <div class="botones">
+                <button type="submit" class="btn-guardar">Guardar Rol</button>
+                <a href="roles_permisos.html" class="btn-cancelar">Cancelar</a>
+            </div>
+
+        </form>
+
+        <div class="logo-footer">Z-CONTAY</div>
+
+    </main>
+
+</div>
 
 </body>
 </html>

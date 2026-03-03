@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roles y Permisos - Administrador</title>
     
-    <link rel="stylesheet" href="../../_css/administrador-panel control.css"> 
+    <link rel="stylesheet" href="../../_css/admin-base.css"> 
     <link rel="stylesheet" href="../../_css/roles-permisos.css">
 </head>
 
@@ -73,6 +73,17 @@
         </li>
 
         <li>
+            <a href="gestion_productos.html">
+                <span class="icon"><img src="../../img/productos.png"></span>
+                Productos</a>
+            </li>
+
+        <li><a href="registrar_gasto.html">
+            <span class="icon"><img src="../../img/gastos.png" alt=""></span>
+            Registrar Gasto</a>
+        </li>
+
+        <li>
             <a href="inventario.html">
                 <span class="icon"><img src="../../img/inventario.png"></span>
                 Inventario
@@ -113,10 +124,11 @@
 
         <main class="content-area">
             <h1 class="h1-title">Gestión de Roles y Permisos</h1>
-            <button class="main-button roles_permisos.html" onclick="location.href='crear_rol.html'">
+               <button class="main-button" 
+                   onclick="location.href='crear_rol.html'">
                   +Crear Rol
                  </button>
-            
+             
             <div class="table-wrapper">
                 <table class="tabla-roles">
                     <thead>
@@ -135,7 +147,7 @@
                             <td>Control total del sistema.</td>
                             <td>Inventario (C/E), Usuarios (C/E/D), Reportes, Seguridad</td>
                             <td class="acciones">
-                                <button class="btn-editar">Editar</button>
+                                <a href="editar_rol.html" class="btn-editar">Editar</a>
                                 <button class="btn-desactivar">Eliminar</button>
                             </td>
                         </tr>

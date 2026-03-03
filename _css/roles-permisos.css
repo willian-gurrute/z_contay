@@ -1,68 +1,88 @@
-/* Alineación del botón principal (mantiene el estilo de main-button) */
+/* Ubicación del botón */
 .admin-button {
     display: block;
     margin-left: auto;
     margin-bottom: 20px;
-    font-weight: bold;
 }
-
-/* Contenedor para la tabla: ESTO ES LO QUE TE DA EL FONDO BLANCO Y LA SOMBRA */
+/* Wrapper opcional */
 .table-wrapper {
     overflow-x: auto;
-    background: white; /* Fondo blanco */
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
     margin-top: 20px;
 }
 
-/* Estilos de la Tabla de Roles y Permisos */
+/* Tabla igual a Gestión de usuarios */
 .tabla-roles {
-    width: 100%;
-    border-collapse: collapse; 
+    width: 95%;
+    border-collapse: collapse;
 }
 
-/* Encabezados de la Tabla */
-.tabla-roles thead th {
-    background-color: #f0f0f0;
-    color: #333;
-    padding: 12px 15px;
+.tabla-roles th,
+.tabla-roles td {
+    border: 1px solid #ccc;
+    padding: 10px;
     text-align: left;
-    border-bottom: 2px solid #ccc;
+    vertical-align: top;
+}
+
+.tabla-roles thead {
+    background: #f5f5f5;
     font-weight: bold;
 }
 
-/* Celdas de la Tabla */
-.tabla-roles tbody td {
-    padding: 12px 15px;
-    border-bottom: 1px solid #eee;
-    vertical-align: top;
-    word-wrap: break-word; 
-}
-
 .tabla-roles tbody tr:hover {
-    background-color: #f9f9f9;
+    background: #f9f9f9;
 }
 
-/* Estilos de Botones de Acción */
+/* Acciones */
+.acciones {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
 .acciones button {
     padding: 6px 12px;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 13px;
-    margin-right: 5px;
-    transition: background-color 0.2s;
-    display: inline-block;
-    margin-top: 5px; 
+    font-weight: bold;
+    color: white;
 }
 
+/* Colores institucionales */
 .btn-editar {
-    background-color: #007bff; /* Azul */
-    color: white;
+    background: #2f6c32;
+}
+
+.btn-editar:hover {
+    background: #244e28;
 }
 
 .btn-desactivar {
-    background-color: #dc3545; /* Rojo */
-    color: white;
+    background: #c63636;
 }
-/* ... otros hover si los necesitas ... */
+
+.btn-desactivar:hover {
+    background: #a52c2c;
+}
+
+.header-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+.btn-editar {
+    display: inline-block;      
+    padding: 6px 12px;
+    background-color: #2f6c32;
+    color: white;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;     
+    text-align: center;
+}
+
+.btn-editar:hover {
+    background-color: #244e28;
+}

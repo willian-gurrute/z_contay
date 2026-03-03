@@ -1,117 +1,94 @@
-/* ==================================== */
-/* CÓDIGO crear-rol.css */
-/* ==================================== */
 
-/* Contenedor principal del formulario (Estilo de tarjeta blanca) */
-.card-wrapper.form-card {
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 25px;
-    max-width: 900px; /* Ancho máximo para que no ocupe toda la pantalla */
-    margin-left: auto;
-    margin-right: auto;
-}
 
-.seccion-form {
-    border-bottom: 1px solid #eee;
-    padding-bottom: 20px;
+.subtitulo {
+    margin-top: 6px;
     margin-bottom: 20px;
-}
-
-.seccion-form h3 {
-    color: #2f6c32; 
-    margin-top: 0;
-    margin-bottom: 15px;
-    border-bottom: 1px dashed #cfd4cf;
-    padding-bottom: 5px;
-}
-
-.instruccion {
-    margin-top: -10px;
-    margin-bottom: 15px;
-    font-size: 14px;
     color: #666;
 }
 
-/* Campos de formulario */
-.form-group label {
+/* Tarjeta del formulario */
+.form-rol {
+    width: 460px;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.08);
+}
+
+/* Campos */
+.form-rol label {
     display: block;
+    margin-top: 14px;
+    margin-bottom: 6px;
     font-weight: bold;
-    margin-bottom: 5px;
     color: #333;
 }
 
-.form-group input[type="text"],
-.form-group textarea {
+.form-rol input,
+.form-rol select,
+.form-rol textarea {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box; 
-    font-size: 14px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
 }
 
-.form-group textarea {
+.form-rol textarea {
     resize: vertical;
 }
 
-/* --- GRID DE PERMISOS --- */
-.permisos-grid {
-    display: grid;
-    /* Divide la sección en 4 columnas, ajustables */
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+/* Botones */
+.botones {
+    display: flex;
+    gap: 12px;
     margin-top: 20px;
 }
 
-.modulo-permiso {
-    padding: 15px;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    background-color: #f9f9f9;
-}
-
-.modulo-permiso h4 {
-    margin-top: 0;
-    font-size: 15px;
-    color: #333;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-}
-
-.modulo-permiso label {
-    display: block;
-    font-weight: normal;
-    font-size: 14px;
-    margin-bottom: 5px;
+.btn-guardar {
+    background: #2f6c32;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
     cursor: pointer;
+    font-weight: bold;
 }
 
-/* Estilo para los checkboxes */
-.modulo-permiso input[type="checkbox"] {
-    margin-right: 8px;
+.btn-guardar:hover {
+    background: #245026;
 }
 
-/* Botones de acción final */
-.form-actions {
+.btn-cancelar {
+    display: inline-block;
+    background: #777;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-cancelar:hover {
+    background: #5f5f5f;
+}
+/* Centrar formulario */
+.form-rol {
+    margin: 30px auto;   /* centra horizontalmente */
+}
+
+
+.permisos-container label {
     display: flex;
-    justify-content: flex-end;
-    gap: 15px;
-    padding-top: 10px;
+    align-items: center;   
+    gap: 8px;              
+    margin-bottom: 6px;
+    font-size: 14px;
 }
 
-.primary-button {
-    background-color: #2f6c32; /* Verde principal (Guardar) */
-    color: white;
-}
-
-.secondary-button {
-    background-color: #6c757d; /* Gris (Cancelar) */
-    color: white;
-}
-.secondary-button:hover {
-    background-color: #5a6268;
+.permisos-container input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
 }

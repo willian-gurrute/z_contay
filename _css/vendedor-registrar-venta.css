@@ -1,72 +1,76 @@
-/* Contenedor del formulario */
-.form-venta {
-    width: 90%;
+.form-venta{
+    width: 95%;
     max-width: 900px;
-    margin: 20px auto;
+    margin: 15px 0;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
 }
 
-/* Labels y inputs */
-.form-venta label {
+.form-row{
+    display: flex;
+    gap: 12px;
+    align-items: end;
+    flex-wrap: wrap;
+}
+
+.form-col{
+    flex: 1;
+    min-width: 240px;
+}
+
+.form-venta label{
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-top: 10px;
 }
 
 .form-venta input,
-.form-venta select {
-    width: 300%;
-    max-width: 100%;
-    padding: 8px 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-.form-row {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    align-items: center;
-}
-/* Botones */
-.form-venta .main-button,
-.form-venta .btn-eliminar {
-    margin-top: 10px;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #2f6c32;
-    color: white;
-}
-
-.form-venta .main-button:hover,
-.form-venta .btn-eliminar:hover {
-    background-color: #244e28;
-}
-
-/* Tabla productos */
-.tabla-productos {
+.form-venta select{
     width: 100%;
-    max-width: 600px;
-    margin-top: 10px;
-    border-collapse: collapse;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
 }
 
+.tabla-productos{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: white;
+}
 
 .tabla-productos th,
-.tabla-productos td {
+.tabla-productos td{
     border: 1px solid #ccc;
-    padding: 8px;
-    text-align: center;
+    padding: 10px;
+    text-align: left;
 }
 
-/* Totales */
-.totales {
+.tabla-productos thead{
+    background: #f5f5f5;
+    font-weight: bold;
+}
+
+.btn-eliminar{
+    background: #c63636;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.btn-eliminar:hover{
+    background: #a52c2c;
+}
+
+.totales{
     margin-top: 15px;
     text-align: right;
 }
 
-.totales h2 {
-    margin-top: 5px;
+.acciones-venta{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 15px;
 }

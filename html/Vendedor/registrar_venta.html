@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Registrar Nueva Venta</title>
-    <!-- CSS base del sistema -->
-    <link rel="stylesheet" href="../../_css/administrador-panel control.css">
+    <link rel="stylesheet" href="../../_css/admin-base.css">
     <link rel="stylesheet" href="../../_css/vendedor-registrar-venta.css">
 </head>
 <body>
 
-<!-- HEADER -->
 <header class="header-bar">
     <div class="header-rol">Vendedor</div>
     <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
@@ -23,39 +21,41 @@
 
 <div class="main-container">
 
-    <!-- SIDEBAR -->
-     <nav class="sidebar">
+    <nav class="sidebar">
         <ul>
             <li><a href="panel_principal.html"><span class="icon"><img src="../../img/panel.jpg"></span> Panel Principal</a></li>
-
-             <li class="active-item"><a href="#"><span class="icon"><img src="../../img/ventas.png"></span> Registrar venta</a></li>
-           
+            <li class="active-item"><a href="#"><span class="icon"><img src="../../img/ventas.png"></span> Registrar venta</a></li>
             <li><a href="pedidos_clientes.html"><span class="icon"><img src="../../img/pedidos.png"></span> Pedidos de clientes</a></li>
-
-            <li><a href="reportes_venta.html"><span class="icon"><img src="../../img/reportes.png"></span>Reportes de venta</a></li>
-
+            <li><a href="reportes_venta.html"><span class="icon"><img src="../../img/reportes.png"></span> Reportes de venta</a></li>
             <li><a href="perfil.html"><span class="icon"><img src="../../img/perfil.png"></span> Perfil</a></li>
-
             <li><a href="cerrar_sesion.html"><span class="icon"><img src="../../img/cerrar-seccion.png"></span> Cerrar sesión</a></li>
         </ul>
     </nav>
 
-    <!-- CONTENIDO -->
     <main class="content-area">
         <h1 class="h1-title">Registrar Nueva Venta</h1>
         <h3 class="subtitulo">Completa los datos del cliente y la venta</h3>
 
         <form class="form-venta">
+
             <!-- Datos del cliente -->
             <label for="documento">Documento del cliente:</label>
-            <input type="text" id="documento" placeholder="Ej: 12345678">
-            <button type="button" class="main-button">Buscar cliente</button>
+            <div class="form-row">
+                <input type="text" id="documento" placeholder="Ej: 12345678">
+                <button type="button" class="main-button">Buscar cliente</button>
+            </div>
 
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" placeholder="Nombre del cliente">
+            <div class="form-row">
+                <div class="form-col">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" placeholder="Nombre del cliente">
+                </div>
 
-            <label for="telefono">Teléfono:</label>
-            <input type="text" id="telefono" placeholder="Teléfono del cliente">
+                <div class="form-col">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="text" id="telefono" placeholder="Teléfono del cliente">
+                </div>
+            </div>
 
             <label for="direccion">Dirección:</label>
             <input type="text" id="direccion" placeholder="Dirección del cliente">
@@ -67,28 +67,30 @@
             </select>
 
             <!-- Productos -->
-            <h3>Productos</h3>
+            <h3 class="subtitulo" style="margin-top: 20px;">Productos</h3>
+
             <table class="tabla-productos">
                 <thead>
                     <tr>
-                        <td>
-                            <select class="producto">
-                             <option value="AA">A</option>
-                             <option value="AA">AA</option>
-                             <option value="AAA">AAA</option>
-                             <option value="Jumbo">Jumbo</option>
-                             </select>
-                        </td>
-
+                        <th>Producto</th>
                         <th>Cantidad</th>
                         <th>Valor Unitario</th>
                         <th>Subtotal</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     <tr>
-                        <td>Huevo tipo A</td>
+                        <td>
+                            <select class="producto">
+                                <option value="A">Huevo tipo A</option>
+                                <option value="AA">Huevo tipo AA</option>
+                                <option value="AAA">Huevo tipo AAA</option>
+                                <option value="Jumbo">Huevo tipo Jumbo</option>
+                            </select>
+                        </td>
+
                         <td><input type="number" value="1" min="1"></td>
                         <td>600</td>
                         <td>600</td>
@@ -99,25 +101,26 @@
 
             <button type="button" class="main-button">Agregar producto</button>
 
-           <!-- Totales -->
-<div class="totales">
-    <p><strong>Subtotal:</strong> 600</p>
-    <p><strong>IVA (0%):</strong> 0</p>
-    <h2>Total a pagar: 600</h2>
-</div>
+            <!-- Totales -->
+            <div class="totales">
+                <p><strong>Subtotal:</strong> 600</p>
+                <p><strong>IVA (0%):</strong> 0</p>
+                <h2>Total a pagar: 600</h2>
+            </div>
 
-<!-- Botones de acción -->
-<div class="acciones-venta">
-    <!-- Registrar la venta -->
-    <button type="submit" class="main-button">Registrar Venta</button>
-    
-    <!-- Imprimir factura -->
-    <button type="button" class="main-button" onclick="window.print()">Imprimir Factura</button>
-    
-    <!-- Descargar PDF -->
-    <button type="button" class="main-button">Descargar PDF</button>
-</div>
+            <!-- Botones de acción -->
+            <div class="acciones-venta">
+                <button type="submit" class="main-button">Registrar Venta</button>
+                <button type="button" class="main-button" onclick="window.print()">Imprimir Factura</button>
+                <button type="button" class="main-button">Descargar PDF</button>
+            </div>
 
+        </form>
+
+        <div class="logo-footer">Z-CONTAY</div>
+    </main>
+
+</div>
 
 </body>
 </html>

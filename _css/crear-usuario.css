@@ -1,97 +1,32 @@
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: white;
-}
+/* ================= FORMULARIO USUARIO ================= */
 
-/* HEADER */
-.header-bar {
-    background: #2f6c32;
-    color: white;
-    padding: 12px 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header-user img {
-    width: 22px;
-}
-
-/* LAYOUT */
-.main-container {
-    display: flex;
-}
-
-/* SIDEBAR */
-.sidebar {
-    width: 250px;
-    background: #e8e8e8;
-    padding-top: 20px;
-}
-
-.sidebar a {
-    display: flex;
-    align-items: center;
-    padding: 12px 20px;
-    gap: 12px;
-    color: #222;
-    text-decoration: none;
-}
-
-.sidebar a:hover {
-    background: #dcdcdc;
-}
-
-.sidebar img {
-    width: 28px;
-}
-
-.active-item a {
-    background: #ffffff;
-    border-right: 4px solid #2f6c32;
-    font-weight: bold;
-}
-
-/* CONTENIDO */
-.content-area {
-    flex: 1;
-    padding: 30px;
-    position: relative;
-}
-
-.h1-title {
-    font-size: 28px;
-    font-weight: bold;
-    color: #2f6c32;
-    margin-bottom: 25px;
-}
-
-/* FORMULARIO */
 .form-usuario {
     width: 420px;
     padding: 25px;
     border: 1px solid #ccc;
     background: white;
     border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.08);
+    margin: 0 auto; /* centrado */
 }
 
-label {
+.form-usuario label {
     display: block;
     font-weight: bold;
     margin-top: 15px;
     margin-bottom: 5px;
 }
 
-input,
-select {
+.form-usuario input,
+.form-usuario select {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     border-radius: 6px;
     border: 1px solid #aaa;
 }
 
-/* BOTONES */
+/* ================= BOTONES ================= */
+
 .botones {
     display: flex;
     gap: 15px;
@@ -103,7 +38,7 @@ select {
     color: white;
     border: none;
     padding: 10px 20px;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
 }
@@ -113,21 +48,14 @@ select {
 }
 
 .btn-cancelar {
+    display: inline-block;
     background: #c63636;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: 8px;
 }
 
 .btn-cancelar:hover {
     background: #a52c2c;
-}
-
-/* FOOTER */
-.logo-footer {
-    position: absolute;
-    bottom: 25px;
-    right: 30px;
-    font-weight: bold;
 }

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Contabilidad - Administrador</title>
+    <link rel="stylesheet" href="../../_css/admin-base.css">
     <link rel="stylesheet" href="../../_css/contabilidad.css">
 </head>
 
@@ -39,6 +40,8 @@
                 </li>
 
                 <li><a href="ventas.html"><span class="icon"><img src="../../img/ventas.png"></span>Ventas</a></li>
+                <li><a href="gestion_productos.html"><span class="icon"><img src="../../img/productos.png"></span>Productos</a></li>
+                <li><a href="registrar_gasto.html"><span class="icon"><img src="../../img/gastos.png" alt=""></span>Registrar Gasto</a></li>
                 <li><a href="inventario.html"><span class="icon"><img src="../../img/inventario.png"></span>Inventario</a></li>
                 <li><a href="reportes.html"><span class="icon"><img src="../../img/reportes.png"></span>Reportes</a></li>
                 <li><a href="configuracion.html"><span class="icon"><img src="../../img/configuracion.png"></span>Configuración</a></li>
@@ -54,28 +57,33 @@
             <p class="subtitulo">Resumen financiero del negocio</p>
 
             <!-- TARJETAS DE RESUMEN -->
-            <div class="contabilidad-grid">
+           <div class="card-grid">
 
-                <div class="card">
-                    <img src="../../img/ganancias.png" class="icon-card">
-                    <h2>Ganancias del mes</h2>
-                    <p class="valor">$4,350,000</p>
-                </div>
+           <div class="info-card">
+           <div class="card-icon">
+            <img src="../../img/ganancias.png" alt="">
+             </div>
+           <h2>Ganancias del mes</h2>
+           <div class="data">$4,350,000</div>
+          </div>
 
-                <div class="card">
-                    <img src="../../img/gastos.png" class="icon-card">
-                    <h2>Gastos operativos</h2>
-                    <p class="valor">$1,980,000</p>
-                </div>
+           <div class="info-card">
+             <div class="card-icon">
+             <img src="../../img/gastos.png" alt="">
+             </div>
+             <h2>Gastos operativos</h2>
+             <div class="data">$1,980,000</div>
+             </div>
 
-                <div class="card">
-                    <img src="../../img/balance.png" class="icon-card">
-                    <h2>Balance general</h2>
-                    <p class="valor">$2,370,000</p>
-                </div>
+              <div class="info-card">
+              <div class="card-icon">
+               <img src="../../img/balance.png" alt="">
+              </div>
+               <h2>Balance general</h2>
+              <div class="data">$2,370,000</div>
+                 </div>
 
-            </div>
-
+           </div>
             <!-- TABLA DETALLADA -->
             <h2 class="titulo-tabla">Movimientos contables</h2>
 

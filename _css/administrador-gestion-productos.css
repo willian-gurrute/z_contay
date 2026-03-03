@@ -1,0 +1,67 @@
+/* ============================= */
+/* CONTENIDO PRODUCTOS (SOLO ESTA PANTALLA) */
+/* ============================= */
+
+.subtitulo {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* Contenedor estilo sistema */
+.card-container {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.08);
+}
+
+/* Tabla estilo sistema (igual a Gestión de usuarios) */
+.tabla-productos {
+    width: 95%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.tabla-productos th,
+.tabla-productos td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.tabla-productos thead {
+    background: #f5f5f5;
+    font-weight: bold;
+}
+
+.tabla-productos tbody tr:hover {
+    background: #f9f9f9;
+}
+
+/* Estados */
+.estado-disponible {
+    color: #2f6c32;
+    font-weight: bold;
+}
+
+.estado-nodisponible {
+    color: #c63636;
+    font-weight: bold;
+}
+
+/* Botón Editar (si es <a>) */
+a.btn-editar {
+    display: inline-block;
+    background: #2f6c32;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a.btn-editar:hover {
+    background: #244e28;
+}

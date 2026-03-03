@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editar Rol - Administrador</title>
+
+  
+  <link rel="stylesheet" href="../../_css/admin-base.css" />
+  <link rel="stylesheet" href="../../_css/editar-rol.css" />
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header-bar">
+    <div class="header-rol">Administrador</div>
+    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+    <div class="header-user">
+      <span class="icon"><img src="../../img/campana.png" alt=""></span>
+      <span>Carlos Fernando Hurtado</span>
+      <span class="icon"><img src="../../img/usuario-gestion.png" alt=""></span>
+    </div>
+  </header>
+
+  <div class="main-container">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+      <ul>
+        <li><a href="panel-control.html"><span class="icon"><img src="../../img/panel.jpg"></span>Panel Principal</a></li>
+        <li><a href="gestion_usuarios.html"><span class="icon"><img src="../../img/usuario-gestion.png"></span>Gestión de usuarios</a></li>
+
+        <li class="active-item">
+          <a href="roles_permisos.html"><span class="icon"><img src="../../img/roles-permisos.png"></span>Roles y permisos</a>
+        </li>
+
+        <li><a href="crear_opciones.html"><span class="icon"><img src="../../img/opciones.jpg"></span>Crear Opciones</a></li>
+        <li><a href="contabilidad.html"><span class="icon"><img src="../../img/contabilidad.png"></span>Contabilidad</a></li>
+        <li><a href="ventas.html"><span class="icon"><img src="../../img/ventas.png"></span>Ventas</a></li>
+        <li><a href="gestion_productos.html"><span class="icon"><img src="../../img/productos.png"></span>Productos</a></li>
+        <li><a href="registrar_gasto.html"><span class="icon"><img src="../../img/gastos.png" alt=""></span>Registrar Gasto</a></li>
+        <li><a href="inventario.html"><span class="icon"><img src="../../img/inventario.png"></span>Inventario</a></li>
+        <li><a href="reportes.html"><span class="icon"><img src="../../img/reportes.png"></span>Reportes</a></li>
+        <li><a href="configuracion.html"><span class="icon"><img src="../../img/configuracion.png"></span>Configuración</a></li>
+        <li><a href="perfil.html"><span class="icon"><img src="../../img/perfil.png"></span>Perfil</a></li>
+        <li><a href="cerrar_sesion.html"><span class="icon"><img src="../../img/cerrar-seccion.png"></span>Cerrar sesión</a></li>
+      </ul>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <main class="content-area">
+
+      <h1 class="h1-title">Editar Rol</h1>
+      <p class="subtitulo">Actualiza los datos del rol y los permisos asignados</p>
+
+      <!-- Card/Form -->
+      <div class="card-wrapper form-card">
+
+        <!-- Info superior del rol -->
+        <div class="rol-meta">
+          <div class="meta-item">
+            <span class="meta-label">ID Rol:</span>
+            <span class="meta-value">002</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Estado actual:</span>
+            <span class="meta-badge activo">Activo</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Creado:</span>
+            <span class="meta-value">15/02/2026</span>
+          </div>
+        </div>
+
+        <!-- FORM (sin php por ahora) -->
+        <form id="editarRolForm" class="form-rol">
+
+          <div class="seccion-form">
+            <h3>Datos del Rol</h3>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="nombre_rol">Nombre del Rol:</label>
+                <!-- En editar suele venir precargado -->
+                <input type="text" id="nombre_rol" name="nombre_rol" value="Vendedor" required>
+              </div>
+
+              <div class="form-group">
+                <label for="estado_rol">Estado:</label>
+                <select id="estado_rol" name="estado_rol" required>
+                  <option value="A" selected>Activo</option>
+                  <option value="I">Inactivo</option>
+                </select>
+              </div>
+
+              <div class="form-group form-group-full">
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" name="descripcion" rows="2" placeholder="Breve descripción del rol">Registro y seguimiento de pedidos.</textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="seccion-form">
+            <h3>Permisos del Rol</h3>
+            <p class="instruccion">Marca las acciones que este rol puede realizar en el sistema.</p>
+
+            <div class="permisos-grid">
+
+              <div class="modulo-permiso">
+                <h4>Gestión de Usuarios</h4>
+
+                <label class="chk">
+                  <input type="checkbox" name="permisos[]" value="user_crear">
+                  <span>Crear Usuario</span>
+                </label>
+
+                <label class="chk">
+                  <input type="checkbox" name="permisos[]" value="user_editar">
+                  <span>Editar Usuario</span>
+                </label>
+
+                <label class="chk">
+                  <input type="checkbox" name="permisos[]" value="user_eliminar">
+                  <span>Eliminar Usuario</span>
+                </label>
+              </div>
+
+              <div class="modulo-permiso">
+                <h4>Inventario</h4>
+
+                <label class="chk">
+                  <input type="checkbox" name="permisos[]" value="inv_ver" checked>
+                  <span>Ver Stock</span>
+                </label>
+
+                <label class="chk">
+                  <input type="checkbox" name="permisos[]" value="inv_ajustar">
+                  <span>Ajustar Inventario</span>
+                </label>
+
+                <label class="chk">
+                  <input type="checkbox" name="permisos[]" value="inv_traslado">
+                  <span>Registrar Traslados</span>
+                </label>
+              </div>
+
+              <div class="modulo-permiso">
+                <h4>Ventas</h4>
+
+                <label class="chk">
+                  <input type="checkbox" name="permisos[]" value="ventas_crear" checked>
+                  <span>Crear Venta</span>
+                </label>
+
+                <label class="chk">
+                  <input type="checkbox" name="permisos[]" value="ventas_ver_historial" checked>
+                  <span>Ver Historial</span>
+                </label>
+
+                <label class="chk">
+                  <input type="checkbox" name="permisos[]" value="ventas_anular">
+                  <span>Anular Venta</span>
+                </label>
+              </div>
+
+              <div class="modulo-permiso">
+                <h4>Reportes</h4>
+
+                <label class="chk">
+                  <input type="checkbox" name="permisos[]" value="rep_ventas" checked>
+                  <span>Generar Reporte Ventas</span>
+                </label>
+
+                <label class="chk">
+                  <input type="checkbox" name="permisos[]" value="rep_contabilidad">
+                  <span>Generar Reporte Contable</span>
+                </label>
+
+                <label class="chk">
+                  <input type="checkbox" name="permisos[]" value="rep_inventario">
+                  <span>Generar Reporte Inventario</span>
+                </label>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <!-- En editar, el texto cambia -->
+            <button type="submit" class="main-button primary-button">Actualizar Rol</button>
+
+            <a href="roles_permisos.html" class="main-button secondary-button">Cancelar</a>
+
+            <!-- Botón extra (opcional) -->
+            <button type="button" class="main-button danger-button">Eliminar Rol</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="logo-footer">Z-CONTAY</div>
+
+    </main>
+  </div>
+
+</body>
+</html>

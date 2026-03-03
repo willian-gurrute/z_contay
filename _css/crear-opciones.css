@@ -1,0 +1,62 @@
+/* ================= FORMULARIO OPCIONES ================= */
+
+.form-opcion {
+    width: 520px;
+    padding: 25px;
+    border: 1px solid #ccc;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.08);
+    margin: 0 auto; /* centrado */
+}
+
+/* Labels e inputs SOLO dentro del formulario */
+.form-opcion label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.form-opcion input,
+.form-opcion select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #aaa;
+}
+
+/* ================= BOTONES ================= */
+
+.botones {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btn-guardar {
+    background: #2f6c32;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-guardar:hover {
+    background: #245026;
+}
+
+.btn-cancelar {
+    display: inline-block;
+    background: #c63636;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.btn-cancelar:hover {
+    background: #a52c2c;
+}

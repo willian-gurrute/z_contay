@@ -1,0 +1,230 @@
+
+
+/* Subtítulo */
+.subtitulo {
+  margin-top: 6px;
+  margin-bottom: 20px;
+  color: #666;
+  font-size: 15px;
+}
+
+/* Tarjeta contenedora del formulario */
+.card-wrapper.form-card {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.08);
+
+  /* centrado y ancho cómodo */
+  max-width: 950px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.rol-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  background: #f8f8f8;
+  margin-bottom: 18px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.meta-label {
+  font-weight: bold;
+  color: #333;
+  font-size: 14px;
+}
+
+.meta-value {
+  color: #444;
+  font-size: 14px;
+}
+
+.meta-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.meta-badge.activo {
+  background: #e7f3ea;
+  color: #2f6c32;
+  border: 1px solid #b7d6bf;
+}
+
+.meta-badge.inactivo {
+  background: #f7e3e3;
+  color: #b30000;
+  border: 1px solid #e0b0b0;
+}
+
+/* Secciones */
+.seccion-form {
+  border-top: 1px solid #eee;
+  padding-top: 18px;
+  margin-top: 18px;
+}
+
+.seccion-form:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.seccion-form h3 {
+  color: #2f6c32;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.instruccion {
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Grid de inputs arriba */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 16px;
+}
+
+.form-group-full {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+/* Grid de permisos */
+.permisos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.modulo-permiso {
+  border: 1px solid #e0e0e0;
+  background: #fafafa;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.modulo-permiso h4 {
+  margin: 0 0 10px 0;
+  font-size: 15px;
+  color: #333;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Alineación bonita de checkbox + texto */
+.chk {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  user-select: none;
+}
+
+.chk input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;         
+  flex: 0 0 auto;
+}
+
+.chk span {
+  line-height: 1.2;
+}
+
+/* Acciones */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+
+/* Botones  */
+.primary-button {
+  background: #2f6c32;
+  color: #fff;
+}
+
+.primary-button:hover {
+  background: #244e28;
+}
+
+.secondary-button {
+  background: #6c757d;
+  color: #fff;
+  text-decoration: none; /* por si es <a> */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.secondary-button:hover {
+  background: #5a6268;
+}
+
+.danger-button {
+  background: #c63636;
+  color: #fff;
+}
+
+.danger-button:hover {
+  background: #a52c2c;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-wrapper.form-card {
+    padding: 18px;
+  }
+}

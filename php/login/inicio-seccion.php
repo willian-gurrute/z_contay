@@ -1,6 +1,22 @@
 <?php
-// Iniciamos sesión para poder leer los mensajes de error
+
+// Iniciamos sesión 
 session_start();
+
+/*
+mensajes  de inicio de  sesión.
+
+$_SESSION['error'] = "Contraseña incorrecta";
+$_SESSION['ok']    = "Cuenta creada correctamente";
+*/
+
+$error = $_SESSION['error'] ?? '';
+$ok    = $_SESSION['ok'] ?? '';
+
+/*Después de leer los mensajes los eliminamos*/
+
+unset($_SESSION['error'], $_SESSION['ok']);
+
 ?>
 
 <!DOCTYPE html>
@@ -26,25 +42,19 @@ session_start();
     <h2>Iniciar Sesión</h2>
 
 
+    <!--Si el backend envía un error o mensaje, se mostrará aquí arriba del formulario.-->
 
-    <!-- MOSTRAR MENSAJE DE ERROR 
+    <p id="msg-error" class="error-msg">
+      <?= htmlspecialchars($error) ?>
+    </p>
 
-    <?php
-    // Si existe un error guardado en sesión lo mostramos
-    if(isset($_SESSION['error'])){
-
-        echo "<p class='error-msg'>".$_SESSION['error']."</p>";
-
-        // eliminamos el error para que no aparezca otra vez
-        unset($_SESSION['error']);
-    }
-    ?>
+    <p id="msg-ok" class="ok-msg">
+     <?= htmlspecialchars($ok) ?>
+    </p>
 
 
 
-     FORMULARIO DE LOGIN-->
-    
-
+    <!-- FORMULARIO DE LOGIN -->
     <form action="../backend/login.php" method="POST">
 
         <!-- Correo -->
@@ -63,8 +73,7 @@ session_start();
         <br><br>
 
 
-        <!---Contraseña-->
-
+        <!-- Contraseña -->
         <label for="password">
             Contraseña:
         </label>
@@ -80,8 +89,7 @@ session_start();
         <br><br>
 
 
-        <!--Boton Login -->
-
+        <!-- Botón Login -->
         <button type="submit">
             Ingresar
         </button>
@@ -90,18 +98,21 @@ session_start();
 
 
 
-     <!---enlaces-->
-
+    <!-- Enlaces -->
 
     <p style="text-align:center; margin-top:15px;">
 
-       <a href="olvidastes_contraseña.php" class="link">¿Olvidaste tu contraseña?</a>
+       <a href="olvidastes_contraseña.php" class="link">
+           ¿Olvidaste tu contraseña?
+       </a>
 
     </p>
 
     <p style="text-align:center;">
 
-     <a href="crear_cuenta.php" class="link">¿Crear cuenta?</a>
+     <a href="crear_cuenta.php" class="link">
+         ¿Crear cuenta?
+     </a>
 
     </p>
 

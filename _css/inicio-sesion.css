@@ -1,7 +1,9 @@
 body{
-    background-color:white ;
+    background-color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+/* contenedor del login */
 .login-container{
     width: 350px;
     margin: 50px auto;
@@ -10,78 +12,112 @@ body{
     border-radius: 10px;
     background-color: #ffffff;
 }
+
+/* títulos */
 h1, h2{
-    text-align:center ;
+    text-align: center;
 }
-label {
+
+/* etiquetas */
+label{
     display: block;
     margin-top: 15px;
     margin-bottom: 5px;
     font-weight: bold;
 }
-input {
+
+/* inputs */
+input{
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #aaa;
     border-radius: 5px;
 }
-button {
+
+/* botón */
+button{
     width: 100%;
     padding: 10px;
     margin-top: 15px;
     background-color: #3e8e41;
-    color:white;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
-.link {
-    text-decoration: none;
-    color:#2f6c32;
-    font-size: 14px;
-}
-.link:hover{
-    text-decoration: underline;
-}
-.titulo-principal {
+
+/* título principal */
+.titulo-principal{
     text-align: center;
-    color: #2f6c32; /* verde institucional */
+    color: #2f6c32;
     margin-top: 40px;
     margin-bottom: 10px;
     font-size: 28px;
     font-weight: bold;
 }
-.subtitulo {
+
+/* subtítulo */
+.subtitulo{
     text-align: center;
     color: #000000;
     margin-bottom: 20px;
     font-size: 20px;
 }
-.error-msg {
-    color: #d62828; /* rojo validación */
-    font-size: 14px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    text-align: left;
-}
 
-.success-msg {
-    background-color: #c7f5c4; /* verde suave */
-    color: #264e20;
-    padding: 12px;
-    border-radius: 5px;
-    width: 350px;
-    margin: 15px auto;
-    text-align: center;
-    font-weight: bold;
-}
+/* enlaces */
 .link{
-    color: #2f6c32;
     text-decoration: none;
+    color: #2f6c32;
+    font-size: 14px;
     font-weight: bold;
 }
 
 .link:hover{
     text-decoration: underline;
 }
+
+
+/* ============================= */
+/* MENSAJE DE ERROR */
+/* ============================= */
+
+.error-msg{
+    background-color: #fdecea;
+    color: #b71c1c;
+    border: 1px solid #e53935;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* icono error */
+.error-msg::before{
+    content: "⚠ ";
+}
+
+
+/* ============================= */
+/* MENSAJE DE ÉXITO */
+/* ============================= */
+
+.ok-msg{
+    background-color: #e8f5e9;
+    color: #1b5e20;
+    border: 1px solid #43a047;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* icono éxito */
+.ok-msg::before{
+    content: "✓ ";
+}
+

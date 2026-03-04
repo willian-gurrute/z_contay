@@ -45,7 +45,7 @@ session_start();
      FORMULARIO DE LOGIN-->
     
 
-    <form action="../auth/login.php" method="POST">
+    <form action="../backend/login.php" method="POST">
 
         <!-- Correo -->
         <label for="correo_electronico">

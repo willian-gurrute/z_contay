@@ -46,7 +46,8 @@ unset($_SESSION['error'], $_SESSION['ok']);
         <?php endif; ?>
 
         <!-- Formulario: envía al backend -->
-        <form action="../backend/nueva_contrasena.php" method="POST">
+
+        <form action="../backend/login/nueva_contrasena.php" method="POST">
 
             <label>Nueva contraseña:</label>
             <input type="password" name="password" placeholder="Nueva contraseña" required>

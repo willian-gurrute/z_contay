@@ -1,5 +1,5 @@
 <?php
-// login/olvidastes_contraseña.php
+// login/olvidastes_contrasena.php
 
 session_start();
 
@@ -38,7 +38,7 @@ unset($_SESSION['error'], $_SESSION['ok']);
 
         <!-- action al backend -->
          
-        <form action="../backend/olvidastes_contrasena.php" method="POST">
+        <form action="../backend/login/olvidastes_contrasena.php" method="POST">
             <label>Correo:</label>
             <input type="email" name="correo_electronico" placeholder="Escribe tu correo" required>
 

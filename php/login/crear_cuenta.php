@@ -36,7 +36,7 @@ unset($_SESSION['error'], $_SESSION['ok']);
         <?php endif; ?>
 
         
-        <form action="../backend/crear_cuenta.php" method="POST">
+        <form action="../backend/login/crear_cuenta.php" method="POST">
             
             <label>Nombre completo:</label>
             <input type="text" name="nombre_completo" placeholder="Escribe tu nombre completo" required>
@@ -71,3 +71,4 @@ unset($_SESSION['error'], $_SESSION['ok']);
 
 </body>
 </html>
+

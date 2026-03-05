@@ -3,6 +3,10 @@
 session_start();
 require_once "../backend/verificar_sesion.php"; // debe validar que exista sesion
 
+require_once "../backend/administrador/panel_control.php";
+
+
+
 // Si no hay sesión, al login
 if (!isset($_SESSION['id_usuario'])) {
     header("Location: ../login/inicio-seccion.php");
@@ -151,7 +155,7 @@ $nombre = $_SESSION['nombre'] ?? 'Administrador';
                         <img src="../../img/Ventas-dia.png" alt="Icono de Ventas">
                     </span>
                     <h2>Ventas del día</h2>
-                    <p class="data">$1,200,000</p>
+                    <p class="data">$<?= number_format($dashboard['ventas_dia'], 0, ',', '.') ?></p>
                 </div>
 
                 <div class="info-card">
@@ -159,7 +163,7 @@ $nombre = $_SESSION['nombre'] ?? 'Administrador';
                         <img src="../../img/stok-bajo.png" alt="Icono stock bajo">
                     </span>
                     <h2>Productos con Stock Bajo</h2>
-                    <p class="data">5</p>
+                    <p class="data"><?= $dashboard['stock_bajo'] ?></p>
                 </div>
 
                 <div class="info-card">
@@ -167,7 +171,7 @@ $nombre = $_SESSION['nombre'] ?? 'Administrador';
                         <img src="../../img/utilidad neta.png" alt="Icono de Utilidad Neta">
                     </span>
                     <h2>Utilidad Neta</h2>
-                    <p class="data">250,000</p>
+                    <p class="data">$<?= number_format($dashboard['utilidad_neta'], 0, ',', '.') ?></p>
                 </div>
 
                 <div class="info-card">
@@ -175,7 +179,7 @@ $nombre = $_SESSION['nombre'] ?? 'Administrador';
                         <img src="../../img/pedidos pendientes.png" alt="Icono de Pedidos Pendientes">
                     </span>
                     <h2>Pedidos pendientes</h2>
-                    <p class="data">8</p>
+                    <p class="data"><?= $dashboard['pedidos_pendientes'] ?></p>
                 </div>
             </div>
 

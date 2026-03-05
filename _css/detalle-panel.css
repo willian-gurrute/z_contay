@@ -54,11 +54,64 @@ body {
     position: relative;
 }
 
+/* título principal */
 .h1-title {
     font-size: 28px;
     font-weight: bold;
     color: #2f6c32;
     margin-bottom: 25px;
+}
+
+/* títulos de secciones (general) */
+.content-area h2{
+    font-size: 18px;
+    font-weight: bold;
+    color: #2f6c32;
+    margin: 25px 0 10px;
+}
+
+/* encabezado de sección: izquierda (título) y derecha (mensaje) */
+.section-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;     
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+/* cuando el h2 esté dentro del section-head, no queremos márgenes */
+.section-head h2{
+    margin: 0;
+}
+
+/* mensaje a la derecha */
+.section-badge{
+    background: #f3f6f3;
+    border: 1px solid #d9e2d9;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 14px;
+    color: #333;
+    white-space: nowrap;
+}
+
+/* texto normal consistente */
+.content-area p{
+    font-size: 14px;
+    color: #333;
+}
+
+/* cajita para mensajes */
+.msg-vacio{
+    background: #ffffff;
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
 /* GRID DE DETALLES */
@@ -94,6 +147,33 @@ body {
     font-size: 14px;
     margin-top: 4px;
     color: #666;
+}
+
+/* TABLAS */
+.tabla-detalle{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.tabla-detalle th, .tabla-detalle td{
+    padding: 10px;
+    border-bottom: 1px solid #e6e6e6;
+    text-align: left;
+    font-size: 14px;
+}
+
+.tabla-detalle th{
+    background: #f3f6f3;
+    font-weight: bold;
+}
+
+.tabla-detalle tr:hover{
+    background: #f9fbf9;
 }
 
 /* BOTÓN VOLVER */

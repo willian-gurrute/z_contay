@@ -22,6 +22,48 @@ $nombre = $_SESSION['nombre'] ?? 'Administrador';
 // Mensaje simple
 $msg = $_GET['msg'] ?? '';
 ?>
+
+<?php
+
+// ... session_start y validaciones...
+
+$catalogo = [
+
+  "Administrador" => [
+    ["nombre"=>"Panel principal", "controlador"=>"panel_control", "funcion"=>"ver"],
+    ["nombre"=>"Gestión de usuarios", "controlador"=>"gestion_usuarios", "funcion"=>"ver"],
+    ["nombre"=>"Roles y permisos", "controlador"=>"roles_permisos", "funcion"=>"ver"],
+    ["nombre"=>"Crear opciones", "controlador"=>"crear_opciones", "funcion"=>"ver"],
+  ],
+
+  // Estos módulos los agregas cuando los construyas
+  "Encargado de Planta" => [
+    // Ejemplo futuro:
+    // ["nombre"=>"Inventario", "controlador"=>"inventario", "funcion"=>"ver"],
+    // ["nombre"=>"Despachos", "controlador"=>"despachos", "funcion"=>"ver"],
+  ],
+  
+   "transportador"=>[
+
+
+
+   ],
+   
+
+  "Vendedor" => [
+    // Ejemplo futuro:
+    // ["nombre"=>"Ventas", "controlador"=>"ventas", "funcion"=>"ver"],
+    // ["nombre"=>"Pedidos", "controlador"=>"pedidos", "funcion"=>"ver"],
+  ],
+
+  "Cliente" => [
+    // Ejemplo futuro:
+    // ["nombre"=>"Mis pedidos", "controlador"=>"mis_pedidos", "funcion"=>"ver"],
+    // ["nombre"=>"Perfil", "controlador"=>"perfil_cliente", "funcion"=>"ver"],
+  ],
+
+];
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -105,36 +147,35 @@ Cerrar sesión
 
 <form action="../backend/administrador/opcion_guardar.php" method="POST" class="form-opcion">
 
-<label>Nombre opción:</label>
-<input type="text" name="nombre_opcion" required>
+  <label>Opción:</label>
+<select name="opcion_key" required>
+  <option value="">Seleccione...</option>
 
-<label>Nombre controlador:</label>
-<input type="text" name="nombre_controlador" required>
-
-<label>Nombre función:</label>
-<input type="text" name="nombre_funcion" required>
-
-<label>Estado:</label>
-
-<select name="estado" required>
-
-<option value="">Seleccionar</option>
-<option value="A">Activo</option>
-<option value="I">Inactivo</option>
+  <?php foreach ($catalogo as $modulo => $lista): ?>
+    <optgroup label="<?= htmlspecialchars($modulo) ?>">
+      <?php foreach ($lista as $op): ?>
+        <?php
+          $key = $modulo . "|" . $op["nombre"] . "|" . $op["controlador"] . "|" . $op["funcion"];
+        ?>
+        <option value="<?= htmlspecialchars($key) ?>">
+          <?= htmlspecialchars($op["nombre"]) ?>
+        </option>
+      <?php endforeach; ?>
+    </optgroup>
+  <?php endforeach; ?>
 
 </select>
 
-<div class="botones">
+  <label>Estado:</label>
+  <select name="estado" required>
+    <option value="A">Activo</option>
+    <option value="I">Inactivo</option>
+  </select>
 
-<button type="submit" class="btn-guardar">
-Guardar
-</button>
-
-<a href="roles_permisos.php" class="btn-cancelar">
-Cancelar
-</a>
-
-</div>
+  <div class="botones">
+    <button type="submit" class="btn-guardar">Guardar</button>
+    <a href="roles_permisos.php" class="btn-cancelar">Cancelar</a>
+  </div>
 
 </form>
 

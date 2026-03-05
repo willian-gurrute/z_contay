@@ -92,7 +92,7 @@ $msg = $_GET['msg'] ?? '';
         <?php endif; ?>
 
         <!-- Enviamos al backend -->
-        <form class="form-rol" method="POST" action="../backend/administrador/rol_crear.php">
+        <form class="form-rol" method="POST" action="../backend/administrador/crear_rol.php">
 
             <!-- DATOS DEL ROL -->
             <label>Nombre del Rol:</label>

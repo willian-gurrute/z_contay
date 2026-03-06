@@ -67,5 +67,45 @@ if ($password !== '') {
     $stmt->execute();
 }
 
+// Sincronizar tabla cliente según el rol
+if ($id_rol == 5) {
+
+    // Revisar si ya existe en cliente
+    $stmtCheck = $conn->prepare("SELECT id_cliente FROM cliente WHERE numero_documento = ? LIMIT 1");
+    $stmtCheck->bind_param("s", $num_doc);
+    $stmtCheck->execute();
+    $resCheck = $stmtCheck->get_result();
+
+    if ($resCheck && $resCheck->num_rows > 0) {
+        // Si ya existe, lo activamos y actualizamos nombre/documento
+        $stmtCliente = $conn->prepare("
+            UPDATE cliente
+            SET tipo_documento = ?, numero_documento = ?, nombre_completo = ?, estado = 'A'
+            WHERE numero_documento = ?
+        ");
+        $stmtCliente->bind_param("ssss", $tipo_doc, $num_doc, $nombre, $num_doc);
+        $stmtCliente->execute();
+
+    } else {
+        // Si no existe, lo insertamos
+        $stmtCliente = $conn->prepare("
+            INSERT INTO cliente (tipo_documento, numero_documento, nombre_completo, telefono, estado)
+            VALUES (?, ?, ?, NULL, 'A')
+        ");
+        $stmtCliente->bind_param("sss", $tipo_doc, $num_doc, $nombre);
+        $stmtCliente->execute();
+    }
+
+} else {
+
+    // Si ya no es cliente, lo ponemos inactivo en la tabla cliente
+    $stmtCliente = $conn->prepare("
+        UPDATE cliente
+        SET estado = 'I'
+        WHERE numero_documento = ?
+    ");
+    $stmtCliente->bind_param("s", $num_doc);
+    $stmtCliente->execute();
+}
 header("Location: ../../administrador/editar_usuario.php?id=$id_usuario&msg=ok");
 exit;

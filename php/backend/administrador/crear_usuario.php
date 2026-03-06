@@ -48,6 +48,26 @@ $stmt = $conn->prepare("
 $stmt->bind_param("ssssssi", $tipo_doc, $num_doc, $nombre, $correo, $password, $direccion, $id_rol);
 $stmt->execute();
 
+// Si el rol es cliente (5), también guardarlo en tabla cliente
+if ($id_rol == 5) {
+
+    // Revisar si ya existe en cliente
+    $stmtCheck = $conn->prepare("SELECT id_cliente FROM cliente WHERE numero_documento = ? LIMIT 1");
+    $stmtCheck->bind_param("s", $num_doc);
+    $stmtCheck->execute();
+    $resCheck = $stmtCheck->get_result();
+
+    // Si no existe, insertarlo
+    if (!$resCheck || $resCheck->num_rows == 0) {
+        $stmtCliente = $conn->prepare("
+            INSERT INTO cliente (tipo_documento, numero_documento, nombre_completo, telefono, estado)
+            VALUES (?, ?, ?, NULL, 'A')
+        ");
+        $stmtCliente->bind_param("sss", $tipo_doc, $num_doc, $nombre);
+        $stmtCliente->execute();
+    }
+}
+
 // Volver con mensaje ok
 header("Location: ../../administrador/crear_usuario.php?msg=ok");
 exit;

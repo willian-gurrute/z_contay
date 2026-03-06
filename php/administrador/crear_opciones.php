@@ -38,6 +38,8 @@ $catalogo = [
     ["nombre"=>"Gestión de usuarios", "controlador"=>"gestion_usuarios", "funcion"=>"ver"],
     ["nombre"=>"Roles y permisos", "controlador"=>"roles_permisos", "funcion"=>"ver"],
     ["nombre"=>"Crear opciones", "controlador"=>"crear_opciones", "funcion"=>"ver"],
+    ["nombre"=>"Contabilidad", "controlador"=>"contabilidad", "funcion"=>"ver"],
+    ["nombre"=>"Ventas", "controlador"=>"ventas", "funcion"=>"ver"],
   ],
 
   // Estos módulos los agregas cuando los construyas

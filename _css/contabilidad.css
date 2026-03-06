@@ -96,3 +96,18 @@
 .btn-generar:hover {
     background: #244d27;
 }
+
+/* Botón "Ver detalle" */
+.btn-ver {
+  background: #2f6c32;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.btn-ver:hover {
+  opacity: 0.85;
+}

@@ -90,7 +90,7 @@ $msg = $_GET['msg'] ?? '';
         <?php endif; ?>
 
         <!-- Formulario: envía al backend -->
-        <form class="form-usuario" method="POST" action="../backend/administrador/usuario_crear.php">
+        <form class="form-usuario" method="POST" action="../backend/administrador/crear_usuario.php">
 
             <label>Nombre completo:</label>
             <input type="text" name="nombre_completo" placeholder="Ingresa el nombre completo" required>

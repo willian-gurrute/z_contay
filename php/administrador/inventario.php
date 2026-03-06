@@ -152,6 +152,12 @@ Reportes
 </a>
 </li>
 
+<li><a href="configuracion.php">
+    <span class="icon"><img src="../../img/configuracion.png" alt=""></span>
+    Configuración
+</a>
+</li>
+
 <li>
 <a href="../backend/logout.php">
 <span class="icon"><img src="../../img/cerrar-seccion.png"></span>

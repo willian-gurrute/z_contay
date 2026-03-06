@@ -26,6 +26,7 @@ $sqlVendedores = "
     SELECT id_usuario, nombre_completo
     FROM usuario
     WHERE estado = 'A'
+    AND id_rol = 2
     ORDER BY nombre_completo ASC
 ";
 

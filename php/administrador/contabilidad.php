@@ -25,7 +25,6 @@ $nombre = $_SESSION['nombre'] ?? 'Administrador';
 
 <body>
 
-    <!-- BARRA SUPERIOR -->
     <header class="header-bar">
         <div class="header-rol">Administrador</div>
         <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
@@ -37,10 +36,8 @@ $nombre = $_SESSION['nombre'] ?? 'Administrador';
         </div>
     </header>
 
-    <!-- CONTENEDOR PRINCIPAL -->
     <div class="main-container">
 
-        <!-- SIDEBAR -->
         <nav class="sidebar">
             <ul>
                 <li><a href="panel_control.php"><span class="icon"><img src="../../img/panel.jpg"></span>Panel Principal</a></li>
@@ -66,85 +63,134 @@ $nombre = $_SESSION['nombre'] ?? 'Administrador';
             </ul>
         </nav>
 
-        <!-- CONTENIDO CENTRAL -->
         <main class="content-area">
 
             <h1 class="h1-title">Contabilidad general</h1>
             <p class="subtitulo">Resumen financiero del negocio</p>
 
-            <!-- TARJETAS DE RESUMEN -->
-           <div class="card-grid">
+            <div class="card-grid">
 
-              <div class="info-card">
-                <div class="card-icon">
-                  <img src="../../img/ganancias.png" alt="">
+                <div class="info-card">
+                    <div class="card-icon">
+                        <img src="../../img/ganancias.png" alt="">
+                    </div>
+                    <h2>Ganancias del mes</h2>
+                    <div class="data">$<?= number_format($resumen['ingresos_mes'], 0, ',', '.') ?></div>
                 </div>
-                <h2>Ganancias del mes</h2>
-                <div class="data">$<?= number_format($resumen['ingresos_mes'], 0, ',', '.') ?></div>
-              </div>
 
-              <div class="info-card">
-                <div class="card-icon">
-                  <img src="../../img/gastos.png" alt="">
+                <div class="info-card">
+                    <div class="card-icon">
+                        <img src="../../img/gastos.png" alt="">
+                    </div>
+                    <h2>Gastos operativos</h2>
+                    <div class="data">$<?= number_format($resumen['egresos_mes'], 0, ',', '.') ?></div>
                 </div>
-                <h2>Gastos operativos</h2>
-                <div class="data">$<?= number_format($resumen['egresos_mes'], 0, ',', '.') ?></div>
-              </div>
 
-              <div class="info-card">
-                <div class="card-icon">
-                  <img src="../../img/balance.png" alt="">
+                <div class="info-card">
+                    <div class="card-icon">
+                        <img src="../../img/balance.png" alt="">
+                    </div>
+                    <h2>Balance general</h2>
+                    <div class="data">$<?= number_format($resumen['balance_mes'], 0, ',', '.') ?></div>
                 </div>
-                <h2>Balance general</h2>
-                <div class="data">$<?= number_format($resumen['balance_mes'], 0, ',', '.') ?></div>
-              </div>
 
-           </div>
+            </div>
 
-            <!-- TABLA DETALLADA -->
+            <!-- TABLA ORIGINAL -->
             <h2 class="titulo-tabla">Movimientos contables</h2>
 
-            <?php if (empty($movimientos)): ?>
+            <?php if (empty($movimientos_generales)): ?>
                 <p>No hay movimientos contables registrados.</p>
             <?php else: ?>
-            <table class="tabla-contabilidad">
-                <thead>
-                    <tr>
-                        <th>Fecha</th>
-                        <th>Tipo</th>
-                        <th>Descripción</th>
-                        <th>Monto</th>
-                    </tr>
-                </thead>
+                <table class="tabla-contabilidad">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Tipo</th>
+                            <th>Descripción</th>
+                            <th>Monto</th>
+                        </tr>
+                    </thead>
 
-                <tbody>
-                    <?php foreach ($movimientos as $m): ?>
-                    <tr>
-                        <td><?= htmlspecialchars($m['fecha']) ?></td>
-                        <td><?= htmlspecialchars(ucfirst($m['tipo'])) ?></td>
-                        <td><?= htmlspecialchars($m['descripcion']) ?></td>
-                        <td>$<?= number_format((float)$m['monto'], 0, ',', '.') ?></td>
-                        
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                    <tbody>
+                        <?php foreach ($movimientos_generales as $m): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($m['fecha']) ?></td>
+                            <td><?= htmlspecialchars(ucfirst($m['tipo'])) ?></td>
+                            <td><?= htmlspecialchars($m['descripcion']) ?></td>
+                            <td>$<?= number_format((float)$m['monto'], 0, ',', '.') ?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
             <?php endif; ?>
 
-            <!-- FILTRO (simple) -->
-            <div class="filtro-reporte">
+            <!-- FILTRO -->
+            <form class="filtro-reporte" method="GET">
 
-                <label><strong>Mes:</strong></label>
-                <select disabled>
-                    <option><?= htmlspecialchars($resumen['mes_texto']) ?></option>
-                </select>
+                <label><strong>Fecha desde:</strong></label>
+                <input type="date" name="fecha_desde" value="<?= htmlspecialchars($fecha_desde) ?>">
+
+                <label><strong>Fecha hasta:</strong></label>
+                <input type="date" name="fecha_hasta" value="<?= htmlspecialchars($fecha_hasta) ?>">
 
                 <label><strong>Tipo:</strong></label>
-                <select disabled>
-                    <option>Todos</option>
+                <select name="tipo">
+                    <option value="">Todos</option>
+                    <option value="ingreso" <?= ($tipo == 'ingreso') ? 'selected' : '' ?>>Ingresos</option>
+                    <option value="egreso" <?= ($tipo == 'egreso') ? 'selected' : '' ?>>Egresos</option>
                 </select>
 
-                <button class="btn-generar" disabled>Generar Reporte PDF</button>
+                <button type="submit" class="btn-generar">Generar reporte</button>
+
+            </form>
+
+            <!-- RESULTADO DEL REPORTE -->
+            <div class="card-container reporte-resultado">
+
+                <div class="reporte-header">
+                    <h3>Resultado del reporte</h3>
+
+                    <?php if (!empty($movimientos_filtrados)): ?>
+                    <div class="acciones-reporte">
+                        <button class="main-button" onclick="window.print()">
+                            Imprimir / PDF
+                        </button>
+                    </div>
+                    <?php endif; ?>
+                </div>
+
+                <?php if ($filtro_aplicado): ?>
+
+                    <?php if (empty($movimientos_filtrados)): ?>
+                        <p>No hay movimientos contables para este filtro.</p>
+                    <?php else: ?>
+                        <table class="tabla-contabilidad">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Tipo</th>
+                                    <th>Descripción</th>
+                                    <th>Monto</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <?php foreach ($movimientos_filtrados as $m): ?>
+                                <tr>
+                                    <td><?= htmlspecialchars($m['fecha']) ?></td>
+                                    <td><?= htmlspecialchars(ucfirst($m['tipo'])) ?></td>
+                                    <td><?= htmlspecialchars($m['descripcion']) ?></td>
+                                    <td>$<?= number_format((float)$m['monto'], 0, ',', '.') ?></td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    <?php endif; ?>
+
+                <?php else: ?>
+                    <p>Selecciona un filtro y presiona <strong>Generar reporte</strong>.</p>
+                <?php endif; ?>
 
             </div>
 

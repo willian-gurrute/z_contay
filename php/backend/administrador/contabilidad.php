@@ -1,6 +1,5 @@
 <?php
 // php/backend/administrador/contabilidad.php
-// Trae resumen del mes y lista de movimientos desde movimiento_contable
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -14,12 +13,23 @@ if (!isset($_SESSION['id_usuario']) || (($_SESSION['id_rol'] ?? 0) != 1)) {
     exit;
 }
 
-// 1) Resumen del mes actual
+// =========================
+// FILTROS
+// =========================
+$fecha_desde = $_GET['fecha_desde'] ?? '';
+$fecha_hasta = $_GET['fecha_hasta'] ?? '';
+$tipo = $_GET['tipo'] ?? '';
+
+$filtro_aplicado = ($fecha_desde !== '' || $fecha_hasta !== '' || $tipo !== '');
+
+// =========================
+// RESUMEN DEL MES ACTUAL
+// =========================
 $resumen = [
     'ingresos_mes' => 0,
     'egresos_mes'  => 0,
     'balance_mes'  => 0,
-    'mes_texto'    => date('F Y') // ejemplo: March 2026 (si quieres lo pasamos a español luego)
+    'mes_texto'    => date('F Y')
 ];
 
 $sqlResumen = "
@@ -31,6 +41,7 @@ $sqlResumen = "
 ";
 
 $res = $conn->query($sqlResumen);
+
 if ($res) {
     while ($row = $res->fetch_assoc()) {
         if ($row['tipo'] === 'ingreso') $resumen['ingresos_mes'] = (float)$row['total'];
@@ -40,19 +51,59 @@ if ($res) {
 
 $resumen['balance_mes'] = $resumen['ingresos_mes'] - $resumen['egresos_mes'];
 
-// 2) Lista de movimientos (últimos 30)
-$movimientos = [];
+// =========================
+// TABLA ORIGINAL
+// =========================
+$movimientos_generales = [];
 
-$sqlMov = "
+$sqlGeneral = "
     SELECT id_movimientoContable, fecha, tipo, descripcion, monto
     FROM movimiento_contable
     ORDER BY fecha DESC
-    LIMIT 30
 ";
 
-$res2 = $conn->query($sqlMov);
+$res2 = $conn->query($sqlGeneral);
+
 if ($res2) {
     while ($row = $res2->fetch_assoc()) {
-        $movimientos[] = $row;
+        $movimientos_generales[] = $row;
+    }
+}
+
+// =========================
+// TABLA FILTRADA
+// =========================
+$movimientos_filtrados = [];
+
+$sqlFiltro = "
+    SELECT id_movimientoContable, fecha, tipo, descripcion, monto
+    FROM movimiento_contable
+    WHERE 1=1
+";
+
+if ($fecha_desde !== '') {
+    $fecha_desde_segura = $conn->real_escape_string($fecha_desde);
+    $sqlFiltro .= " AND DATE(fecha) >= '$fecha_desde_segura'";
+}
+
+if ($fecha_hasta !== '') {
+    $fecha_hasta_segura = $conn->real_escape_string($fecha_hasta);
+    $sqlFiltro .= " AND DATE(fecha) <= '$fecha_hasta_segura'";
+}
+
+if ($tipo !== '') {
+    $tipo_seguro = $conn->real_escape_string($tipo);
+    $sqlFiltro .= " AND tipo = '$tipo_seguro'";
+}
+
+$sqlFiltro .= " ORDER BY fecha DESC";
+
+if ($filtro_aplicado) {
+    $res3 = $conn->query($sqlFiltro);
+
+    if ($res3) {
+        while ($row = $res3->fetch_assoc()) {
+            $movimientos_filtrados[] = $row;
+        }
     }
 }

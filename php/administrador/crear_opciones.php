@@ -44,6 +44,7 @@ $catalogo = [
     ["nombre"=>"Registrar Gasto", "controlador"=>"registrar_gasto", "funcion"=>"ver"],
     ["nombre"=>"Inventario", "controlador"=>"inventario", "funcion"=>"ver"],
     ["nombre"=>"Reportes", "controlador"=>"reportes", "funcion"=>"ver"],
+    ["nombre"=>"Configuracion", "controlador"=>"configuracion", "funcion"=>"ver"],
   ],
 
   // Estos módulos los agregas cuando los construyas

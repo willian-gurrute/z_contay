@@ -53,7 +53,7 @@ body {
 .form-ajustes button.main-button {
     width: 200px;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #2f6c32;
     color: white;
     border: none;
     border-radius: 5px;
@@ -62,7 +62,7 @@ body {
 }
 
 .form-ajustes button.main-button:hover {
-    background-color: #0056b3;
+    background-color: #2f6c32;
 }
 
 /* Footer */

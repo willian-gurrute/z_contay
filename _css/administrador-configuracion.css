@@ -93,16 +93,24 @@ body {
     padding: 20px;
     border: 1px solid #ddd;
     box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 220px;
 }
 
 .config-card h2 {
-    margin: 0 0 10px 0;
+    margin: 0 0 12px 0;
     color: #2f6c32;
 }
 
 .config-card p {
-    margin-bottom: 12px;
+    margin-bottom: 20px;
     color: #555;
+    line-height: 1.5;
+    flex-grow: 1;
 }
 
 .config-card button {
@@ -113,6 +121,8 @@ body {
     border-radius: 6px;
     cursor: pointer;
     font-weight: bold;
+    align-self: flex-start;
+    min-width: 120px;
 }
 
 .config-card button:hover {
@@ -131,4 +141,73 @@ body {
     .config-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* TABLA DE NOTIFICACIONES / REPORTES */
+.tabla-reportes{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background: #fff;
+}
+
+.tabla-reportes th,
+.tabla-reportes td{
+    border: 1px solid #dcdcdc;
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.tabla-reportes th{
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+.tabla-reportes tr:nth-child(even){
+    background-color: #fafafa;
+}
+
+/* contenedor tipo cuadro */
+.card-container{
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.card-container h3{
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
+/* BOTON ACTIVAR */
+.btn-activar{
+    background: #2f6c32;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-activar:hover{
+    background: #244d27;
+}
+
+/* BOTON DESACTIVAR */
+.btn-desactivar{
+    background: #c0392b;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-desactivar:hover{
+    background: #992d22;
 }

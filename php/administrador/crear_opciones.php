@@ -4,6 +4,10 @@
 session_start();
 require_once "../backend/verificar_sesion.php";
 
+require_once "../backend/verificar_permiso.php"; // archivo que revisa permisos
+
+verificarPermiso("crear_opciones");// nombre del controlador
+
 // Si no hay sesión → login
 if (!isset($_SESSION['id_usuario'])) {
     header("Location: ../login/inicio-seccion.php");

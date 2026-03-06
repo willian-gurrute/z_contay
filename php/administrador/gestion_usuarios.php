@@ -7,6 +7,10 @@ session_start();
 //verificar session.
 require_once "../backend/verificar_sesion.php";
 
+require_once "../backend/verificar_permiso.php"; // archivo que revisa permisos
+
+verificarPermiso("gestion_usuarios");// nombre del controlador
+
 // Si no hay usuario logueado enviar al login
 if (!isset($_SESSION['id_usuario'])) {
     header("Location: ../login/inicio-seccion.php");

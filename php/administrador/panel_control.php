@@ -3,6 +3,8 @@
 session_start();
 require_once "../backend/verificar_sesion.php"; // debe validar que exista sesion
 
+
+
 require_once "../backend/administrador/panel_control.php";
 
 

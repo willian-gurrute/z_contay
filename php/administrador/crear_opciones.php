@@ -45,6 +45,7 @@ $catalogo = [
     ["nombre"=>"Inventario", "controlador"=>"inventario", "funcion"=>"ver"],
     ["nombre"=>"Reportes", "controlador"=>"reportes", "funcion"=>"ver"],
     ["nombre"=>"Configuracion", "controlador"=>"configuracion", "funcion"=>"ver"],
+    ["nombre"=>"Perfil", "controlador"=>"perfil", "funcion"=>"ver"],
   ],
 
   // Estos módulos los agregas cuando los construyas
@@ -131,6 +132,66 @@ Roles y permisos
 <a href="crear_opciones.php">
 <span class="icon"><img src="../../img/opciones.jpg"></span>
 Crear Opciones
+</a>
+</li>
+
+<li>
+  <a href="contabilidad.php">
+    <span class="icon"><img src="../../img/contabilidad.png" alt=""></span>
+    Contabilidad
+  </a>
+</li>
+      
+<li>
+<a href="ventas.php">
+<span class="icon"><img src="../../img/ventas.png" alt=""></span>
+Ventas
+</a>
+</li>
+            
+<li>
+<a href="gestion_productos.php">
+<span class="icon"><img src="../../img/productos.png" alt="">
+</span>
+Productos
+</a>
+</li>
+            
+<li>
+  <a href="registrar_gasto.php">
+    <span class="icon"><img src="../../img/gastos.png" alt="">
+  </span>
+  Registrar Gasto
+</a>
+</li>
+            
+<li><a href="inventario.php">
+  <span class="icon"><img src="../../img/inventario.png" alt="">
+</span>
+Inventario
+</a>
+</li>
+            
+<li><a href="reportes.php">
+  <span class="icon"><img src="../../img/reportes.png" alt="">
+</span>
+Reportes
+</a>
+</li>
+            
+<li>
+  <a href="configuracion.php">
+    <span class="icon"><img src="../../img/configuracion.png" alt="">
+  </span>
+  Configuración
+</a>
+</li>
+            
+<li>
+  <a href="perfil.php">
+    <span class="icon"><img src="../../img/perfil.png" alt="">
+  </span>
+  Perfil
 </a>
 </li>
 

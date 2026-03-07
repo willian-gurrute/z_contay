@@ -1,12 +1,19 @@
 <?php 
-session_start();
+ session_start();
 
-//reutilizamos el archivo que trae los datos del usuario logueado 
+ //reutilizamos el archivo que trae los datos del usuario logueado 
  require_once("../backend/administrador/obtener_perfil.php");
 
- ?>
+  $mensaje = $_SESSION['mensaje_perfil'] ?? "";
+ $tipoMensaje = $_SESSION['tipo_perfil'] ?? "";
 
+// Borramos el mensaje para que solo salga una vez
+ unset($_SESSION['mensaje_perfil']); 
+ unset($_SESSION['tipo_perfil']);
 
+?>
+
+ 
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -46,12 +53,11 @@ session_start();
         <nav class="sidebar">
            <ul>
 
-              <li>
-                   <a href="panel-control.php">
-                     <span class="icon"><img src="../../img/panel.jpg"></span>
+               <li><a href="panel_control.php">
+                      <span class="icon"><img src="../../img/panel.jpg"></span>
                       Panel Principal
-                     </a>
-              </li>
+                    </a>
+               </li>
 
                <li>
                     <a href="gestion_usuarios.php">
@@ -132,7 +138,7 @@ session_start();
                </li>
 
                <li>
-                    <a href="../login/inicio-seccion.php">
+                    <a href="cerrar_sesion.php">
                       <span class="icon"><img src="../../img/cerrar-seccion.png" alt=""></span>
                       Cerrar sesión
                    </a>
@@ -146,6 +152,13 @@ session_start();
     <main class="content-area">
 
         <h1 class="h1-title">Editar Perfil</h1>
+
+
+               <?php if (!empty($mensaje)) : ?>
+                   <div class="mensaje-alerta <?php echo $tipoMensaje; ?>">
+                      <?php echo htmlspecialchars($mensaje); ?>
+                   </div>
+                <?php endif; ?>
 
         <form class="perfil-form" action="../backend/administrador/actualizar_perfil.php" method="POST">
               <!--enviamos el id del usuario de forma oculta.-->
@@ -204,6 +217,20 @@ session_start();
 
     </main>
 </div>
+
+<script>
+    setTimeout(function () {
+        const mensaje = document.querySelector('.mensaje-alerta');
+        if (mensaje) {
+            mensaje.style.transition = 'opacity 0.5s ease';
+            mensaje.style.opacity = '0';
+
+            setTimeout(function () {
+                mensaje.remove();
+            }, 500);
+        }
+    }, 4000);
+</script>
 
 </body>
 </html>

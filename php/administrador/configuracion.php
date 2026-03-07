@@ -131,7 +131,7 @@ Perfil
 </li>
 
 <li>
-<a href="../backend/logout.php">
+<a href="cerrar_sesion.php">
 <span class="icon"><img src="../../img/cerrar-seccion.png"></span>
 Cerrar sesión
 </a>

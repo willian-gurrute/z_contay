@@ -5,6 +5,15 @@ session_start();
 // Incluimos la conexión a la base de datos
 require_once __DIR__ . "/../conexion.php";
 
+
+function volverConMensaje($mensaje, $tipo = "error")
+{
+    $_SESSION['mensaje_perfil'] = $mensaje;
+    $_SESSION['tipo_perfil'] = $tipo;
+    header("Location: ../../administrador/editar_perfil.php");
+    exit();
+}
+
 // Verificamos que el formulario haya sido enviado por método POST
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
     die("Acceso no permitido.");
@@ -86,8 +95,8 @@ $stmtActualizar->bind_param("sssi", $nombreCompleto, $correoElectronico, $direcc
 
 // Ejecutamos la actualización
 if ($stmtActualizar->execute()) {
-    // Si se actualizó bien, redirigimos al perfil
-    header("Location: ../../administrador/perfil.php?actualizado=1");
+    
+    volverConMensaje("Perfil actualizado correctamente.", "success");
     exit();
 } else {
     die("Error al actualizar el perfil: " . $stmtActualizar->error);

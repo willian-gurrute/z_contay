@@ -50,7 +50,7 @@
     <!-- MENÚ DEL ADMINISTARDOR -->
     <nav class="sidebar">
         <ul>
-            <li><a href="panel-control.php"><span class="icon"><img src="../../img/panel.jpg"></span>Panel principal</a></li>
+             <li><a href="panel_control.php"><span class="icon"><img src="../../img/panel.jpg"></span>Panel Principal</a></li>
             <li><a href="gestion_usuarios.php"><span class="icon"><img src="../../img/usuario-gestion.png"></span>Gestión de usuarios</a></li>
             <li><a href="roles_permisos.php"><span class="icon"><img src="../../img/roles-permisos.png"></span>Roles y permisos</a></li>
              <li><a href="crear_opciones.php"><span class="icon"><img src="../../img/opciones.jpg"></span>Crear Opciones</a></li>
@@ -66,11 +66,12 @@
                 <a href="perfil.php"><span class="icon"><img src="../../img/perfil.png"></span>Perfil</a>
             </li>
 
-            <li><a href="../login/inicio-seccion.php"><span class="icon"><img src="../../img/cerrar-seccion.png"></span>Cerrar sesión</a></li>
+            <li><a href="cerrar_sesion.php"><span class="icon"><img src="../../img/cerrar-seccion.png"></span>Cerrar sesión</a></li>
         </ul>
     </nav>
+      
 
-    <!-- CONTENIDO -->
+     <!-- CONTENIDO -->
     <main class="content-area">
 
         <h1 class="h1-title">Mi perfil</h1>
@@ -115,7 +116,7 @@
                  <button class="btn-editar" onclick="location.href=`editar_perfil.php`">
                     editar perfil
                 </button>
-                 <button class="btn-contra" onclick="location.href=`cambiar_contraseña.php`">
+                 <button class="btn-contra" onclick="location.href=`cambiar_contrasena.php`">
                     cambiar contraseña
                 </button> 
             </div>

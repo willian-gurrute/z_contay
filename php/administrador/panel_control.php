@@ -142,7 +142,7 @@ $nombre = $_SESSION['nombre'] ?? 'Administrador';
 
                 <li>
                     <!-- Cerrar sesión de verdad -->
-                    <a href="../backend/logout.php">
+                    <a href="cerrar_sesion.php">
                         <span class="icon"><img src="../../img/cerrar-seccion.png" alt=""></span>
                         Cerrar sesión
                     </a>

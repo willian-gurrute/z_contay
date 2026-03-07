@@ -88,13 +88,7 @@ function claseEstado(string $e): string {
             <li><a href="configuracion.php"><span class="icon"><img src="../../img/configuracion.png" alt=""></span>Configuración</a></li>
             <li><a href="perfil.php"><span class="icon"><img src="../../img/perfil.png" alt=""></span>Perfil</a></li>
 
-            <li>
-                <a href="../backend/logout.php">
-                    <span class="icon"><img src="../../img/cerrar-seccion.png" alt=""></span>
-                    Cerrar sesión
-                </a>
-            </li>
-        </ul>
+            <li><a href="cerrar_sesion.php"><span class="icon"><img src="../../img/cerrar-seccion.png" alt=""></span>Cerrar sesión</a></li></ul>
     </nav>
 
     <main class="content-area">

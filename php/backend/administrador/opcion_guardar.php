@@ -33,6 +33,12 @@ $nombre_opcion = trim($partes[1]);
 $nombre_controlador = trim($partes[2]);
 $nombre_funcion = trim($partes[3]);
 
+// No permitir desactivar la opción Crear Opciones
+if ($nombre_controlador === "crear_opciones" && $estado === "I") {
+    header("Location: ../../administrador/crear_opciones.php?msg=bloqueada");
+    exit;
+}
+
 // Evitar duplicados
 $stmt = $conn->prepare("SELECT id_opciones FROM opciones WHERE nombre_controlador = ? LIMIT 1");
 $stmt->bind_param("s", $nombre_controlador);
@@ -40,7 +46,25 @@ $stmt->execute();
 $res = $stmt->get_result();
 
 if ($res && $res->num_rows > 0) {
-    header("Location: ../../administrador/crear_opciones.php?msg=existe");
+    // Si la opción ya existe, actualizamos su estado
+    $stmtUpdate = $conn->prepare("
+        UPDATE opciones
+        SET estado = ?, modulo = ?, nombre_opcion = ?, nombre_funcion = ?
+        WHERE nombre_controlador = ?
+    ");
+
+    if (!$stmtUpdate) {
+        header("Location: ../../administrador/crear_opciones.php?msg=error");
+        exit;
+    }
+
+    $stmtUpdate->bind_param("sssss", $estado, $modulo, $nombre_opcion, $nombre_funcion, $nombre_controlador);
+
+    if ($stmtUpdate->execute()) {
+        header("Location: ../../administrador/crear_opciones.php?msg=actualizado");
+    } else {
+        header("Location: ../../administrador/crear_opciones.php?msg=error");
+    }
     exit;
 }
 

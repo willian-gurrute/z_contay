@@ -3,10 +3,9 @@
 
 session_start();
 require_once "../backend/verificar_sesion.php";
+require_once "../backend/verificar_permiso.php";
 
-require_once "../backend/verificar_permiso.php"; // archivo que revisa permisos
-
-verificarPermiso("crear_opciones");// nombre del controlador
+verificarPermiso("crear_opciones");
 
 // Si no hay sesión → login
 if (!isset($_SESSION['id_usuario'])) {
@@ -23,57 +22,46 @@ if (($_SESSION['id_rol'] ?? 0) != 1) {
 // Nombre del admin
 $nombre = $_SESSION['nombre'] ?? 'Administrador';
 
-// Mensaje simple
+// Mensaje por URL
 $msg = $_GET['msg'] ?? '';
-?>
 
-<?php
+$mensaje = "";
+$tipoMensaje = "";
 
-// ... session_start y validaciones...
+if ($msg === 'ok') {
+    $mensaje = "Opción creada correctamente.";
+    $tipoMensaje = "success";
+} elseif ($msg === 'actualizado') {
+    $mensaje = "Opción actualizada correctamente.";
+    $tipoMensaje = "success";
+} elseif ($msg === 'existe') {
+    $mensaje = "La opción ya existe.";
+    $tipoMensaje = "error";
+} elseif ($msg === 'error') {
+  } elseif ($msg === 'bloqueada') { 
+    $mensaje = "Esta opción es parte del sistema y no puede desactivarse.";
+    $tipoMensaje = "error";
+}
 
 $catalogo = [
-
-  "Administrador" => [
-    ["nombre"=>"Panel principal", "controlador"=>"panel_control", "funcion"=>"ver"],
-    ["nombre"=>"Gestión de usuarios", "controlador"=>"gestion_usuarios", "funcion"=>"ver"],
-    ["nombre"=>"Roles y permisos", "controlador"=>"roles_permisos", "funcion"=>"ver"],
-    ["nombre"=>"Crear opciones", "controlador"=>"crear_opciones", "funcion"=>"ver"],
-    ["nombre"=>"Contabilidad", "controlador"=>"contabilidad", "funcion"=>"ver"],
-    ["nombre"=>"Ventas", "controlador"=>"ventas", "funcion"=>"ver"],
-    ["nombre"=>"Productos", "controlador"=>"gestion_productos", "funcion"=>"ver"],
-    ["nombre"=>"Registrar Gasto", "controlador"=>"registrar_gasto", "funcion"=>"ver"],
-    ["nombre"=>"Inventario", "controlador"=>"inventario", "funcion"=>"ver"],
-    ["nombre"=>"Reportes", "controlador"=>"reportes", "funcion"=>"ver"],
-    ["nombre"=>"Configuracion", "controlador"=>"configuracion", "funcion"=>"ver"],
-    ["nombre"=>"Perfil", "controlador"=>"perfil", "funcion"=>"ver"],
-  ],
-
-  // Estos módulos los agregas cuando los construyas
-  "Encargado de Planta" => [
-    // Ejemplo futuro:
-    // ["nombre"=>"Inventario", "controlador"=>"inventario", "funcion"=>"ver"],
-    // ["nombre"=>"Despachos", "controlador"=>"despachos", "funcion"=>"ver"],
-  ],
-  
-   "transportador"=>[
-
-
-
-   ],
-   
-
-  "Vendedor" => [
-    // Ejemplo futuro:
-    // ["nombre"=>"Ventas", "controlador"=>"ventas", "funcion"=>"ver"],
-    // ["nombre"=>"Pedidos", "controlador"=>"pedidos", "funcion"=>"ver"],
-  ],
-
-  "Cliente" => [
-    // Ejemplo futuro:
-    // ["nombre"=>"Mis pedidos", "controlador"=>"mis_pedidos", "funcion"=>"ver"],
-    // ["nombre"=>"Perfil", "controlador"=>"perfil_cliente", "funcion"=>"ver"],
-  ],
-
+    "Administrador" => [
+        ["nombre"=>"Panel principal", "controlador"=>"panel_control", "funcion"=>"ver"],
+        ["nombre"=>"Gestión de usuarios", "controlador"=>"gestion_usuarios", "funcion"=>"ver"],
+        ["nombre"=>"Roles y permisos", "controlador"=>"roles_permisos", "funcion"=>"ver"],
+        ["nombre"=>"Crear opciones", "controlador"=>"crear_opciones", "funcion"=>"ver"],
+        ["nombre"=>"Contabilidad", "controlador"=>"contabilidad", "funcion"=>"ver"],
+        ["nombre"=>"Ventas", "controlador"=>"ventas", "funcion"=>"ver"],
+        ["nombre"=>"Productos", "controlador"=>"gestion_productos", "funcion"=>"ver"],
+        ["nombre"=>"Registrar Gasto", "controlador"=>"registrar_gasto", "funcion"=>"ver"],
+        ["nombre"=>"Inventario", "controlador"=>"inventario", "funcion"=>"ver"],
+        ["nombre"=>"Reportes", "controlador"=>"reportes", "funcion"=>"ver"],
+        ["nombre"=>"Configuracion", "controlador"=>"configuracion", "funcion"=>"ver"],
+        ["nombre"=>"Perfil", "controlador"=>"perfil", "funcion"=>"ver"],
+    ],
+    "Encargado de Planta" => [],
+    "transportador" => [],
+    "Vendedor" => [],
+    "Cliente" => [],
 ];
 ?>
 <!DOCTYPE html>
@@ -208,14 +196,14 @@ Cerrar sesión
 <main class="content-area">
 
 <h1 class="h1-title">Crear nueva opción</h1>
+       
 
-<?php if ($msg == "ok"): ?>
-<p style="color:green;">Opción creada correctamente</p>
+<?php if (!empty($mensaje)) : ?>
+    <div class="mensaje-alerta <?php echo $tipoMensaje; ?>">
+        <?php echo htmlspecialchars($mensaje); ?>
+    </div>
 <?php endif; ?>
 
-<?php if ($msg == "error"): ?>
-<p style="color:red;">Error al crear la opción</p>
-<?php endif; ?>
 
 <form action="../backend/administrador/opcion_guardar.php" method="POST" class="form-opcion">
 
@@ -256,6 +244,17 @@ Cerrar sesión
 </main>
 
 </div>
+
+<script>
+setTimeout(function(){
+    const alerta = document.querySelector(".mensaje-alerta");
+    if(alerta){
+        alerta.style.opacity = "0";
+        alerta.style.transition = "0.5s";
+        setTimeout(() => alerta.remove(), 500);
+    }
+},4000);
+</script>
 
 </body>
 </html>

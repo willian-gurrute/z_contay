@@ -74,3 +74,27 @@
     flex-wrap: wrap;
     margin-top: 15px;
 }
+
+.mensaje-alerta {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 20px auto;
+    padding: 12px 16px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    box-sizing: border-box;
+}
+
+.mensaje-alerta.success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+}
+
+.mensaje-alerta.error {
+    background-color: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+}

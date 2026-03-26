@@ -1,6 +1,38 @@
 <?php
 session_start();
 
+$msg = $_GET['msg'] ?? '';
+$idFactura = $_GET['id_factura'] ?? '';
+
+$mensaje = "";
+$tipoMensaje = "";
+
+if ($msg === 'ok') {
+    $mensaje = "Venta registrada correctamente.";
+    $tipoMensaje = "success";
+} elseif ($msg === 'stock') {
+    $mensaje = "No hay stock suficiente para uno de los productos.";
+    $tipoMensaje = "error";
+} elseif ($msg === 'cliente') {
+    $mensaje = "Debes completar los datos del cliente.";
+    $tipoMensaje = "error";
+} elseif ($msg === 'producto') {
+    $mensaje = "Debes agregar al menos un producto válido.";
+    $tipoMensaje = "error";
+} elseif ($msg === 'tipo_venta') {
+    $mensaje = "El tipo de venta no es válido.";
+    $tipoMensaje = "error";
+} elseif ($msg === 'metodo_pago') {
+    $mensaje = "El método de pago no es válido.";
+    $tipoMensaje = "error";
+} elseif ($msg === 'sesion') {
+    $mensaje = "La sesión no está activa.";
+    $tipoMensaje = "error";
+} elseif ($msg === 'error') {
+    $mensaje = "Ocurrió un error al registrar la venta.";
+    $tipoMensaje = "error";
+}
+
 require_once __DIR__ . "/../conexion.php";
 
 // Función para regresar con mensaje
@@ -236,6 +268,40 @@ if (!$stmtFactura->execute()) {
 
 $idFactura = $conn->insert_id;
 
+
+
+// ===============================
+// Si la venta es tipo pedido, también crear registro en pedido
+// ===============================
+if ($tipoVenta === 'pedido') {
+
+    $observacionesPedido = "Pedido generado desde venta del vendedor. Factura N° " . $idFactura;
+
+    $sqlPedido = "INSERT INTO pedido
+                  (fecha, id_cliente, id_usuario, estado, observaciones, subtotal, iva, total)
+                  VALUES (NOW(), ?, ?, 'pendiente', ?, ?, ?, ?)";
+
+    $stmtPedido = $conn->prepare($sqlPedido);
+
+    if (!$stmtPedido) {
+        volverConMensaje("error");
+    }
+
+    $stmtPedido->bind_param(
+        "iisddd",
+        $idCliente,
+        $idUsuario,
+        $observacionesPedido,
+        $subtotalGeneral,
+        $iva,
+        $total
+    );
+
+    if (!$stmtPedido->execute()) {
+        volverConMensaje("error");
+    }
+}
+
 // ===============================
 // Registrar ingreso en movimiento_contable
 // ===============================
@@ -324,6 +390,8 @@ foreach ($detalleVenta as $item) {
         volverConMensaje("error");
     }
 }
-
-volverConMensaje("ok");
+   // Redirigir al formulario de venta enviando el ID de la factura recién creada
+  // para poder imprimirla o consultarla después
+    header("location: ../../vendedor/registrar_venta.php?msg=ok&id_factura=" . $idFactura);
+    exit;
 ?>

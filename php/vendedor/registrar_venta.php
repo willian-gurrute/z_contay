@@ -11,6 +11,8 @@ require_once "../backend/vendedor/datos_registrar_venta.php";
 $nombre = $_SESSION['nombre'] ?? 'Vendedor';
 
 $msg = $_GET['msg'] ?? '';
+// Recibe el id de la factura recién creada para poder imprimirla después
+$idFactura = $_GET['id_factura'] ?? '';
 
 $mensaje = "";
 $tipoMensaje = "";
@@ -90,7 +92,7 @@ if ($msg === 'ok') {
         <h3 class="subtitulo">Completa los datos del cliente y la venta</h3>
 
         <!-- ===============================
-             FORMULARIO PEQUEÑO: BUSCAR CLIENTE
+             formulario: buscar cliente
         ================================ -->
         <form method="GET" action="registrar_venta.php">
             <label for="documento">Documento del cliente:</label>
@@ -113,7 +115,7 @@ if ($msg === 'ok') {
         <?php endif; ?>
 
         <!-- ===============================
-             FORMULARIO GRANDE: REGISTRAR VENTA
+             formulario registrar venta
         ================================ -->
 
         <form class="form-venta" method="POST" action="../backend/vendedor/registrar_venta_guardar.php">
@@ -228,7 +230,7 @@ if ($msg === 'ok') {
             <!-- Botones de acción -->
             <div class="acciones-venta">
                 <button type="submit" class="main-button">Registrar Venta</button>
-                <button type="button" class="main-button" onclick="window.print()">Imprimir Factura</button>
+                <button type="button" class="main-button" onclick="imprimirFactura()">Imprimir Factura</button>
                 <button type="button" class="main-button">Descargar PDF</button>
             </div>
 
@@ -376,6 +378,18 @@ setTimeout(function(){
     }
 
 },4000);
+
+function imprimirFactura() {
+    const idFactura = "<?php echo $idFactura; ?>";
+
+    if (!idFactura || idFactura == 0) {
+        alert("Primero debes registrar la venta.");
+        return;
+    }
+
+   window.open("factura_imprimir.php?id=" + idFactura, "_blank");
+}
+
 </script>
 
 </body>

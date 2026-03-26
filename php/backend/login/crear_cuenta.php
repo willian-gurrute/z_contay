@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once "conexion.php";
+
+require_once "../conexion.php";
 
 // recibir datos del formulario
 $nombre_completo  = $_POST['nombre_completo'];
@@ -72,7 +73,7 @@ $stmt->bind_param(
 if ($stmt->execute()) {
 
     $_SESSION['ok'] = "Cuenta creada correctamente";
-    header("Location: ../login/inicio-seccion.php");
+    header("Location: ../../login/inicio-seccion.php");
     exit;
 
 } else {

@@ -1,0 +1,70 @@
+.factura-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+}
+
+.empresa {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.empresa h1 {
+    color: #2f6c32;
+    margin-bottom: 5px;
+}
+
+hr {
+    margin: 20px 0;
+}
+
+.info-factura,
+.info-cliente {
+    margin-bottom: 15px;
+}
+
+.tabla-productos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tabla-productos th,
+.tabla-productos td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.tabla-productos th {
+    background: #f4f4f4;
+}
+
+.totales {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.totales h2 {
+    color: #2f6c32;
+    margin-top: 10px;
+}
+
+.no-print {
+    margin-top: 30px;
+    text-align: center;
+}
+
+@media print {
+    .no-print {
+        display: none;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+}

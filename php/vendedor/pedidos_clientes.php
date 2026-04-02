@@ -49,6 +49,32 @@ $nombre = $_SESSION['nombre'] ?? 'Vendedor';
 
         <h1 class="h1-title">Pedidos de Clientes</h1>
         <h3 class="subtitulo">Gestiona los pedidos disponibles y los pedidos que ya has tomado</h3>
+          <?php if (isset($_GET['mensaje'])) : ?>
+          <div class="mensaje-sistema 
+          <?php 
+            if ($_GET['mensaje'] == 'tomado') {
+                echo 'mensaje-info';
+            } elseif ($_GET['mensaje'] == 'facturado') {
+                echo 'mensaje-exito';
+            } elseif ($_GET['mensaje'] == 'error_factura') {
+                echo 'mensaje-error';
+            } elseif ($_GET['mensaje'] == 'ya_facturado') {
+                echo 'mensaje-advertencia';
+            }
+            ?>">
+            <?php
+            if ($_GET['mensaje'] == 'tomado') {
+                echo "Pedido tomado correctamente.";
+            } elseif ($_GET['mensaje'] == 'facturado') {
+                echo "Factura generada correctamente.";
+            } elseif ($_GET['mensaje'] == 'error_factura') {
+                echo "Ocurrió un error al generar la factura.";
+            } elseif ($_GET['mensaje'] == 'ya_facturado') {
+                echo "Este pedido ya tenía una factura registrada.";
+            }
+             ?>
+            </div>
+            <?php endif; ?>
 
         <section class="seccion-pedidos">
             <h2 class="subtitulo">Pedidos disponibles</h2>
@@ -76,7 +102,10 @@ $nombre = $_SESSION['nombre'] ?? 'Vendedor';
                                 <td>$<?php echo number_format($pedido['total'], 0, ',', '.'); ?></td>
                                 <td><?php echo htmlspecialchars($pedido['estado']); ?></td>
                                 <td>
-                                    <button class="main-button" type="button">Tomar pedido</button>
+                                    <form action="../backend/vendedor/tomar_pedido.php" method="POST">
+                                        <input type="hidden" name="id_pedido" value="<?php echo $pedido['id_pedido']; ?>">
+                                        <button class="main-button" type="submit" >Tomar pedido</button>
+                                    </form>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -90,7 +119,7 @@ $nombre = $_SESSION['nombre'] ?? 'Vendedor';
         </section>
 
         <section class="seccion-pedidos" style="margin-top: 40px;">
-            <h2 class="subtitulo">Mis pedidos</h2>
+            <h2 class="subtitulo">Mis pedidos facturados</h2>
 
             <table class="tabla-pedidos">
                 <thead>
@@ -121,7 +150,7 @@ $nombre = $_SESSION['nombre'] ?? 'Vendedor';
                         <?php endforeach; ?>
                     <?php else : ?>
                         <tr>
-                            <td colspan="7">Aún no has tomado pedidos.</td>
+                            <td colspan="7">Aún no tienes pedidos facturados.</td>
                         </tr>
                     <?php endif; ?>
                 </tbody>
@@ -133,6 +162,16 @@ $nombre = $_SESSION['nombre'] ?? 'Vendedor';
     </main>
 
 </div>
+
+
+<script>
+    setTimeout(function() {
+        const mensaje = document.querySelector('.mensaje-sistema');
+        if (mensaje) {
+            mensaje.style.display = 'none';
+        }
+    }, 4000); // 4 segundos
+</script>
 
 </body>
 </html>

@@ -53,15 +53,19 @@ if ($res) {
     }
 }
 
-// Últimos 5 pedidos pendientes
- 
+// Últimos 5 pedidos del sistema
 $pedidos_pendientes_lista = [];
 
 $sqlPedidos = "
-SELECT p.id_pedido, p.fecha, p.total, p.estado, c.nombre_completo
+SELECT 
+    p.id_pedido, 
+    p.fecha, 
+    p.total, 
+    p.estado,
+    p.estado_pago,
+    c.nombre_completo
 FROM pedido p
 JOIN cliente c ON c.id_cliente = p.id_cliente
-WHERE p.estado = 'pendiente'
 ORDER BY p.fecha DESC
 LIMIT 5
 ";

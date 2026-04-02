@@ -97,45 +97,46 @@ $nombre = $_SESSION['nombre'] ?? 'Administrador';
         </form>
 
         <!-- TABLA -->
-        <table class="tabla-ventas">
-            <thead>
-                <tr>
-                    <th>ID Factura</th>
-                    <th>Fecha</th>
-                    <th>Cliente</th>
-                    <th>Producto</th>
-                    <th>Cantidad</th>
-                    <th>Total</th>
-                    <th>Vendedor</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
+       
+            <table class="tabla-ventas">
+              <thead>
+          <tr>
+            <th>ID Factura</th>
+            <th>Fecha</th>
+            <th>Cliente</th>
+            <th>Tipo venta</th>
+            <th>Estado</th>
+            <th>Total</th>
+            <th>Vendedor</th>
+            <th>Acciones</th>
+          </tr>
+          </thead>
 
-            <tbody>
-                <?php if (empty($ventas)): ?>
-                    <tr>
-                        <td colspan="8">No hay ventas registradas.</td>
-                    </tr>
-                <?php else: ?>
-                    <?php foreach ($ventas as $venta): ?>
-                        <tr>
-                            <td><?= (int)$venta['id_factura'] ?></td>
-                            <td><?= htmlspecialchars($venta['fecha']) ?></td>
-                            <td><?= htmlspecialchars($venta['cliente']) ?></td>
-                            <td><?= htmlspecialchars($venta['producto']) ?></td>
-                            <td><?= (int)$venta['cantidad'] ?></td>
-                            <td>$<?= number_format((float)$venta['total'], 0, ',', '.') ?></td>
-                            <td><?= htmlspecialchars($venta['vendedor']) ?></td>
-                            <td>
-                                <a href="detalle_factura.php?id=<?= (int)$venta['id_factura'] ?>" class="btn-detalle">
-                                    Ver detalle
-                                </a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </tbody>
-        </table>
+        <tbody>
+            <?php if (empty($ventas)): ?>
+            <tr>
+                <td colspan="8">No hay ventas registradas.</td>
+            </tr>
+        <?php else: ?>
+            <?php foreach ($ventas as $venta): ?>
+                <tr>
+                    <td><?= (int)$venta['id_factura'] ?></td>
+                    <td><?= htmlspecialchars($venta['fecha']) ?></td>
+                    <td><?= htmlspecialchars($venta['cliente']) ?></td>
+                    <td><?= htmlspecialchars($venta['tipo_venta']) ?></td>
+                    <td><?= htmlspecialchars($venta['estado_factura']) ?></td>
+                    <td>$<?= number_format((float)$venta['total'], 0, ',', '.') ?></td>
+                    <td><?= htmlspecialchars($venta['vendedor']) ?></td>
+                    <td>
+                        <a href="detalle_factura.php?id=<?= (int)$venta['id_factura'] ?>" class="btn-detalle">
+                            Ver detalle
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </tbody>
+</table>
 
         <div class="logo-footer">Z-CONTAY</div>
 

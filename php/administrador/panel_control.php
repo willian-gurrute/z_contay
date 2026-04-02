@@ -182,7 +182,7 @@ $nombre = $_SESSION['nombre'] ?? 'Administrador';
                     <span class="card-icon">
                         <img src="../../img/pedidos pendientes.png" alt="Icono de Pedidos Pendientes">
                     </span>
-                    <h2>Pedidos pendientes</h2>
+                    <h2>Pedidos por entregar</h2>
                     <p class="data"><?= $dashboard['pedidos_pendientes'] ?></p>
                 </div>
             </div>

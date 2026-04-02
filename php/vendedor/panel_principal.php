@@ -74,7 +74,7 @@ $nombre = $_SESSION['nombre'] ?? 'Vendedor';
             </div>
 
             <div class="card-indicador">
-                <h2>Pedidos Pendientes</h2>
+                <h2>Pedidos disponibles</h2>
                 <p class="valor"><?php echo $pedidosPendientes; ?></p>
             </div>
 
@@ -90,27 +90,29 @@ $nombre = $_SESSION['nombre'] ?? 'Vendedor';
 <table class="tabla-resumen">
     <thead>
         <tr>
-            <th>Cliente</th>
-            <th>Producto</th>
-            <th>Cantidad</th>
-            <th>Total</th>
+            <th>ID Factura</th>
             <th>Fecha</th>
+            <th>Cliente</th>
+            <th>Tipo venta</th>
+            <th>Estado</th>
+            <th>Total</th>
         </tr>
     </thead>
     <tbody>
         <?php if (!empty($ventasRecientes)) : ?>
             <?php foreach ($ventasRecientes as $venta) : ?>
                 <tr>
-                    <td><?php echo htmlspecialchars($venta['cliente']); ?></td>
-                    <td><?php echo htmlspecialchars($venta['producto']); ?></td>
-                    <td><?php echo (int)$venta['cantidad']; ?></td>
-                    <td>$<?php echo number_format($venta['total'], 0, ',', '.'); ?></td>
+                    <td><?php echo (int)$venta['id_factura']; ?></td>
                     <td><?php echo date("d/m/Y", strtotime($venta['fecha'])); ?></td>
+                    <td><?php echo htmlspecialchars($venta['cliente']); ?></td>
+                    <td><?php echo htmlspecialchars($venta['tipo_venta']); ?></td>
+                    <td><?php echo htmlspecialchars($venta['estado_factura']); ?></td>
+                    <td>$<?php echo number_format($venta['total'], 0, ',', '.'); ?></td>
                 </tr>
             <?php endforeach; ?>
         <?php else : ?>
             <tr>
-                <td colspan="5">No hay ventas recientes registradas.</td>
+                <td colspan="6">No hay ventas recientes registradas.</td>
             </tr>
         <?php endif; ?>
     </tbody>

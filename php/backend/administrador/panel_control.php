@@ -39,12 +39,13 @@ if ($res && $row = $res->fetch_assoc()) {
     $stock_bajo = (int)$row['cant'];
 }
 
-// Pedidos pendientes 
+
+// Pedidos por entregar
 $pedidos_pendientes = 0;
 
 $sqlPedidos = "SELECT COUNT(*) AS cant
                FROM pedido
-               WHERE estado = 'pendiente'";
+               WHERE estado = 'facturado'";
 
 $res = $conn->query($sqlPedidos);
 if ($res && $row = $res->fetch_assoc()) {

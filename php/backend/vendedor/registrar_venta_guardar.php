@@ -252,7 +252,7 @@ $total = $subtotalGeneral + $iva;
 // ===============================
 $sqlFactura = "INSERT INTO factura
                (fecha, subtotal, iva, total, metodo_pago, estado_factura, tipo_venta, id_cliente, id_usuario, id_empresa)
-               VALUES (NOW(), ?, ?, ?, ?, 'emitida', ?, ?, ?, 1)";
+               VALUES (NOW(), ?, ?, ?, ?, 'pagada', ?, ?, ?, 1)";
 
 $stmtFactura = $conn->prepare($sqlFactura);
 
@@ -278,8 +278,8 @@ if ($tipoVenta === 'pedido') {
     $observacionesPedido = "Pedido generado desde venta del vendedor. Factura N° " . $idFactura;
 
     $sqlPedido = "INSERT INTO pedido
-                  (fecha, id_cliente, id_usuario, estado, observaciones, subtotal, iva, total)
-                  VALUES (NOW(), ?, ?, 'pendiente', ?, ?, ?, ?)";
+                  (fecha, id_cliente, id_usuario, estado, estado_pago, observaciones, subtotal, iva, total)
+                  VALUES (NOW(), ?, ?, 'facturado', 'pagado', ?, ?, ?, ?)";
 
     $stmtPedido = $conn->prepare($sqlPedido);
 
@@ -300,7 +300,29 @@ if ($tipoVenta === 'pedido') {
     if (!$stmtPedido->execute()) {
         volverConMensaje("error");
     }
+
+    // Obtener el id del pedido recién creado
+    $idPedido = $conn->insert_id;
+
+    // Actualizar la factura para enlazarla con el pedido
+    $sqlActualizarFacturaPedido = "UPDATE factura
+                                   SET id_pedido = ?
+                                   WHERE id_factura = ?";
+
+    $stmtActualizarFacturaPedido = $conn->prepare($sqlActualizarFacturaPedido);
+
+    if (!$stmtActualizarFacturaPedido) {
+        volverConMensaje("error");
+    }
+
+    $stmtActualizarFacturaPedido->bind_param("ii", $idPedido, $idFactura);
+
+    if (!$stmtActualizarFacturaPedido->execute()) {
+        volverConMensaje("error");
+    }
 }
+
+
 
 // ===============================
 // Registrar ingreso en movimiento_contable

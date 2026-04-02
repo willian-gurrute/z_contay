@@ -37,7 +37,8 @@ if ($resV) {
     }
 }
 
-// 2) Traer ventas con producto principal
+// 2) Traer ventas
+// Ahora mostramos UNA fila por factura
 $ventas = [];
 
 $sql = "
@@ -45,15 +46,13 @@ $sql = "
         f.id_factura,
         f.fecha,
         f.total,
+        f.tipo_venta,
+        f.estado_factura,
         c.nombre_completo AS cliente,
-        u.nombre_completo AS vendedor,
-        p.nombre_producto AS producto,
-        df.cantidad
+        u.nombre_completo AS vendedor
     FROM factura f
     INNER JOIN cliente c ON c.id_cliente = f.id_cliente
     INNER JOIN usuario u ON u.id_usuario = f.id_usuario
-    INNER JOIN detalle_factura df ON df.id_factura = f.id_factura
-    INNER JOIN producto p ON p.id_producto = df.id_producto
     WHERE 1=1
 ";
 
@@ -99,3 +98,7 @@ if ($res) {
         $ventas[] = $row;
     }
 }
+
+$stmt->close();
+$conn->close();
+?>

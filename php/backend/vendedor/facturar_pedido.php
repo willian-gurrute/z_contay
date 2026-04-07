@@ -216,7 +216,7 @@ try {
     $conn->commit();
     $conn->close();
 
-    header("Location: ../../vendedor/detalle_pedido_vendedor.php?id=" . $idPedido . "&mensaje=tomado");
+    header("Location: ../../vendedor/procesar_pedido_vendedor.php?id=" . $idPedido . "&mensaje=tomado");
     exit();
 
 } catch (Exception $e) {

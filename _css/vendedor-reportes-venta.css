@@ -1,18 +1,21 @@
 /* FORMULARIO DE FILTROS */
 .filtros-form {
+    width: 95%;
     display: flex;
     flex-wrap: wrap;
-    gap: 18px;
-    margin-bottom: 20px;
+    gap: 15px;
+    margin-bottom: 12px;
     background: #fff;
-    padding: 18px;
+    padding: 15px 18px;
     border-radius: 10px;
     box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    align-items: end;
 }
 
 .filtros-form .campo {
     display: flex;
     flex-direction: column;
+    min-width: 180px;
 }
 
 .filtros-form label {
@@ -34,18 +37,50 @@
     padding: 10px 18px;
     border: none;
     border-radius: 6px;
-    margin-top: auto;
     cursor: pointer;
     font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .btn-reporte:hover {
     background: #245026;
 }
 
+/* RESUMEN */
+.resumen-reportes {
+    width: 95%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 12px 0;
+}
+
+.card-indicador {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.card-indicador h2 {
+    font-size: 18px;
+    color: #2f6c32;
+    margin-bottom: 8px;
+}
+
+.card-indicador .valor {
+    font-size: 26px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
 /* TABLA */
 .tabla-reportes {
     width: 95%;
+    margin-top: 10px;
     border-collapse: collapse;
     background: white;
     border-radius: 8px;
@@ -80,4 +115,26 @@
 
 .estado.anulada {
     color: #c63636;
+}
+
+.acciones-reporte {
+    display: flex;
+    gap: 10px;
+    align-items: end;
+}
+
+.btn-reporte {
+    background: #2f6c32;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-reporte:hover {
+    background: #245026;
 }

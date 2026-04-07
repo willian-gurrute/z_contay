@@ -39,7 +39,7 @@ if ($stmtTomarPedido) {
         $conn->close();
 
         // Redirigir a la pantalla de detalle del pedido
-          header("Location: ../../vendedor/detalle_pedido_vendedor.php?id=" . $idPedido . "&mensaje=tomado");
+          header("Location: ../../vendedor/procesar_pedido_vendedor.php?id=" . $idPedido . "&mensaje=tomado");
           exit();
     }
 

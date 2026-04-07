@@ -84,13 +84,11 @@ require_once __DIR__ . "/../backend/vendedor/factura_imprimir_datos.php";
 
     <div class="no-print">
         <button onclick="window.print()">Imprimir</button>
+        
     </div>
 
 </div>
 
-<script>
-window.print();
-</script>
-
 </body>
+
 </html>

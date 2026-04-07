@@ -144,7 +144,13 @@ $nombre = $_SESSION['nombre'] ?? 'Vendedor';
                                 <td>$<?php echo number_format($pedido['total'], 0, ',', '.'); ?></td>
                                 <td><?php echo htmlspecialchars($pedido['estado']); ?></td>
                                 <td>
-                                    <button class="main-button" type="button">Ver detalle</button>
+                                     <?php if (!empty($pedido['id_factura'])) : ?>
+                                        <a href="factura_imprimir.php?id=<?php echo $pedido['id_factura']; ?>" class="main-button" target="_blank">
+                                           Ver detalle
+                                        </a>
+                                     <?php else : ?>
+                                          <span>No disponible</span>
+                                     <?php endif; ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

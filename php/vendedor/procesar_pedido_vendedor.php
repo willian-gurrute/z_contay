@@ -18,7 +18,7 @@ if (!isset($_GET['id']) || empty($_GET['id'])) {
 $idPedido = intval($_GET['id']);
 
 // Cargar la información del pedido
-require_once "../backend/vendedor/detalle_pedido_vendedor.php";
+require_once "../backend/vendedor/procesar_pedido_vendedor.php";
 ?>
 
 <!DOCTYPE html>

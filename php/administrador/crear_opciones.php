@@ -65,6 +65,7 @@ $catalogo = [
       ["nombre"=>"Registrar Venta vendedor","controlador"=>"registrar_venta", "fuction"=>"ver"],
       ["nombre"=>"Pedidos de clientes vendedor","controlador"=>"pedidos_clientes", "fuction"=>"ver"],
       ["nombre"=>"Reportes de venta vendedor","controlador"=>"reportes_venta", "fuction"=>"ver"],
+      ["nombre"=>"Perfil vendedor","controlador"=>"perfil", "fuction"=>"ver"],
     ],
     "Cliente" => [],
 ];

@@ -1,0 +1,68 @@
+<?php
+session_start();
+require_once("../backend/verificar_sesion.php");
+require_once("../backend/vendedor/obtener_perfil.php");
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cerrar sesión</title>
+    <link rel="stylesheet" href="../../_css/cerrar-sesion.css">
+</head>
+
+<body>
+
+<header class="header-bar">
+    <div class="header-rol">
+        <?php echo htmlspecialchars($perfil['nombre_rol']); ?>
+    </div>
+
+    <div class="header-system">
+        Z-CONTAY - Galpón Aves del Paraíso
+    </div>
+
+    <div class="header-user">
+        <span class="icon">
+            <img src="../../img/campana.png">
+        </span>
+
+        <span>
+            <?php echo htmlspecialchars($perfil['nombre_completo']); ?>
+        </span>
+
+        <span class="icon">
+            <img src="../../img/usuario-gestion.png">
+        </span>
+    </div>
+</header>
+
+<div class="confirm-container">
+    <div class="confirm-box">
+
+        <img src="../../img/cerrar-seccion.png" class="icono">
+
+        <h2>¿Deseas cerrar sesión?</h2>
+        <p>Tu sesión actual se cerrará y volverás al inicio.</p>
+
+        <div class="botones">
+
+            <button class="btn-cancelar" onclick="location.href='panel_principal.php'">
+                Cancelar
+            </button>
+
+            
+            <button class="btn-salir" onclick="location.href='../login/inicio-seccion.php'">
+                Cerrar sesión
+            </button>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="logo-footer">Z-CONTAY</div>
+
+</body>
+</html>

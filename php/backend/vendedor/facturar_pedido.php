@@ -57,10 +57,10 @@ try {
     $resFacturaExistente = $stmtFacturaExistente->get_result();
 
     if ($resFacturaExistente->num_rows > 0) {
-    $stmtFacturaExistente->close();
-    $conn->close();
-    header("Location: ../../vendedor/pedidos_clientes.php?mensaje=ya_facturado");
-    exit();
+        $stmtFacturaExistente->close();
+        $conn->close();
+        header("Location: ../../vendedor/pedidos_clientes.php?mensaje=ya_facturado");
+        exit();
     }
 
     $stmtFacturaExistente->close();
@@ -88,7 +88,34 @@ try {
     }
 
     // =========================================
-    // 4. CREAR FACTURA
+    // 4. VALIDAR INVENTARIO DISPONIBLE
+    // =========================================
+    $sqlValidarInventario = "SELECT cantidad
+                             FROM inventario
+                             WHERE id_producto = ?";
+
+    $stmtValidarInventario = $conn->prepare($sqlValidarInventario);
+
+    foreach ($productos as $producto) {
+        $stmtValidarInventario->bind_param("i", $producto['id_producto']);
+        $stmtValidarInventario->execute();
+        $resInventario = $stmtValidarInventario->get_result();
+
+        if ($resInventario->num_rows === 0) {
+            throw new Exception("No existe inventario para el producto ID " . $producto['id_producto']);
+        }
+
+        $inventario = $resInventario->fetch_assoc();
+
+        if ((int)$inventario['cantidad'] < (int)$producto['cantidad']) {
+            throw new Exception("STOCK_INSUFICIENTE");
+        }
+    }
+
+    $stmtValidarInventario->close();
+
+    // =========================================
+    // 5. CREAR FACTURA
     // =========================================
     $sqlInsertFactura = "INSERT INTO factura (
                             subtotal,
@@ -119,7 +146,7 @@ try {
     $stmtInsertFactura->close();
 
     // =========================================
-    // 5. INSERTAR DETALLE DE FACTURA
+    // 6. INSERTAR DETALLE DE FACTURA
     // =========================================
     $sqlInsertDetalleFactura = "INSERT INTO detalle_factura (
                                     id_factura,
@@ -146,7 +173,7 @@ try {
     $stmtInsertDetalleFactura->close();
 
     // =========================================
-    // 6. REGISTRAR MOVIMIENTO CONTABLE
+    // 7. REGISTRAR MOVIMIENTO CONTABLE
     // =========================================
     $sqlMovimientoContable = "INSERT INTO movimiento_contable (
                                 tipo,
@@ -161,7 +188,7 @@ try {
     $stmtMovimientoContable->close();
 
     // =========================================
-    // 7. REGISTRAR MOVIMIENTO DE INVENTARIO
+    // 8. REGISTRAR MOVIMIENTO DE INVENTARIO
     // Y DESCONTAR INVENTARIO
     // =========================================
     $sqlMovimientoInventario = "INSERT INTO movimiento_inventario (
@@ -200,7 +227,7 @@ try {
     $stmtActualizarInventario->close();
 
     // =========================================
-    // 8. ACTUALIZAR PEDIDO
+    // 9. ACTUALIZAR PEDIDO
     // =========================================
     $sqlActualizarPedido = "UPDATE pedido
                             SET estado = 'facturado',
@@ -216,11 +243,17 @@ try {
     $conn->commit();
     $conn->close();
 
-    header("Location: ../../vendedor/procesar_pedido_vendedor.php?id=" . $idPedido . "&mensaje=tomado");
+    header("Location: ../../vendedor/pedidos_clientes.php?mensaje=facturado");
     exit();
 
 } catch (Exception $e) {
     $conn->rollback();
+
+    if ($e->getMessage() === "STOCK_INSUFICIENTE") {
+        header("Location: ../../vendedor/procesar_pedido_vendedor.php?id=" . $idPedido . "&mensaje=stock_insuficiente");
+        exit();
+    }
+
     header("Location: ../../vendedor/pedidos_clientes.php?mensaje=error_factura");
     exit();
 }

@@ -60,7 +60,12 @@ $nombre = $_SESSION['nombre'] ?? 'Vendedor';
                 echo 'mensaje-error';
             } elseif ($_GET['mensaje'] == 'ya_facturado') {
                 echo 'mensaje-advertencia';
+            } elseif ($_GET['mensaje'] == 'liberado') {
+                echo 'mensaje-info';
+            } elseif ($_GET['mensaje'] == 'error_liberar') {
+                echo 'mensaje-error';
             }
+            
             ?>">
             <?php
             if ($_GET['mensaje'] == 'tomado') {
@@ -71,10 +76,15 @@ $nombre = $_SESSION['nombre'] ?? 'Vendedor';
                 echo "Ocurrió un error al generar la factura.";
             } elseif ($_GET['mensaje'] == 'ya_facturado') {
                 echo "Este pedido ya tenía una factura registrada.";
+            } elseif ($_GET['mensaje'] == 'liberado') {
+                echo "El pedido fue liberado y volvió a quedar disponible.";
+            } elseif ($_GET['mensaje'] == 'error_liberar') {
+                echo "No se pudo liberar el pedido.";
             }
-             ?>
-            </div>
-            <?php endif; ?>
+
+            ?>
+         </div>
+         <?php endif; ?>
 
         <section class="seccion-pedidos">
             <h2 class="subtitulo">Pedidos disponibles</h2>
@@ -119,7 +129,7 @@ $nombre = $_SESSION['nombre'] ?? 'Vendedor';
         </section>
 
         <section class="seccion-pedidos" style="margin-top: 40px;">
-            <h2 class="subtitulo">Mis pedidos facturados</h2>
+            <h2 class="subtitulo">Mis pedidos</h2>
 
             <table class="tabla-pedidos">
                 <thead>

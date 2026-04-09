@@ -1,0 +1,92 @@
+/* CONTENEDOR GENERAL */
+.content-area {
+    padding: 20px;
+}
+
+/* TITULOS */
+.content-area h1 {
+    color: #2f6c32;
+    margin-bottom: 15px;
+}
+
+.content-area h2 {
+    margin-top: 25px;
+    color: #333;
+}
+
+/* MENSAJES */
+.mensaje-sistema {
+    width: 95%;
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.mensaje-error {
+    background: #fdecea;
+    color: #b42318;
+    border: 1px solid #f5c2c0;
+}
+
+/* TARJETA DE INFORMACIÓN */
+.detalle-card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+/* TABLA */
+.tabla-productos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background: #fff;
+}
+
+.tabla-productos th {
+    background: #2f6c32;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+.tabla-productos td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* BOTONES */
+.main-button {
+    background: #2f6c32;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.main-button:hover {
+    background: #245026;
+}
+
+/* BOTÓN LIBERAR */
+.btn-liberar {
+    background: #c63636;
+}
+
+.btn-liberar:hover {
+    background: #a92a2a;
+}
+
+/* LINK VOLVER */
+.link-volver {
+    display: inline-block;
+    margin-top: 15px;
+    color: #2f6c32;
+    font-weight: bold;
+    text-decoration: none;
+}

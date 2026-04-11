@@ -5,6 +5,7 @@ require_once __DIR__ . "/../conexion.php";
 $id = $_GET['id'] ?? 0;
 
 // Traer información general de la factura
+
 $stmt = $conn->prepare("
 SELECT 
     f.id_factura,
@@ -17,10 +18,17 @@ SELECT
     c.nombre_completo AS cliente,
     c.numero_documento,
     c.telefono,
-    u.nombre_completo AS vendedor
+    u.nombre_completo AS vendedor,
+    cd.direccion,
+    cd.barrio,
+    cd.ciudad,
+    cd.referencia
 FROM factura f
 INNER JOIN cliente c ON c.id_cliente = f.id_cliente
 INNER JOIN usuario u ON u.id_usuario = f.id_usuario
+LEFT JOIN cliente_direccion cd 
+    ON cd.id_cliente = c.id_cliente 
+    AND cd.es_principal = 1
 WHERE f.id_factura = ?
 ");
 

@@ -72,7 +72,7 @@ if ($result->num_rows === 1) {
                 break;
 
             case 3: //encargado de planta.
-                header("Location: ../planta/panel_principal.php");
+                header("Location: ../encargado_planta/panel_control.php");
                 break;
 
             case 4: //transportador.

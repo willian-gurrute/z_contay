@@ -50,6 +50,10 @@ require_once __DIR__ . "/../backend/vendedor/factura_imprimir_datos.php";
         <p><strong>Nombre:</strong> <?= htmlspecialchars($factura['cliente']) ?></p>
         <p><strong>Documento:</strong> <?= htmlspecialchars($factura['numero_documento']) ?></p>
         <p><strong>Teléfono:</strong> <?= htmlspecialchars($factura['telefono']) ?></p>
+         <p><strong>Dirección:</strong> <?= htmlspecialchars($factura['direccion'] ?? 'No registrada') ?></p>
+         <p><strong>Barrio:</strong> <?= htmlspecialchars($factura['barrio'] ?? 'No registrado') ?></p>
+         <p><strong>Ciudad:</strong> <?= htmlspecialchars($factura['ciudad'] ?? 'No registrada') ?></p>
+         <p><strong>Referencia:</strong> <?= htmlspecialchars($factura['referencia'] ?? 'No registrada') ?></p>
     </div>
 
     <hr>

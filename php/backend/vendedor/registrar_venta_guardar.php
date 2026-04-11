@@ -55,6 +55,9 @@ $documento = trim($_POST['documento'] ?? '');
 $nombreCliente = trim($_POST['nombre_cliente'] ?? '');
 $telefonoCliente = trim($_POST['telefono_cliente'] ?? '');
 $direccionCliente = trim($_POST['direccion_cliente'] ?? '');
+$barrioCliente = trim($_POST['barrio_cliente'] ?? '');
+$ciudadCliente = trim($_POST['ciudad_cliente'] ?? '');
+$referenciaCliente = trim($_POST['referencia_cliente'] ?? '');
 $tipoVenta = trim($_POST['tipo_venta'] ?? 'directa');
 $metodoPago = trim($_POST['metodo_pago'] ?? 'efectivo');
 
@@ -102,8 +105,8 @@ if (empty($idCliente)) {
 
     if ($direccionCliente !== '') {
         $sqlDireccion = "INSERT INTO cliente_direccion 
-                         (id_cliente, direccion, es_principal, estado)
-                         VALUES (?, ?, 1, 'A')";
+                         (id_cliente, direccion, barrio, ciudad, referencia, es_principal, estado)
+                         VALUES (?, ?, ?, ?, ?, 1, 'A')";
 
         $stmtDireccion = $conn->prepare($sqlDireccion);
 
@@ -111,7 +114,14 @@ if (empty($idCliente)) {
             volverConMensaje("error");
         }
 
-        $stmtDireccion->bind_param("is", $idCliente, $direccionCliente);
+        $stmtDireccion->bind_param(
+            "issss",
+            $idCliente,
+            $direccionCliente,
+            $barrioCliente,
+            $ciudadCliente,
+            $referenciaCliente
+        );
 
         if (!$stmtDireccion->execute()) {
             volverConMensaje("error");
@@ -148,24 +158,38 @@ if (empty($idCliente)) {
                 $idDireccion = $filaDireccion['id_direccion'];
 
                 $sqlUpdateDireccion = "UPDATE cliente_direccion
-                                       SET direccion = ?
+                                       SET direccion = ?, barrio = ?, ciudad = ?, referencia = ?
                                        WHERE id_direccion = ?";
 
                 $stmtUpdateDireccion = $conn->prepare($sqlUpdateDireccion);
 
                 if ($stmtUpdateDireccion) {
-                    $stmtUpdateDireccion->bind_param("si", $direccionCliente, $idDireccion);
+                    $stmtUpdateDireccion->bind_param(
+                        "ssssi",
+                        $direccionCliente,
+                        $barrioCliente,
+                        $ciudadCliente,
+                        $referenciaCliente,
+                        $idDireccion
+                    );
                     $stmtUpdateDireccion->execute();
                 }
             } else {
                 $sqlInsertDireccion = "INSERT INTO cliente_direccion
-                                       (id_cliente, direccion, es_principal, estado)
-                                       VALUES (?, ?, 1, 'A')";
+                                       (id_cliente, direccion, barrio, ciudad, referencia, es_principal, estado)
+                                       VALUES (?, ?, ?, ?, ?, 1, 'A')";
 
                 $stmtInsertDireccion = $conn->prepare($sqlInsertDireccion);
 
                 if ($stmtInsertDireccion) {
-                    $stmtInsertDireccion->bind_param("is", $idCliente, $direccionCliente);
+                    $stmtInsertDireccion->bind_param(
+                        "issss",
+                        $idCliente,
+                        $direccionCliente,
+                        $barrioCliente,
+                        $ciudadCliente,
+                        $referenciaCliente
+                    );
                     $stmtInsertDireccion->execute();
                 }
             }
@@ -260,15 +284,22 @@ if (!$stmtFactura) {
     volverConMensaje("error");
 }
 
-$stmtFactura->bind_param("dddssii", $subtotalGeneral, $iva, $total, $metodoPago, $tipoVenta, $idCliente, $idUsuario);
+$stmtFactura->bind_param(
+    "dddssii",
+    $subtotalGeneral,
+    $iva,
+    $total,
+    $metodoPago,
+    $tipoVenta,
+    $idCliente,
+    $idUsuario
+);
 
 if (!$stmtFactura->execute()) {
     volverConMensaje("error");
 }
 
 $idFactura = $conn->insert_id;
-
-
 
 // ===============================
 // Si la venta es tipo pedido, también crear registro en pedido
@@ -321,8 +352,6 @@ if ($tipoVenta === 'pedido') {
         volverConMensaje("error");
     }
 }
-
-
 
 // ===============================
 // Registrar ingreso en movimiento_contable
@@ -412,8 +441,8 @@ foreach ($detalleVenta as $item) {
         volverConMensaje("error");
     }
 }
-   // Redirigir al formulario de venta enviando el ID de la factura recién creada
-  // para poder imprimirla o consultarla después
-    header("location: ../../vendedor/registrar_venta.php?msg=ok&id_factura=" . $idFactura);
-    exit;
+
+// Redirigir al formulario de venta enviando el ID de la factura recién creada
+header("Location: ../../vendedor/registrar_venta.php?msg=ok&id_factura=" . $idFactura);
+exit;
 ?>

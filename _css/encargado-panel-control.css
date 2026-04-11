@@ -122,8 +122,8 @@ a {
 }
 
 .card-indicador .valor {
-    font-size: 22px;
-    color: #2f6c32;
+    font-size: 18px;
+    color: #000;
     font-weight: bold;
 }
 

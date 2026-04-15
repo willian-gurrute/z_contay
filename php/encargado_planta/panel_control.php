@@ -4,12 +4,10 @@ session_start();
 require_once "../backend/verificar_sesion.php";
 require_once "../backend/verificar_permiso.php";
 
-// Verificar permiso para esta pantalla
 verificarPermiso("panel_control");
 
 require_once "../backend/encargado_planta/panel_control.php";
 
-// Nombre del usuario logueado
 $nombre = $_SESSION['nombre'] ?? 'Encargado de Planta';
 ?>
 
@@ -18,7 +16,6 @@ $nombre = $_SESSION['nombre'] ?? 'Encargado de Planta';
 <head>
     <meta charset="UTF-8">
     <title>Encargado de Planta - Panel Principal</title>
-
     <link rel="stylesheet" href="../../_css/encargado-panel-control.css">
 </head>
 <body>
@@ -124,7 +121,6 @@ $nombre = $_SESSION['nombre'] ?? 'Encargado de Planta';
                     <th>Última actualización</th>
                 </tr>
             </thead>
-
             <tbody>
                 <tr>
                     <td>Pedidos pendientes por asignar</td>

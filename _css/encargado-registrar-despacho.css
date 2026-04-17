@@ -19,11 +19,13 @@
 .form-despacho select,
 .form-despacho textarea {
     width: 100%;
-    min-width: 250px; /* 🔥 evita que se corte */
-    padding: 10px;
+    min-width: 250px; /* evita que se corte */
+    padding: 10px 12px;
     border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: 14px;
     font-size: 14px;
+     background: #f9fafb;
+    transition: all 0.2s ease;
 }
 
 .form-despacho textarea {
@@ -44,7 +46,7 @@
 /* ========= TITULOS ========= */
 
 .card-seccion h3 {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     color: #2c3e50;
 }
 
@@ -98,8 +100,8 @@
 
 .grid-dos-columnas {
     display: flex;
-    gap: 25px; /* 👈 separa columnas */
-    margin-bottom: 15px; /* 👈 separa filas */
+    gap: 25px; /*  separa columnas */
+    margin-bottom: 15px; /* separa filas */
 }
 
 .grid-dos-columnas > div {

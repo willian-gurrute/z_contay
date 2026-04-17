@@ -57,10 +57,8 @@ $sqlDespachosGestionados = "SELECT
                                 ON d.id_factura = f.id_factura
                             INNER JOIN cliente c
                                 ON f.id_cliente = c.id_cliente
-                            LEFT JOIN ruta r
-                                ON d.id_ruta = r.id_ruta
                             LEFT JOIN transportador t
-                                ON r.id_transportador = t.id_transportador
+                                ON d.id_transportador = t.id_transportador
                             LEFT JOIN usuario u_trans
                                 ON t.id_usuario = u_trans.id_usuario
                             LEFT JOIN usuario u_planta

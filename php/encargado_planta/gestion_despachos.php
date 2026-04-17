@@ -83,7 +83,15 @@ $nombre = $_SESSION['nombre'] ?? 'Encargado de Planta';
         </ul>
     </nav>
 
+
+
     <main class="content-area">
+
+     <?php if (isset($_GET['ok'])): ?>
+      <div class="success-msg">
+         Despacho asignado correctamente
+     </div>
+     <?php endif; ?>
 
         <h1 class="h1-title">Gestión de Despachos</h1>
 
@@ -204,6 +212,11 @@ $nombre = $_SESSION['nombre'] ?? 'Encargado de Planta';
 
     </main>
 </div>
-
+<script>
+setTimeout(() => {
+    const msg = document.querySelector('.success-msg');
+    if (msg) msg.style.display = 'none';
+}, 3000);
+</script>
 </body>
 </html>

@@ -2,25 +2,47 @@
 
 require_once __DIR__ . "/../conexion.php";
 
-/*
-    VARIABLES POR DEFECTO
-*/
 $factura = null;
 $detalle_productos = [];
 $transportadores = [];
-$id_factura = $_GET['id_factura'] ?? 0;
 
-/* =========================================
-   1. VALIDAR ID FACTURA
-========================================= */
+$id_factura = $_GET['id_factura'] ?? 0;
+$id_despacho = $_GET['id_despacho'] ?? 0;
+
+$modo_reasignacion = false;
+$despacho_actual = null;
+
+if ($id_despacho && is_numeric($id_despacho)) {
+    $modo_reasignacion = true;
+
+    $sqlDespacho = "SELECT 
+                        d.id_despacho,
+                        d.id_factura,
+                        d.id_transportador,
+                        d.zona_entrega
+                    FROM despacho d
+                    WHERE d.id_despacho = ?
+                    LIMIT 1";
+
+    $stmtDespacho = $conn->prepare($sqlDespacho);
+    $stmtDespacho->bind_param("i", $id_despacho);
+    $stmtDespacho->execute();
+    $resDespacho = $stmtDespacho->get_result();
+
+    if ($resDespacho && $resDespacho->num_rows > 0) {
+        $despacho_actual = $resDespacho->fetch_assoc();
+        $id_factura = $despacho_actual['id_factura'];
+    } else {
+        die("Despacho no válido.");
+    }
+
+    $stmtDespacho->close();
+}
+
 if (!$id_factura || !is_numeric($id_factura)) {
     die("Factura no válida.");
 }
 
-/* =========================================
-   2. TRAER DATOS DE LA FACTURA
-   Solo pedidos ya facturados tipo pedido
-========================================= */
 $sqlFactura = "SELECT 
                     f.id_factura,
                     f.fecha,
@@ -41,24 +63,18 @@ $sqlFactura = "SELECT
                LIMIT 1";
 
 $stmtFactura = $conn->prepare($sqlFactura);
+$stmtFactura->bind_param("i", $id_factura);
+$stmtFactura->execute();
+$resFactura = $stmtFactura->get_result();
 
-if ($stmtFactura) {
-    $stmtFactura->bind_param("i", $id_factura);
-    $stmtFactura->execute();
-    $resFactura = $stmtFactura->get_result();
-
-    if ($resFactura && $resFactura->num_rows > 0) {
-        $factura = $resFactura->fetch_assoc();
-    } else {
-        die("No se encontró una factura válida para despacho.");
-    }
-
-    $stmtFactura->close();
+if ($resFactura && $resFactura->num_rows > 0) {
+    $factura = $resFactura->fetch_assoc();
+} else {
+    die("No se encontró una factura válida.");
 }
 
-/* =========================================
-   3. TRAER DETALLE DE PRODUCTOS
-========================================= */
+$stmtFactura->close();
+
 $sqlDetalle = "SELECT 
                     p.nombre_producto,
                     df.cantidad,
@@ -70,22 +86,16 @@ $sqlDetalle = "SELECT
                WHERE df.id_factura = ?";
 
 $stmtDetalle = $conn->prepare($sqlDetalle);
+$stmtDetalle->bind_param("i", $id_factura);
+$stmtDetalle->execute();
+$resDetalle = $stmtDetalle->get_result();
 
-if ($stmtDetalle) {
-    $stmtDetalle->bind_param("i", $id_factura);
-    $stmtDetalle->execute();
-    $resDetalle = $stmtDetalle->get_result();
-
-    while ($fila = $resDetalle->fetch_assoc()) {
-        $detalle_productos[] = $fila;
-    }
-
-    $stmtDetalle->close();
+while ($fila = $resDetalle->fetch_assoc()) {
+    $detalle_productos[] = $fila;
 }
 
-/* =========================================
-   4. TRAER TRANSPORTADORES ACTIVOS
-========================================= */
+$stmtDetalle->close();
+
 $sqlTransportadores = "SELECT 
                             t.id_transportador,
                             u.nombre_completo

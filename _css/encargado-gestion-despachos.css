@@ -1,10 +1,11 @@
 /* CENTRADO GENERAL */
 .content-area {
     flex: 1;
-    padding: 25px;
+    padding: 30px;
+    width: 100%;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
 }
 
 /* TÍTULOS */
@@ -22,7 +23,6 @@
 .subtitulo-segundo {
     margin-top: 40px;
 }
-
 
 /* TABLA */
 .tabla-despachos {
@@ -45,42 +45,28 @@
     border-bottom: 1px solid #ccc;
 }
 
-/* ESTADOS */
-.estado-enviado {
-    color: #2f6c32;
-    font-weight: bold;
-}
-
+/* ===== ESTADOS */
 .estado-pendiente {
     color: #e69300;
     font-weight: bold;
 }
 
-.estado-cancelado {
-    color: #c62828;
+.estado-asignado {
+    color: #007bff;
     font-weight: bold;
 }
 
-/* BOTÓN PRINCIPAL */
-.main-button {
-    background: #2f6c32;
-    color: white;
-    padding: 10px 22px;
-    border-radius: 6px;
-    margin-top: 20px;
-    border: none;
-    cursor: pointer;
+.estado-incidencia {
+    color: #dc3545;
+    font-weight: bold;
 }
 
-.main-button:hover {
-    background: #244e28;
+.estado-entregado {
+    color: #2f6c32;
+    font-weight: bold;
 }
-.content-area {
-    flex: 1;
-    padding: 30px;
-    width: 100%;
-    max-width: 100%;
-}
+
+/* MENSAJE SUCCESS */
 .success-msg {
     margin: 0 0 20px 0; 
     padding: 12px 15px;
@@ -89,4 +75,40 @@
     color: #2f6c32;
     font-weight: bold;
     border-radius: 5px;
+}
+
+/* BOTÓN PRINCIPAL */
+.main-button {
+    background: #2f6c32;
+    color: white;
+    padding: 10px 22px;
+    border-radius: 8px;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.main-button:hover {
+    background: #244e28;
+}
+
+/* ===== BOTONES ACCIONES (TODOS VERDES) ===== */
+.btn-despachar,
+.btn-detalle,
+.btn-incidencia {
+    background: #2f6c32; /* TODOS verdes */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 10px; 
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.btn-despachar:hover,
+.btn-detalle:hover,
+.btn-incidencia:hover {
+    background: #244e28;
 }

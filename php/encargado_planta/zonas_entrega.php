@@ -50,12 +50,6 @@ $nombre = $_SESSION['nombre'] ?? 'Encargado de planta';
         </li>
 
         <li>
-            <a href="movimiento_entrada_salida.php">
-                <span class="icon"><img src="../../img/entrada-salida.png" alt=""></span> Movimiento Entrada/Salida
-            </a>
-        </li>
-
-        <li>
             <a href="gestion_despachos.php">
                 <span class="icon"><img src="../../img/despachos.png" alt=""></span> Gestión de Despachos
             </a>

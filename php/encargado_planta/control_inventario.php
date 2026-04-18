@@ -49,8 +49,6 @@ $nombre = $_SESSION['nombre'] ?? 'Encargado de planta';
                 </a>
             </li>
 
-            <li><a href="movimiento_entrada_salida.php"><span class="icon"><img src="../../img/entrada-salida.png"></span> Movimiento Entrada/Salida</a></li>
-
             <li><a href="gestion_despachos.php"><span class="icon"><img src="../../img/despachos.png"></span> Gestión de Despachos</a></li>
 
             <li><a href="zonas_entrega.php"><span class="icon"><img src="../../img/rutas.png"></span> Zonas de Entrega</a></li>

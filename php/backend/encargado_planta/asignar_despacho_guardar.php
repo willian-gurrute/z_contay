@@ -18,6 +18,30 @@ if (!$id_factura || !$id_transportador || !$zona_entrega) {
     exit();
 }
 
+/* =========================================
+   1. VALIDAR QUE EL TRANSPORTADOR PERTENEZCA A ESA ZONA
+========================================= */
+$sqlValidar = "SELECT id_transportador
+               FROM transportador
+               WHERE id_transportador = ?
+               AND zona_asignada = ?
+               AND estado = 'A'
+               LIMIT 1";
+
+$stmtValidar = $conn->prepare($sqlValidar);
+$stmtValidar->bind_param("is", $id_transportador, $zona_entrega);
+$stmtValidar->execute();
+$resValidar = $stmtValidar->get_result();
+
+if (!$resValidar || $resValidar->num_rows === 0) {
+    die("El transportador seleccionado no pertenece a la zona elegida.");
+}
+
+$stmtValidar->close();
+
+/* =========================================
+   2. SI ES REASIGNACIÓN, ACTUALIZAR
+========================================= */
 if (!empty($id_despacho)) {
     $sqlUpdate = "UPDATE despacho
                   SET id_transportador = ?, zona_entrega = ?, estado = 'asignado', id_usuario = ?
@@ -34,6 +58,9 @@ if (!empty($id_despacho)) {
     }
 }
 
+/* =========================================
+   3. SI ES NUEVO, VERIFICAR DUPLICADO
+========================================= */
 $sql_verificar = "SELECT id_despacho FROM despacho WHERE id_factura = ?";
 $stmt_verificar = $conn->prepare($sql_verificar);
 $stmt_verificar->bind_param("i", $id_factura);
@@ -46,6 +73,9 @@ if ($resultado->num_rows > 0) {
 
 $stmt_verificar->close();
 
+/* =========================================
+   4. INSERTAR NUEVO DESPACHO
+========================================= */
 $sql_insertar = "INSERT INTO despacho 
     (id_factura, id_usuario, id_transportador, estado, fecha_creacion, zona_entrega)
     VALUES (?, ?, ?, 'asignado', NOW(), ?)";

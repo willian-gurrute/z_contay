@@ -123,36 +123,38 @@ $nombre = $_SESSION['nombre'] ?? 'Encargado de Planta';
         </table>
     </div>
 
-    <div class="card-seccion">
-        <h3>Asignación del Despacho</h3>
+  <div class="card-seccion">
+    <h3>Asignación del Despacho</h3>
 
-        <div class="grid-dos-columnas">
-            <div>
-                <label>Seleccione el transportador</label>
-                <select name="id_transportador" required>
-                    <option value="">Seleccione un transportador</option>
-                    <?php foreach ($transportadores as $t): ?>
-                        <option value="<?php echo $t['id_transportador']; ?>"
-                            <?php echo (isset($despacho_actual['id_transportador']) && $despacho_actual['id_transportador'] == $t['id_transportador']) ? 'selected' : ''; ?>>
-                            <?php echo htmlspecialchars($t['nombre_completo']); ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
+    <div class="grid-dos-columnas">
+        <div>
+            <label>Zona de entrega</label>
+            <select name="zona_entrega" id="zona_entrega" required>
+                <option value="">Seleccione una zona</option>
+                <option value="Norte" <?php echo (isset($despacho_actual['zona_entrega']) && $despacho_actual['zona_entrega'] === 'Norte') ? 'selected' : ''; ?>>Zona Norte</option>
+                <option value="Sur" <?php echo (isset($despacho_actual['zona_entrega']) && $despacho_actual['zona_entrega'] === 'Sur') ? 'selected' : ''; ?>>Zona Sur</option>
+                <option value="Centro" <?php echo (isset($despacho_actual['zona_entrega']) && $despacho_actual['zona_entrega'] === 'Centro') ? 'selected' : ''; ?>>Zona Centro</option>
+                <option value="Oriente" <?php echo (isset($despacho_actual['zona_entrega']) && $despacho_actual['zona_entrega'] === 'Oriente') ? 'selected' : ''; ?>>Zona Oriente</option>
+                <option value="Occidente" <?php echo (isset($despacho_actual['zona_entrega']) && $despacho_actual['zona_entrega'] === 'Occidente') ? 'selected' : ''; ?>>Zona Occidente</option>
+            </select>
+        </div>
 
-            <div>
-                <label>Zona de entrega</label>
-                <select name="zona_entrega" required>
-                    <option value="">Seleccione una zona</option>
-                    <option value="Norte" <?php echo (isset($despacho_actual['zona_entrega']) && $despacho_actual['zona_entrega'] === 'Norte') ? 'selected' : ''; ?>>Zona Norte</option>
-                    <option value="Sur" <?php echo (isset($despacho_actual['zona_entrega']) && $despacho_actual['zona_entrega'] === 'Sur') ? 'selected' : ''; ?>>Zona Sur</option>
-                    <option value="Centro" <?php echo (isset($despacho_actual['zona_entrega']) && $despacho_actual['zona_entrega'] === 'Centro') ? 'selected' : ''; ?>>Zona Centro</option>
-                    <option value="Oriente" <?php echo (isset($despacho_actual['zona_entrega']) && $despacho_actual['zona_entrega'] === 'Oriente') ? 'selected' : ''; ?>>Zona Oriente</option>
-                    <option value="Occidente" <?php echo (isset($despacho_actual['zona_entrega']) && $despacho_actual['zona_entrega'] === 'Occidente') ? 'selected' : ''; ?>>Zona Occidente</option>
-                </select>
-            </div>
+        <div>
+            <label>Seleccione el transportador</label>
+            <select name="id_transportador" id="id_transportador" required>
+                <option value="">Seleccione un transportador</option>
+                <?php foreach ($transportadores as $t): ?>
+                    <option 
+                        value="<?php echo $t['id_transportador']; ?>"
+                        data-zona="<?php echo htmlspecialchars($t['zona_asignada'] ?? ''); ?>"
+                        <?php echo (isset($despacho_actual['id_transportador']) && $despacho_actual['id_transportador'] == $t['id_transportador']) ? 'selected' : ''; ?>>
+                        <?php echo htmlspecialchars($t['nombre_completo']); ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
         </div>
     </div>
+</div>
 
     <button type="submit" class="main-button">
         <?php echo $modo_reasignacion ? 'Guardar reasignación' : 'Confirmar despacho'; ?>
@@ -165,6 +167,51 @@ $nombre = $_SESSION['nombre'] ?? 'Encargado de Planta';
 </main>
 
 </div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const zonaSelect = document.getElementById("zona_entrega");
+    const transportadorSelect = document.getElementById("id_transportador");
+
+    const opcionesOriginales = Array.from(transportadorSelect.querySelectorAll("option"));
+
+    function filtrarTransportadores() {
+        const zonaSeleccionada = zonaSelect.value;
+
+        transportadorSelect.innerHTML = "";
+
+        const opcionDefault = document.createElement("option");
+        opcionDefault.value = "";
+        opcionDefault.textContent = "Seleccione un transportador";
+        transportadorSelect.appendChild(opcionDefault);
+
+        opcionesOriginales.forEach(opcion => {
+            const zona = opcion.getAttribute("data-zona");
+
+            if (opcion.value === "") {
+                return;
+            }
+
+            if (zonaSeleccionada !== "" && zona === zonaSeleccionada) {
+                transportadorSelect.appendChild(opcion.cloneNode(true));
+            }
+        });
+    }
+
+    zonaSelect.addEventListener("change", filtrarTransportadores);
+
+    // Si ya viene una zona seleccionada (por reasignación), filtrar al cargar
+    if (zonaSelect.value !== "") {
+        filtrarTransportadores();
+
+        <?php if (isset($despacho_actual['id_transportador'])): ?>
+        const transportadorActual = "<?php echo $despacho_actual['id_transportador']; ?>";
+        transportadorSelect.value = transportadorActual;
+        <?php endif; ?>
+    }
+});
+</script>
 
 </body>
 </html>

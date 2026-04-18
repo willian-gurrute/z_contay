@@ -12,6 +12,9 @@ $id_despacho = $_GET['id_despacho'] ?? 0;
 $modo_reasignacion = false;
 $despacho_actual = null;
 
+/* =========================================
+   1. SI VIENE id_despacho, ES REASIGNACIÓN
+========================================= */
 if ($id_despacho && is_numeric($id_despacho)) {
     $modo_reasignacion = true;
 
@@ -39,10 +42,16 @@ if ($id_despacho && is_numeric($id_despacho)) {
     $stmtDespacho->close();
 }
 
+/* =========================================
+   2. VALIDAR FACTURA
+========================================= */
 if (!$id_factura || !is_numeric($id_factura)) {
     die("Factura no válida.");
 }
 
+/* =========================================
+   3. TRAER DATOS DE LA FACTURA
+========================================= */
 $sqlFactura = "SELECT 
                     f.id_factura,
                     f.fecha,
@@ -75,6 +84,9 @@ if ($resFactura && $resFactura->num_rows > 0) {
 
 $stmtFactura->close();
 
+/* =========================================
+   4. TRAER DETALLE DE PRODUCTOS
+========================================= */
 $sqlDetalle = "SELECT 
                     p.nombre_producto,
                     df.cantidad,
@@ -96,15 +108,19 @@ while ($fila = $resDetalle->fetch_assoc()) {
 
 $stmtDetalle->close();
 
-$sqlTransportadores = "SELECT 
+/* =========================================
+   5. TRAER TRANSPORTADORES ACTIVOS
+========================================= */
+$sqlTransportadores = "SELECT
                             t.id_transportador,
+                            t.zona_asignada,
                             u.nombre_completo
                        FROM transportador t
-                       INNER JOIN usuario u 
+                       INNER JOIN usuario u
                             ON t.id_usuario = u.id_usuario
                        WHERE t.estado = 'A'
                        AND u.estado = 'A'
-                       ORDER BY u.nombre_completo ASC";
+                       ORDER BY t.zona_asignada ASC, u.nombre_completo ASC";
 
 $resTransportadores = $conn->query($sqlTransportadores);
 

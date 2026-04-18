@@ -61,7 +61,9 @@ $catalogo = [
     "Encargado de Planta" => [
       ["nombre"=>"Panel principal Encargado de planta","controlador"=>"panel_control", "fuction"=>"ver"],
       ["nombre"=>"Gestion de Despachos Encargado de planta","controlador"=>"gestion_despachos", "fuction"=>"ver"],
-    ],
+      ["nombre"=>"Zonas de Entrega Encargado de planta","controlador"=>"zonas_entrega", "fuction"=>"ver"],
+   
+      ],
     "transportador" => [],
     "Vendedor" => [
       ["nombre"=>"Panel principal vendedor","controlador"=>"panel_principal", "fuction"=>"ver"],

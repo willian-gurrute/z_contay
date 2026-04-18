@@ -64,8 +64,8 @@ $nombre = $_SESSION['nombre'] ?? 'Encargado de Planta';
             </li>
 
             <li>
-                <a href="rutas_entrega.php">
-                    <span class="icon"><img src="../../img/rutas.png" alt=""></span> Rutas de Entrega
+                <a href="zonas_entrega.php">
+                    <span class="icon"><img src="../../img/rutas.png" alt=""></span> Zonas de Entrega
                 </a>
             </li>
 

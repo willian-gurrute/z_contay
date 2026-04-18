@@ -83,6 +83,12 @@ $nombre = $_SESSION['nombre'] ?? 'Encargado de planta';
 
 <main class="content-area">
 
+<?php if (isset($_GET['ok'])): ?>
+    <div class="success-msg">
+        Zona actualizada correctamente.
+    </div>
+<?php endif; ?>
+
     <h1 class="h1-title">Zonas de Entrega</h1>
     <h3 class="subtitulo">Asignación de zonas a transportadores</h3>
 

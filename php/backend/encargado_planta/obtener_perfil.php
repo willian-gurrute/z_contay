@@ -21,6 +21,7 @@ $perfil = [];
    - Une con la tabla rol para mostrar el nombre del rol
 */
 $sql = "SELECT 
+            u.id_usuario,
             u.nombre_completo,
             u.correo_electronico,
             u.tipo_documento,

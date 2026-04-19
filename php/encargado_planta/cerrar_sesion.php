@@ -1,7 +1,8 @@
 <?php
 session_start();
-require_once("../backend/verificar_sesion.php");
-require_once("../backend/vendedor/obtener_perfil.php");
+
+require_once "../backend/verificar_sesion.php";
+require_once "../backend/encargado_planta/obtener_perfil.php";
 ?>
 
 <!DOCTYPE html>
@@ -24,17 +25,9 @@ require_once("../backend/vendedor/obtener_perfil.php");
     </div>
 
     <div class="header-user">
-        <span class="icon">
-            <img src="../../img/campana.png">
-        </span>
-
-        <span>
-            <?php echo htmlspecialchars($perfil['nombre_completo']); ?>
-        </span>
-
-        <span class="icon">
-            <img src="../../img/usuario-gestion.png">
-        </span>
+        <span class="icon"><img src="../../img/campana.png"></span>
+        <span><?php echo htmlspecialchars($perfil['nombre_completo']); ?></span>
+        <span class="icon"><img src="../../img/usuario-gestion.png"></span>
     </div>
 </header>
 
@@ -48,11 +41,13 @@ require_once("../backend/vendedor/obtener_perfil.php");
 
         <div class="botones">
 
-            <button class="btn-cancelar" onclick="location.href='panel_principal.php'">
+            <!-- CANCELAR -->
+            <button class="btn-cancelar" onclick="location.href='panel_control.php'">
                 Cancelar
             </button>
 
-            <form action="../backend/logout.php" method="POST" style="display:inline;">
+            <!-- CERRAR SESIÓN REAL -->
+            <form action="../backend/logout.php" method="POST">
                 <button class="btn-salir" type="submit">
                     Cerrar sesión
                 </button>
@@ -67,3 +62,4 @@ require_once("../backend/vendedor/obtener_perfil.php");
 
 </body>
 </html>
+

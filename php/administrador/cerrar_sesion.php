@@ -43,15 +43,18 @@ require_once("../backend/administrador/obtener_perfil.php");
             <p>Tu sesión actual se cerrará y volverás a la pantalla de inicio.</p>
 
             <div class="botones">
-                <button class="btn-cancelar" onclick="location.href='panel_control.php'">
-                    Cancelar
-                </button>
+              <button class="btn-cancelar" onclick="location.href='panel_control.php'">
+                Cancelar
+               </button>
 
-                <button class="btn-salir" onclick="location.href='../login/inicio-seccion.php'">
-                    Cerrar sesión
-                </button>
+              <form action="../backend/logout.php" method="POST" style="display:inline;">
+                 <button class="btn-salir" type="submit">
+                   Cerrar sesión
+                   </button>
+
+                </form>
+             
             </div>
-        </div>
     </div>
 
     <div class="logo-footer">Z-CONTAY</div>

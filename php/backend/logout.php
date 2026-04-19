@@ -4,7 +4,7 @@
 session_start();
 
 //elimina todas las variables de sesion
-session_unset();
+$_SESSION = [];
 
 //destruye la sesion
 session_destroy();

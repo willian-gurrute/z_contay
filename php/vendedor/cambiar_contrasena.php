@@ -18,6 +18,7 @@ unset($_SESSION['tipo_password']);
 ?>
 
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
     <meta charset="UTF-8">

@@ -128,6 +128,9 @@ $nombre = $_SESSION['nombre'] ?? 'Transportador';
                 <div class="acciones">
                     <button type="submit" class="btn-accion btn-confirmar-entrega">Filtrar</button>
                     <a href="reportes_despachos.php" class="btn-confirmar">Limpiar</a>
+                    <a href="reporte_despachos_pdf.php?estado=<?php echo urlencode($estado_filtro); ?>&fecha_desde=<?php echo urlencode($fecha_desde); ?>&fecha_hasta=<?php echo urlencode($fecha_hasta); ?>" class="btn-confirmar">
+                         Descargar PDF
+                    </a>
                 </div>
             </form>
         </div>
@@ -161,11 +164,13 @@ $nombre = $_SESSION['nombre'] ?? 'Transportador';
                                 <td class="estado estado-<?php echo strtolower($item['estado']); ?>">
                                     <?php echo htmlspecialchars(ucfirst($item['estado'])); ?>
                                 </td>
+                               
                                 <td class="acciones">
                                     <a href="detalle_pedido.php?id=<?php echo (int)$item['id_despacho']; ?>" class="btn-confirmar">
                                         Ver detalle
                                     </a>
                                 </td>
+                                
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

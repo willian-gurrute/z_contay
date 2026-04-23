@@ -17,7 +17,13 @@ if ($res && $res->num_rows > 0) {
 }
 
 // 2) Traer opciones activas (para mostrarlas como checkboxes)
-$r = $conn->query("SELECT id_opciones, nombre_opcion FROM opciones WHERE estado='A' ORDER BY id_opciones ASC");
+$r = $conn->query("
+    SELECT id_opciones, nombre_opcion, nombre_controlador, modulo 
+    FROM opciones 
+    WHERE estado='A' 
+    ORDER BY modulo ASC, id_opciones ASC
+");
+
 if ($r) {
     while ($row = $r->fetch_assoc()) {
         $opciones[] = $row;

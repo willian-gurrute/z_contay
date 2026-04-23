@@ -97,9 +97,9 @@ function estaMarcado($id_opcion, $lista) {
     <p class="subtitulo">Actualiza los datos del rol y los permisos asignados</p>
 
     <?php if ($msg === 'ok'): ?>
-      <p style="margin-bottom:15px; color:green;">✅ Rol actualizado</p>
+      <p style="margin-bottom:15px; color:green;"> Rol actualizado</p>
     <?php elseif ($msg === 'bad'): ?>
-      <p style="margin-bottom:15px; color:red;">❌ Error al actualizar</p>
+      <p style="margin-bottom:15px; color:red;"> Error al actualizar</p>
     <?php endif; ?>
 
     <div class="card-wrapper form-card">
@@ -156,7 +156,13 @@ function estaMarcado($id_opcion, $lista) {
                 ?>
                 <label class="chk" style="display:block; margin-bottom:10px;">
                   <input type="checkbox" name="opciones[]" value="<?= $id_op ?>" <?= $checked ?>>
-                  <span><?= htmlspecialchars($op['nombre_opcion']) ?></span>
+                  <span>
+                    <?= htmlspecialchars($op['nombre_opcion']) ?>
+                    <small>
+                      (ID: <?= (int)$op['id_opciones'] ?> |
+                       Controlador: <?= htmlspecialchars($op['nombre_controlador'] ?? '') ?>)
+                    </small>
+                  </span>
                 </label>
               <?php endforeach; ?>
             <?php endif; ?>

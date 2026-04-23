@@ -44,6 +44,7 @@ if ($msg === 'ok') {
 }
 
 $catalogo = [
+
     "Administrador" => [
         ["nombre"=>"Panel principal", "controlador"=>"panel_control", "funcion"=>"ver"],
         ["nombre"=>"Gestión de usuarios", "controlador"=>"gestion_usuarios", "funcion"=>"ver"],
@@ -55,33 +56,42 @@ $catalogo = [
         ["nombre"=>"Registrar Gasto", "controlador"=>"registrar_gasto", "funcion"=>"ver"],
         ["nombre"=>"Inventario", "controlador"=>"inventario", "funcion"=>"ver"],
         ["nombre"=>"Reportes", "controlador"=>"reportes", "funcion"=>"ver"],
-        ["nombre"=>"Configuracion", "controlador"=>"configuracion", "funcion"=>"ver"],
+        ["nombre"=>"Configuración", "controlador"=>"configuracion", "funcion"=>"ver"],
         ["nombre"=>"Perfil", "controlador"=>"perfil", "funcion"=>"ver"],
     ],
+
     "Encargado de Planta" => [
-      ["nombre"=>"Panel principal Encargado de planta","controlador"=>"panel_control", "fuction"=>"ver"],
-      ["nombre"=>"Gestion de Despachos Encargado de planta","controlador"=>"gestion_despachos", "fuction"=>"ver"],
-      ["nombre"=>"Zonas de Entrega Encargado de planta","controlador"=>"zonas_entrega", "fuction"=>"ver"],
-      ["nombre"=>"Control de inventario Encargado de planta","controlador"=>"control_inventario", "fuction"=>"ver"],
-      ["nombre"=>"Perfil Encargado de planta", "controlador"=>"perfil", "funcion"=>"ver"],
-   
-      ],
-    "transportador" => [
-      ["nombre"=>"Panel principal transportador","controlador"=>"panel_principal", "fuction"=>"ver"],
-      ["nombre"=>"Zonas y despachos transportador","controlador"=>"zonas_despachos", "fuction"=>"ver"],
-      ["nombre"=>"Listado de pedidos transportador","controlador"=>"listado_pedidos", "fuction"=>"ver"],
-      ["nombre"=>"Reportes de despachos transportador","controlador"=>"reportes_despachos", "fuction"=>"ver"],
-      ["nombre"=>"Perfil transportador","controlador"=>"perfil", "fuction"=>"ver"],
+        ["nombre"=>"Panel principal Encargado", "controlador"=>"panel_control", "funcion"=>"ver"],
+        ["nombre"=>"Gestión de despachos", "controlador"=>"gestion_despachos", "funcion"=>"ver"],
+        ["nombre"=>"Zonas de entrega", "controlador"=>"zonas_entrega", "funcion"=>"ver"],
+        ["nombre"=>"Control de inventario", "controlador"=>"control_inventario", "funcion"=>"ver"],
+        ["nombre"=>"Perfil Encargado", "controlador"=>"perfil", "funcion"=>"ver"],
     ],
+
+    "Transportador" => [
+        ["nombre"=>"Panel principal transportador", "controlador"=>"panel_principal", "funcion"=>"ver"],
+        ["nombre"=>"Zonas y despachos", "controlador"=>"zonas_despachos", "funcion"=>"ver"],
+        ["nombre"=>"Listado de pedidos", "controlador"=>"listado_pedidos", "funcion"=>"ver"],
+        ["nombre"=>"Reportes de despachos", "controlador"=>"reportes_despachos", "funcion"=>"ver"],
+        ["nombre"=>"Perfil transportador", "controlador"=>"perfil", "funcion"=>"ver"],
+    ],
+
     "Vendedor" => [
-      ["nombre"=>"Panel principal vendedor","controlador"=>"panel_principal", "fuction"=>"ver"],
-      ["nombre"=>"Registrar Venta vendedor","controlador"=>"registrar_venta", "fuction"=>"ver"],
-      ["nombre"=>"Pedidos de clientes vendedor","controlador"=>"pedidos_clientes", "fuction"=>"ver"],
-      ["nombre"=>"Reportes de venta vendedor","controlador"=>"reportes_venta", "fuction"=>"ver"],
-      ["nombre"=>"Perfil vendedor","controlador"=>"perfil", "fuction"=>"ver"],
+        ["nombre"=>"Panel principal vendedor", "controlador"=>"panel_principal", "funcion"=>"ver"],
+        ["nombre"=>"Registrar venta", "controlador"=>"registrar_venta", "funcion"=>"ver"],
+        ["nombre"=>"Pedidos de clientes", "controlador"=>"pedidos_clientes", "funcion"=>"ver"],
+        ["nombre"=>"Reportes de venta", "controlador"=>"reportes_venta", "funcion"=>"ver"],
+        ["nombre"=>"Perfil vendedor", "controlador"=>"perfil", "funcion"=>"ver"],
     ],
-    "Cliente" => [],
+
+    "Cliente" => [
+        ["nombre"=>"Portafolio cliente", "controlador"=>"portafolio", "funcion"=>"ver"],
+        ["nombre"=>"Realizar pedido", "controlador"=>"realizar_pedido", "funcion"=>"ver"],
+        ["nombre"=>"Historial de pedidos", "controlador"=>"historial_pedidos", "funcion"=>"ver"],
+        ["nombre"=>"Perfil cliente", "controlador"=>"perfil", "funcion"=>"ver"],
+    ],
 ];
+
 ?>
 <!DOCTYPE html>
 <html lang="es">

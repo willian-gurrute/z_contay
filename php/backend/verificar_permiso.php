@@ -31,12 +31,27 @@ function verificarPermiso(string $controlador): void
     $stmt->bind_param("is", $idRol, $controlador);
     $stmt->execute();
     $res = $stmt->get_result();
+    
 
     // Si no hay permiso, mostramos mensaje
     if (!$res || $res->num_rows === 0) {
-        echo "<h2>Acceso denegado</h2>";
-        echo "<p>No tiene permiso para entrar a esta sección.</p>";
-        echo "<a href='panel_control.php'>Volver al panel</a>";
-        exit;
+    $rutaVolver = "../login/inicio-seccion.php";
+
+    if ($idRol === 1) {
+        $rutaVolver = "../administrador/panel_control.php";
+    } elseif ($idRol === 2) {
+        $rutaVolver = "../vendedor/panel_principal.php";
+    } elseif ($idRol === 3) {
+        $rutaVolver = "../encargado_planta/panel_control.php";
+    } elseif ($idRol === 4) {
+        $rutaVolver = "../transportador/panel_principal.php";
+    } elseif ($idRol === 5) {
+        $rutaVolver = "../cliente/portafolio.php";
     }
+
+    echo "<h2>Acceso denegado</h2>";
+    echo "<p>No tiene permiso para entrar a esta sección.</p>";
+    echo "<a href='{$rutaVolver}'>Volver al panel</a>";
+    exit;
+   }
 }

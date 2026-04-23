@@ -80,7 +80,7 @@ if ($result->num_rows === 1) {
                 break;
 
             case 5: //cliente.
-                header("Location: ../cliente/panel_principal.php");
+                header("Location: ../cliente/portafolio.php");
                 break;
 
             default:

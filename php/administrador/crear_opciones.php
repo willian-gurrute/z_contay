@@ -68,7 +68,8 @@ $catalogo = [
       ],
     "transportador" => [
       ["nombre"=>"Panel principal transportador","controlador"=>"panel_principal", "fuction"=>"ver"],
-       ["nombre"=>"Zonas y despachos transportador","controlador"=>"zonas_despachos", "fuction"=>"ver"],
+      ["nombre"=>"Zonas y despachos transportador","controlador"=>"zonas_despachos", "fuction"=>"ver"],
+      ["nombre"=>"Listado de pedidos transportador","controlador"=>"listado_pedidos", "fuction"=>"ver"],
     ],
     "Vendedor" => [
       ["nombre"=>"Panel principal vendedor","controlador"=>"panel_principal", "fuction"=>"ver"],

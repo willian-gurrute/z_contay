@@ -105,16 +105,16 @@ $nombre = $_SESSION['nombre'] ?? 'Administrador';
                 <p class="descripcion">Pedidos aún en proceso de despacho.</p>
             </div>
 
-            <!-- =========================
-            ÚLTIMAS 5 FACTURAS DE HOY
-            ========================= -->
-         <h2 style="margin-top: 25px;">Últimas facturas de hoy</h2>
+           <!-- =========================
+ÚLTIMAS 5 FACTURAS DE HOY
+========================= -->
+<h2 style="margin-top: 25px;">Últimas facturas de hoy</h2>
 
-            <?php if (empty($ultimas_facturas)): ?>
-             <p>No hay facturas registradas hoy.</p>
-              <?php else: ?>
-               <table class="tabla-detalle">
-               <thead>
+<?php if (empty($ultimas_facturas)): ?>
+    <p>No hay facturas registradas hoy.</p>
+<?php else: ?>
+    <table class="tabla-detalle">
+        <thead>
             <tr>
                 <th>ID</th>
                 <th>Fecha</th>
@@ -122,82 +122,80 @@ $nombre = $_SESSION['nombre'] ?? 'Administrador';
                 <th>Total</th>
                 <th>Estado</th>
             </tr>
-             </thead>
-             <tbody>
-               <?php foreach ($ultimas_facturas as $f): ?>
-            <tr>
-                <td><?= (int)$f['id_factura'] ?></td>
-                <td><?= htmlspecialchars($f['fecha']) ?></td>
-                <td><?= htmlspecialchars($f['nombre_completo']) ?></td>
-                <td>$<?= number_format((float)$f['total'], 0, ',', '.') ?></td>
-                <td><?= htmlspecialchars($f['estado_factura']) ?></td>
-            </tr>
-               <?php endforeach; ?>
-             </tbody>
-             </table>
-             <?php endif; ?>
+        </thead>
+        <tbody>
+            <?php foreach ($ultimas_facturas as $f): ?>
+                <tr>
+                    <td><?= (int)$f['id_factura'] ?></td>
+                    <td><?= htmlspecialchars($f['fecha']) ?></td>
+                    <td><?= htmlspecialchars($f['nombre_completo']) ?></td>
+                    <td>$<?= number_format((float)$f['total'], 0, ',', '.') ?></td>
+                    <td><?= htmlspecialchars($f['estado_factura']) ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+<?php endif; ?>
 
+<!-- =========================
+PRODUCTOS CON STOCK BAJO
+========================= -->
+<h2 style="margin-top: 25px;">Productos con stock bajo</h2>
 
-              <!-- =========================
-              PRODUCTOS CON STOCK BAJO
-             ========================= -->
-           <h2 style="margin-top: 25px;">Productos con stock bajo</h2>
-
-                <?php if (empty($lista_stock_bajo)): ?>
-               <p>No hay productos en stock bajo.</p>
-               <?php else: ?>
-                <table class="tabla-detalle">
-                <thead>
+<?php if (empty($lista_stock_bajo)): ?>
+    <p>No hay productos en stock bajo.</p>
+<?php else: ?>
+    <table class="tabla-detalle">
+        <thead>
             <tr>
                 <th>Producto</th>
                 <th>Cantidad</th>
                 <th>Stock mínimo</th>
             </tr>
-             </thead>
-              <tbody>
-             <?php foreach ($lista_stock_bajo as $p): ?>
+        </thead>
+        <tbody>
+            <?php foreach ($lista_stock_bajo as $p): ?>
+                <tr>
+                    <td><?= htmlspecialchars($p['nombre_producto']) ?></td>
+                    <td><?= (int)$p['cantidad'] ?></td>
+                    <td><?= (int)$p['stock_minimo'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+<?php endif; ?>
+
+<!-- =========================
+ÚLTIMOS PEDIDOS PENDIENTES
+========================= -->
+<h2 style="margin-top: 25px;">Últimos pedidos pendientes</h2>
+
+<?php if (empty($pedidos_pendientes_lista)): ?>
+    <p>No hay pedidos pendientes.</p>
+<?php else: ?>
+    <table class="tabla-detalle">
+        <thead>
             <tr>
-                <td><?= htmlspecialchars($p['nombre_producto']) ?></td>
-                <td><?= (int)$p['cantidad'] ?></td>
-                <td><?= (int)$p['stock_minimo'] ?></td>
+                <th>ID</th>
+                <th>Fecha</th>
+                <th>Cliente</th>
+                <th>Total</th>
+                <th>Estado</th>
             </tr>
-              <?php endforeach; ?>
-             </tbody>
-             </table>
-              <?php endif; ?>
-
-
-               <!-- =========================
-                ÚLTIMOS 5 PEDIDOS PENDIENTES
-                ========================= -->
-             <h2 style="margin-top: 25px;">Últimos pedidos pendientes</h2>
-
-             <?php if (empty($pedidos_pendientes_lista)): ?>
-                    <p>No hay pedidos pendientes.</p>
-                <?php else: ?>
-                  <table class="tabla-detalle">
-                   <thead>
-                 <tr>
-                   <th>ID</th>
-                   <th>Fecha</th>
-                   <th>Cliente</th>
-                   <th>Total</th>
-                   <th>Estado</th>
-                 </tr>
-                 </thead>
-                 <tbody>
-                <?php foreach ($pedidos_pendientes_lista as $p): ?>
-                   <tr>
-                    <td><?= (int)$p['id_pedido'] ?></td>
+        </thead>
+        <tbody>
+            <?php foreach ($pedidos_pendientes_lista as $p): ?>
+                <tr>
+                    <td><?= (int)$p['id_despacho'] ?></td>
                     <td><?= htmlspecialchars($p['fecha']) ?></td>
                     <td><?= htmlspecialchars($p['nombre_completo']) ?></td>
                     <td>$<?= number_format((float)$p['total'], 0, ',', '.') ?></td>
-                   <td><?= htmlspecialchars($p['estado']) ?></td>
-                 </tr>
-                <?php endforeach; ?>
-                 </tbody>
-                  </table>
-                <?php endif; ?>
+                    <td><?= htmlspecialchars($p['estado']) ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+<?php endif; ?>
 
         </div>
 

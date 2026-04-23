@@ -1,0 +1,181 @@
+.cards-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    gap: 20px;
+}
+
+.card-indicador {
+    width: 23%;
+    background: white;
+    padding: 18px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+.card-indicador h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #2f6c32;
+}
+
+.card-indicador .valor {
+    font-size: 26px;
+    font-weight: bold;
+    color: #2f6c32;
+}
+
+.tabla-resumen {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.tabla-resumen th {
+    background: #2f6c32;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+.tabla-resumen td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.subtitulo {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #2f6c32;
+    font-weight: bold;
+}
+
+/* ============================================
+   GESTIONAR ENTREGA
+============================================ */
+.gestion-card {
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.08);
+    padding: 24px;
+    max-width: 900px;
+    margin-bottom: 28px;
+}
+
+.gestion-subtitle {
+    margin: 0 0 18px 0;
+    color: #2f6c32;
+    font-size: 22px;
+}
+
+.gestion-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.dato-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: #f8f8f8;
+    border-radius: 10px;
+    padding: 14px 16px;
+}
+
+.dato-item-full {
+    grid-column: 1 / -1;
+}
+
+.dato-label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #666;
+}
+
+.dato-valor {
+    font-size: 18px;
+    color: #222;
+}
+
+.acciones-gestion {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 900px;
+}
+
+.accion-box {
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.08);
+    padding: 22px;
+}
+
+.accion-titulo {
+    margin: 0 0 8px 0;
+    color: #2f6c32;
+    font-size: 20px;
+}
+
+.accion-texto {
+    margin: 0 0 16px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.form-incidencia {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.input-gestion {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+.input-gestion:focus {
+    border-color: #2f6c32;
+}
+
+.btn-accion {
+    border: none;
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-confirmar-entrega {
+    background: #2f6c32;
+    color: #fff;
+}
+
+.btn-confirmar-entrega:hover {
+    background: #245026;
+}
+
+.btn-reportar-incidencia {
+    background: #d9534f;
+    color: #fff;
+}
+
+.btn-reportar-incidencia:hover {
+    background: #b83f3b;
+}
+
+@media (max-width: 900px) {
+    .gestion-grid,
+    .acciones-gestion {
+        grid-template-columns: 1fr;
+    }
+}

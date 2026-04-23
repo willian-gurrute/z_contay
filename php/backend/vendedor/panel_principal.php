@@ -74,13 +74,23 @@ if ($resPedidosPendientes && $fila = $resPedidosPendientes->fetch_assoc()) {
 $despachos = 0;
 
 $sqlDespachos = "SELECT COUNT(*) AS total_despachos
-                 FROM despacho
-                 WHERE estado IN ('pendiente', 'asignado')";
+                 FROM despacho d
+                 INNER JOIN factura f ON d.id_factura = f.id_factura
+                 WHERE f.id_usuario = ?
+                 AND d.estado IN ('pendiente', 'asignado')";
 
-$resDespachos = $conn->query($sqlDespachos);
+$stmtDespachos = $conn->prepare($sqlDespachos);
 
-if ($resDespachos && $fila = $resDespachos->fetch_assoc()) {
-    $despachos = (int)$fila['total_despachos'];
+if ($stmtDespachos) {
+    $stmtDespachos->bind_param("i", $idUsuario);
+    $stmtDespachos->execute();
+    $resDespachos = $stmtDespachos->get_result();
+
+    if ($resDespachos && $fila = $resDespachos->fetch_assoc()) {
+        $despachos = (int)$fila['total_despachos'];
+    }
+
+    $stmtDespachos->close();
 }
 
 // ==============================

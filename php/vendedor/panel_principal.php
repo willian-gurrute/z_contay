@@ -79,7 +79,7 @@ $nombre = $_SESSION['nombre'] ?? 'Vendedor';
             </div>
 
             <div class="card-indicador">
-                <h2>Despachos</h2>
+                <h2>Mis despachos pendientes</h2>
                 <p class="valor"><?php echo $despachos; ?></p>
             </div>
 

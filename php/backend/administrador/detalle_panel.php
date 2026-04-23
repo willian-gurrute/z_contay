@@ -53,20 +53,21 @@ if ($res) {
     }
 }
 
-// Últimos 5 pedidos del sistema
+// Últimos 5 pedidos pendientes de entrega
 $pedidos_pendientes_lista = [];
 
 $sqlPedidos = "
 SELECT 
-    p.id_pedido, 
-    p.fecha, 
-    p.total, 
-    p.estado,
-    p.estado_pago,
+    d.id_despacho,
+    d.fecha_creacion AS fecha,
+    f.total,
+    d.estado,
     c.nombre_completo
-FROM pedido p
-JOIN cliente c ON c.id_cliente = p.id_cliente
-ORDER BY p.fecha DESC
+FROM despacho d
+INNER JOIN factura f ON d.id_factura = f.id_factura
+INNER JOIN cliente c ON f.id_cliente = c.id_cliente
+WHERE d.estado IN ('pendiente', 'asignado')
+ORDER BY d.fecha_creacion DESC
 LIMIT 5
 ";
 

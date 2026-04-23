@@ -44,8 +44,8 @@ if ($res && $row = $res->fetch_assoc()) {
 $pedidos_pendientes = 0;
 
 $sqlPedidos = "SELECT COUNT(*) AS cant
-               FROM pedido
-               WHERE estado = 'facturado'";
+               FROM despacho
+               WHERE estado IN ('pendiente', 'asignado')";
 
 $res = $conn->query($sqlPedidos);
 if ($res && $row = $res->fetch_assoc()) {

@@ -1,4 +1,3 @@
-
 * {
     box-sizing: border-box;
 }
@@ -81,14 +80,12 @@ body {
     font-weight: bold;
 }
 
-
 .content-area {
- flex: 1;
- padding: 32px;
- position: relative;
- min-height: 100vh; 
+    flex: 1;
+    padding: 32px;
+    position: relative;
+    min-height: 100vh;
 }
-
 
 /* ============================================
    BANNER DE ESTADO
@@ -148,6 +145,7 @@ body {
 .tabla-despachos td {
     border: 1px solid #ccc;
     padding: 10px;
+    vertical-align: middle;
 }
 
 .tabla-despachos thead th {
@@ -169,7 +167,7 @@ body {
 }
 
 /* ============================================
-   BOTONES
+   ACCIONES
 ============================================ */
 .acciones {
     display: flex;
@@ -177,48 +175,24 @@ body {
     align-items: center;
 }
 
-button {
-    padding: 8px 12px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-/* Confirmar */
+/* ============================================
+   BOTÓN GESTIONAR
+============================================ */
 .btn-confirmar {
+    display: inline-block;
     background: #2f6c32;
     color: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s ease;
 }
 
 .btn-confirmar:hover {
     background: #245026;
-}
-
-/* Reportar */
-.btn-reportar {
-    background: #e95b5b;
-    color: #fff;
-}
-
-.btn-reportar:hover {
-    background: #c63636;
-}
-
-/* Botón ver detalle (solo cuando confirmado) */
-.btn-entregado {
-    background: #2f6c32;
-    color: #fff;
-}
-
-.btn-entregado:hover {
-    background: #245026;
-}
-
-/* Deshabilitados */
-button:disabled {
-    opacity: 0.6;
-    cursor: default;
+    transform: scale(1.05);
 }
 
 /* ============================================
@@ -253,3 +227,26 @@ button:disabled {
     }
 }
 
+.estado {
+    font-weight: bold;
+}
+
+.estado-entregado {
+    color: #2f6c32;
+}
+
+.estado-asignado {
+    color: #b26a00;
+}
+
+.estado-incidencia {
+    color: #c63636;
+}
+
+.estado-pendiente {
+    color: #555;
+}
+
+.estado-cancelado {
+    color: #7a1a1a;
+}

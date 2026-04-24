@@ -77,3 +77,99 @@ body {
     align-items: center; /* Centra el formulario horizontalmente */
 }
 
+.pedido-form,
+.datos-entrega,
+.resumen-pedido {
+    width: 95%;
+    max-width: 1000px;
+}
+
+.tabla-pedido {
+    width: 95%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.tabla-pedido th {
+    background: #2f6c32;
+    color: #fff;
+    padding: 12px;
+    text-align: left;
+}
+
+.tabla-pedido td {
+    border: 1px solid #ddd;
+    padding: 12px;
+}
+
+.input-cantidad {
+    width: 90px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.datos-entrega {
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.08);
+    margin: 20px 0;
+}
+
+.datos-entrega h2 {
+    margin-top: 0;
+    color: #2f6c32;
+}
+
+.datos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px 20px;
+}
+
+.campo-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.campo-form label {
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.campo-form input,
+.campo-form select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+}
+
+.resumen-pedido {
+    background: #f8f8f8;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 20px 0;
+}
+
+.acciones-pedido {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.btn-agregar {
+    background: #2f6c32;
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 7px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-agregar:hover {
+    background: #245026;
+}

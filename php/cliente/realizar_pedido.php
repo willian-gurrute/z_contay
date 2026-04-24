@@ -32,7 +32,9 @@ unset($_SESSION['mensaje_pedido'], $_SESSION['tipo_pedido']);
 
     <link rel="stylesheet" href="../../_css/admin-base.css">
     <link rel="stylesheet" href="../../_css/portafolio.css">
+    <link rel="stylesheet" href="../../_css/realizar-pedido.css">
 </head>
+
 <body>
 
 <header class="header-bar">
@@ -96,8 +98,8 @@ unset($_SESSION['mensaje_pedido'], $_SESSION['tipo_pedido']);
         <h1 class="h1-title">Realizar pedido</h1>
 
         <p class="subtitulo-portafolio">
-            Revisa los productos agregados y ajusta las cantidades. 
-            Para confirmar el pedido debes tener mínimo 60 unidades.
+            Revisa los productos agregados, completa los datos de entrega y confirma tu pedido.
+            El pedido mínimo es de 60 unidades.
         </p>
 
         <?php if (!empty($mensaje)) : ?>
@@ -139,7 +141,7 @@ unset($_SESSION['mensaje_pedido'], $_SESSION['tipo_pedido']);
                                 </td>
 
                                 <td>
-                                    <input 
+                                    <input
                                         type="number"
                                         name="cantidades[<?php echo (int)$id_producto; ?>]"
                                         value="<?php echo (int)$item['cantidad']; ?>"
@@ -154,7 +156,7 @@ unset($_SESSION['mensaje_pedido'], $_SESSION['tipo_pedido']);
                                 </td>
 
                                 <td>
-                                    <input 
+                                    <input
                                         type="checkbox"
                                         name="eliminar[]"
                                         value="<?php echo (int)$id_producto; ?>"
@@ -165,6 +167,43 @@ unset($_SESSION['mensaje_pedido'], $_SESSION['tipo_pedido']);
                     </tbody>
                 </table>
 
+                <section class="datos-entrega">
+    <h2>Datos de entrega</h2>
+
+    <div class="datos-grid">
+        <div class="campo-form">
+            <label for="direccion">Dirección de entrega:</label>
+            <input type="text" id="direccion" name="direccion" placeholder="Ej: Calle 10 # 5-20" required>
+        </div>
+
+        <div class="campo-form">
+            <label for="barrio">Barrio:</label>
+            <input type="text" id="barrio" name="barrio" placeholder="Ej: Centro" required>
+        </div>
+
+        <div class="campo-form">
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" name="telefono" placeholder="Ej: 3001234567" required>
+        </div>
+
+        <div class="campo-form">
+            <label for="referencia">Referencia:</label>
+            <input type="text" id="referencia" name="referencia" placeholder="Ej: Casa azul, segundo piso">
+        </div>
+
+        <div class="campo-form">
+            <label for="tipo_transferencia">Medio de transferencia:</label>
+            <select id="tipo_transferencia" name="tipo_transferencia" required>
+                <option value="">Seleccione...</option>
+                <option value="Nequi">Nequi</option>
+                <option value="Daviplata">Daviplata</option>
+                <option value="Bancolombia">Bancolombia</option>
+            </select>
+        </div>
+    </div>
+
+    <input type="hidden" name="metodo_pago" value="tarjeta">
+</section>
                 <div class="resumen-pedido">
                     <p><strong>Total unidades:</strong> <?php echo $total_unidades; ?></p>
                     <p><strong>Total pedido:</strong> $<?php echo number_format($total_pedido, 0, ',', '.'); ?></p>

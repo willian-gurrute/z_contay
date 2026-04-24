@@ -18,11 +18,7 @@ if (!isset($_SESSION['carrito_cliente'])) {
     $_SESSION['carrito_cliente'] = [];
 }
 
-/*
-|--------------------------------------------------------------------------
-| Eliminar productos marcados
-|--------------------------------------------------------------------------
-*/
+/* Eliminar productos marcados */
 foreach ($eliminar as $idEliminar) {
     $idEliminar = (int)$idEliminar;
 
@@ -31,11 +27,7 @@ foreach ($eliminar as $idEliminar) {
     }
 }
 
-/*
-|--------------------------------------------------------------------------
-| Actualizar cantidades
-|--------------------------------------------------------------------------
-*/
+/* Actualizar cantidades */
 foreach ($cantidades as $id_producto => $cantidad) {
     $id_producto = (int)$id_producto;
     $cantidad = (int)$cantidad;
@@ -50,24 +42,16 @@ foreach ($cantidades as $id_producto => $cantidad) {
     }
 }
 
-/*
-|--------------------------------------------------------------------------
-| Recalcular total de unidades
-|--------------------------------------------------------------------------
-*/
+/* Recalcular totales */
 $total_unidades = 0;
 $total_pedido = 0;
 
 foreach ($_SESSION['carrito_cliente'] as $item) {
     $total_unidades += (int)$item['cantidad'];
-    $total_pedido += ((float)$item['precio'] * (int)$item['cantidad']);
+    $total_pedido += (float)$item['precio'] * (int)$item['cantidad'];
 }
 
-/*
-|--------------------------------------------------------------------------
-| Si solo actualiza
-|--------------------------------------------------------------------------
-*/
+/* Si solo actualiza */
 if ($accion === 'actualizar') {
     $_SESSION['mensaje_pedido'] = "Pedido actualizado correctamente.";
     $_SESSION['tipo_pedido'] = "success";
@@ -76,11 +60,7 @@ if ($accion === 'actualizar') {
     exit;
 }
 
-/*
-|--------------------------------------------------------------------------
-| Si confirma, validar mínimo
-|--------------------------------------------------------------------------
-*/
+/* Si confirma */
 if ($accion === 'confirmar') {
 
     if (empty($_SESSION['carrito_cliente'])) {
@@ -99,13 +79,33 @@ if ($accion === 'confirmar') {
         exit;
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | Por ahora NO guardamos en base de datos todavía.
-    | El siguiente paso será crear guardar_pedido.php.
-    |--------------------------------------------------------------------------
-    */
-    $_SESSION['mensaje_pedido'] = "El pedido está listo para ser guardado. Falta conectar el guardado en base de datos.";
+    $direccion = trim($_POST['direccion'] ?? '');
+    $barrio = trim($_POST['barrio'] ?? '');
+    $telefono = trim($_POST['telefono'] ?? '');
+    $referencia = trim($_POST['referencia'] ?? '');
+    $tipo_transferencia = trim($_POST['tipo_transferencia'] ?? '');
+    $metodo_pago = $_POST['metodo_pago'] ?? 'tarjeta';
+
+    if ($direccion === '' || $barrio === '' || $telefono === '' || $tipo_transferencia === '') {
+        $_SESSION['mensaje_pedido'] = "Debes completar los datos de entrega y el medio de transferencia.";
+        $_SESSION['tipo_pedido'] = "error";
+
+        header("Location: ../../cliente/realizar_pedido.php");
+        exit;
+    }
+
+    $_SESSION['datos_entrega_cliente'] = [
+        'direccion' => $direccion,
+        'barrio' => $barrio,
+        'telefono' => $telefono,
+        'referencia' => $referencia,
+        'tipo_transferencia' => $tipo_transferencia,
+        'metodo_pago' => $metodo_pago,
+        'total_unidades' => $total_unidades,
+        'total_pedido' => $total_pedido
+    ];
+
+    $_SESSION['mensaje_pedido'] = "Datos validados correctamente. Ahora falta guardar el pedido en la base de datos.";
     $_SESSION['tipo_pedido'] = "success";
 
     header("Location: ../../cliente/realizar_pedido.php");

@@ -224,8 +224,8 @@ unset($_SESSION['mensaje_pedido'], $_SESSION['tipo_pedido']);
                         Actualizar pedido
                     </button>
 
-                    <button type="submit" name="accion" value="confirmar" class="btn-agregar">
-                        Confirmar pedido
+                    <button  type="submit" name="accion" value="confirmar" class="btn-agregar" formaction="../backend/cliente/guardar_pedido.php">
+                         Confirmar pedido
                     </button>
 
                     <a href="portafolio.php" class="btn-agregar">

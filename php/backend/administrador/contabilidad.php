@@ -25,11 +25,27 @@ $filtro_aplicado = ($fecha_desde !== '' || $fecha_hasta !== '' || $tipo !== '');
 // =========================
 // RESUMEN DEL MES ACTUAL
 // =========================
+
+$meses = [
+    1=>'Enero',
+    2=>'Febrero',
+    3=>'Marzo',
+    4=>'Abril',
+    5=>'Mayo',
+    6=>'Junio',
+    7=>'Julio',
+    8=>'Agosto',
+    9=>'Septiembre',
+    10=>'Octubre',
+    11=>'Noviembre',
+    12=>'Diciembre'
+];
+
 $resumen = [
     'ingresos_mes' => 0,
     'egresos_mes'  => 0,
     'balance_mes'  => 0,
-    'mes_texto'    => date('F Y')
+    'mes_texto'    => $meses[(int)date('n')] . ' ' . date('Y')
 ];
 
 $sqlResumen = "
@@ -107,3 +123,43 @@ if ($filtro_aplicado) {
         }
     }
 }
+
+// =========================
+// RESUMEN SEGÚN FILTROS
+// =========================
+$resumen_filtrado = [
+    'ingresos' => 0,
+    'egresos'  => 0,
+    'balance'  => 0
+];
+
+if ($filtro_aplicado) {
+    foreach ($movimientos_filtrados as $mov) {
+
+        if ($mov['tipo'] === 'ingreso') {
+            $resumen_filtrado['ingresos'] += (float)$mov['monto'];
+        }
+
+        if ($mov['tipo'] === 'egreso') {
+            $resumen_filtrado['egresos'] += (float)$mov['monto'];
+        }
+    }
+
+    $resumen_filtrado['balance'] =
+        $resumen_filtrado['ingresos'] - $resumen_filtrado['egresos'];
+}
+
+// =========================
+// VALORES PARA LAS CARDS
+// =========================
+$ingresosCard = $filtro_aplicado
+    ? $resumen_filtrado['ingresos']
+    : $resumen['ingresos_mes'];
+
+$egresosCard = $filtro_aplicado
+    ? $resumen_filtrado['egresos']
+    : $resumen['egresos_mes'];
+
+$balanceCard = $filtro_aplicado
+    ? $resumen_filtrado['balance']
+    : $resumen['balance_mes'];

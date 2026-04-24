@@ -6,7 +6,7 @@ require_once "../backend/verificar_sesion.php";
 
 require_once "../backend/verificar_permiso.php"; // archivo que revisa permisos
 
-verificarPermiso("roles_permisos");// nombre controlador
+verificarPermiso("roles_permisos"); // nombre controlador
 
 // Si no hay sesión, al login
 if (!isset($_SESSION['id_usuario'])) {
@@ -82,10 +82,6 @@ $msg = $_GET['msg'] ?? '';
             <p style="margin-bottom:15px;">❌ No se pudo completar la acción.</p>
         <?php endif; ?>
 
-        <button class="main-button" onclick="location.href='crear_rol.php'">
-            + Crear Rol
-        </button>
-
         <div class="table-wrapper">
             <table class="tabla-roles">
                 <thead>
@@ -116,16 +112,9 @@ $msg = $_GET['msg'] ?? '';
                             <td><?= $estado ?></td>
 
                             <td class="acciones">
-                                <a href="editar_rol.php?id=<?= $id ?>" class="btn-editar">Editar</a>
-
-                                <!-- Eliminar (simple): borra permisos y rol -->
-                                <form action="../backend/administrador/rol_eliminar.php" method="POST" style="display:inline;">
-                                    <input type="hidden" name="id_rol" value="<?= $id ?>">
-                                    <button type="submit" class="btn-desactivar"
-                                     onclick="return confirm('¿Estás seguro de eliminar este rol?');">
-                                     Eliminar
-                                    </button>
-                                </form>
+                                <a href="editar_rol.php?id=<?= $id ?>" class="btn-editar">
+                                    Editar permisos
+                                </a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

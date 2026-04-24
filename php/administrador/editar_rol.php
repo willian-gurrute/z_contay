@@ -169,15 +169,7 @@ function estaMarcado($id_opcion, $lista) {
           <button type="submit" class="main-button primary-button">Actualizar Rol</button>
 
           <a href="roles_permisos.php" class="main-button secondary-button">Cancelar</a>
-
-          <!-- Eliminar rol (con confirmación) -->
-          <form action="../backend/administrador/rol_eliminar.php" method="POST" style="display:inline;">
-            <input type="hidden" name="id_rol" value="<?= (int)$rol['id_rol'] ?>">
-            <button type="submit" class="main-button danger-button"
-                    onclick="return confirm('¿Seguro que deseas eliminar este rol?');">
-              Eliminar Rol
-            </button>
-          </form>
+         
 
         </div>
 

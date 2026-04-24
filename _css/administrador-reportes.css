@@ -202,3 +202,67 @@ body {
     background-color: #fafafa;
 }
 
+.report-info{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin: 20px 0;
+}
+
+.report-card{
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.report-card h2{
+    font-size: 16px;
+    color: #2f6c32;
+    margin-bottom: 8px;
+}
+
+.report-card p{
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.global-filter{
+    background: #fff;
+    padding: 18px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.global-filter label{
+    font-weight: bold;
+    margin-right: 4px;
+}
+
+.global-filter select,
+.global-filter input{
+    height: 36px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.global-filter .main-button{
+    height: 38px;
+    padding: 0 22px;
+    margin-left: auto;
+    background: #2f6c32;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}

@@ -66,35 +66,37 @@ $nombre = $_SESSION['nombre'] ?? 'Administrador';
         <main class="content-area">
 
             <h1 class="h1-title">Contabilidad general</h1>
-            <p class="subtitulo">Resumen financiero del negocio</p>
+            
+            <p class="subtitulo">
+              Resumen financiero del mes:
+                <strong><?= ucfirst($resumen['mes_texto']) ?></strong>
+            </p>
+       
 
             <div class="card-grid">
 
-                <div class="info-card">
-                    <div class="card-icon">
-                        <img src="../../img/ganancias.png" alt="">
-                    </div>
-                    <h2>Ganancias del mes</h2>
-                    <div class="data">$<?= number_format($resumen['ingresos_mes'], 0, ',', '.') ?></div>
+               <div class="info-card">
+                     <h2>Ingresos del mes </h2>
+                   <div class="data">
+                     <?= '$' . number_format($ingresosCard, 0, ',', '.') ?>
+                  </div>
+               </div>
+
+               <div class="info-card">
+                     <h2>Egresos del mes</h2>
+                   <div class="data">
+                       <?= '$' . number_format($egresosCard, 0, ',', '.') ?>
+                   </div>
                 </div>
 
-                <div class="info-card">
-                    <div class="card-icon">
-                        <img src="../../img/gastos.png" alt="">
-                    </div>
-                    <h2>Gastos operativos</h2>
-                    <div class="data">$<?= number_format($resumen['egresos_mes'], 0, ',', '.') ?></div>
+               <div class="info-card">
+                      <h2>Balance del mes</h2>
+                   <div class="data">
+                      <?= '$' . number_format($balanceCard, 0, ',', '.') ?>
+                   </div>
                 </div>
 
-                <div class="info-card">
-                    <div class="card-icon">
-                        <img src="../../img/balance.png" alt="">
-                    </div>
-                    <h2>Balance general</h2>
-                    <div class="data">$<?= number_format($resumen['balance_mes'], 0, ',', '.') ?></div>
-                </div>
-
-            </div>
+    </div>
 
             <!-- TABLA ORIGINAL -->
             <h2 class="titulo-tabla">Movimientos contables</h2>
@@ -116,9 +118,15 @@ $nombre = $_SESSION['nombre'] ?? 'Administrador';
                         <?php foreach ($movimientos_generales as $m): ?>
                         <tr>
                             <td><?= htmlspecialchars($m['fecha']) ?></td>
-                            <td><?= htmlspecialchars(ucfirst($m['tipo'])) ?></td>
+                            <td>
+                              <span class="<?= ($m['tipo']=='ingreso') ? 'tipo-ingreso' : 'tipo-egreso'; ?>">
+                                   <?= htmlspecialchars(ucfirst($m['tipo'])) ?>
+                             </span>
+                            </td>
                             <td><?= htmlspecialchars($m['descripcion']) ?></td>
-                            <td>$<?= number_format((float)$m['monto'], 0, ',', '.') ?></td>
+                            <td class="<?= ($m['tipo']=='ingreso') ? 'monto-ingreso' : 'monto-egreso'; ?>">
+                                 $<?= number_format((float)$m['monto'],0,',','.') ?>
+                            </td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -153,9 +161,9 @@ $nombre = $_SESSION['nombre'] ?? 'Administrador';
 
                     <?php if (!empty($movimientos_filtrados)): ?>
                     <div class="acciones-reporte">
-                        <button class="main-button" onclick="window.print()">
-                            Imprimir / PDF
-                        </button>
+                        <a href="reporte_contabilidad_pdf.php?fecha_desde=<?= urlencode($fecha_desde) ?>&fecha_hasta=<?= urlencode($fecha_hasta) ?>&tipo=<?= urlencode($tipo) ?>" class="main-button">
+                           Descargar PDF
+                        </a>
                     </div>
                     <?php endif; ?>
                 </div>

@@ -93,8 +93,19 @@ $nombre = $_SESSION['nombre'] ?? 'Administrador';
                 </select>
             </div>
 
-            <button type="submit" class="btn-filtrar">Filtrar</button>
-        </form>
+           <button type="submit" class="btn-filtrar">Filtrar</button>
+            </form>
+
+           <?php if (!empty($ventas)): ?>
+              <div class="acciones-reporte"> 
+                  <a href="reporte_ventas_pdf.php?fecha_inicial=<?= urlencode($fecha_inicial) ?>&fecha_final=<?= urlencode($fecha_final) ?>&id_vendedor=<?= urlencode($id_vendedor) ?>" class="btn-filtrar">
+                     Descargar PDF
+                   </a>
+              </div>
+            <?php endif; ?>
+
+<!-- TABLA -->
+<table class="tabla-ventas">
 
         <!-- TABLA -->
        

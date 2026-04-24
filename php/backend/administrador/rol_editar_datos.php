@@ -17,18 +17,25 @@ if ($res && $res->num_rows > 0) {
 }
 
 // 2) Traer opciones activas (para mostrarlas como checkboxes)
-$r = $conn->query("
-    SELECT id_opciones, nombre_opcion, nombre_controlador, modulo 
+$r = $conn->prepare("
+    SELECT id_opciones, nombre_opcion, nombre_controlador 
     FROM opciones 
-    WHERE estado='A' 
-    ORDER BY modulo ASC, id_opciones ASC
+    WHERE estado = 'A' 
+    AND modulo = (
+        SELECT nombre FROM rol WHERE id_rol = ?
+    )
+    ORDER BY id_opciones ASC
 ");
 
-if ($r) {
-    while ($row = $r->fetch_assoc()) {
-        $opciones[] = $row;
-    }
+$r->bind_param("i", $id_rol);
+$r->execute();
+$resOpciones = $r->get_result();
+
+while ($row = $resOpciones->fetch_assoc()) {
+    $opciones[] = $row;
 }
+
+$r->close();
 
 // 3) Traer permisos actuales del rol
 $stmt = $conn->prepare("SELECT id_opciones FROM permisos WHERE id_rol = ?");

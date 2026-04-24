@@ -46,4 +46,53 @@
     }
 }
 
+.tabla-pedido {
+    width: 95%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.tabla-pedido th,
+.tabla-pedido td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.tabla-pedido th {
+    background: #2f6c32;
+    color: #fff;
+}
+
+.input-cantidad {
+    width: 90px;
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.resumen-pedido {
+    background: #f8f8f8;
+    border-radius: 10px;
+    padding: 16px;
+    width: 95%;
+    margin-bottom: 20px;
+}
+
+.acciones-pedido {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.estado-disponible {
+    color: #2f6c32;
+    font-weight: bold;
+}
+
+.estado-agotado {
+    color: #c63636;
+    font-weight: bold;
+}
 

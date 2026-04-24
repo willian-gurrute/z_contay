@@ -5,11 +5,13 @@ if (session_status() === PHP_SESSION_NONE) {
 
 require_once __DIR__ . "/../conexion.php";
 
+// Solo permitir POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header("Location: ../../cliente/portafolio.php");
     exit;
 }
 
+// Recibir producto
 $id_producto = isset($_POST['id_producto']) ? (int)$_POST['id_producto'] : 0;
 
 if ($id_producto <= 0) {
@@ -19,75 +21,71 @@ if ($id_producto <= 0) {
     exit;
 }
 
-/*
-|--------------------------------------------------------------------------
-| Validar producto y stock
-|--------------------------------------------------------------------------
-*/
+// Buscar producto real en BD
 $sqlProducto = "SELECT 
                     p.id_producto,
                     p.nombre_producto,
                     p.precio,
-                    p.estado AS estado_producto,
-                    COALESCE(i.cantidad, 0) AS cantidad_stock
+                    p.estado,
+                    COALESCE(i.cantidad, 0) AS stock
                 FROM producto p
-                LEFT JOIN inventario i 
-                    ON p.id_producto = i.id_producto
+                LEFT JOIN inventario i ON p.id_producto = i.id_producto
                 WHERE p.id_producto = ?
                 LIMIT 1";
 
-$stmtProducto = $conn->prepare($sqlProducto);
+$stmt = $conn->prepare($sqlProducto);
 
-if (!$stmtProducto) {
-    $_SESSION['mensaje_portafolio'] = "No se pudo procesar el producto.";
+if (!$stmt) {
+    $_SESSION['mensaje_portafolio'] = "Error al buscar el producto.";
     $_SESSION['tipo_portafolio'] = "error";
     header("Location: ../../cliente/portafolio.php");
     exit;
 }
 
-$stmtProducto->bind_param("i", $id_producto);
-$stmtProducto->execute();
-$resProducto = $stmtProducto->get_result();
+$stmt->bind_param("i", $id_producto);
+$stmt->execute();
+$resultado = $stmt->get_result();
 
-if (!$resProducto || $resProducto->num_rows === 0) {
-    $stmtProducto->close();
+if (!$resultado || $resultado->num_rows === 0) {
+    $stmt->close();
     $_SESSION['mensaje_portafolio'] = "El producto no existe.";
     $_SESSION['tipo_portafolio'] = "error";
     header("Location: ../../cliente/portafolio.php");
     exit;
 }
 
-$producto = $resProducto->fetch_assoc();
-$stmtProducto->close();
+$producto = $resultado->fetch_assoc();
+$stmt->close();
 
-if ($producto['estado_producto'] !== 'A' || (int)$producto['cantidad_stock'] <= 0) {
-    $_SESSION['mensaje_portafolio'] = "Este producto no está disponible en este momento.";
+// Validar disponibilidad
+if ($producto['estado'] !== 'A' || (int)$producto['stock'] <= 0) {
+    $_SESSION['mensaje_portafolio'] = "Este producto está agotado.";
     $_SESSION['tipo_portafolio'] = "error";
     header("Location: ../../cliente/portafolio.php");
     exit;
 }
 
-/*
-|--------------------------------------------------------------------------
-| Crear carrito temporal en sesión
-|--------------------------------------------------------------------------
-*/
+// Crear carrito en sesión si no existe
 if (!isset($_SESSION['carrito_cliente'])) {
     $_SESSION['carrito_cliente'] = [];
 }
 
+// Cantidad base por clic
+$cantidadAgregar = 30;
+
+// Si ya existe el producto en el carrito, aumenta cantidad
 if (isset($_SESSION['carrito_cliente'][$id_producto])) {
-    $_SESSION['carrito_cliente'][$id_producto]['cantidad'] += 30;
+    $_SESSION['carrito_cliente'][$id_producto]['cantidad'] += $cantidadAgregar;
 } else {
     $_SESSION['carrito_cliente'][$id_producto] = [
         'id_producto' => (int)$producto['id_producto'],
         'nombre_producto' => $producto['nombre_producto'],
         'precio' => (float)$producto['precio'],
-        'cantidad' => 30
+        'cantidad' => $cantidadAgregar
     ];
 }
 
-$_SESSION['mensaje_portafolio'] = "Producto agregado al pedido correctamente.";
+$_SESSION['mensaje_portafolio'] = "Producto agregado al pedido.";
 $_SESSION['tipo_portafolio'] = "success";
 
 header("Location: ../../cliente/portafolio.php");

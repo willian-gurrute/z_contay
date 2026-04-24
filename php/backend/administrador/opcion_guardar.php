@@ -40,17 +40,28 @@ if ($nombre_controlador === "crear_opciones" && $estado === "I") {
 }
 
 // Evitar duplicados
-$stmt = $conn->prepare("SELECT id_opciones FROM opciones WHERE nombre_controlador = ? LIMIT 1");
-$stmt->bind_param("s", $nombre_controlador);
+$stmt = $conn->prepare("
+    SELECT id_opciones 
+    FROM opciones 
+    WHERE nombre_controlador = ? 
+    AND modulo = ?
+    LIMIT 1
+");
+
+$stmt->bind_param("ss", $nombre_controlador, $modulo);
 $stmt->execute();
 $res = $stmt->get_result();
 
 if ($res && $res->num_rows > 0) {
+
+
     // Si la opción ya existe, actualizamos su estado
+
     $stmtUpdate = $conn->prepare("
         UPDATE opciones
-        SET estado = ?, modulo = ?, nombre_opcion = ?, nombre_funcion = ?
+        SET estado = ?, nombre_opcion = ?, nombre_funcion = ?
         WHERE nombre_controlador = ?
+        AND modulo = ?
     ");
 
     if (!$stmtUpdate) {
@@ -58,7 +69,7 @@ if ($res && $res->num_rows > 0) {
         exit;
     }
 
-    $stmtUpdate->bind_param("sssss", $estado, $modulo, $nombre_opcion, $nombre_funcion, $nombre_controlador);
+   $stmtUpdate->bind_param("sssss", $estado, $nombre_opcion, $nombre_funcion, $nombre_controlador, $modulo);
 
     if ($stmtUpdate->execute()) {
         header("Location: ../../administrador/crear_opciones.php?msg=actualizado");

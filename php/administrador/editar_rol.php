@@ -156,13 +156,7 @@ function estaMarcado($id_opcion, $lista) {
                 ?>
                 <label class="chk" style="display:block; margin-bottom:10px;">
                   <input type="checkbox" name="opciones[]" value="<?= $id_op ?>" <?= $checked ?>>
-                  <span>
-                    <?= htmlspecialchars($op['nombre_opcion']) ?>
-                    <small>
-                      (ID: <?= (int)$op['id_opciones'] ?> |
-                       Controlador: <?= htmlspecialchars($op['nombre_controlador'] ?? '') ?>)
-                    </small>
-                  </span>
+                  <span><?= htmlspecialchars($op['nombre_opcion']) ?></span>
                 </label>
               <?php endforeach; ?>
             <?php endif; ?>

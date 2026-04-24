@@ -96,3 +96,40 @@
     font-weight: bold;
 }
 
+.btn-agregar {
+    background-color: #2f6c32;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    .btn-agregar {
+    margin-top: 10px;
+}
+}
+
+/* Hover */
+.btn-agregar:hover {
+    background-color: #245428;
+    transform: translateY(-2px);
+}
+
+/* Click */
+.btn-agregar:active {
+    transform: scale(0.97);
+}
+
+/* Cuando está deshabilitado */
+.btn-agregar:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.estado-disponible {
+    margin-bottom: 10px;
+}

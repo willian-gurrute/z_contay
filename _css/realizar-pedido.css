@@ -216,3 +216,7 @@ body {
     background: #e7f1ff;
     color: #084298;
 }
+
+.content-area > p {
+    margin-bottom: 15px;
+}

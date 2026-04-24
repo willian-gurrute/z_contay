@@ -173,3 +173,46 @@ body {
 .btn-agregar:hover {
     background: #245026;
 }
+
+.estado-entrega {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.estado-preparacion {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.estado-camino {
+    background: #d9edf7;
+    color: #245269;
+}
+
+.estado-entregado {
+    background: #d4edda;
+    color: #155724;
+}
+
+.estado-problema {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.estado-facturado {
+    background: #ffe5b4;
+    color: #8a4b00;
+}
+
+.estado-pendiente {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.estado-sin-despacho {
+    background: #e7f1ff;
+    color: #084298;
+}

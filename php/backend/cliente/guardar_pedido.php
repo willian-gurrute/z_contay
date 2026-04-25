@@ -153,6 +153,28 @@ try {
     $id_pedido = $stmtPedido->insert_id;
     $stmtPedido->close();
 
+    /* =========================
+   GENERAR NOTIFICACIONES
+========================= */
+
+require_once __DIR__ . "/../notificaciones_helper.php";
+
+/* Cliente recibe:
+Pedido recibido */
+notificarUsuario(
+    $conn,
+    27,
+    $_SESSION['id_usuario']
+);
+
+/* Vendedores reciben:
+Nuevo pedido web pagado */
+notificarRol(
+    $conn,
+    16,
+    2
+);
+
     /* Guardar detalle del pedido */
     $sqlDetalle = "INSERT INTO detalle_pedido
                   (id_pedido, id_producto, cantidad, precio_unitario, subtotal)

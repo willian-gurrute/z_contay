@@ -83,9 +83,17 @@ $msg = $_GET['msg'] ?? '';
 
             <input type="hidden" name="id_empresa" value="<?= (int)$empresa['id_empresa'] ?>">
 
-            <label for="nombre-negocio">Nombre del negocio:</label>
-            <input type="text" id="nombre-negocio" name="nombre"
-                   value="<?= htmlspecialchars($empresa['nombre'] ?? '') ?>" required>
+           <label for="nombre-negocio">Nombre del negocio:</label>
+
+           <input 
+            type="text"
+            id="nombre-negocio"
+           value="Z-CONTAY - Galpón Aves del Paraíso"
+           readonly
+           class="campo-bloqueado"
+>
+
+          <small>Este nombre es institucional y no puede modificarse.</small>
 
             <label for="nit">NIT:</label>
             <input type="text" id="nit" name="nit"

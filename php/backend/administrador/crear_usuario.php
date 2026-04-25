@@ -4,6 +4,7 @@
 
 session_start();
 require_once __DIR__ . "/../conexion.php";
+require_once __DIR__ . "/../notificaciones_helper.php";
 
 // Solo admin
 if (!isset($_SESSION['id_usuario']) || (($_SESSION['id_rol'] ?? 0) != 1)) {
@@ -30,6 +31,7 @@ if ($nombre === '' || $tipo_doc === '' || $num_doc === '' || $correo === '' || $
 $stmt = $conn->prepare("SELECT id_usuario FROM usuario WHERE correo_electronico = ? OR numero_documento = ? LIMIT 1");
 $stmt->bind_param("ss", $correo, $num_doc);
 $stmt->execute();
+
 $res = $stmt->get_result();
 
 if ($res && $res->num_rows > 0) {
@@ -48,6 +50,9 @@ $stmt = $conn->prepare("
 $stmt->bind_param("ssssssi", $tipo_doc, $num_doc, $nombre, $correo, $password, $direccion, $id_rol);
 $stmt->execute();
 
+
+// 13 = Nuevo usuario registrado
+notificarRol($conn, 13, 1);
 // Si el rol es cliente (5), también guardarlo en tabla cliente
 if ($id_rol == 5) {
 

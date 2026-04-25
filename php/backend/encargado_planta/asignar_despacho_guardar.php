@@ -4,6 +4,7 @@ session_start();
 require_once "../conexion.php";
 require_once "../verificar_sesion.php";
 require_once "../verificar_permiso.php";
+require_once "../notificaciones_helper.php";
 
 verificarPermiso("gestion_despachos");
 
@@ -40,6 +41,40 @@ if (!$resValidar || $resValidar->num_rows === 0) {
 $stmtValidar->close();
 
 /* =========================================
+OBTENER USUARIO DEL TRANSPORTADOR
+Y CLIENTE DE LA FACTURA
+========================================= */
+
+$idUsuarioTransportador = null;
+$idUsuarioCliente = null;
+
+$sqlDatos = "SELECT 
+                t.id_usuario AS usuario_transportador,
+                u.id_usuario AS usuario_cliente
+             FROM factura f
+             INNER JOIN cliente c
+                ON f.id_cliente = c.id_cliente
+             INNER JOIN usuario u
+                ON u.numero_documento = c.numero_documento
+             INNER JOIN transportador t
+                ON t.id_transportador = ?
+             WHERE f.id_factura = ?
+             LIMIT 1";
+
+$stmtDatos = $conn->prepare($sqlDatos);
+$stmtDatos->bind_param("ii", $id_transportador, $id_factura);
+$stmtDatos->execute();
+
+$resDatos = $stmtDatos->get_result();
+
+if($filaDatos = $resDatos->fetch_assoc()){
+    $idUsuarioTransportador = $filaDatos['usuario_transportador'];
+    $idUsuarioCliente = $filaDatos['usuario_cliente'];
+}
+
+$stmtDatos->close();
+
+/* =========================================
    2. SI ES REASIGNACIÓN, ACTUALIZAR
 ========================================= */
 if (!empty($id_despacho)) {
@@ -51,8 +86,16 @@ if (!empty($id_despacho)) {
     $stmtUpdate->bind_param("isii", $id_transportador, $zona_entrega, $id_usuario, $id_despacho);
 
     if ($stmtUpdate->execute()) {
+
+        // 24 = Cambio de zona asignada
+        notificarUsuario($conn, 24, $idUsuarioTransportador);
+
+        // 31 = Pedido en camino para el cliente
+        notificarUsuario($conn, 31, $idUsuarioCliente);
+
         header("Location: ../../encargado_planta/gestion_despachos.php?ok=2");
         exit();
+
     } else {
         die("Error al reasignar el despacho.");
     }
@@ -84,8 +127,19 @@ $stmt_insertar = $conn->prepare($sql_insertar);
 $stmt_insertar->bind_param("iiis", $id_factura, $id_usuario, $id_transportador, $zona_entrega);
 
 if ($stmt_insertar->execute()) {
+
+    // 23 Nuevo despacho asignado
+    notificarUsuario($conn, 23, $idUsuarioTransportador);
+
+    // 25 Entrega pendiente por confirmar
+    notificarUsuario($conn, 25, $idUsuarioTransportador);
+
+    // 31 Pedido en camino para cliente
+    notificarUsuario($conn, 31, $idUsuarioCliente);
+
     header("Location: ../../encargado_planta/gestion_despachos.php?ok=1");
     exit();
+
 } else {
     die("Error al crear el despacho.");
 }

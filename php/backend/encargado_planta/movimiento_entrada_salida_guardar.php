@@ -7,6 +7,7 @@ session_start();
 require_once "../conexion.php";
 require_once "../verificar_sesion.php";
 require_once "../verificar_permiso.php";
+require_once "../notificaciones_helper.php";
 
 verificarPermiso("control_inventario");
 
@@ -101,10 +102,32 @@ $stmtMovimiento = $conn->prepare($sqlMovimiento);
 $stmtMovimiento->bind_param("isii", $id_producto, $tipo_movimiento, $cantidad, $id_usuario);
 
 if ($stmtMovimiento->execute()) {
+
+    // 22 = Movimiento de inventario registrado
+    // 3 = Rol Encargado de Planta
+    notificarRol($conn, 22, 3);
+
+    // Revisar si el producto quedó en stock bajo
+    $sqlStock = "SELECT cantidad, stock_minimo
+                 FROM inventario
+                 WHERE id_producto = ?";
+
+    $stmtStock = $conn->prepare($sqlStock);
+    $stmtStock->bind_param("i", $id_producto);
+    $stmtStock->execute();
+    $resStock = $stmtStock->get_result();
+
+    if ($filaStock = $resStock->fetch_assoc()) {
+        if ((int)$filaStock['cantidad'] <= (int)$filaStock['stock_minimo']) {
+
+            // 21 = Stock bajo en inventario
+            notificarRol($conn, 21, 3);
+        }
+    }
+
+    $stmtStock->close();
+
     header("Location: ../../encargado_planta/control_inventario.php?ok=1");
-    exit();
-} else {
-    header("Location: ../../encargado_planta/movimiento_entrada_salida.php?error=general");
     exit();
 }
 ?>

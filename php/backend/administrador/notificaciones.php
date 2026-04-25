@@ -20,11 +20,17 @@ $sql = "
         n.descripcion,
         n.tipo,
         n.estado,
-        r.nombre AS nombre_rol
+        GROUP_CONCAT(r.nombre ORDER BY r.nombre SEPARATOR ', ') AS nombre_rol
     FROM notificacion n
     INNER JOIN notificacion_rol nr ON nr.id_notificacion = n.id_notificacion
     INNER JOIN rol r ON r.id_rol = nr.id_rol
-    ORDER BY n.id_notificacion ASC, r.nombre ASC
+    GROUP BY 
+        n.id_notificacion,
+        n.nombre,
+        n.descripcion,
+        n.tipo,
+        n.estado
+    ORDER BY n.id_notificacion ASC
 ";
 
 $res = $conn->query($sql);

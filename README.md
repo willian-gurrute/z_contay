@@ -32,6 +32,9 @@ Z-CONTAY permite controlar las ventas, pedidos, inventario y procesos operativos
 │   ├── /vendedor  
 │   ├── /encargado_planta  
     |__/transportador
+    |__/cliente
+    |
+    |
     |
 │   ├── /backend  
 │   │   ├── /administrador  
@@ -39,6 +42,7 @@ Z-CONTAY permite controlar las ventas, pedidos, inventario y procesos operativos
 │   │   └── /login  
 |   |   └── /encargado_planta       
 │       └── /transportador
+        └── /cliente
 ├── /_css  
 ├── /img  
 
@@ -50,7 +54,7 @@ Z-CONTAY permite controlar las ventas, pedidos, inventario y procesos operativos
 - Vendedor  
 - Encargado de planta  
 - Transportador
-- (En desarrollo:  Cliente)
+- Cliente
 
 ---
 
@@ -91,6 +95,12 @@ Z-CONTAY permite controlar las ventas, pedidos, inventario y procesos operativos
 - Reportes de despachos
 - Perfil
 
+### cliente
+- Portafolio
+- Realizar pedido
+- Historial de pedidos
+- Perfil
+
 
 ---
 
@@ -112,12 +122,9 @@ El sistema funciona de la siguiente manera:
 ✔ Vendedor completo  
 ✔ Encargado de planta completo
 ✔ Transportador
-
-🔄 En desarrollo: Cliente  
-
----
-
-##  Nota
- Se seguirán integrando nuevos módulos y mejoras.
+✔ Cliente
+ 
 
 ---
+
+

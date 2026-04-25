@@ -2,7 +2,6 @@
 session_start();
 
 require_once "../conexion.php";
-require_once "../notificaciones_helper.php";
 
 // recibir datos del formulario
 $nombre_completo  = $_POST['nombre_completo'];
@@ -72,9 +71,6 @@ $stmt->bind_param(
 );
 
 if ($stmt->execute()) {
-
-    // 13 = Nuevo usuario registrado
-    notificarRol($conn, 13, 1);
 
     $_SESSION['ok'] = "Cuenta creada correctamente";
     header("Location: ../../login/inicio-seccion.php");

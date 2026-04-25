@@ -10,7 +10,6 @@ verificarPermiso("panel_control");// nombre del controlador
 require_once "../backend/administrador/panel_control.php";
 
 
-
 // Si no hay sesión, al login
 if (!isset($_SESSION['id_usuario'])) {
     header("Location: ../login/inicio-seccion.php");
@@ -37,20 +36,29 @@ $nombre = $_SESSION['nombre'] ?? 'Administrador';
 </head>
 <body>
 
-    <div class="header-bar">
-        <div class="header-rol">Administrador</div>
-        <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+   <header class="header-bar">
 
-        <div class="header-user">
-            <span class="icon">
-                <img src="../../img/campana.png" alt="notificaciones">
-            </span>
-            <span> <?= htmlspecialchars($nombre) ?></span>
-            <span class="icon">
-                <img src="../../img/usuario-gestion.png" alt="Perfil">
-            </span>
-        </div>
+    <div class="header-rol">
+        Administrador
     </div>
+
+    <div class="header-system">
+        Z-CONTAY - Galpón Aves del Paraíso
+    </div>
+
+    <div class="header-user">
+
+        <span>
+            <?php echo htmlspecialchars($nombre); ?>
+        </span>
+
+        <span class="icon">
+            <img src="../../img/usuario-gestion.png" width="24" alt="Usuario">
+        </span>
+
+    </div>
+
+</header>
 
     <div class="main-container">
 

@@ -1,5 +1,6 @@
 <?php
 session_start();
+$nombre = $_SESSION['nombre'] ?? 'Cliente';
 
 require_once "../backend/verificar_sesion.php";
 require_once "../backend/verificar_permiso.php";
@@ -32,7 +33,7 @@ unset($_SESSION['tipo_password']);
 <header class="header-bar">
 
     <div class="header-rol">
-        <?php echo htmlspecialchars($perfil['nombre_rol']); ?>
+        Cliente
     </div>
 
     <div class="header-system">
@@ -41,12 +42,8 @@ unset($_SESSION['tipo_password']);
 
     <div class="header-user">
 
-        <span class="icon">
-            <img src="../../img/campana.png" width="24" alt="Notificaciones">
-        </span>
-
         <span>
-            <?php echo htmlspecialchars($perfil['nombre_completo']); ?>
+            <?php echo htmlspecialchars($nombre); ?>
         </span>
 
         <span class="icon">

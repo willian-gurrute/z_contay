@@ -4,7 +4,6 @@ session_start();
 require_once "../conexion.php";
 require_once "../verificar_sesion.php";
 require_once "../verificar_permiso.php";
-require_once "../notificaciones_helper.php";
 
 verificarPermiso("gestion_despachos");
 
@@ -86,13 +85,6 @@ if (!empty($id_despacho)) {
     $stmtUpdate->bind_param("isii", $id_transportador, $zona_entrega, $id_usuario, $id_despacho);
 
     if ($stmtUpdate->execute()) {
-
-        // 24 = Cambio de zona asignada
-        notificarUsuario($conn, 24, $idUsuarioTransportador);
-
-        // 31 = Pedido en camino para el cliente
-        notificarUsuario($conn, 31, $idUsuarioCliente);
-
         header("Location: ../../encargado_planta/gestion_despachos.php?ok=2");
         exit();
 
@@ -127,15 +119,6 @@ $stmt_insertar = $conn->prepare($sql_insertar);
 $stmt_insertar->bind_param("iiis", $id_factura, $id_usuario, $id_transportador, $zona_entrega);
 
 if ($stmt_insertar->execute()) {
-
-    // 23 Nuevo despacho asignado
-    notificarUsuario($conn, 23, $idUsuarioTransportador);
-
-    // 25 Entrega pendiente por confirmar
-    notificarUsuario($conn, 25, $idUsuarioTransportador);
-
-    // 31 Pedido en camino para cliente
-    notificarUsuario($conn, 31, $idUsuarioCliente);
 
     header("Location: ../../encargado_planta/gestion_despachos.php?ok=1");
     exit();

@@ -34,7 +34,7 @@ if ($msg === 'ok') {
 }
 
 require_once __DIR__ . "/../conexion.php";
-require_once __DIR__ . "/../notificaciones_helper.php";
+
 
 // Función para regresar con mensaje
 function volverConMensaje($codigo)
@@ -248,11 +248,8 @@ for ($i = 0; $i < count($idProductos); $i++) {
     // Validar que sí alcance el inventario
     if ($cantidad > $stockActual) {
 
-       // 17 = Stock insuficiente para producto
-       // 2 = Rol Vendedor
-       notificarRol($conn, 17, 2);
-
-       volverConMensaje("stock");
+    
+      volverConMensaje("stock");
     }
 
     $subtotal = $precioUnitario * $cantidad;
@@ -453,9 +450,7 @@ foreach ($detalleVenta as $item) {
 // ===============================
 if ($tipoVenta === 'pedido') {
 
-    // 18 = Nuevo pedido pendiente por asignar
-    // 3 = Rol Encargado de Planta
-    notificarRol($conn, 18, 3);
+  
 }
 
 // Redirigir al formulario de venta enviando el ID de la factura recién creada

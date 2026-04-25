@@ -111,3 +111,26 @@ body {
     right: 25px;
     font-weight: bold;
 }
+
+.campana-box{
+position:relative;
+display:inline-block;
+padding:6px;
+border-radius:50%;
+}
+
+
+.badge-notif{
+position:absolute;
+top:-5px;
+right:-5px;
+background:red;
+color:#fff;
+width:16px;
+height:16px;
+line-height:16px;
+border-radius:50%;
+text-align:center;
+font-size:10px;
+font-weight:bold;
+}

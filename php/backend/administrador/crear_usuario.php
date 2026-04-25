@@ -4,7 +4,7 @@
 
 session_start();
 require_once __DIR__ . "/../conexion.php";
-require_once __DIR__ . "/../notificaciones_helper.php";
+
 
 // Solo admin
 if (!isset($_SESSION['id_usuario']) || (($_SESSION['id_rol'] ?? 0) != 1)) {
@@ -51,8 +51,7 @@ $stmt->bind_param("ssssssi", $tipo_doc, $num_doc, $nombre, $correo, $password, $
 $stmt->execute();
 
 
-// 13 = Nuevo usuario registrado
-notificarRol($conn, 13, 1);
+
 // Si el rol es cliente (5), también guardarlo en tabla cliente
 if ($id_rol == 5) {
 

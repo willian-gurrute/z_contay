@@ -1,5 +1,6 @@
 <?php
 session_start();
+$nombre = $_SESSION['nombre'] ?? 'Transportador';
 
 require_once "../backend/verificar_sesion.php";
 require_once "../backend/transportador/obtener_perfil.php";
@@ -16,8 +17,9 @@ require_once "../backend/transportador/obtener_perfil.php";
 <body>
 
 <header class="header-bar">
+
     <div class="header-rol">
-        <?php echo htmlspecialchars($perfil['nombre_rol']); ?>
+        Transportador
     </div>
 
     <div class="header-system">
@@ -25,19 +27,18 @@ require_once "../backend/transportador/obtener_perfil.php";
     </div>
 
     <div class="header-user">
-        <span class="icon">
-            <img src="../../img/campana.png" alt="Notificaciones">
-        </span>
 
         <span>
-            <?php echo htmlspecialchars($perfil['nombre_completo']); ?>
+            <?php echo htmlspecialchars($nombre); ?>
         </span>
 
         <span class="icon">
-            <img src="../../img/usuario-gestion.png" alt="Usuario">
+            <img src="../../img/perfil.png" width="24" alt="Perfil">
         </span>
+
     </div>
-</header>
+
+</header>r>
 
 <div class="confirm-container">
     <div class="confirm-box">

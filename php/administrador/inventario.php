@@ -14,6 +14,7 @@ require_once "../backend/verificar_permiso.php";
 // backend inventario
 require_once "../backend/administrador/inventario.php";
 
+
 // permiso para esta pantalla
 verificarPermiso("inventario");
 
@@ -44,32 +45,27 @@ $nombre = $_SESSION['nombre'] ?? 'Administrador';
 
 <header class="header-bar">
 
-<div class="header-rol">
-Administrador
-</div>
+    <div class="header-rol">
+        Administrador
+    </div>
 
-<div class="header-system">
-Z-CONTAY - Galpón Aves del Paraíso
-</div>
+    <div class="header-system">
+        Z-CONTAY - Galpón Aves del Paraíso
+    </div>
 
-<div class="header-user">
+    <div class="header-user">
 
-<span class="icon">
-<img src="../../img/campana.png">
-</span>
+        <span>
+            <?php echo htmlspecialchars($nombre); ?>
+        </span>
 
-<span>
-<?= htmlspecialchars($nombre) ?>
-</span>
+        <span class="icon">
+            <img src="../../img/usuario-gestion.png" width="24" alt="Usuario">
+        </span>
 
-<span class="icon">
-<img src="../../img/usuario-gestion.png">
-</span>
-
-</div>
+    </div>
 
 </header>
-
 
 <div class="main-container">
 

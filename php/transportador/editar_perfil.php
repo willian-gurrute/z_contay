@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+$nombre = $_SESSION['nombre'] ?? 'Transportador';
+
 require_once "../backend/verificar_sesion.php";
 require_once "../backend/verificar_permiso.php";
 
@@ -31,8 +33,9 @@ unset($_SESSION['tipo_perfil']);
 <body>
 
 <header class="header-bar">
+
     <div class="header-rol">
-        <?php echo htmlspecialchars($perfil['nombre_rol']); ?>
+        Transportador
     </div>
 
     <div class="header-system">
@@ -40,18 +43,17 @@ unset($_SESSION['tipo_perfil']);
     </div>
 
     <div class="header-user">
-        <span class="icon">
-            <img src="../../img/campana.png" width="24" alt="Notificaciones">
-        </span>
 
         <span>
-            <?php echo htmlspecialchars($perfil['nombre_completo']); ?>
+            <?php echo htmlspecialchars($nombre); ?>
         </span>
 
         <span class="icon">
             <img src="../../img/perfil.png" width="24" alt="Perfil">
         </span>
+
     </div>
+
 </header>
 
 <div class="main-container">

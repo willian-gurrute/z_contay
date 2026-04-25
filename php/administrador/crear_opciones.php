@@ -108,14 +108,25 @@ $catalogo = [
 
 <header class="header-bar">
 
-<div class="header-rol">Administrador</div>
-<div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+    <div class="header-rol">
+        Administrador
+    </div>
 
-<div class="header-user">
-<span class="icon"><img src="../../img/campana.png"></span>
-<span><?= htmlspecialchars($nombre) ?></span>
-<span class="icon"><img src="../../img/usuario-gestion.png"></span>
-</div>
+    <div class="header-system">
+        Z-CONTAY - Galpón Aves del Paraíso
+    </div>
+
+    <div class="header-user">
+
+        <span>
+            <?php echo htmlspecialchars($nombre); ?>
+        </span>
+
+        <span class="icon">
+            <img src="../../img/usuario-gestion.png" width="24" alt="Usuario">
+        </span>
+
+    </div>
 
 </header>
 

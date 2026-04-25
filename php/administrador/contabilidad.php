@@ -2,39 +2,54 @@
 // php/administrador/contabilidad.php
 
 session_start();
+
 require_once "../backend/verificar_sesion.php";
 require_once "../backend/verificar_permiso.php";
 
-// Permiso: pantalla del menú
 verificarPermiso("contabilidad");
 
-// Traer datos reales
 require_once "../backend/administrador/contabilidad.php";
 
-// Nombre del usuario logueado
+
 $nombre = $_SESSION['nombre'] ?? 'Administrador';
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Contabilidad - Administrador</title>
-    <link rel="stylesheet" href="../../_css/admin-base.css">
-    <link rel="stylesheet" href="../../_css/contabilidad.css">
+<meta charset="UTF-8">
+<title>Contabilidad - Administrador</title>
+
+<link rel="stylesheet" href="../../_css/admin-base.css">
+<link rel="stylesheet" href="../../_css/contabilidad.css">
+
 </head>
 
 <body>
 
-    <header class="header-bar">
-        <div class="header-rol">Administrador</div>
-        <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+<header class="header-bar">
 
-        <div class="header-user">
-            <span class="icon"><img src="../../img/campana.png" alt="notificaciones"></span>
-            <span><?= htmlspecialchars($nombre) ?></span>
-            <span class="icon"><img src="../../img/usuario-gestion.png" alt="perfil"></span>
-        </div>
-    </header>
+    <div class="header-rol">
+        Administrador
+    </div>
+
+    <div class="header-system">
+        Z-CONTAY - Galpón Aves del Paraíso
+    </div>
+
+    <div class="header-user">
+
+        <span>
+            <?php echo htmlspecialchars($nombre); ?>
+        </span>
+
+        <span class="icon">
+            <img src="../../img/usuario-gestion.png" width="24" alt="Usuario">
+        </span>
+
+    </div>
+
+</header>
 
     <div class="main-container">
 

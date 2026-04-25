@@ -8,6 +8,7 @@ verificarPermiso("registrar_venta");
 
 require_once "../backend/vendedor/datos_registrar_venta.php";
 
+
 $nombre = $_SESSION['nombre'] ?? 'Vendedor';
 
 $msg = $_GET['msg'] ?? '';
@@ -54,14 +55,27 @@ if ($msg === 'ok') {
 <body>
 
 <header class="header-bar">
-    <div class="header-rol">Vendedor</div>
-    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+    <div class="header-rol">
+        Vendedor
+    </div>
+
+    <div class="header-system">
+        Z-CONTAY - Galpón Aves del Paraíso
+    </div>
 
     <div class="header-user">
-        <span class="icon"><img src="../../img/campana.png" alt="Notificaciones"></span>
-        <span><?php echo htmlspecialchars($nombre); ?></span>
-        <span class="icon"><img src="../../img/usuario-gestion.png" alt="Perfil"></span>
+
+        <span>
+            <?php echo htmlspecialchars($nombre); ?>
+        </span>
+
+        <span class="icon">
+            <img src="../../img/perfil.png" width="24" alt="Perfil">
+        </span>
+
     </div>
+
 </header>
 
 <div class="main-container">

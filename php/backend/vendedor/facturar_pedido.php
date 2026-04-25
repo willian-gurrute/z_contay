@@ -2,7 +2,7 @@
 session_start();
 
 require_once __DIR__ . "/../conexion.php";
-require_once __DIR__ . "/../notificaciones_helper.php";
+
 
 // Mostrar errores de MySQLi
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
@@ -260,17 +260,10 @@ $resUsuarioCliente = $stmtUsuarioCliente->get_result();
 if ($resUsuarioCliente->num_rows > 0) {
     $usuarioCliente = $resUsuarioCliente->fetch_assoc();
 
-    // 30 = Pedido facturado
-    notificarUsuario($conn, 30, $usuarioCliente['id_usuario']);
+
 }
 
 $stmtUsuarioCliente->close();
-
-
-// Notificar a encargados de planta: nuevo pedido pendiente por asignar
-// 18 = Nuevo pedido pendiente por asignar
-// Rol encargado de planta = 3
-notificarRol($conn, 18, 3);
 
 
     // Confirmar transacción
@@ -284,8 +277,6 @@ notificarRol($conn, 18, 3);
 
     if ($e->getMessage() === "STOCK_INSUFICIENTE") {
 
-        // Notificar a vendedores que hubo stock insuficiente
-        notificarRol($conn, 17, 2);
 
         header("Location: ../../vendedor/procesar_pedido_vendedor.php?id=" . $idPedido . "&mensaje=stock_insuficiente");
         exit();

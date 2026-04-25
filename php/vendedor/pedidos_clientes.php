@@ -8,6 +8,7 @@ verificarPermiso("pedidos_clientes");
 
 require_once "../backend/vendedor/pedidos_clientes.php";
 
+
 $nombre = $_SESSION['nombre'] ?? 'Vendedor';
 ?>
 
@@ -22,16 +23,28 @@ $nombre = $_SESSION['nombre'] ?? 'Vendedor';
 <body>
 
 <header class="header-bar">
-    <div class="header-rol">Vendedor</div>
-    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+    <div class="header-rol">
+        Vendedor
+    </div>
+
+    <div class="header-system">
+        Z-CONTAY - Galpón Aves del Paraíso
+    </div>
 
     <div class="header-user">
-        <span class="icon"><img src="../../img/campana.png" alt="Notificaciones"></span>
-        <span><?php echo htmlspecialchars($nombre); ?></span>
-        <span class="icon"><img src="../../img/usuario-gestion.png" alt="Perfil"></span>
-    </div>
-</header>
 
+        <span>
+            <?php echo htmlspecialchars($nombre); ?>
+        </span>
+
+        <span class="icon">
+            <img src="../../img/perfil.png" width="24" alt="Perfil">
+        </span>
+
+    </div>
+
+</header>
 <div class="main-container">
 
     <nav class="sidebar">

@@ -4,7 +4,7 @@
 
 session_start();
 require_once __DIR__ . "/../conexion.php";
-require_once __DIR__ . "/../notificaciones_helper.php";
+
 
 // Seguridad: solo administrador
 if (!isset($_SESSION['id_usuario']) || (($_SESSION['id_rol'] ?? 0) != 1)) {
@@ -37,13 +37,8 @@ $stmt->bind_param("ssdi", $fechaCompleta, $descripcion, $monto, $id_usuario);
 
 if ($stmt->execute()) {
 
-    // 14 Nuevo gasto registrado
-    notificarRol($conn,14,1);
-
-    // 15 Movimiento contable registrado
-    notificarRol($conn,15,1);
-
-    header("Location: ../../administrador/registrar_gasto.php?msg=ok");
+ 
+   header("Location: ../../administrador/registrar_gasto.php?msg=ok");
 
 } else {
     header("Location: ../../administrador/registrar_gasto.php?msg=error");

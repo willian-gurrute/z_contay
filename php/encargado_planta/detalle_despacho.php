@@ -22,14 +22,27 @@ $nombre = $_SESSION['nombre'] ?? 'Encargado de Planta';
 <body>
 
 <header class="header-bar">
-    <div class="header-rol">Encargado de planta</div>
-    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+    <div class="header-rol">
+        Encargado de planta
+    </div>
+
+    <div class="header-system">
+        Z-CONTAY - Galpón Aves del Paraíso
+    </div>
 
     <div class="header-user">
-        <span class="icon"><img src="../../img/campana.png" alt=""></span>
-        <span><?php echo htmlspecialchars($nombre); ?></span>
-        <span class="icon"><img src="../../img/usuario-gestion.png" alt=""></span>
+
+        <span>
+            <?php echo htmlspecialchars($nombre); ?>
+        </span>
+
+        <span class="icon">
+            <img src="../../img/usuario-gestion.png" alt="">
+        </span>
+
     </div>
+
 </header>
 
 <div class="main-container">

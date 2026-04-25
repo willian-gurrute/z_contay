@@ -29,18 +29,27 @@ unset($_SESSION['mensaje_pedido'], $_SESSION['tipo_pedido']);
 <body>
 
 <header class="header-bar">
-    <div class="header-rol">Cliente</div>
-    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+    <div class="header-rol">
+        Cliente
+    </div>
+
+    <div class="header-system">
+        Z-CONTAY - Galpón Aves del Paraíso
+    </div>
 
     <div class="header-user">
-        <span class="icon">
-            <img src="../../img/campana.png" alt="Notificaciones" width="24">
+
+        <span>
+            <?php echo htmlspecialchars($nombre); ?>
         </span>
-        <span><?php echo htmlspecialchars($nombre); ?></span>
+
         <span class="icon">
-            <img src="../../img/perfil.png" alt="Perfil" width="24">
+            <img src="../../img/perfil.png" width="24" alt="Perfil">
         </span>
+
     </div>
+
 </header>
 
 <div class="main-container">

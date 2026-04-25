@@ -11,6 +11,7 @@ verificarPermiso("configuracion");
 // Traer datos de empresa
 require_once "../backend/administrador/ajustes_generales.php";
 
+
 // Nombre del usuario logueado
 $nombre = $_SESSION['nombre'] ?? 'Administrador';
 
@@ -30,16 +31,28 @@ $msg = $_GET['msg'] ?? '';
 <body>
 
 <header class="header-bar">
-    <div class="header-rol">Administrador</div>
-    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+    <div class="header-rol">
+        Administrador
+    </div>
+
+    <div class="header-system">
+        Z-CONTAY - Galpón Aves del Paraíso
+    </div>
 
     <div class="header-user">
-        <span class="icon"><img src="../../img/campana.png" alt=""></span>
-        <span><?= htmlspecialchars($nombre) ?></span>
-        <span class="icon"><img src="../../img/usuario-gestion.png" alt=""></span>
-    </div>
-</header>
 
+        <span>
+            <?php echo htmlspecialchars($nombre); ?>
+        </span>
+
+        <span class="icon">
+            <img src="../../img/usuario-gestion.png" width="24" alt="Usuario">
+        </span>
+
+    </div>
+
+</header>
 <div class="main-container">
 
     <nav class="sidebar">

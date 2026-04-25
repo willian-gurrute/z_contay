@@ -16,8 +16,9 @@ require_once "../backend/encargado_planta/obtener_perfil.php";
 <body>
 
 <header class="header-bar">
+
     <div class="header-rol">
-        <?php echo htmlspecialchars($perfil['nombre_rol']); ?>
+        Encargado de planta
     </div>
 
     <div class="header-system">
@@ -25,10 +26,17 @@ require_once "../backend/encargado_planta/obtener_perfil.php";
     </div>
 
     <div class="header-user">
-        <span class="icon"><img src="../../img/campana.png"></span>
-        <span><?php echo htmlspecialchars($perfil['nombre_completo']); ?></span>
-        <span class="icon"><img src="../../img/usuario-gestion.png"></span>
+
+        <span>
+            <?php echo htmlspecialchars($perfil['nombre_completo']); ?>
+        </span>
+
+        <span class="icon">
+            <img src="../../img/usuario-gestion.png" alt="">
+        </span>
+
     </div>
+
 </header>
 
 <div class="confirm-container">

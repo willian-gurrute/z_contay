@@ -20,6 +20,7 @@ if (($_SESSION['id_rol'] ?? 0) != 1) {
 require_once "../backend/administrador/panel_control.php";
 require_once "../backend/administrador/detalle_panel.php";
 
+
 // Nombre del usuario logueado
 $nombre = $_SESSION['nombre'] ?? 'Administrador';
 ?>
@@ -35,14 +36,27 @@ $nombre = $_SESSION['nombre'] ?? 'Administrador';
 <body>
 
 <header class="header-bar">
-    <div class="header-rol">Administrador</div>
-    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+    <div class="header-rol">
+        Administrador
+    </div>
+
+    <div class="header-system">
+        Z-CONTAY - Galpón Aves del Paraíso
+    </div>
 
     <div class="header-user">
-        <span class="icon"><img src="../../img/campana.png" alt="notificaciones"></span>
-        <span><?= htmlspecialchars($nombre) ?></span>
-        <span class="icon"><img src="../../img/usuario-gestion.png" alt="perfil"></span>
+
+        <span>
+            <?php echo htmlspecialchars($nombre); ?>
+        </span>
+
+        <span class="icon">
+            <img src="../../img/usuario-gestion.png" width="24" alt="Usuario">
+        </span>
+
     </div>
+
 </header>
 
 <div class="main-container">

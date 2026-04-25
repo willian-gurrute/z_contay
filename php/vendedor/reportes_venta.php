@@ -8,6 +8,7 @@ verificarPermiso("reportes_venta");
 
 require_once "../backend/vendedor/reportes_venta.php";
 
+
 // Nombre del usuario logueado
 $nombre = $_SESSION['nombre'] ?? 'Vendedor';
 ?>
@@ -25,14 +26,27 @@ $nombre = $_SESSION['nombre'] ?? 'Vendedor';
 <body>
 
 <header class="header-bar">
-    <div class="header-rol">Vendedor</div>
-    <div class="header-system">Z-CONTAY – Galpón Aves del Paraíso</div>
+
+    <div class="header-rol">
+        Vendedor
+    </div>
+
+    <div class="header-system">
+        Z-CONTAY - Galpón Aves del Paraíso
+    </div>
 
     <div class="header-user">
-        <span class="icon"><img src="../../img/campana.png" alt=""></span>
-        <span><?php echo htmlspecialchars($nombre); ?></span>
-        <span class="icon"><img src="../../img/usuario-gestion.png" alt=""></span>
+
+        <span>
+            <?php echo htmlspecialchars($nombre); ?>
+        </span>
+
+        <span class="icon">
+            <img src="../../img/perfil.png" width="24" alt="Perfil">
+        </span>
+
     </div>
+
 </header>
 
 <div class="main-container">

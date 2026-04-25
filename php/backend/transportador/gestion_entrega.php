@@ -4,7 +4,6 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 require_once __DIR__ . "/../conexion.php";
-require_once __DIR__ . "/../notificaciones_helper.php";
 
 $id_usuario = $_SESSION['id_usuario'] ?? 0;
 $id_despacho = $_GET['id'] ?? $_POST['id_despacho'] ?? 0;
@@ -69,33 +68,6 @@ if ($resTipos) {
     }
 }
 
-/* =========================================================
-   Obtener usuarios para notificar
-========================================================= */
-$idUsuarioCliente = null;
-$idUsuarioEncargado = null;
-
-$sqlUsuariosNotificar = "SELECT 
-                            u_cliente.id_usuario AS usuario_cliente,
-                            d.id_usuario AS usuario_encargado
-                         FROM despacho d
-                         INNER JOIN factura f ON d.id_factura = f.id_factura
-                         INNER JOIN cliente c ON f.id_cliente = c.id_cliente
-                         INNER JOIN usuario u_cliente ON u_cliente.numero_documento = c.numero_documento
-                         WHERE d.id_despacho = ?
-                         LIMIT 1";
-
-$stmtUsuariosNotificar = $conn->prepare($sqlUsuariosNotificar);
-$stmtUsuariosNotificar->bind_param("i", $id_despacho);
-$stmtUsuariosNotificar->execute();
-$resUsuariosNotificar = $stmtUsuariosNotificar->get_result();
-
-if ($filaUsuarios = $resUsuariosNotificar->fetch_assoc()) {
-    $idUsuarioCliente = $filaUsuarios['usuario_cliente'];
-    $idUsuarioEncargado = $filaUsuarios['usuario_encargado'];
-}
-
-$stmtUsuariosNotificar->close();
 
 /* =========================================================
    Acciones
@@ -117,11 +89,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmtConfirmar->execute();
             $stmtConfirmar->close();
 
-               // 32 = Pedido entregado para cliente
-             notificarUsuario($conn, 32, $idUsuarioCliente);
-
-              // 19 = Entrega confirmada para encargado
-              notificarUsuario($conn, 19, $idUsuarioEncargado);
         }
 
         header("Location: ../../transportador/zonas_despachos.php?msg=entregado");
@@ -161,12 +128,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmtActualizar->bind_param("ii", $id_despacho, $id_transportador);
                 $stmtActualizar->execute();
                 $stmtActualizar->close();
-
-                // 20 = Incidencia reportada en despacho para encargado
-               notificarUsuario($conn, 20, $idUsuarioEncargado);
-
-               // 26 = Incidencia registrada correctamente para transportador
-                notificarUsuario($conn, 26, $id_usuario);
            }
 
             header("Location: ../../transportador/zonas_despachos.php?msg=incidencia");

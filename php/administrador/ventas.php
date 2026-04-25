@@ -11,6 +11,7 @@ verificarPermiso("ventas");
 // Traer datos reales
 require_once "../backend/administrador/ventas.php";
 
+
 // Nombre del usuario logueado
 $nombre = $_SESSION['nombre'] ?? 'Administrador';
 ?>
@@ -30,14 +31,27 @@ $nombre = $_SESSION['nombre'] ?? 'Administrador';
 <body>
 
 <header class="header-bar">
-    <div class="header-rol">Administrador</div>
-    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+    <div class="header-rol">
+        Administrador
+    </div>
+
+    <div class="header-system">
+        Z-CONTAY - Galpón Aves del Paraíso
+    </div>
 
     <div class="header-user">
-        <span class="icon"><img src="../../img/campana.png" alt=""></span>
-        <span><?= htmlspecialchars($nombre) ?></span>
-        <span class="icon"><img src="../../img/usuario-gestion.png" alt=""></span>
+
+        <span>
+            <?php echo htmlspecialchars($nombre); ?>
+        </span>
+
+        <span class="icon">
+            <img src="../../img/usuario-gestion.png" width="24" alt="Usuario">
+        </span>
+
     </div>
+
 </header>
 
 <div class="main-container">

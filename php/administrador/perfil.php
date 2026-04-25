@@ -21,7 +21,7 @@
 <header class="header-bar">
 
     <div class="header-rol">
-        <?php echo htmlspecialchars($perfil['nombre_rol']); ?>
+        Administrador
     </div>
 
     <div class="header-system">
@@ -29,17 +29,15 @@
     </div>
 
     <div class="header-user">
-        <span class="icon">
-            <img src="../../img/campana.png" width="24" alt="Notificaciones">
+
+        <span>
+            <?php echo htmlspecialchars($perfil['nombre_completo']); ?>
         </span>
 
-        <span> 
-         <?php echo htmlspecialchars($perfil['nombre_completo']); ?>
-        </span> 
-
         <span class="icon">
-          <img src="../../img/usuario-gestion.png" width="24" alt="Usuario">
+            <img src="../../img/usuario-gestion.png" width="24" alt="Usuario">
         </span>
+
     </div>
 
 </header>

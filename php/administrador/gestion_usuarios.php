@@ -49,14 +49,27 @@ function claseEstado(string $e): string {
 <body>
 
 <header class="header-bar">
-    <div class="header-rol">Administrador</div>
-    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+    <div class="header-rol">
+        Administrador
+    </div>
+
+    <div class="header-system">
+        Z-CONTAY - Galpón Aves del Paraíso
+    </div>
 
     <div class="header-user">
-        <span class="icon"><img src="../../img/campana.png" alt=""></span>
-        <span><?= htmlspecialchars($nombre) ?></span>
-        <span class="icon"><img src="../../img/usuario-gestion.png" alt=""></span>
+
+        <span>
+            <?php echo htmlspecialchars($nombre); ?>
+        </span>
+
+        <span class="icon">
+            <img src="../../img/usuario-gestion.png" width="24" alt="Usuario">
+        </span>
+
     </div>
+
 </header>
 
 <div class="main-container">
@@ -162,9 +175,7 @@ function claseEstado(string $e): string {
 
                           <!--BOTÓN EDITar
                           Cuando se presiona este botón se abre la pantalla editar_usuario.php
-                          y se envía el ID del usuario por la URL.
-                          Ejemplo de URL:
-                          editar_usuario.php?id=5-->
+                          -->
                             <a href="editar_usuario.php?id=<?= $id ?>" class="btn-editar">Editar</a>
                             
                             <!--Aquí verificamos el estado del usuario.Si el estado es 'A' significa que está ACTIVO.-->

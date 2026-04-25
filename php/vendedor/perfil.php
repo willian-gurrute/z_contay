@@ -26,7 +26,7 @@ $nombre = $_SESSION['nombre'] ?? 'Vendedor';
 <header class="header-bar">
 
     <div class="header-rol">
-        <?php echo htmlspecialchars($perfil['nombre_rol']); ?>
+        Vendedor
     </div>
 
     <div class="header-system">
@@ -34,17 +34,15 @@ $nombre = $_SESSION['nombre'] ?? 'Vendedor';
     </div>
 
     <div class="header-user">
-        <span class="icon">
-            <img src="../../img/campana.png" width="24" alt="Notificaciones">
-        </span>
 
         <span>
-            <?php echo htmlspecialchars($perfil['nombre_completo']); ?>
+            <?php echo htmlspecialchars($nombre); ?>
         </span>
 
         <span class="icon">
-            <img src="../../img/usuario-gestion.png" width="24" alt="Usuario">
+            <img src="../../img/perfil.png" width="24" alt="Perfil">
         </span>
+
     </div>
 
 </header>

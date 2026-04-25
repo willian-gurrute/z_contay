@@ -53,57 +53,42 @@
 }
 
 .config-grid{
-    display: grid;
-    grid-template-columns: repeat(2, minmax(280px, 1fr));
-    gap: 25px;
-    margin-top: 25px;
-    max-width: 900px;
+display:flex;
+justify-content:center;
+margin-top:50px;
 }
 
 .config-card{
-    background: #fff;
-    border-radius: 14px;
-    padding: 28px;
-    min-height: 230px;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+width:420px;
+padding:45px;
+border-radius:14px;
 }
 
 .config-card h2{
-    color: #2f6c32;
-    font-size: 24px;
-    margin-bottom: 12px;
+font-size:34px;
+margin-bottom:25px;
 }
 
 .config-card p{
-    font-size: 15px;
-    line-height: 1.5;
-    color: #444;
+font-size:20px;
+line-height:1.6;
+margin-bottom:30px;
 }
 
 .config-card button{
-    width: fit-content;
-    background: #2f6c32;
-    color: #fff;
-    border: none;
-    padding: 11px 28px;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
+padding:14px 32px;
+font-size:18px;
 }
-
 .config-card button:hover{
     background: #245026;
 }
 
 .logo-footer{
-    margin-top:35px;
-    text-align:center;
-    font-weight:bold;
-    color:#333333;
+text-align:right;
+margin-top:40px;
+padding-right:30px;
+font-size:13px;
+font-weight:bold;
 }
 .page-header-config{
     display:flex;

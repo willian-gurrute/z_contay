@@ -4,6 +4,7 @@
 session_start();
 require_once "../backend/verificar_sesion.php";
 
+
 // Si no hay sesión, al login
 if (!isset($_SESSION['id_usuario'])) {
     header("Location: ../login/inicio-seccion.php");
@@ -45,14 +46,28 @@ $msg = $_GET['msg'] ?? '';
 <body>
 
 <header class="header-bar">
-    <div class="header-rol">Administrador</div>
-    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+    <div class="header-rol">
+        Administrador
+    </div>
+
+    <div class="header-system">
+        Z-CONTAY - Galpón Aves del Paraíso
+    </div>
 
     <div class="header-user">
-        <span class="icon"><img src="../../img/campana.png" alt="Notificaciones"></span>
-        <span><?= htmlspecialchars($nombreAdmin) ?></span>
-        <span class="icon"><img src="../../img/usuario-gestion.png" alt="Perfil"></span>
+
+        <span>
+           
+        <?php echo htmlspecialchars($nombreAdmin); ?>
+        </span>
+
+        <span class="icon">
+            <img src="../../img/usuario-gestion.png" width="24" alt="Usuario">
+        </span>
+
     </div>
+
 </header>
 
 <div class="main-container">

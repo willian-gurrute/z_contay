@@ -4,6 +4,8 @@ session_start();
 // reutilizamos los datos del usuario logueado
 require_once("../backend/administrador/obtener_perfil.php");
 
+
+
 $mensaje = $_SESSION['mensaje_password'] ?? "";
 $tipoMensaje = $_SESSION['tipo_password'] ?? "";
 
@@ -26,25 +28,27 @@ unset($_SESSION['tipo_password']);
 <body>
 
 <header class="header-bar">
+
     <div class="header-rol">
-        <?php echo htmlspecialchars($perfil['nombre_rol']); ?>
+        Administrador
     </div>
 
-    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+    <div class="header-system">
+        Z-CONTAY - Galpón Aves del Paraíso
+    </div>
 
     <div class="header-user">
-        <span class="icon">
-            <img src="../../img/campana.png" width="24" alt="Notificaciones">
-        </span>
 
         <span>
-            <?php echo htmlspecialchars($perfil['nombre_completo']); ?>
+           <?php echo htmlspecialchars($perfil['nombre_completo']); ?>
         </span>
 
         <span class="icon">
-            <img src="../../img/perfil.png" width="24" alt="Perfil">
+            <img src="../../img/usuario-gestion.png" width="24" alt="Usuario">
         </span>
+
     </div>
+
 </header>
 
     <div class="main-container">

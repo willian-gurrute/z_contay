@@ -143,34 +143,50 @@ body {
 
 /* ================= ACCIONES ================= */
 
-.acciones {
-    display: flex;
-    gap: 8px;
+.acciones{
+display:flex;
+gap:8px;
+align-items:center;
 }
 
-button {
-    padding: 6px 10px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
+.btn-editar,
+.btn-desactivar,
+.btn-activar,
+.btn-eliminar{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+height:36px;
+padding:0 14px;
+border:none;
+border-radius:8px;
+font-size:14px;
+font-weight:bold;
+font-family:Arial, Helvetica, sans-serif;
+text-decoration:none;
+cursor:pointer;
 }
 
-/* Botones de acción */
-
-.btn-editar {
-    background: #2f6c32;
-    color: white;
+.btn-editar,
+.btn-activar{
+background:#2f6c32;
+color:white;
 }
 
-.btn-desactivar {
-    background: #c63636;
-    color: white;
+.btn-desactivar,
+.btn-eliminar{
+background:#c63636;
+color:white;
 }
 
-.btn-activar {
-    background: #2f6c32;
-    color: white;
+.btn-editar:hover,
+.btn-activar:hover{
+background:#244e28;
+}
+
+.btn-desactivar:hover,
+.btn-eliminar:hover{
+background:#a61d1d;
 }
 
 /* ================= FOOTER ================= */
@@ -182,15 +198,4 @@ button {
     font-weight: bold;
 }
 
-a.btn-editar{
-    display: inline-block;
-    padding: 6px 12px;
-    border-radius: 8px;
-    background: #2f6c32;
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-}
-a.btn-editar:hover{
-    background: #244e28;
-}
+

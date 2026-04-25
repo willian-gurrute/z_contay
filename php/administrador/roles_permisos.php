@@ -23,6 +23,7 @@ if (($_SESSION['id_rol'] ?? 0) != 1) {
 // Traer roles desde BD
 require_once "../backend/administrador/roles_permisos.php";
 
+
 // Nombre del admin
 $nombre = $_SESSION['nombre'] ?? 'Administrador';
 
@@ -43,14 +44,27 @@ $msg = $_GET['msg'] ?? '';
 <body>
 
 <header class="header-bar">
-    <div class="header-rol">Administrador</div>
-    <div class="header-system">Z-CONTAY - Galpón Aves del Paraíso</div>
+
+    <div class="header-rol">
+        Administrador
+    </div>
+
+    <div class="header-system">
+        Z-CONTAY - Galpón Aves del Paraíso
+    </div>
 
     <div class="header-user">
-        <span class="icon"><img src="../../img/campana.png" alt="notificaciones" width="24" height="24"></span>
-        <span><?= htmlspecialchars($nombre) ?></span>
-        <span class="icon"><img src="../../img/usuario-gestion.png" alt="Perfil" width="24" height="24"></span>
+
+        <span>
+            <?php echo htmlspecialchars($nombre); ?>
+        </span>
+
+        <span class="icon">
+            <img src="../../img/usuario-gestion.png" width="24" alt="Usuario">
+        </span>
+
     </div>
+
 </header>
 
 <div class="main-container">

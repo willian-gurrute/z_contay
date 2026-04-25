@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+$nombre = $_SESSION['nombre'] ?? 'Cliente';
+
 require_once("../backend/verificar_sesion.php");
 require_once("../backend/cliente/obtener_perfil.php");
 ?>
@@ -8,98 +10,89 @@ require_once("../backend/cliente/obtener_perfil.php");
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Cerrar sesión</title>
 
-<link rel="stylesheet" href="../../_css/cerrar-sesion.css">
+    <meta charset="UTF-8">
+    <title>Cerrar sesión</title>
+
+    <link rel="stylesheet" href="../../_css/cerrar-sesion.css">
 
 </head>
 <body>
 
 <header class="header-bar">
 
-<div class="header-rol">
-<?php echo htmlspecialchars($perfil['nombre_rol']); ?>
-</div>
+    <div class="header-rol">
+        Cliente
+    </div>
 
-<div class="header-system">
-Z-CONTAY - Galpón Aves del Paraíso
-</div>
+    <div class="header-system">
+        Z-CONTAY - Galpón Aves del Paraíso
+    </div>
 
-<div class="header-user">
+    <div class="header-user">
 
-<span class="icon">
-<img src="../../img/campana.png" width="24">
-</span>
+        <span>
+            <?php echo htmlspecialchars($nombre); ?>
+        </span>
 
-<span>
-<?php echo htmlspecialchars($perfil['nombre_completo']); ?>
-</span>
+        <span class="icon">
+            <img src="../../img/perfil.png" width="24" alt="Perfil">
+        </span>
 
-<span class="icon">
-<img src="../../img/perfil.png" width="24">
-</span>
-
-</div>
+    </div>
 
 </header>
 
 
-
 <div class="confirm-container">
 
-<div class="confirm-box">
+    <div class="confirm-box">
 
-<img
-src="../../img/cerrar-seccion.png"
-class="icono"
-alt="Cerrar sesión"
->
+        <img 
+            src="../../img/cerrar-seccion.png"
+            class="icono"
+            alt="Cerrar sesión"
+        >
 
-<h2>¿Deseas cerrar sesión?</h2>
+        <h2>¿Deseas cerrar sesión?</h2>
 
-<p>
-Tu sesión actual se cerrará y volverás al inicio.
-</p>
-
-
-<div class="botones">
-
-<button
-class="btn-cancelar"
-onclick="location.href='portafolio.php'">
-
-Cancelar
-
-</button>
+        <p>
+            Tu sesión actual se cerrará y volverás al inicio.
+        </p>
 
 
-<form
-action="../backend/logout.php"
-method="POST"
-style="display:inline;"
->
+        <div class="botones">
 
-<button
-class="btn-salir"
-type="submit"
->
+            <button
+                class="btn-cancelar"
+                onclick="location.href='portafolio.php'">
+                Cancelar
+            </button>
 
-Cerrar sesión
 
-</button>
+            <form
+                action="../backend/logout.php"
+                method="POST"
+                style="display:inline;"
+            >
 
-</form>
+                <button
+                    class="btn-salir"
+                    type="submit">
+                    Cerrar sesión
+                </button>
 
-</div>
+            </form>
 
-</div>
+        </div>
+
+    </div>
 
 </div>
 
 
 <div class="logo-footer">
-Z-CONTAY
+    Z-CONTAY
 </div>
 
 </body>

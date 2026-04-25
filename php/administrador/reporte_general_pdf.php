@@ -9,6 +9,16 @@ verificarPermiso("reportes");
 require_once "../backend/administrador/reportes.php";
 require_once "../libs/fpdf.php";
 
+$sqlEmpresa = "
+SELECT nit,direccion,telefono,ciudad,departamento,horario_atencion
+FROM empresa
+WHERE id_empresa=1
+LIMIT 1
+";
+
+$resEmpresa = $conn->query($sqlEmpresa);
+$empresa = $resEmpresa->fetch_assoc();
+
 $nombre = $_SESSION['nombre'] ?? 'Administrador';
 
 $pdf = new FPDF('P', 'mm', 'A4');
@@ -16,18 +26,25 @@ $pdf->AddPage();
 $pdf->SetAutoPageBreak(true, 15);
 
 // ENCABEZADO
-$pdf->SetFont('Arial', 'B', 16);
-$pdf->Cell(0, 10, utf8_decode('Z-CONTAY'), 0, 1, 'C');
+$pdf->SetFont('Arial','B',16);
+$pdf->Cell(0,10,utf8_decode('Z-CONTAY - Galpón Aves del Paraíso'),0,1,'C');
 
-$pdf->SetFont('Arial', '', 11);
-$pdf->Cell(0, 6, utf8_decode('Galpón Aves del Paraíso'), 0, 1, 'C');
+$pdf->SetFont('Arial','',11);
+$pdf->Cell(0,6,'NIT: '.$empresa['nit'],0,1,'C');
+
+if (!empty($empresa['direccion'])) {
+    $pdf->Cell(0,6,utf8_decode('Dirección: '.$empresa['direccion']),0,1,'C');
+}
+
+$pdf->Cell(0,6,utf8_decode('Tel: '.$empresa['telefono']),0,1,'C');
+
+$pdf->Cell(0,6,utf8_decode($empresa['ciudad'].' - '.$empresa['departamento']),0,1,'C');
+
+if (!empty($empresa['horario_atencion'])) {
+    $pdf->Cell(0,6,utf8_decode('Horario: '.$empresa['horario_atencion']),0,1,'C');
+}
 
 $pdf->Ln(4);
-
-$pdf->SetFont('Arial', 'B', 14);
-$pdf->Cell(0, 8, utf8_decode('Reporte del Sistema'), 0, 1, 'C');
-
-$pdf->Ln(5);
 
 // INFORMACIÓN
 $pdf->SetFont('Arial', '', 10);

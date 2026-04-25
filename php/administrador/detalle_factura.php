@@ -24,13 +24,28 @@ $nombre = $_SESSION['nombre'] ?? 'Administrador';
 <div class="factura-container">
 
     <!-- ENCABEZADO EMPRESA -->
-    <div class="empresa">
-        <h1>Z-CONTAY</h1>
-        <p>Galpón Aves del Paraíso</p>
-        <p>NIT: XXXXXXXX</p>
-        <p>Teléfono: 3000000000</p>
-        <p>Ciudad - Departamento</p>
-    </div>
+   <div class="empresa">
+    <h1>Z-CONTAY - Galpón Aves del Paraíso</h1>
+
+    <p>NIT: <?= htmlspecialchars($empresa['nit'] ?? '') ?></p>
+
+    <?php if (!empty($empresa['direccion'])): ?>
+        <p>Dirección: <?= htmlspecialchars($empresa['direccion']) ?></p>
+    <?php endif; ?>
+
+    <p>Teléfono: <?= htmlspecialchars($empresa['telefono'] ?? '') ?></p>
+
+    <p>
+        <?= htmlspecialchars($empresa['ciudad'] ?? '') ?>
+        <?php if (!empty($empresa['departamento'])): ?>
+            - <?= htmlspecialchars($empresa['departamento']) ?>
+        <?php endif; ?>
+    </p>
+
+    <?php if (!empty($empresa['horario_atencion'])): ?>
+        <p>Horario: <?= htmlspecialchars($empresa['horario_atencion']) ?></p>
+    <?php endif; ?>
+</div>
 
     <hr>
 

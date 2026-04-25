@@ -88,4 +88,17 @@ while ($fila = $resDetalle->fetch_assoc()) {
 }
 
 $stmtDetalle->close();
+
+
+/* Datos de la empresa */
+$sqlEmpresa = "
+    SELECT nombre, nit, direccion, telefono, ciudad, departamento, horario_atencion
+    FROM empresa
+    WHERE id_empresa = 1
+    LIMIT 1
+";
+
+$resEmpresa = $conn->query($sqlEmpresa);
+$empresa = $resEmpresa ? $resEmpresa->fetch_assoc() : null;
+
 ?>

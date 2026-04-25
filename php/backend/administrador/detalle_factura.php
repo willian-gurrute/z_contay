@@ -54,3 +54,14 @@ $productos = [];
 while($row = $res->fetch_assoc()){
     $productos[] = $row;
 }
+
+// Traer datos de la empresa
+$sqlEmpresa = "
+    SELECT nombre, nit, direccion, telefono, ciudad, departamento, horario_atencion
+    FROM empresa
+    WHERE id_empresa = 1
+    LIMIT 1
+";
+
+$resEmpresa = $conn->query($sqlEmpresa);
+$empresa = $resEmpresa ? $resEmpresa->fetch_assoc() : null;

@@ -67,7 +67,7 @@ while ($row = $res->fetch_assoc()) {
 }
 
 // Traer datos de la empresa
-$sqlEmpresa = "SELECT nombre, nit, telefono, ciudad, departamento
+$sqlEmpresa = "SELECT nombre, nit, direccion, telefono, correo, ciudad, departamento, horario_atencion
                FROM empresa
                WHERE id_empresa = 1
                LIMIT 1";

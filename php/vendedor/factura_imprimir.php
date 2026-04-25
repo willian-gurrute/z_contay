@@ -21,18 +21,28 @@ require_once __DIR__ . "/../backend/vendedor/factura_imprimir_datos.php";
 
 <div class="factura-container">
 
-    <div class="empresa">
-        <h1><?php echo htmlspecialchars($empresa['nombre'] ?? 'Z-CONTAY'); ?></h1>
-        <p>NIT: <?php echo htmlspecialchars($empresa['nit'] ?? ''); ?></p>
-        <p>Teléfono: <?php echo htmlspecialchars($empresa['telefono'] ?? ''); ?></p>
-        <p>
-        <?php echo htmlspecialchars($empresa['ciudad'] ?? ''); ?>
-        <?php if (!empty($empresa['departamento'])) : ?>
-            - <?php echo htmlspecialchars($empresa['departamento']); ?>
-        <?php endif; ?>
-       </p>
-    </div>
+   <div class="empresa">
+    <h1>Z-CONTAY - Galpón Aves del Paraíso</h1>
 
+    <p>NIT: <?= htmlspecialchars($empresa['nit'] ?? '') ?></p>
+
+    <?php if (!empty($empresa['direccion'])): ?>
+        <p>Dirección: <?= htmlspecialchars($empresa['direccion']) ?></p>
+    <?php endif; ?>
+
+    <p>Teléfono: <?= htmlspecialchars($empresa['telefono'] ?? '') ?></p>
+
+    <p>
+        <?= htmlspecialchars($empresa['ciudad'] ?? '') ?>
+        <?php if (!empty($empresa['departamento'])): ?>
+            - <?= htmlspecialchars($empresa['departamento']) ?>
+        <?php endif; ?>
+    </p>
+
+    <?php if (!empty($empresa['horario_atencion'])): ?>
+        <p>Horario: <?= htmlspecialchars($empresa['horario_atencion']) ?></p>
+    <?php endif; ?>
+</div>
     <hr>
 
     <div class="info-factura">
